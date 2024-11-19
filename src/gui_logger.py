@@ -149,6 +149,9 @@ map_combobox = ttk.Combobox(root, values=maps_with_empty, state="readonly")
 map_combobox.grid(row=0, column=1, padx=10, pady=5)
 map_combobox.set("-- Select --")  # Default value
 
+# Race Time Example Label
+tk.Label(root, text="(Example Input - 1:23.45)", fg="gray").grid(row=0, column=3, columnspan=2, padx=10, pady=5)
+
 # Azhan placement, kart, and time
 tk.Label(root, text="Azhan Placement:").grid(row=1, column=0, padx=10, pady=5)
 azhan_entry = ttk.Entry(root)
