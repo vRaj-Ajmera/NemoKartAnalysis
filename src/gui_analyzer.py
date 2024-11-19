@@ -4,8 +4,11 @@ import pandas as pd
 import os
 import datetime
 
-# File reference
-results_file = "C:/NemoKartAnalysis/NemoKartAnalysis/output/results.csv"
+# Get the directory of the current script
+script_dir = os.path.dirname(__file__)
+
+# Relative path to results.csv
+results_file = os.path.join(script_dir, "../output/results.csv")
 
 # Load results data
 def load_results():

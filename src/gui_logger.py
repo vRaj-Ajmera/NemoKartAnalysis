@@ -4,10 +4,13 @@ import pandas as pd
 import os
 import datetime
 
-# File references
-kart_file = "C:/NemoKartAnalysis/NemoKartAnalysis/data/karts.csv"
-map_file = "C:/NemoKartAnalysis/NemoKartAnalysis/data/maps.csv"
-output_file = "C:/NemoKartAnalysis/NemoKartAnalysis/output/results.csv"
+# Get the directory of the current script
+script_dir = os.path.dirname(__file__)
+
+# Relative file paths
+kart_file = os.path.join(script_dir, "../data/karts.csv")
+map_file = os.path.join(script_dir, "../data/maps.csv")
+output_file = os.path.join(script_dir, "../output/results.csv")
 
 # Load data from files
 def load_data():
