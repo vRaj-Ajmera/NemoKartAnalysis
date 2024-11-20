@@ -23,5 +23,5 @@ NemoKartAnalysis/
 ```
 
 ## **Run Instructions**
-1. **gui_logger.py**: Run **gui_logger.py** and enter relevant information. In position enter 0 if the player did not race. Otherwise enter 1-8 which is their race position. Select a car if the player raced. Enter a race time (ex. 1:23.45) if the player raced.
+1. **gui_logger.py**: Run **gui_logger.py** and enter relevant information. In position enter 0 if the player did not race. Otherwise enter 1-8 which is their race position. Select a car if the player raced. Enter a race time (ex. 1:23.45) if the player raced. Results are logged to **results.csv** and **maps_best_times.csv**.
 2. **gui_analyzer.py**: Run **gui_analyzer.py** to analyze data for specific days or view overall stats. PPR is points per race, calculated using the F1 scoring system.
