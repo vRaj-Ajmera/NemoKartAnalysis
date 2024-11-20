@@ -186,7 +186,7 @@ daily_table.pack(fill="both", expand=True)
 
 # Total Stats Frame
 total_frame = tk.LabelFrame(root, text="All Time Stats", padx=5, pady=5)
-total_frame.grid(row=1, column=1, padx=5, pady=5, sticky="nsew")
+total_frame.grid(row=1, column=2, padx=5, pady=5, sticky="nsew")
 
 total_table = ttk.Treeview(total_frame, columns=("Player", "Races", "Points", "PPR"), show="headings", height=4)
 total_table.heading("Player", text="Player")
@@ -201,7 +201,7 @@ total_table.pack(fill="both", expand=True)
 
 # Races Together Frame
 together_frame = tk.LabelFrame(root, text="# Races Together", padx=5, pady=5)
-together_frame.grid(row=1, column=2, padx=5, pady=5, sticky="nsew")
+together_frame.grid(row=1, column=1, padx=5, pady=5, sticky="nsew")
 
 together_table = ttk.Treeview(together_frame, columns=("Player", "Points", "PPR"), show="headings", height=4)
 together_table.heading("Player", text="Player")
