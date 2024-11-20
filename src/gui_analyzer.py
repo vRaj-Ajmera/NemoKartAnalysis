@@ -22,17 +22,6 @@ def calculate_points(placement):
     points_table = {1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4}
     return points_table.get(placement, 0)
 
-# Update the title of the # Races Together frame dynamically
-def update_together_frame_title():
-    df = load_results()
-    if df.empty:
-        num_races_together = 0
-    else:
-        num_races_together = len(df[(df["Azhan Placement"] > 0) & 
-                                    (df["Raj Placement"] > 0) & 
-                                    (df["Sameer Placement"] > 0)])
-    together_frame.config(text=f"{num_races_together} Races Together")
-
 # Function to calculate best race times
 def get_best_race_times():
     df = load_results()
@@ -71,9 +60,6 @@ def update_best_race_times_table():
 def analyze_data():
     df = load_results()
 
-    # Update the title of # Races Together
-    update_together_frame_title()
-
     if df.empty:
         update_table(daily_table, [])
         update_table(total_table, [])
@@ -83,8 +69,6 @@ def analyze_data():
 
     # Get selected date or default to today
     selected_date = date_combobox.get()
-    if selected_date == "All":
-        selected_date = df["Date"].max()  # Default to most recent date if "All" is selected
 
     # Calculate stats for a player
     def calculate_player_stats(df, player_column):
@@ -95,7 +79,7 @@ def analyze_data():
         return total_races, total_points, avg_points
 
     # Daily stats
-    daily_df = df[df["Date"] == selected_date]
+    daily_df = df[df["Date"] == (df["Date"].max() if selected_date == "All" else selected_date)]
     daily_azhan = calculate_player_stats(daily_df, "Azhan Placement")
     daily_raj = calculate_player_stats(daily_df, "Raj Placement")
     daily_sameer = calculate_player_stats(daily_df, "Sameer Placement")
@@ -106,7 +90,21 @@ def analyze_data():
     sameer_total = calculate_player_stats(df, "Sameer Placement")
 
     # Races where all three participated
-    together_df = df[(df["Azhan Placement"] > 0) & (df["Raj Placement"] > 0) & (df["Sameer Placement"] > 0)]
+    if selected_date == "All":
+        together_df = df[(df["Azhan Placement"] > 0) & 
+                        (df["Raj Placement"] > 0) & 
+                        (df["Sameer Placement"] > 0)]
+    else:
+        together_df = df[(df["Date"] == selected_date) & 
+                        (df["Azhan Placement"] > 0) & 
+                        (df["Raj Placement"] > 0) & 
+                        (df["Sameer Placement"] > 0)]
+
+    # Update the title of the # Races Together frame
+    num_races_together = len(together_df)
+    together_frame.config(text=f"{num_races_together} Races Together")
+
+    # Calculate stats for players in races together
     together_azhan = calculate_player_stats(together_df, "Azhan Placement")
     together_raj = calculate_player_stats(together_df, "Raj Placement")
     together_sameer = calculate_player_stats(together_df, "Sameer Placement")
