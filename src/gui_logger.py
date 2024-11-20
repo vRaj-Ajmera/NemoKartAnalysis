@@ -10,7 +10,8 @@ script_dir = os.path.dirname(__file__)
 # Relative file paths
 kart_file = os.path.join(script_dir, "../data/karts.csv")
 map_file = os.path.join(script_dir, "../data/maps.csv")
-output_file = os.path.join(script_dir, "../output/dummy_data.csv")
+maps_best_times_file = os.path.join(script_dir, "../output/dummy_maps_best_times.csv")
+output_file = os.path.join(script_dir, "../output/dummy_results.csv")
 
 # Load data from files
 def load_data():
@@ -30,15 +31,19 @@ karts, maps = load_data()
 karts_with_empty = ["-- Select --"] + karts
 maps_with_empty = ["-- Select --"] + maps
 
-# Initialize output CSV if not already present
-def initialize_output_csv():
+# Initialize output CSVs if not already present
+def initialize_csvs():
+    # Race results CSV
     if not os.path.exists(output_file) or os.stat(output_file).st_size == 0:
-        # Create DataFrame with required columns
-        df = pd.DataFrame(columns=["Date", "Time", "Map Name", "Azhan Placement", "Raj Placement",
-                                   "Sameer Placement", "Azhan Kart", "Raj Kart", "Sameer Kart",
-                                   "Azhan Racetime", "Raj Racetime", "Sameer Racetime"])
-        os.makedirs(os.path.dirname(output_file), exist_ok=True)
-        df.to_csv(output_file, index=False)
+        pd.DataFrame(columns=["Date", "Time", "Map Name", "Azhan Placement", "Raj Placement",
+                              "Sameer Placement", "Azhan Kart", "Raj Kart", "Sameer Kart",
+                              "Azhan Racetime", "Raj Racetime", "Sameer Racetime"]).to_csv(output_file, index=False)
+
+    # Maps best times CSV
+    if not os.path.exists(maps_best_times_file) or os.stat(maps_best_times_file).st_size == 0:
+        pd.DataFrame([{"Map Name": map_name, "Best Time": "3:00.00", 
+                       "AzhanBestTime": "3:00.00", "RajBestTime": "3:00.00", "SameerBestTime": "3:00.00"} 
+                      for map_name in maps]).to_csv(maps_best_times_file, index=False)
 
 # Validate placement and kart inputs
 def validate_inputs(placement, kart_combobox, race_time):
@@ -56,7 +61,12 @@ def validate_inputs(placement, kart_combobox, race_time):
         return False, "Race time must be entered for placements 1-8."
     return True, ""
 
-# Save data to CSV
+# Convert race time string to seconds
+def time_to_seconds(race_time):
+    minutes, seconds = map(float, race_time.split(":"))
+    return minutes * 60 + seconds
+
+# Save data to CSV and update best times
 def save_data():
     map_name = map_combobox.get()
     azhan_placement = azhan_entry.get()
@@ -89,13 +99,30 @@ def save_data():
     current_date = now.strftime("%Y-%m-%d")
     current_time = now.strftime("%H:%M:%S")
 
-    # Explicitly handle DNR for non-racers
-    azhan_kart = azhan_kart if int(azhan_placement) > 0 else "DNR"
-    raj_kart = raj_kart if int(raj_placement) > 0 else "DNR"
-    sameer_kart = sameer_kart if int(sameer_placement) > 0 else "DNR"
-    azhan_racetime = azhan_racetime if int(azhan_placement) > 0 else "DNR"
-    raj_racetime = raj_racetime if int(raj_placement) > 0 else "DNR"
-    sameer_racetime = sameer_racetime if int(sameer_placement) > 0 else "DNR"
+    # Load maps_best_times.csv
+    maps_best_times_df = pd.read_csv(maps_best_times_file)
+
+    # Check and update personal bests and overall bests
+    new_pb = {"Azhan": False, "Raj": False, "Sameer": False}
+    new_record = False
+    for player, race_time, col in [("Azhan", azhan_racetime, "AzhanBestTime"),
+                                   ("Raj", raj_racetime, "RajBestTime"),
+                                   ("Sameer", sameer_racetime, "SameerBestTime")]:
+        if race_time and race_time != "DNR":
+            # Update personal best
+            current_pb = maps_best_times_df.loc[maps_best_times_df["Map Name"] == map_name, col].iloc[0]
+            if time_to_seconds(race_time) < time_to_seconds(current_pb):
+                maps_best_times_df.loc[maps_best_times_df["Map Name"] == map_name, col] = race_time
+                new_pb[player] = True
+
+            # Update overall best
+            current_best = maps_best_times_df.loc[maps_best_times_df["Map Name"] == map_name, "Best Time"].iloc[0]
+            if time_to_seconds(race_time) < time_to_seconds(current_best):
+                maps_best_times_df.loc[maps_best_times_df["Map Name"] == map_name, "Best Time"] = race_time
+                new_record = True
+
+    # Save updated best times
+    maps_best_times_df.to_csv(maps_best_times_file, index=False)
 
     # Create new row data as a DataFrame
     new_data = pd.DataFrame([{
@@ -129,17 +156,25 @@ def save_data():
     # Save back to the CSV
     updated_data.to_csv(output_file, index=False)
 
+    # Prepare the status message
+    status_message = f"Race #{daily_races} today logged!\nTotal Races: {total_races}."
+    if new_pb["Azhan"]:
+        status_message += "\nAzhan new PB."
+    if new_pb["Raj"]:
+        status_message += "\nRaj new PB."
+    if new_pb["Sameer"]:
+        status_message += "\nSameer new PB."
+    if new_record:
+        status_message += f"\nNew race record for {map_name}!"
+
     # Reset the map dropdown to "-- Select --"
     map_combobox.set("-- Select --")
 
-    # Status message
-    status_label.config(
-        text=f"Race #{daily_races} today logged!\nTotal Races: {total_races}",
-        fg="green"
-    )
+    # Update status label
+    status_label.config(text=status_message, fg="green")
 
 # GUI setup
-initialize_output_csv()
+initialize_csvs()
 root = tk.Tk()
 root.title(f"Nemokart Race Logger - Logging to: {os.path.basename(output_file)}")
 
