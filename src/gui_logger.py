@@ -82,6 +82,17 @@ def save_data():
     if map_name == "-- Select --" or not map_name:
         status_label.config(text="Error: Map must be selected!", fg="red")
         return
+    
+    # Automatically set DNR for kart and race time if placement is 0
+    if azhan_placement == "0":
+        azhan_kart = "DNR"
+        azhan_racetime = "DNR"
+    if raj_placement == "0":
+        raj_kart = "DNR"
+        raj_racetime = "DNR"
+    if sameer_placement == "0":
+        sameer_kart = "DNR"
+        sameer_racetime = "DNR"
 
     # Validate inputs for each player
     validations = [
