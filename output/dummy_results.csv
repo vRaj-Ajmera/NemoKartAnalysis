@@ -1,46 +1,41 @@
 Date,Time,Map Name,Raj Placement,Raj Kart,Raj Racetime,Azhan Placement,Azhan Kart,Azhan Racetime,Sameer Placement,Sameer Kart,Sameer Racetime
-2024-11-19,22:07:37,Snowville,1,Greedy Snowmobile,1:59.74,0,DNR,DNR,0,DNR,DNR
-2024-11-19,22:12:58,Shanghai,3,Greedy Snowmobile,2:37.48,0,DNR,DNR,0,DNR,DNR
-2024-11-19,22:17:52,Snowville,3,Greedy Snowmobile,1:58.30,0,DNR,DNR,0,DNR,DNR
-2024-11-19,22:22:27,Shanghai by Night,2,Bat Kart,2:38.78,0,DNR,DNR,0,DNR,DNR
-2024-11-19,22:27:13,Shanghai,2,Greedy Snowmobile,2:41.82,0,DNR,DNR,0,DNR,DNR
-2024-11-19,23:01:29,Shanghai by Night,4,Bat Kart,2:38.74,3,Monstro,2:35.94,0,DNR,DNR
-2024-11-19,23:06:03,Shanghai,3,Greedy Snowmobile,2:43.58,2,Monstro,2:41.62,0,DNR,DNR
-2024-11-19,23:09:40,Snowville,3,Greedy Snowmobile,1:49.50,1,Snowmobile,1:48.34,0,DNR,DNR
-2024-11-19,23:14:51,Shanghai,2,Greedy Snowmobile,2:42.10,1,Dino Monstro,2:41.72,0,DNR,DNR
-2024-11-19,23:18:21,Snowville,2,Greedy Snowmobile,1:58.64,1,Snowmobile,1:56.18,0,DNR,DNR
-2024-11-19,23:21:56,Snowville,2,Greedy Snowmobile,1:58.80,1,Snowmobile,1:58.76,0,DNR,DNR
-2024-11-19,23:26:14,Snowville,2,Greedy Snowmobile,1:48.22,3,Snowmobile,1:52.72,0,DNR,DNR
-2024-11-19,23:30:13,Snowville,1,Greedy Snowmobile,1:51.56,2,Snowmobile,1:52.18,0,DNR,DNR
+2024-11-19,22:07:37,Snowville,1,Greedy Snowmobile,1:59.74,DNR,DNR,DNR,DNR,DNR,DNR
+2024-11-19,22:12:58,Shanghai,3,Greedy Snowmobile,2:37.48,DNR,DNR,DNR,DNR,DNR,DNR
+2024-11-19,22:17:52,Snowville,3,Greedy Snowmobile,1:58.30,DNR,DNR,DNR,DNR,DNR,DNR
+2024-11-19,22:22:27,Shanghai by Night,2,Bat Kart,2:38.78,DNR,DNR,DNR,DNR,DNR,DNR
+2024-11-19,22:27:13,Shanghai,2,Greedy Snowmobile,2:41.82,DNR,DNR,DNR,DNR,DNR,DNR
+2024-11-19,23:01:29,Shanghai by Night,4,Bat Kart,2:38.74,3,Monstro,2:35.94,DNR,DNR,DNR
+2024-11-19,23:06:03,Shanghai,3,Greedy Snowmobile,2:43.58,2,Monstro,2:41.62,DNR,DNR,DNR
+2024-11-19,23:09:40,Snowville,3,Greedy Snowmobile,1:49.50,1,Snowmobile,1:48.34,DNR,DNR,DNR
+2024-11-19,23:14:51,Shanghai,2,Greedy Snowmobile,2:42.10,1,Dino Monstro,2:41.72,DNR,DNR,DNR
+2024-11-19,23:18:21,Snowville,2,Greedy Snowmobile,1:58.64,1,Snowmobile,1:56.18,DNR,DNR,DNR
+2024-11-19,23:21:56,Snowville,2,Greedy Snowmobile,1:58.80,1,Snowmobile,1:58.76,DNR,DNR,DNR
+2024-11-19,23:26:14,Snowville,2,Greedy Snowmobile,1:48.22,3,Snowmobile,1:52.72,DNR,DNR,DNR
+2024-11-19,23:30:13,Snowville,1,Greedy Snowmobile,1:51.56,2,Snowmobile,1:52.18,DNR,DNR,DNR
 2024-11-19,23:40:15,Shanghai by Night,5,Bat Kart,2:45.62,4,Dino Monstro,2:40.24,3,Grey Blocks,2:38.98
 2024-11-19,23:45:21,Shanghai,4,Golden Trolley,2:53.56,3,Dino Monstro,2:52.24,5,Snow Minecart,2:54.06
 2024-11-19,23:50:18,Shanghai,2,Golden Trolley,2:48.14,1,Dino Monstro,2:46.80,3,Grey Blocks,2:50.86
 2024-11-19,23:53:53,Snowville,1,Greedy Snowmobile,1:52.82,4,Snowmobile,1:58.80,3,Snow Minecart,1:57.06
 2024-11-19,23:59:11,Shanghai,3,Golden Trolley,2:38.96,4,Dino Monstro,2:41.68,1,Puppy,2:37.54
-2024-11-20,00:04:05,Snowville,4,Golden Trolley,2:08.38,0,DNR,DNR,2,Grey Blocks,2:07.40
-2024-11-20,00:08:46,Shanghai by Night,2,Golden Trolley,2:37.40,0,DNR,DNR,3,Puppy,2:39.34
-2024-11-20,22:33:34,Snowville,3,Greedy Snowmobile,1:49.60,0,DNR,DNR,4,Grey Blocks,1:50.16
-2024-11-20,22:39:14,Shanghai by Night,4,Bat Kart,2:42.16,0,DNR,DNR,2,Puppy,2:39.62
-2024-11-20,22:45:05,Shanghai by Night,2,Bat Kart,2:53.42,0,DNR,DNR,1,Minecart,2:53.22
-2024-11-20,22:48:14,Snowville,2,Greedy Snowmobile,1:55.22,0,DNR,DNR,1,Puppy,1:54.32
-2024-11-20,22:53:07,Shanghai,4,Dino Kart,2:35.76,0,DNR,DNR,5,Dino Kart,2:39.84
-2024-11-20,22:59:50,Shanghai by Night,4,Bat Kart,2:48.14,0,DNR,DNR,5,Grey Blocks,2:49.10
-2024-11-20,23:04:09,Shanghai by Night,4,Bat Kart,2:53.64,0,DNR,DNR,3,Puppy,2:52.86
-2024-11-20,23:08:38,Snowville,2,Greedy Snowmobile,2:01.62,0,DNR,DNR,3,Snow Minecart,2:02.00
-2024-11-20,23:13:43,Shanghai,3,Grey Blocks,2:37.62,0,DNR,DNR,6,The Kart,2:40.36
-2024-11-20,23:17:17,Snowville,1,Grey Blocks,2:01.40,0,DNR,DNR,3,Puppy,2:02.22
-2024-11-20,23:20:47,Snowville,3,Grey Blocks,1:52.64,0,DNR,DNR,2,Grey Blocks,1:51.04
-2024-11-20,23:24:49,Snowville,2,Grey Blocks,1:59.60,0,DNR,DNR,1,Snowmobile,1:59.06
-2024-11-20,23:28:55,Snowville,2,Grey Blocks,1:59.24,0,DNR,DNR,1,Snowmobile,1:57.72
-2024-11-20,23:37:39,Shanghai by Night,1,Bat Kart,2:37.38,0,DNR,DNR,4,Grey Blocks,2:41.92
-2024-11-20,23:42:01,Shanghai by Night,2,Bat Kart,2:38.52,0,DNR,DNR,4,Puppy,2:39.42
-2024-11-20,23:45:59,Snowville,2,Monstro,2:00.42,0,DNR,DNR,3,Puppy,2:01.88
-2024-11-20,23:50:41,Shanghai,2,Golden Trolley,2:49.36,0,DNR,DNR,4,Puppy,2:51.68
-2024-11-20,23:54:12,Snowville,1,Greedy Snowmobile,1:58.86,0,DNR,DNR,2,Snowmobile,2:00.16
-2024-11-21,00:00:58,Shanghai by Night,1,Bat Kart,2:54.00,0,DNR,DNR,2,Bat Kart,2:56.04
-2024-11-21,00:06:01,Shanghai by Night,4,Bat Kart,2:43.00,0,DNR,DNR,2,Bat Kart,2:41.08
-2024-11-21,19:18:36,Snowville,4,Dino Kart,1:33.03,2,Bat Kart,1:33.03,3,Bat Kart,1:33.03
-2024-11-21,19:21:39,Shanghai by Night,2,The Kart,1:54.30,3,Bat Kart,1:54.30,1,Bat Kart,1:54.30
-2024-11-21,19:22:05,Shanghai by Night,DNR,DNR,DNR,8,Monstro,1:54.30,7,Dino Monstro,1:54.30
-2024-11-21,19:22:19,Snowville,DNR,DNR,DNR,4,Monstro,1:54.30,DNR,DNR,DNR
-2024-11-21,19:22:35,Shanghai,DNR,DNR,DNR,1,Monstro,1:54.30,DNR,DNR,DNR
+2024-11-20,00:04:05,Snowville,4,Golden Trolley,2:08.38,DNR,DNR,DNR,2,Grey Blocks,2:07.40
+2024-11-20,00:08:46,Shanghai by Night,2,Golden Trolley,2:37.40,DNR,DNR,DNR,3,Puppy,2:39.34
+2024-11-20,22:33:34,Snowville,3,Greedy Snowmobile,1:49.60,DNR,DNR,DNR,4,Grey Blocks,1:50.16
+2024-11-20,22:39:14,Shanghai by Night,4,Bat Kart,2:42.16,DNR,DNR,DNR,2,Puppy,2:39.62
+2024-11-20,22:45:05,Shanghai by Night,2,Bat Kart,2:53.42,DNR,DNR,DNR,1,Minecart,2:53.22
+2024-11-20,22:48:14,Snowville,2,Greedy Snowmobile,1:55.22,DNR,DNR,DNR,1,Puppy,1:54.32
+2024-11-20,22:53:07,Shanghai,4,Dino Kart,2:35.76,DNR,DNR,DNR,5,Dino Kart,2:39.84
+2024-11-20,22:59:50,Shanghai by Night,4,Bat Kart,2:48.14,DNR,DNR,DNR,5,Grey Blocks,2:49.10
+2024-11-20,23:04:09,Shanghai by Night,4,Bat Kart,2:53.64,DNR,DNR,DNR,3,Puppy,2:52.86
+2024-11-20,23:08:38,Snowville,2,Greedy Snowmobile,2:01.62,DNR,DNR,DNR,3,Snow Minecart,2:02.00
+2024-11-20,23:13:43,Shanghai,3,Grey Blocks,2:37.62,DNR,DNR,DNR,6,The Kart,2:40.36
+2024-11-20,23:17:17,Snowville,1,Grey Blocks,2:01.40,DNR,DNR,DNR,3,Puppy,2:02.22
+2024-11-20,23:20:47,Snowville,3,Grey Blocks,1:52.64,DNR,DNR,DNR,2,Grey Blocks,1:51.04
+2024-11-20,23:24:49,Snowville,2,Grey Blocks,1:59.60,DNR,DNR,DNR,1,Snowmobile,1:59.06
+2024-11-20,23:28:55,Snowville,2,Grey Blocks,1:59.24,DNR,DNR,DNR,1,Snowmobile,1:57.72
+2024-11-20,23:37:39,Shanghai by Night,1,Bat Kart,2:37.38,DNR,DNR,DNR,4,Grey Blocks,2:41.92
+2024-11-20,23:42:01,Shanghai by Night,2,Bat Kart,2:38.52,DNR,DNR,DNR,4,Puppy,2:39.42
+2024-11-20,23:45:59,Snowville,2,Monstro,2:00.42,DNR,DNR,DNR,3,Puppy,2:01.88
+2024-11-20,23:50:41,Shanghai,2,Golden Trolley,2:49.36,DNR,DNR,DNR,4,Puppy,2:51.68
+2024-11-20,23:54:12,Snowville,1,Greedy Snowmobile,1:58.86,DNR,DNR,DNR,2,Snowmobile,2:00.16
+2024-11-21,00:00:58,Shanghai by Night,1,Bat Kart,2:54.00,DNR,DNR,DNR,2,Bat Kart,2:56.04
+2024-11-21,00:06:01,Shanghai by Night,4,Bat Kart,2:43.00,DNR,DNR,DNR,2,Bat Kart,2:41.08
