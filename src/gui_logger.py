@@ -10,233 +10,189 @@ script_dir = os.path.dirname(__file__)
 # Relative file paths
 kart_file = os.path.join(script_dir, "../data/karts.csv")
 map_file = os.path.join(script_dir, "../data/maps.csv")
-maps_best_times_file = os.path.join(script_dir, "../output/maps_best_times.csv")
-output_file = os.path.join(script_dir, "../output/results.csv")
+players_file = os.path.join(script_dir, "../data/players.csv")
+output_file = os.path.join(script_dir, "../output/dummy_results.csv")  # For testing purposes
 
 # Load data from files
 def load_data():
     try:
         karts_df = pd.read_csv(kart_file)
         maps_df = pd.read_csv(map_file)
+        players_df = pd.read_csv(players_file)
         karts = karts_df["Kart Name"].tolist()
         maps = maps_df["Map Name"].tolist()
-        return karts, maps
+        players = players_df["Player Name"].tolist()
+        return karts, maps, players
     except FileNotFoundError as e:
         print(f"Error: {e}")
-        return [], []
+        return [], [], []
 
-karts, maps = load_data()
-
-# Prepend empty selection to kart and map options
+karts, maps, players = load_data()
 karts_with_empty = ["-- Select --"] + karts
 maps_with_empty = ["-- Select --"] + maps
 
-# Initialize output CSVs if not already present
-def initialize_csvs():
-    # Race results CSV
+# Initialize output CSV and ensure columns are aligned with the players list
+def initialize_csv():
+    # Define the expected columns based on the current players.csv file
+    expected_columns = ["Date", "Time", "Map Name"] + \
+                       [f"{player} Placement" for player in players] + \
+                       [f"{player} Kart" for player in players] + \
+                       [f"{player} Racetime" for player in players]
+
     if not os.path.exists(output_file) or os.stat(output_file).st_size == 0:
-        pd.DataFrame(columns=["Date", "Time", "Map Name", "Azhan Placement", "Raj Placement",
-                              "Sameer Placement", "Azhan Kart", "Raj Kart", "Sameer Kart",
-                              "Azhan Racetime", "Raj Racetime", "Sameer Racetime"]).to_csv(output_file, index=False)
+        # If the file doesn't exist, create it with the correct columns
+        pd.DataFrame(columns=expected_columns).to_csv(output_file, index=False)
+    else:
+        # Read the existing file
+        existing_df = pd.read_csv(output_file)
 
-    # Maps best times CSV
-    if not os.path.exists(maps_best_times_file) or os.stat(maps_best_times_file).st_size == 0:
-        pd.DataFrame([{"Map Name": map_name, "Best Time": "3:00.00", 
-                       "AzhanBestTime": "3:00.00", "RajBestTime": "3:00.00", "SameerBestTime": "3:00.00"} 
-                      for map_name in maps]).to_csv(maps_best_times_file, index=False)
+        # Check for missing columns
+        missing_columns = [col for col in expected_columns if col not in existing_df.columns]
 
-# Validate placement and kart inputs
-def validate_inputs(placement, kart_combobox, race_time):
-    if not placement:
-        return False, "Placement field cannot be empty."
-    try:
-        placement = int(placement)
-    except ValueError:
-        return False, "Placement must be a number between 0 and 8."
-    if placement < 0 or placement > 8:
-        return False, "Placement must be between 0 and 8."
-    if placement > 0 and (kart_combobox.get() == "-- Select --" or not kart_combobox.get()):
-        return False, "Kart must be selected for placements 1-8."
-    if placement > 0 and not race_time:
-        return False, "Race time must be entered for placements 1-8."
+        # Add missing columns with default "DNR" values
+        if missing_columns:
+            for col in missing_columns:
+                existing_df[col] = "DNR"
+
+            # Save the updated DataFrame back to the file
+            existing_df.to_csv(output_file, index=False)
+
+initialize_csv()
+
+# Validate input for each player
+def validate_player_inputs(player, placement, kart, race_time):
+    if player == "-- Select --":
+        return True, ""
+    if placement == "-- Select --" or not placement.isdigit() or int(placement) not in range(1, 9):
+        return False, f"Placement for {player} must be a number between 1 and 8."
+    if kart == "-- Select --":
+        return False, f"Kart for {player} must be selected."
+    if not race_time or ":" not in race_time:
+        return False, f"Race time for {player} must be in the format MM:SS.xx."
     return True, ""
 
-# Convert race time string to seconds
-def time_to_seconds(race_time):
-    minutes, seconds = map(float, race_time.split(":"))
-    return minutes * 60 + seconds
-
-# Save data to CSV and update best times
+# Save data to CSV
 def save_data():
     map_name = map_combobox.get()
-    azhan_placement = azhan_entry.get()
-    raj_placement = raj_entry.get()
-    sameer_placement = sameer_entry.get()
-    azhan_kart = azhan_kart_combobox.get()
-    raj_kart = raj_kart_combobox.get()
-    sameer_kart = sameer_kart_combobox.get()
-    azhan_racetime = azhan_time_entry.get()
-    raj_racetime = raj_time_entry.get()
-    sameer_racetime = sameer_time_entry.get()
-
-    if map_name == "-- Select --" or not map_name:
+    if map_name == "-- Select --":
         status_label.config(text="Error: Map must be selected!", fg="red")
         return
-    
-    # Automatically set DNR for kart and race time if placement is 0
-    if azhan_placement == "0":
-        azhan_kart = "DNR"
-        azhan_racetime = "DNR"
-    if raj_placement == "0":
-        raj_kart = "DNR"
-        raj_racetime = "DNR"
-    if sameer_placement == "0":
-        sameer_kart = "DNR"
-        sameer_racetime = "DNR"
 
-    # Validate inputs for each player
-    validations = [
-        validate_inputs(azhan_placement, azhan_kart_combobox, azhan_racetime),
-        validate_inputs(raj_placement, raj_kart_combobox, raj_racetime),
-        validate_inputs(sameer_placement, sameer_kart_combobox, sameer_racetime),
-    ]
-    for is_valid, error_message in validations:
-        if not is_valid:
-            status_label.config(text=error_message, fg="red")
-            return
-
-    # Get current date and time
     now = datetime.datetime.now()
     current_date = now.strftime("%Y-%m-%d")
     current_time = now.strftime("%H:%M:%S")
 
-    # Load maps_best_times.csv
-    maps_best_times_df = pd.read_csv(maps_best_times_file)
+    row_data = {"Date": current_date, "Time": current_time, "Map Name": map_name}
+    selected_players = {}
+    selected_players_list = []  # Track selected players
+    placements_used = set()  # Track used placements
 
-    # Check and update personal bests and overall bests
-    new_pb = {"Azhan": False, "Raj": False, "Sameer": False}
-    new_record = False
-    for player, race_time, col in [("Azhan", azhan_racetime, "AzhanBestTime"),
-                                   ("Raj", raj_racetime, "RajBestTime"),
-                                   ("Sameer", sameer_racetime, "SameerBestTime")]:
-        if race_time and race_time != "DNR":
-            # Update personal best
-            current_pb = maps_best_times_df.loc[maps_best_times_df["Map Name"] == map_name, col].iloc[0]
-            if time_to_seconds(race_time) < time_to_seconds(current_pb):
-                maps_best_times_df.loc[maps_best_times_df["Map Name"] == map_name, col] = race_time
-                new_pb[player] = True
+    # Collect data for selected players
+    for widgets in player_widgets:
+        player = widgets["player"].get()
+        placement = widgets["placement"].get()
+        kart = widgets["kart"].get()
+        race_time = widgets["race_time"].get()
 
-            # Update overall best
-            current_best = maps_best_times_df.loc[maps_best_times_df["Map Name"] == map_name, "Best Time"].iloc[0]
-            if time_to_seconds(race_time) < time_to_seconds(current_best):
-                maps_best_times_df.loc[maps_best_times_df["Map Name"] == map_name, "Best Time"] = race_time
-                new_record = True
+        # Validate unique player selection
+        if player in selected_players_list and player != "-- Select --":
+            status_label.config(text=f"Error: {player} is selected more than once!", fg="red")
+            return
+        selected_players_list.append(player)
 
-    # Save updated best times
-    maps_best_times_df.to_csv(maps_best_times_file, index=False)
+        if player == "-- Select --":
+            continue
 
-    # Create new row data as a DataFrame
-    new_data = pd.DataFrame([{
-        "Date": current_date,
-        "Time": current_time,
-        "Map Name": map_name,
-        "Azhan Placement": azhan_placement,
-        "Raj Placement": raj_placement,
-        "Sameer Placement": sameer_placement,
-        "Azhan Kart": azhan_kart,
-        "Raj Kart": raj_kart,
-        "Sameer Kart": sameer_kart,
-        "Azhan Racetime": azhan_racetime,
-        "Raj Racetime": raj_racetime,
-        "Sameer Racetime": sameer_racetime
-    }])
+        # Validate inputs
+        is_valid, error_message = validate_player_inputs(player, placement, kart, race_time)
+        if not is_valid:
+            status_label.config(text=error_message, fg="red")
+            return
 
-    # Load existing CSV or create a new DataFrame if empty
+        if placement in placements_used:
+            status_label.config(text=f"Placement {placement} is already used by another player!", fg="red")
+            return
+
+        placements_used.add(placement)
+        selected_players[player] = {"Placement": placement, "Kart": kart, "Racetime": race_time}
+
+    # Ensure at least one player is selected
+    if not selected_players:
+        status_label.config(text="Error: At least one player must be selected!", fg="red")
+        return
+
+    # Fill DNR for unselected players
+    for player in players:
+        if player in selected_players:
+            row_data[f"{player} Placement"] = selected_players[player]["Placement"]
+            row_data[f"{player} Kart"] = selected_players[player]["Kart"]
+            row_data[f"{player} Racetime"] = selected_players[player]["Racetime"]
+        else:
+            row_data[f"{player} Placement"] = "DNR"
+            row_data[f"{player} Kart"] = "DNR"
+            row_data[f"{player} Racetime"] = "DNR"
+
+    # Append data to results CSV
     try:
-        existing_data = pd.read_csv(output_file)
+        results_df = pd.read_csv(output_file)
     except pd.errors.EmptyDataError:
-        existing_data = pd.DataFrame(columns=new_data.columns)
+        results_df = pd.DataFrame()
 
-    # Count the total number of races and races for the current day
-    daily_races = len(existing_data[existing_data["Date"] == current_date]) + 1
-    total_races = len(existing_data) + 1
+    # Ensure columns are updated with any new players
+    expected_columns = ["Date", "Time", "Map Name"] + \
+                       [f"{player} Placement" for player in players] + \
+                       [f"{player} Kart" for player in players] + \
+                       [f"{player} Racetime" for player in players]
 
-    # Concatenate the new data with the existing data
-    updated_data = pd.concat([existing_data, new_data], ignore_index=True)
+    for col in expected_columns:
+        if col not in results_df.columns:
+            results_df[col] = "DNR"
 
-    # Save back to the CSV
-    updated_data.to_csv(output_file, index=False)
+    new_row_df = pd.DataFrame([row_data])
+    results_df = pd.concat([results_df, new_row_df], ignore_index=True)
 
-    # Prepare the status message
-    status_message = f"Race #{daily_races} today logged!\nTotal Races: {total_races}."
-    if new_pb["Azhan"]:
-        status_message += "\nAzhan new PB."
-    if new_pb["Raj"]:
-        status_message += "\nRaj new PB."
-    if new_pb["Sameer"]:
-        status_message += "\nSameer new PB."
-    if new_record:
-        status_message += f"\nNew race record for {map_name}!"
+    # Save back to file
+    results_df.to_csv(output_file, index=False)
+    status_label.config(text="Race logged successfully!", fg="green")
 
-    # Reset the map dropdown to "-- Select --"
+    # Reset inputs
     map_combobox.set("-- Select --")
+    for widgets in player_widgets:
+        widgets["placement"].set("-- Select --")
+        widgets["race_time"].delete(0, tk.END)
 
-    # Update status label
-    status_label.config(text=status_message, fg="green")
-
-# GUI setup
-initialize_csvs()
+# GUI Setup
 root = tk.Tk()
 root.title(f"Nemokart Race Logger - Logging to: {os.path.basename(output_file)}")
 
-# Map selection
+# Map Selection
 tk.Label(root, text="Select Map:").grid(row=0, column=0, padx=10, pady=5)
-map_combobox = ttk.Combobox(root, values=maps_with_empty, state="readonly")
+map_combobox = ttk.Combobox(root, values=maps_with_empty, state="readonly", width=20)
 map_combobox.grid(row=0, column=1, padx=10, pady=5)
-map_combobox.set("-- Select --")  # Default value
+map_combobox.set("-- Select --")
 
-# Race Time Example Label
-tk.Label(root, text="(Example Input - 1:23.45)", fg="gray").grid(row=0, column=3, columnspan=2, padx=10, pady=5)
+tk.Label(root, text="(Example Input - 1:23.45)", fg="gray").grid(row=0, column=2, columnspan=2, padx=10, pady=5)
 
-# Azhan placement, kart, and time
-tk.Label(root, text="Azhan Placement:").grid(row=1, column=0, padx=10, pady=5)
-azhan_entry = ttk.Entry(root)
-azhan_entry.grid(row=1, column=1, padx=10, pady=5)
-azhan_kart_combobox = ttk.Combobox(root, values=karts_with_empty, state="readonly")
-azhan_kart_combobox.grid(row=1, column=2, padx=10, pady=5)
-azhan_kart_combobox.set("-- Select --")  # Default value
-tk.Label(root, text="Azhan Race Time:").grid(row=1, column=3, padx=10, pady=5)
-azhan_time_entry = ttk.Entry(root)
-azhan_time_entry.grid(row=1, column=4, padx=10, pady=5)
+# Dynamic Player Rows
+player_widgets = []
+for i in range(len(players)):
+    player = tk.StringVar(value="-- Select --")
+    placement = tk.StringVar(value="-- Select --")
+    kart = tk.StringVar(value="-- Select --")
 
-# Raj placement, kart, and time
-tk.Label(root, text="Raj Placement:").grid(row=2, column=0, padx=10, pady=5)
-raj_entry = ttk.Entry(root)
-raj_entry.grid(row=2, column=1, padx=10, pady=5)
-raj_kart_combobox = ttk.Combobox(root, values=karts_with_empty, state="readonly")
-raj_kart_combobox.grid(row=2, column=2, padx=10, pady=5)
-raj_kart_combobox.set("-- Select --")  # Default value
-tk.Label(root, text="Raj Race Time:").grid(row=2, column=3, padx=10, pady=5)
-raj_time_entry = ttk.Entry(root)
-raj_time_entry.grid(row=2, column=4, padx=10, pady=5)
+    ttk.Combobox(root, textvariable=player, values=["-- Select --"] + players, state="readonly", width=20).grid(row=i + 1, column=0, padx=10, pady=5)
+    ttk.Combobox(root, textvariable=placement, values=[f"{x}" for x in range(1, 9)], state="readonly", width=10).grid(row=i + 1, column=1, padx=10, pady=5)
+    ttk.Combobox(root, textvariable=kart, values=karts_with_empty, state="readonly", width=20).grid(row=i + 1, column=2, padx=10, pady=5)
+    race_time_entry = tk.Entry(root, width=15)
+    race_time_entry.grid(row=i + 1, column=3, padx=10, pady=5)
 
-# Sameer placement, kart, and time
-tk.Label(root, text="Sameer Placement:").grid(row=3, column=0, padx=10, pady=5)
-sameer_entry = ttk.Entry(root)
-sameer_entry.grid(row=3, column=1, padx=10, pady=5)
-sameer_kart_combobox = ttk.Combobox(root, values=karts_with_empty, state="readonly")
-sameer_kart_combobox.grid(row=3, column=2, padx=10, pady=5)
-sameer_kart_combobox.set("-- Select --")  # Default value
-tk.Label(root, text="Sameer Race Time:").grid(row=3, column=3, padx=10, pady=5)
-sameer_time_entry = ttk.Entry(root)
-sameer_time_entry.grid(row=3, column=4, padx=10, pady=5)
+    player_widgets.append({"player": player, "placement": placement, "kart": kart, "race_time": race_time_entry})
 
 # Log Button
-log_button = tk.Button(root, text="Log Race", command=save_data)
-log_button.grid(row=4, column=0, columnspan=5, pady=10)
+tk.Button(root, text="Log Race", command=save_data).grid(row=len(players) + 1, column=0, columnspan=4, pady=10)
 
 # Status Label
-status_label = tk.Label(root, text="")
-status_label.grid(row=5, column=0, columnspan=5, pady=5)
+status_label = tk.Label(root, text="", fg="green")
+status_label.grid(row=len(players) + 2, column=0, columnspan=4, pady=5)
 
 root.mainloop()
