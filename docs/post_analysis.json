@@ -59,6 +59,26 @@
                 "PPR": 18.0,
                 "Avg Race Position": 2.0
             }
+        },
+        "2024-11-22": {
+            "Raj": {
+                "Races": 14,
+                "Points": 223,
+                "PPR": 15.93,
+                "Avg Race Position": 2.93
+            },
+            "Azhan": {
+                "Races": 14,
+                "Points": 249,
+                "PPR": 17.79,
+                "Avg Race Position": 2.5
+            },
+            "Sameer": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            }
         }
     },
     "Races Together": {
@@ -83,16 +103,16 @@
     },
     "All Time Stats": {
         "Raj": {
-            "Races": 40,
-            "Points": 689,
-            "PPR": 17.23,
-            "Avg Race Position": 2.5
+            "Races": 54,
+            "Points": 912,
+            "PPR": 16.89,
+            "Avg Race Position": 2.61
         },
         "Azhan": {
-            "Races": 13,
-            "Points": 242,
-            "PPR": 18.62,
-            "Avg Race Position": 2.31
+            "Races": 27,
+            "Points": 491,
+            "PPR": 18.19,
+            "Avg Race Position": 2.41
         },
         "Sameer": {
             "Races": 27,
@@ -115,14 +135,14 @@
         "Shanghai": [
             "2:35.76 by Raj in Dino Kart",
             "2:37.48 by Raj in Greedy Snowmobile",
+            "2:37.50 by Raj in Grey Blocks",
             "2:37.54 by Sameer in Puppy",
             "2:37.62 by Raj in Grey Blocks",
+            "2:38.16 by Azhan in Puppy",
+            "2:38.86 by Raj in Grey Blocks",
             "2:38.96 by Raj in Golden Trolley",
             "2:39.84 by Sameer in Dino Kart",
-            "2:40.36 by Sameer in The Kart",
-            "2:41.62 by Azhan in Monstro",
-            "2:41.68 by Azhan in Dino Monstro",
-            "2:41.72 by Azhan in Dino Monstro"
+            "2:40.36 by Sameer in The Kart"
         ],
         "Shanghai by Night": [
             "2:35.94 by Azhan in Monstro",
