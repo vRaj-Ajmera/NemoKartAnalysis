@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(postAnalysisUrl)
         .then(response => response.json())
         .then(data => {
-            renderSummaryTable(data.all_time_stats);
-            populateDailyStatsDropdown(data.daily_stats);
-            populateLeaderboardsDropdown(data.map_leaderboards);
+            renderSummaryTable(data["All Time Stats"]);
+            populateDailyStatsDropdown(data["Daily Stats"]);
+            renderRacesTogetherTable(data["Races Together"]);
+            populateLeaderboardsDropdown(data["Best Race Times"]);
         })
         .catch(err => console.error("Error fetching analysis data:", err));
 
@@ -28,10 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${Object.entries(stats).map(([player, stat]) => `
                     <tr>
                         <td>${player}</td>
-                        <td>${stat.races}</td>
-                        <td>${stat.points}</td>
-                        <td>${stat.ppr.toFixed(2)}</td>
-                        <td>${stat.avg_position.toFixed(2)}</td>
+                        <td>${stat.Races}</td>
+                        <td>${stat.Points}</td>
+                        <td>${stat.PPR.toFixed(2)}</td>
+                        <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
                     </tr>
                 `).join("")}
             </tbody>
@@ -72,15 +73,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${Object.entries(stats).map(([player, stat]) => `
                     <tr>
                         <td>${player}</td>
-                        <td>${stat.races}</td>
-                        <td>${stat.points}</td>
-                        <td>${stat.ppr.toFixed(2)}</td>
-                        <td>${stat.avg_position.toFixed(2)}</td>
+                        <td>${stat.Races}</td>
+                        <td>${stat.Points}</td>
+                        <td>${stat.PPR.toFixed(2)}</td>
+                        <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
                     </tr>
                 `).join("")}
             </tbody>
         `;
         const container = document.getElementById("daily-stats-table");
+        container.innerHTML = ""; // Clear previous table
+        container.appendChild(table);
+    }
+
+    // Render Races Together Table
+    function renderRacesTogetherTable(stats) {
+        const table = document.createElement("table");
+        table.innerHTML = `
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Races</th>
+                    <th>Points</th>
+                    <th>PPR</th>
+                    <th>Avg Position</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${Object.entries(stats).map(([player, stat]) => `
+                    <tr>
+                        <td>${player}</td>
+                        <td>${stat.Races}</td>
+                        <td>${stat.Points}</td>
+                        <td>${stat.PPR.toFixed(2)}</td>
+                        <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
+                    </tr>
+                `).join("")}
+            </tbody>
+        `;
+        const container = document.getElementById("races-together-table");
         container.innerHTML = ""; // Clear previous table
         container.appendChild(table);
     }
