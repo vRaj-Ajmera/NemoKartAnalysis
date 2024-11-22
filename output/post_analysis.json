@@ -1,23 +1,143 @@
 {
     "Daily Stats": {
-        "2024-11-19": {
+        "2024-10-27": {
             "Raj": {
-                "Races": 18,
-                "Points": 310,
-                "PPR": 17.22,
-                "Avg Race Position": 2.5
+                "Races": 1,
+                "Points": 15,
+                "PPR": 15.0,
+                "Avg Race Position": 3.0
             },
             "Azhan": {
-                "Races": 13,
-                "Points": 242,
-                "PPR": 18.62,
-                "Avg Race Position": 2.31
+                "Races": 1,
+                "Points": 25,
+                "PPR": 25.0,
+                "Avg Race Position": 1.0
             },
             "Sameer": {
-                "Races": 5,
-                "Points": 80,
-                "PPR": 16.0,
+                "Races": 1,
+                "Points": 12,
+                "PPR": 12.0,
+                "Avg Race Position": 4.0
+            }
+        },
+        "2024-10-28": {
+            "Raj": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Azhan": {
+                "Races": 1,
+                "Points": 25,
+                "PPR": 25.0,
+                "Avg Race Position": 1.0
+            },
+            "Sameer": {
+                "Races": 1,
+                "Points": 12,
+                "PPR": 12.0,
+                "Avg Race Position": 4.0
+            }
+        },
+        "2024-10-30": {
+            "Raj": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Azhan": {
+                "Races": 3,
+                "Points": 58,
+                "PPR": 19.33,
+                "Avg Race Position": 2.0
+            },
+            "Sameer": {
+                "Races": 3,
+                "Points": 55,
+                "PPR": 18.33,
+                "Avg Race Position": 2.33
+            }
+        },
+        "2024-11-14": {
+            "Raj": {
+                "Races": 1,
+                "Points": 15,
+                "PPR": 15.0,
                 "Avg Race Position": 3.0
+            },
+            "Azhan": {
+                "Races": 1,
+                "Points": 18,
+                "PPR": 18.0,
+                "Avg Race Position": 2.0
+            },
+            "Sameer": {
+                "Races": 1,
+                "Points": 25,
+                "PPR": 25.0,
+                "Avg Race Position": 1.0
+            }
+        },
+        "2024-11-17": {
+            "Raj": {
+                "Races": 3,
+                "Points": 35,
+                "PPR": 11.67,
+                "Avg Race Position": 4.33
+            },
+            "Azhan": {
+                "Races": 3,
+                "Points": 55,
+                "PPR": 18.33,
+                "Avg Race Position": 2.33
+            },
+            "Sameer": {
+                "Races": 3,
+                "Points": 58,
+                "PPR": 19.33,
+                "Avg Race Position": 2.0
+            }
+        },
+        "2024-11-18": {
+            "Raj": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Azhan": {
+                "Races": 1,
+                "Points": 18,
+                "PPR": 18.0,
+                "Avg Race Position": 2.0
+            },
+            "Sameer": {
+                "Races": 1,
+                "Points": 25,
+                "PPR": 25.0,
+                "Avg Race Position": 1.0
+            }
+        },
+        "2024-11-19": {
+            "Raj": {
+                "Races": 22,
+                "Points": 361,
+                "PPR": 16.41,
+                "Avg Race Position": 2.77
+            },
+            "Azhan": {
+                "Races": 17,
+                "Points": 321,
+                "PPR": 18.88,
+                "Avg Race Position": 2.18
+            },
+            "Sameer": {
+                "Races": 9,
+                "Points": 157,
+                "PPR": 17.44,
+                "Avg Race Position": 2.67
             }
         },
         "2024-11-20": {
@@ -83,42 +203,42 @@
     },
     "Races Together": {
         "Raj": {
-            "Races": 5,
-            "Points": 80,
-            "PPR": 16.0,
-            "Avg Race Position": 3.0
+            "Races": 14,
+            "Points": 196,
+            "PPR": 14.0,
+            "Avg Race Position": 3.57
         },
         "Azhan": {
-            "Races": 5,
-            "Points": 76,
-            "PPR": 15.2,
-            "Avg Race Position": 3.2
+            "Races": 14,
+            "Points": 253,
+            "PPR": 18.07,
+            "Avg Race Position": 2.36
         },
         "Sameer": {
-            "Races": 5,
-            "Points": 80,
-            "PPR": 16.0,
-            "Avg Race Position": 3.0
+            "Races": 14,
+            "Points": 252,
+            "PPR": 18.0,
+            "Avg Race Position": 2.5
         }
     },
     "All Time Stats": {
         "Raj": {
-            "Races": 54,
-            "Points": 912,
-            "PPR": 16.89,
-            "Avg Race Position": 2.61
+            "Races": 63,
+            "Points": 1028,
+            "PPR": 16.32,
+            "Avg Race Position": 2.79
         },
         "Azhan": {
-            "Races": 27,
-            "Points": 491,
-            "PPR": 18.19,
-            "Avg Race Position": 2.41
+            "Races": 41,
+            "Points": 769,
+            "PPR": 18.76,
+            "Avg Race Position": 2.22
         },
         "Sameer": {
-            "Races": 27,
-            "Points": 439,
-            "PPR": 16.26,
-            "Avg Race Position": 2.89
+            "Races": 41,
+            "Points": 703,
+            "PPR": 17.15,
+            "Avg Race Position": 2.68
         }
     },
     "Legend": {
@@ -141,8 +261,8 @@
             "2:38.16 by Azhan in Puppy",
             "2:38.86 by Raj in Grey Blocks",
             "2:38.96 by Raj in Golden Trolley",
-            "2:39.84 by Sameer in Dino Kart",
-            "2:40.36 by Sameer in The Kart"
+            "2:39.18 by Sameer in Minecart",
+            "2:39.54 by Azhan in Monstro"
         ],
         "Shanghai by Night": [
             "2:35.94 by Azhan in Monstro",
