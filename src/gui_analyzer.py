@@ -8,7 +8,7 @@ import datetime
 script_dir = os.path.dirname(__file__)
 
 # Relative path to results.csv
-results_file = os.path.join(script_dir, "../output/dummy_results.csv")
+results_file = os.path.join(script_dir, "../output/results.csv")
 
 # Load results data
 def load_results():
@@ -55,7 +55,6 @@ def update_best_race_times_table():
     best_times = get_best_race_times()
     update_table(best_race_times_table, best_times)
 
-
 # Analyze data
 def analyze_data():
     df = load_results()
@@ -72,7 +71,9 @@ def analyze_data():
 
     # Calculate stats for a player
     def calculate_player_stats(df, player_column):
-        valid_placements = df[player_column].apply(lambda x: int(x) if str(x).isdigit() and 1 <= int(x) <= 8 else None)
+        valid_placements = df[player_column].apply(
+            lambda x: int(x) if str(x).isdigit() and 1 <= int(x) <= 8 else None
+        )
         total_races = valid_placements.notna().sum()
         total_points = valid_placements.dropna().apply(calculate_points).sum()
         avg_points = total_points / total_races if total_races > 0 else 0
@@ -91,14 +92,18 @@ def analyze_data():
 
     # Races where all three participated
     if selected_date == "All":
-        together_df = df[(df["Azhan Placement"] > 0) & 
-                        (df["Raj Placement"] > 0) & 
-                        (df["Sameer Placement"] > 0)]
+        together_df = df[
+            (df["Azhan Placement"] != "DNR") &
+            (df["Raj Placement"] != "DNR") &
+            (df["Sameer Placement"] != "DNR")
+        ]
     else:
-        together_df = df[(df["Date"] == selected_date) & 
-                        (df["Azhan Placement"] > 0) & 
-                        (df["Raj Placement"] > 0) & 
-                        (df["Sameer Placement"] > 0)]
+        together_df = df[
+            (df["Date"] == selected_date) &
+            (df["Azhan Placement"] != "DNR") &
+            (df["Raj Placement"] != "DNR") &
+            (df["Sameer Placement"] != "DNR")
+        ]
 
     # Update the title of the # Races Together frame
     num_races_together = len(together_df)
@@ -151,7 +156,6 @@ def update_table(table, data):
 # GUI setup
 root = tk.Tk()
 root.title(f"Nemokart Data Analyzer - Analyzing: {os.path.basename(results_file)}")
-
 
 # Date Selection Frame
 date_frame = tk.Frame(root, padx=5, pady=5)

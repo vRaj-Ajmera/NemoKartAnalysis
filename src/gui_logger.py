@@ -11,7 +11,7 @@ script_dir = os.path.dirname(__file__)
 kart_file = os.path.join(script_dir, "../data/karts.csv")
 map_file = os.path.join(script_dir, "../data/maps.csv")
 players_file = os.path.join(script_dir, "../data/players.csv")
-output_file = os.path.join(script_dir, "../output/dummy_results.csv")  # For testing purposes
+output_file = os.path.join(script_dir, "../output/results.csv")
 
 # Load data from files
 def load_data():
