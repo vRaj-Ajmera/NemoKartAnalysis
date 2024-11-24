@@ -7,7 +7,7 @@ import json
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 # File paths
-results_file = os.path.join(base_dir, "output/dummy_results.csv")
+results_file = os.path.join(base_dir, "output/results.csv")
 post_analysis_file = os.path.join(base_dir, "output/post_analysis.json")
 #post_analysis_file2 = os.path.join(base_dir, "docs/post_analysis.json")
 players_file = os.path.join(base_dir, "data/players.csv")
