@@ -262,10 +262,10 @@
         },
         "2024-11-23": {
             "Raj": {
-                "Races": 0,
-                "Points": 0,
-                "PPR": 0,
-                "Avg Race Position": null
+                "Races": 2,
+                "Points": 28,
+                "PPR": 14.0,
+                "Avg Race Position": 3.5
             },
             "Azhan": {
                 "Races": 6,
@@ -309,10 +309,10 @@
     },
     "All Time Stats": {
         "Raj": {
-            "Races": 63,
-            "Points": 1028,
-            "PPR": 16.32,
-            "Avg Race Position": 2.79
+            "Races": 65,
+            "Points": 1056,
+            "PPR": 16.25,
+            "Avg Race Position": 2.82
         },
         "Azhan": {
             "Races": 47,
@@ -346,6 +346,7 @@
     "Best Race Times": {
         "Shanghai": [
             "2:35.76 by Raj in Dino Kart",
+            "2:36.92 by Raj in Minecart",
             "2:37.48 by Raj in Greedy Snowmobile",
             "2:37.50 by Raj in Grey Blocks",
             "2:37.54 by Sameer in Puppy",
@@ -353,8 +354,7 @@
             "2:38.16 by Azhan in Puppy",
             "2:38.86 by Raj in Grey Blocks",
             "2:38.96 by Raj in Golden Trolley",
-            "2:39.18 by Sameer in Minecart",
-            "2:39.54 by Azhan in Monstro"
+            "2:39.18 by Sameer in Minecart"
         ],
         "Shanghai by Night": [
             "2:30.66 by Azhan in Minecart",

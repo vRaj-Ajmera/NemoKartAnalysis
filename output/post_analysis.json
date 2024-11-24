@@ -18,6 +18,12 @@
                 "Points": 12,
                 "PPR": 12.0,
                 "Avg Race Position": 4.0
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
             }
         },
         "2024-10-28": {
@@ -38,6 +44,12 @@
                 "Points": 12,
                 "PPR": 12.0,
                 "Avg Race Position": 4.0
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
             }
         },
         "2024-10-30": {
@@ -58,6 +70,12 @@
                 "Points": 55,
                 "PPR": 18.33,
                 "Avg Race Position": 2.33
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
             }
         },
         "2024-11-14": {
@@ -78,6 +96,12 @@
                 "Points": 25,
                 "PPR": 25.0,
                 "Avg Race Position": 1.0
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
             }
         },
         "2024-11-17": {
@@ -98,6 +122,12 @@
                 "Points": 58,
                 "PPR": 19.33,
                 "Avg Race Position": 2.0
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
             }
         },
         "2024-11-18": {
@@ -118,6 +148,12 @@
                 "Points": 25,
                 "PPR": 25.0,
                 "Avg Race Position": 1.0
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
             }
         },
         "2024-11-19": {
@@ -138,6 +174,12 @@
                 "Points": 157,
                 "PPR": 17.44,
                 "Avg Race Position": 2.67
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
             }
         },
         "2024-11-20": {
@@ -158,6 +200,12 @@
                 "Points": 323,
                 "PPR": 16.15,
                 "Avg Race Position": 2.95
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
             }
         },
         "2024-11-21": {
@@ -178,6 +226,12 @@
                 "Points": 36,
                 "PPR": 18.0,
                 "Avg Race Position": 2.0
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
             }
         },
         "2024-11-22": {
@@ -198,6 +252,38 @@
                 "Points": 0,
                 "PPR": 0,
                 "Avg Race Position": null
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            }
+        },
+        "2024-11-23": {
+            "Raj": {
+                "Races": 2,
+                "Points": 28,
+                "PPR": 14.0,
+                "Avg Race Position": 3.5
+            },
+            "Azhan": {
+                "Races": 6,
+                "Points": 150,
+                "PPR": 25.0,
+                "Avg Race Position": 1.0
+            },
+            "Sameer": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Zetaa": {
+                "Races": 6,
+                "Points": 88,
+                "PPR": 14.67,
+                "Avg Race Position": 3.17
             }
         }
     },
@@ -223,22 +309,28 @@
     },
     "All Time Stats": {
         "Raj": {
-            "Races": 63,
-            "Points": 1028,
-            "PPR": 16.32,
-            "Avg Race Position": 2.79
+            "Races": 65,
+            "Points": 1056,
+            "PPR": 16.25,
+            "Avg Race Position": 2.82
         },
         "Azhan": {
-            "Races": 41,
-            "Points": 769,
-            "PPR": 18.76,
-            "Avg Race Position": 2.22
+            "Races": 47,
+            "Points": 919,
+            "PPR": 19.55,
+            "Avg Race Position": 2.06
         },
         "Sameer": {
             "Races": 41,
             "Points": 703,
             "PPR": 17.15,
             "Avg Race Position": 2.68
+        },
+        "Zetaa": {
+            "Races": 6,
+            "Points": 88,
+            "PPR": 14.67,
+            "Avg Race Position": 3.17
         }
     },
     "Legend": {
@@ -254,6 +346,7 @@
     "Best Race Times": {
         "Shanghai": [
             "2:35.76 by Raj in Dino Kart",
+            "2:36.92 by Raj in Minecart",
             "2:37.48 by Raj in Greedy Snowmobile",
             "2:37.50 by Raj in Grey Blocks",
             "2:37.54 by Sameer in Puppy",
@@ -261,20 +354,19 @@
             "2:38.16 by Azhan in Puppy",
             "2:38.86 by Raj in Grey Blocks",
             "2:38.96 by Raj in Golden Trolley",
-            "2:39.18 by Sameer in Minecart",
-            "2:39.54 by Azhan in Monstro"
+            "2:39.18 by Sameer in Minecart"
         ],
         "Shanghai by Night": [
+            "2:30.66 by Azhan in Minecart",
+            "2:31.36 by Azhan in Snow Minecart",
             "2:35.94 by Azhan in Monstro",
+            "2:37.04 by Zetaa in Trolley",
             "2:37.38 by Raj in Bat Kart",
             "2:37.40 by Raj in Golden Trolley",
+            "2:38.08 by Azhan in Minecart",
             "2:38.52 by Raj in Bat Kart",
             "2:38.74 by Raj in Bat Kart",
-            "2:38.78 by Raj in Bat Kart",
-            "2:38.98 by Sameer in Grey Blocks",
-            "2:39.34 by Sameer in Puppy",
-            "2:39.42 by Sameer in Puppy",
-            "2:39.62 by Sameer in Puppy"
+            "2:38.78 by Raj in Bat Kart"
         ],
         "Snowville": [
             "1:48.22 by Raj in Greedy Snowmobile",
