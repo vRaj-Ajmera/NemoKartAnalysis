@@ -8,7 +8,7 @@ import datetime
 script_dir = os.path.dirname(__file__)
 
 # Relative path to results.csv
-results_file = os.path.join(script_dir, "../output/results.csv")
+results_file = os.path.join(script_dir, "../output/dummy_results.csv")
 
 # Load results data
 def load_results():

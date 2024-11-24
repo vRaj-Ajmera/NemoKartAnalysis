@@ -7,8 +7,8 @@ import json
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 # File paths
-results_file = os.path.join(base_dir, "output/results.csv")
-post_analysis_file = os.path.join(base_dir, "output/post_analysis.json")\
+results_file = os.path.join(base_dir, "output/dummy_results.csv")
+post_analysis_file = os.path.join(base_dir, "output/dummy_post_analysis.json")\
 #post_analysis_file2 = os.path.join(base_dir, "docs/post_analysis.json")
 players_file = os.path.join(base_dir, "data/players.csv")
 maps_file = os.path.join(base_dir, "data/maps.csv")
@@ -82,6 +82,32 @@ def calculate_together_stats(df, players):
         }
     return together_stats
 
+# Generate stats for races where Raj, Azhan, and Sameer participated together
+def calculate_together_stats_RAS(df):
+    target_players = ["Raj", "Azhan", "Sameer"]  # Specify the players to track
+    player_columns = [f"{player} Placement" for player in target_players]
+    
+    # Filter rows where all specified players have valid placements (no "DNR")
+    together_df = df.dropna(subset=player_columns)  # Drop rows with missing data for target players
+    together_df = together_df[~together_df[player_columns].isin(["DNR"]).any(axis=1)]  # Exclude races with "DNR"
+
+    together_stats = {}
+    for player in target_players:
+        player_column = f"{player} Placement"
+        valid_placements = together_df[player_column].replace("DNR", np.nan).dropna().astype(int)
+        total_races = valid_placements.count()
+        total_points = valid_placements.apply(calculate_points).sum()
+        ppr = total_points / total_races if total_races > 0 else 0
+        avg_position = valid_placements.mean() if total_races > 0 else None
+        together_stats[player] = {
+            "Races": total_races,
+            "Points": total_points,
+            "PPR": round(ppr, 2),
+            "Avg Race Position": round(avg_position, 2) if avg_position is not None else None
+        }
+    return together_stats
+
+
 # Generate all-time stats
 def calculate_all_time_stats(df, players):
     all_time_stats = {}
@@ -127,7 +153,7 @@ def main():
 
     post_analysis = {
         "Daily Stats": calculate_daily_stats(results, players),
-        "Races Together": calculate_together_stats(results, players),
+        "Races Together": calculate_together_stats_RAS(results),
         "All Time Stats": calculate_all_time_stats(results, players),
         "Legend": {1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4},
         "Best Race Times": calculate_best_race_times(results, maps, players)
