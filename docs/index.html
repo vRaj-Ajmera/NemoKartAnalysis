@@ -8,18 +8,15 @@
 </head>
 <body>
     <header>
-        <h1>NemoKart Analysis</h1>
-        <p>Comprehensive race analytics and leaderboard stats.</p>
+        <h1>NemoKart Race Analytics</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="player_stats.html">Player Stats</a></li>
+                <li><a href="kart_stats.html">Kart Stats</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="#summary">Summary</a></li>
-            <li><a href="#daily-stats">Daily Stats</a></li>
-            <li><a href="#races-together">Races Together</a></li>
-            <li><a href="#leaderboards">Leaderboards</a></li>
-        </ul>
-    </nav>
 
     <main>
         <section id="summary">
@@ -29,7 +26,9 @@
 
         <section id="daily-stats">
             <h2>Daily Stats</h2>
-            <select id="daily-stats-dropdown"></select>
+            <select id="daily-stats-dropdown">
+                <option value="-- Select --">-- Select --</option>
+            </select>
             <div id="daily-stats-table"></div>
         </section>
 
@@ -40,7 +39,9 @@
 
         <section id="leaderboards">
             <h2>Leaderboards</h2>
-            <select id="map-dropdown"></select>
+            <select id="map-dropdown">
+                <option value="-- Select --">-- Select --</option>
+            </select>
             <div id="leaderboards-table"></div>
         </section>
     </main>

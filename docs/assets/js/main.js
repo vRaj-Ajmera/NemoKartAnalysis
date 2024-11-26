@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("summary-table").appendChild(table);
     }
 
-    // Populate Daily Stats Dropdown
+    // Populate and handle Daily Stats Dropdown
     function populateDailyStatsDropdown(dailyStats) {
         const dropdown = document.getElementById("daily-stats-dropdown");
         Object.keys(dailyStats).forEach(date => {
@@ -50,9 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
             dropdown.appendChild(option);
         });
 
-        // Render table on change
         dropdown.addEventListener("change", (e) => {
-            renderDailyStatsTable(dailyStats[e.target.value]);
+            if (e.target.value !== "-- Select --") {
+                renderDailyStatsTable(dailyStats[e.target.value]);
+                e.target.querySelector("option[value='-- Select --']").remove(); // Remove "-- Select --"
+            }
         });
     }
 
@@ -116,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.appendChild(table);
     }
 
-    // Populate Leaderboards Dropdown
+    // Populate and handle Leaderboards Dropdown
     function populateLeaderboardsDropdown(leaderboards) {
         const dropdown = document.getElementById("map-dropdown");
         Object.keys(leaderboards).forEach(map => {
@@ -126,9 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
             dropdown.appendChild(option);
         });
 
-        // Render table on change
         dropdown.addEventListener("change", (e) => {
-            renderLeaderboardsTable(leaderboards[e.target.value]);
+            if (e.target.value !== "-- Select --") {
+                renderLeaderboardsTable(leaderboards[e.target.value]);
+                e.target.querySelector("option[value='-- Select --']").remove(); // Remove "-- Select --"
+            }
         });
     }
 
