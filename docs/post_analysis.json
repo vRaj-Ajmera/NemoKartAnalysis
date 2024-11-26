@@ -285,6 +285,32 @@
                 "PPR": 14.67,
                 "Avg Race Position": 3.17
             }
+        },
+        "2024-11-24": {
+            "Raj": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Azhan": {
+                "Races": 6,
+                "Points": 113,
+                "PPR": 18.83,
+                "Avg Race Position": 2.17
+            },
+            "Sameer": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            }
         }
     },
     "Races Together": {
@@ -315,10 +341,10 @@
             "Avg Race Position": 2.82
         },
         "Azhan": {
-            "Races": 47,
-            "Points": 919,
-            "PPR": 19.55,
-            "Avg Race Position": 2.06
+            "Races": 53,
+            "Points": 1032,
+            "PPR": 19.47,
+            "Avg Race Position": 2.08
         },
         "Sameer": {
             "Races": 41,
@@ -345,16 +371,16 @@
     },
     "Best Race Times": {
         "Shanghai": [
+            "2:34.88 by Azhan in Snow Minecart",
             "2:35.76 by Raj in Dino Kart",
+            "2:36.66 by Azhan in Minecart",
             "2:36.92 by Raj in Minecart",
             "2:37.48 by Raj in Greedy Snowmobile",
             "2:37.50 by Raj in Grey Blocks",
             "2:37.54 by Sameer in Puppy",
             "2:37.62 by Raj in Grey Blocks",
             "2:38.16 by Azhan in Puppy",
-            "2:38.86 by Raj in Grey Blocks",
-            "2:38.96 by Raj in Golden Trolley",
-            "2:39.18 by Sameer in Minecart"
+            "2:38.76 by Azhan in Snow Minecart"
         ],
         "Shanghai by Night": [
             "2:30.66 by Azhan in Minecart",
@@ -363,10 +389,10 @@
             "2:37.04 by Zetaa in Trolley",
             "2:37.38 by Raj in Bat Kart",
             "2:37.40 by Raj in Golden Trolley",
+            "2:37.52 by Azhan in Snow Minecart",
             "2:38.08 by Azhan in Minecart",
             "2:38.52 by Raj in Bat Kart",
-            "2:38.74 by Raj in Bat Kart",
-            "2:38.78 by Raj in Bat Kart"
+            "2:38.74 by Raj in Bat Kart"
         ],
         "Snowville": [
             "1:48.22 by Raj in Greedy Snowmobile",
