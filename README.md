@@ -1,7 +1,7 @@
 # **NemoKartAnalysis**
 
 View Project: https://vraj-ajmera.github.io/NemoKartAnalysis/
-NemoKartAnalysis is a project designed to log and analyze races in the game "Nemokart."
+\\NemoKartAnalysis is a project designed to log and analyze races in the game "Nemokart."
 
 ---
 
