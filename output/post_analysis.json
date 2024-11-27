@@ -337,46 +337,72 @@
                 "PPR": 0,
                 "Avg Race Position": null
             }
+        },
+        "2024-11-27": {
+            "Raj": {
+                "Races": 11,
+                "Points": 207,
+                "PPR": 18.82,
+                "Avg Race Position": 2.09
+            },
+            "Azhan": {
+                "Races": 11,
+                "Points": 254,
+                "PPR": 23.09,
+                "Avg Race Position": 1.27
+            },
+            "Sameer": {
+                "Races": 11,
+                "Points": 136,
+                "PPR": 12.36,
+                "Avg Race Position": 4.09
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            }
         }
     },
     "Races Together": {
         "Raj": {
-            "Races": 14,
-            "Points": 196,
-            "PPR": 14.0,
-            "Avg Race Position": 3.57
+            "Races": 25,
+            "Points": 403,
+            "PPR": 16.12,
+            "Avg Race Position": 2.92
         },
         "Azhan": {
-            "Races": 14,
-            "Points": 253,
-            "PPR": 18.07,
-            "Avg Race Position": 2.36
+            "Races": 25,
+            "Points": 507,
+            "PPR": 20.28,
+            "Avg Race Position": 1.88
         },
         "Sameer": {
-            "Races": 14,
-            "Points": 252,
-            "PPR": 18.0,
-            "Avg Race Position": 2.5
+            "Races": 25,
+            "Points": 388,
+            "PPR": 15.52,
+            "Avg Race Position": 3.2
         }
     },
     "All Time Stats": {
         "Raj": {
-            "Races": 69,
-            "Points": 1134,
-            "PPR": 16.43,
-            "Avg Race Position": 2.78
+            "Races": 80,
+            "Points": 1341,
+            "PPR": 16.76,
+            "Avg Race Position": 2.69
         },
         "Azhan": {
-            "Races": 57,
-            "Points": 1109,
-            "PPR": 19.46,
-            "Avg Race Position": 2.09
+            "Races": 68,
+            "Points": 1363,
+            "PPR": 20.04,
+            "Avg Race Position": 1.96
         },
         "Sameer": {
-            "Races": 41,
-            "Points": 703,
-            "PPR": 17.15,
-            "Avg Race Position": 2.68
+            "Races": 52,
+            "Points": 839,
+            "PPR": 16.13,
+            "Avg Race Position": 2.98
         },
         "Zetaa": {
             "Races": 6,
@@ -397,16 +423,16 @@
     },
     "Best Race Times": {
         "Shanghai": [
+            "2:32.10 by Azhan in Minecart",
             "2:34.04 by Raj in Minecart",
+            "2:34.08 by Raj in Minecart",
             "2:34.88 by Azhan in Snow Minecart",
             "2:35.76 by Raj in Dino Kart",
             "2:36.66 by Azhan in Minecart",
             "2:36.92 by Raj in Minecart",
+            "2:37.44 by Raj in Minecart",
             "2:37.48 by Raj in Greedy Snowmobile",
-            "2:37.50 by Raj in Grey Blocks",
-            "2:37.54 by Sameer in Puppy",
-            "2:37.62 by Raj in Grey Blocks",
-            "2:37.98 by Azhan in Minecart"
+            "2:37.50 by Raj in Grey Blocks"
         ],
         "Shanghai by Night": [
             "2:30.66 by Azhan in Minecart",
