@@ -4,6 +4,8 @@ import pandas as pd
 import os
 import datetime
 
+MAX_RACERS=8
+
 # Get the directory of the current script
 script_dir = os.path.dirname(__file__)
 
@@ -175,7 +177,7 @@ tk.Label(root, text="(Example Input - 1:23.45)", fg="gray").grid(row=0, column=2
 
 # Dynamic Player Rows
 player_widgets = []
-for i in range(len(players)):
+for i in range(MAX_RACERS):
     player = tk.StringVar(value="-- Select --")
     placement = tk.StringVar(value="-- Select --")
     kart = tk.StringVar(value="-- Select --")
@@ -189,10 +191,10 @@ for i in range(len(players)):
     player_widgets.append({"player": player, "placement": placement, "kart": kart, "race_time": race_time_entry})
 
 # Log Button
-tk.Button(root, text="Log Race", command=save_data).grid(row=len(players) + 1, column=0, columnspan=4, pady=10)
+tk.Button(root, text="Log Race", command=save_data).grid(row=MAX_RACERS + 1, column=0, columnspan=4, pady=10)
 
 # Status Label
 status_label = tk.Label(root, text="", fg="green")
-status_label.grid(row=len(players) + 2, column=0, columnspan=4, pady=5)
+status_label.grid(row=MAX_RACERS + 2, column=0, columnspan=4, pady=5)
 
 root.mainloop()
