@@ -8,22 +8,49 @@
 </head>
 <body>
     <header>
-        <h1>Player Stats</h1>
+        <h1>NemoKart Player Stats</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="player_stats.html">Player Stats</a></li>
+                <li><a href="player_stats.html" class="active">Player Stats</a></li>
                 <li><a href="kart_stats.html">Kart Stats</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <p>Player stats page is under construction!</p>
+        <section id="player-ratings">
+            <h2>Player Ratings</h2>
+            <table id="ratings-table">
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Current Rating</th>
+                        <th>Peak Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Populated dynamically -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="player-graph-section">
+            <h2>Player Rating Graph</h2>
+            <select id="player-dropdown">
+                <option value="">-- Select --</option>
+                <!-- Dropdown options populated dynamically -->
+            </select>
+            <div id="player-graph">
+                <!-- Player graph will be displayed here -->
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>Powered by NemoKart Analytics</p>
     </footer>
+
+    <script src="assets/js/player_stats.js"></script>
 </body>
 </html>
