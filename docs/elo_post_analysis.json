@@ -1,40 +1,40 @@
 {
     "Player Ratings": {
         "Raj": {
-            "Peak Rating": 1126,
-            "Current Rating": 1067
+            "Peak Rating": 1133,
+            "Current Rating": 1123
         },
         "Azhan": {
-            "Peak Rating": 1280,
-            "Current Rating": 1265
+            "Peak Rating": 1260,
+            "Current Rating": 1158
         },
         "Sameer": {
-            "Peak Rating": 1056,
-            "Current Rating": 996
+            "Peak Rating": 1048,
+            "Current Rating": 1009
         },
         "Zetaa": {
             "Peak Rating": 1000,
-            "Current Rating": 922
+            "Current Rating": 966
         },
         "Adi": {
-            "Peak Rating": 1083,
-            "Current Rating": 1083
+            "Peak Rating": 1069,
+            "Current Rating": 1069
         },
         "Dylan": {
             "Peak Rating": 1002,
-            "Current Rating": 929
+            "Current Rating": 912
         },
         "Parum": {
             "Peak Rating": 1000,
-            "Current Rating": 753
+            "Current Rating": 725
         },
         "EnderRobot": {
             "Peak Rating": 1000,
-            "Current Rating": 865
+            "Current Rating": 860
         },
         "Lynden": {
-            "Peak Rating": 1004,
-            "Current Rating": 907
+            "Peak Rating": 1000,
+            "Current Rating": 889
         }
     }
 }
