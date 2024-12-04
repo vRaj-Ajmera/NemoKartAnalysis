@@ -11,7 +11,7 @@ elo_tracker_file = os.path.join(base_dir, "output/elo_tracker.csv")
 player_graphs_dir = os.path.join(base_dir, "output/player_graphs")
 
 # Constants
-UNKNOWN_PLAYER_ELO = 1500
+UNKNOWN_PLAYER_ELO = 2000
 BASE_ELO = 1000
 K_FACTOR_INITIAL = 40  # Initial K-factor for the first 10 races
 K_FACTOR_AFTER = 24  # Lower K-factor for subsequent races
