@@ -6,10 +6,12 @@ import json
 # Base directory and file paths
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 results_file = os.path.join(base_dir, "output/results.csv")
+players_file = os.path.join(base_dir, "data/players.csv")
 elo_tracker_file = os.path.join(base_dir, "output/elo_tracker.csv")
 player_graphs_dir = os.path.join(base_dir, "output/player_graphs")
 
 # Constants
+UNKNOWN_PLAYER_ELO = 1500
 BASE_ELO = 1000
 K_FACTOR_INITIAL = 40  # Initial K-factor for the first 10 races
 K_FACTOR_AFTER = 24  # Lower K-factor for subsequent races
@@ -47,6 +49,7 @@ def determine_k_factor(player_race_count):
 def update_elo_ratings(elo_ratings, race_results, race_counts):
     """
     Update Elo ratings for a single race with dynamic K-factor scaling and proportional adjustments.
+    Assumes unknown players have a default rating and accounts for their placements.
     :param elo_ratings: Current Elo ratings (dict).
     :param race_results: DataFrame of players and their placements in a race.
     :param race_counts: Current number of races for each player (dict).
@@ -58,44 +61,65 @@ def update_elo_ratings(elo_ratings, race_results, race_counts):
     # Calculate the number of known players
     known_players = [player for player in participants if player in elo_ratings]
     num_known = len(known_players)
+    num_unknown = MAX_RACERS - num_known
 
-    if num_known == 0:
-        # If no known players, skip the Elo calculation
-        return elo_ratings
+    # Sort placements to determine gaps for unknown players
+    sorted_placements = sorted(placements)
 
-    # Increment race counts for participants
+    # Distribute unknown players in the gaps
+    unknown_players = [f"Unknown_{i}" for i in range(num_unknown)]
+    unknown_placements = []
+    gap_index = 0
+
+    for _ in range(num_unknown):
+        # Find the next gap in placements
+        while gap_index < len(sorted_placements) and (len(unknown_placements) + 1) >= sorted_placements[gap_index]:
+            gap_index += 1
+        unknown_placements.append(gap_index + 1)  # Place the unknown player in the next gap
+
+    # Add unknown players to participants and placements
+    participants += unknown_players
+    placements += unknown_placements
+
+    # Increment race counts for known participants
     for player in participants:
         if player in elo_ratings:
             race_counts[player] += 1
 
     # Temporary structure to hold Elo changes
     elo_changes = {player: 0 for player in participants}
+    unknown_elo = UNKNOWN_PLAYER_ELO
+
+    # Define proportionality factors based on the number of known players
+    if num_known == 1:
+        proportional_factor = 0.3  # Single known player -> very low Elo adjustment
+    elif num_known == 2:
+        proportional_factor = 0.65  # Two known players -> moderate adjustment
+    elif num_known == 3:
+        proportional_factor = 0.95  # Three known players -> stronger adjustment
+    elif 4 <= num_known <= 7:
+        proportional_factor = 0.997  # Five to seven known players -> high adjustment
+    else:
+        proportional_factor = 1.0  # All players are known -> full adjustment
 
     # Pairwise comparisons based on placements
     for i, player_a in enumerate(participants):
         for j, player_b in enumerate(participants):
             if i != j:
-                # Only calculate adjustments if both players are known
-                if player_a in elo_ratings and player_b in elo_ratings:
-                    expected_a = calculate_expected_score(elo_ratings[player_a], elo_ratings[player_b])
-                    actual_a = 1 if placements[i] < placements[j] else 0  # Player A wins if placement is better (lower)
-                    k_factor = determine_k_factor(race_counts[player_a])
-                    
-                    # Apply proportional adjustment based on known players
-                    if (num_known == 1):
-                        proportional_factor = 0.05
-                    elif (num_known == 2):
-                        proportional_factor = 0.35
-                    elif (num_known == 3):
-                        proportional_factor = 0.80
-                    elif (num_known == 4):
-                        proportional_factor = 0.95
-                    elif (num_known >= 5 and num_known <= 7):
-                        proportional_factor = 0.997
-                    else:
-                        proportional_factor = 1.0
+                # Determine Elo values for each participant
+                elo_a = elo_ratings[player_a] if player_a in elo_ratings else unknown_elo
+                elo_b = elo_ratings[player_b] if player_b in elo_ratings else unknown_elo
 
-                    elo_changes[player_a] += proportional_factor * k_factor * (actual_a - expected_a)
+                # Calculate expected score and actual score
+                expected_a = calculate_expected_score(elo_a, elo_b)
+                actual_a = 1 if placements[i] < placements[j] else 0  # Player A wins if placement is better (lower)
+
+                # Apply K-factor scaling for known players
+                if player_a in elo_ratings:
+                    k_factor = determine_k_factor(race_counts[player_a])
+                    elo_changes[player_a] += (
+                        proportional_factor * k_factor * (actual_a - expected_a)
+                    )
 
     # Apply Elo changes simultaneously
     for player in elo_changes:
@@ -105,11 +129,14 @@ def update_elo_ratings(elo_ratings, race_results, race_counts):
     return elo_ratings
 
 
+
 def process_races():
     """Process all races in results.csv and update Elo ratings in elo_tracker.csv."""
     # Load results
     results = load_csv(results_file)
-    default_players = ["Raj", "Azhan", "Sameer", "Zetaa", "Adi", "Dylan", "Parum", "EnderRobot", "Lynden"]
+    players = load_csv(players_file, default_columns=["Player Name"])
+    default_players = players["Player Name"].tolist()
+
 
     # Clear and initialize the elo_tracker
     columns = ["Date", "Time", "Map Name"] + default_players
@@ -237,6 +264,9 @@ def generate_elo_graphs(default_players):
         # Highlight the last Elo point of each day in red
         plt.scatter(last_dates, last_elos, color="red", label="End of Day Rating", zorder=5)
 
+        # Add a red dotted line connecting the end-of-day ratings
+        plt.plot(last_dates, last_elos, linestyle=":", color="red", linewidth=2, label="Day-to-Day Progression")
+
         plt.title(f"Elo Progression: {player}", fontsize=14, fontweight='bold', color='black')
         plt.xlabel("Date", fontsize=12, fontweight='bold', color='black')
         plt.ylabel("Elo Rating", fontsize=12, fontweight='bold', color='black')
@@ -251,7 +281,6 @@ def generate_elo_graphs(default_players):
         plt.savefig(graph_path, dpi=150)  # High-resolution graph
         plt.close()
         print(f"Saved Elo graph for {player} at {graph_path}")
-
 
 
 def main():
