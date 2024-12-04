@@ -36,10 +36,15 @@ maps_with_empty = ["-- Select --"] + maps
 # Initialize output CSV and ensure columns are aligned with the players list
 def initialize_csv():
     # Define the expected columns based on the current players.csv file
-    expected_columns = ["Date", "Time", "Map Name"] + \
-                       [f"{player} Placement" for player in players] + \
-                       [f"{player} Kart" for player in players] + \
-                       [f"{player} Racetime" for player in players]
+    expected_columns = ["Date", "Time", "Map Name"]  # Start with static columns
+    
+    # Add player-specific columns in the desired order
+    for player in players:
+        expected_columns.extend([
+            f"{player} Placement",
+            f"{player} Kart",
+            f"{player} Racetime"
+        ])
 
     if not os.path.exists(output_file) or os.stat(output_file).st_size == 0:
         # If the file doesn't exist, create it with the correct columns
