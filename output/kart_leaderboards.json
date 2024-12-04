@@ -1,0 +1,68 @@
+{
+    "Shanghai": [
+        {
+            "kart": "The Kart",
+            "average_score": 0
+        },
+        {
+            "kart": "Dino Kart",
+            "average_score": 0
+        },
+        {
+            "kart": "Bat Kart",
+            "average_score": 0
+        },
+        {
+            "kart": "Blocks",
+            "average_score": 0
+        },
+        {
+            "kart": "Grey Blocks",
+            "average_score": 0
+        }
+    ],
+    "Shanghai by Night": [
+        {
+            "kart": "The Kart",
+            "average_score": 0
+        },
+        {
+            "kart": "Dino Kart",
+            "average_score": 0
+        },
+        {
+            "kart": "Bat Kart",
+            "average_score": 0
+        },
+        {
+            "kart": "Blocks",
+            "average_score": 0
+        },
+        {
+            "kart": "Grey Blocks",
+            "average_score": 0
+        }
+    ],
+    "Snowville": [
+        {
+            "kart": "The Kart",
+            "average_score": 0
+        },
+        {
+            "kart": "Dino Kart",
+            "average_score": 0
+        },
+        {
+            "kart": "Bat Kart",
+            "average_score": 0
+        },
+        {
+            "kart": "Blocks",
+            "average_score": 0
+        },
+        {
+            "kart": "Grey Blocks",
+            "average_score": 0
+        }
+    ]
+}
