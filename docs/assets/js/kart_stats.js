@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Define the available maps and corresponding graph paths
     const mapGraphs = {
-        "Shanghai": ["docs/assets/kart_graphs/Shanghai_kart_racetimes.png", "docs/assets/kart_graphs/Shanghai_kart_placements.png"],
-        "Shanghai by Night": ["docs/assets/kart_graphs/Shanghai by Night_kart_racetimes.png", "docs/assets/kart_graphs/Shanghai by Night_kart_placements.png"],
-        "Snowville": ["docs/assets/kart_graphs/Snowville_kart_racetimes.png", "docs/assets/kart_graphs/Snowville_kart_placements.png"]
+        "Shanghai": ["assets/kart_graphs/Shanghai_kart_racetimes.png", "assets/kart_graphs/Shanghai_kart_placements.png"],
+        "Shanghai by Night": ["assets/kart_graphs/Shanghai by Night_kart_racetimes.png", "assets/kart_graphs/Shanghai by Night_kart_placements.png"],
+        "Snowville": ["assets/kart_graphs/Snowville_kart_racetimes.png", "assets/kart_graphs/Snowville_kart_placements.png"]
     };
 
     // Add the default "-- Select --" option

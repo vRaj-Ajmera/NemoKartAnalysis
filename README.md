@@ -1,10 +1,13 @@
 # **NemoKartAnalysis**
 
-View Project: https://vraj-ajmera.github.io/NemoKartAnalysis/
-
----
-
 NemoKartAnalysis is a project designed to log and analyze races in the game "Nemokart."
+
+View Project Site: https://vraj-ajmera.github.io/NemoKartAnalysis/ 
+
+## **Run Instructions**
+1. **gui_logger.py**: Run **gui_logger.py** and enter relevant information. Select a car if the player raced. Enter a race time (ex. 1:23.45) if the player raced. Results are logged to **results.csv**.
+2. **analyze_all.py**: Run **analyze_all.py** to analyze results.csv data into all the relevant files.
+3. Get the live server extension and right click index.html and select "Open With Live Server".
 
 ## **File Structure**
 
@@ -46,11 +49,3 @@ NemoKartAnalysis/
 │   │   ├── kart_rankings.py        # Kart performance rankings
 ├── .gitignore                      # Git configuration
 ├── README.md                       # Project documentation
-
-```
-
-## **Run Instructions**
-1. **gui_logger.py**: Run **gui_logger.py** and enter relevant information. In position enter 0 if the player did not race. Otherwise enter 1-8 which is their race position. Select a car if the player raced. Enter a race time (ex. 1:23.45) if the player raced. Results are logged to **results.csv**.
-2. **analysis.py**: Run **analysis.py** to analyze results.csv data into **post_analysis.json**.
-3. **elo_analysis.py**: Run **elo_analysis.py** to analyze results.csv data into **elo_tracker.csv**, **elo_post_analysis.json**, and generate player graphs.
-4. Copy player graphs from output to docs->assets->player_graphs. Copy **post_analysis.json** and **elo_post_analysis.json** from output to docs.
