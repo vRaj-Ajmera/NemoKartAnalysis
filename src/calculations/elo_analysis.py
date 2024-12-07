@@ -13,8 +13,8 @@ player_graphs_dir = os.path.join(base_dir, "output/player_graphs")
 # Constants
 UNKNOWN_PLAYER_ELO = 2000
 BASE_ELO = 1000
-K_FACTOR_INITIAL = 40  # Initial K-factor for the first 10 races
-K_FACTOR_AFTER = 24  # Lower K-factor for subsequent races
+K_FACTOR_INITIAL = 24  # Initial K-factor for the first 10 races
+K_FACTOR_AFTER = 8  # Lower K-factor for subsequent races
 MAX_RACERS = 8
 
 # Create the player_graphs directory if it doesn't exist
@@ -202,7 +202,7 @@ def process_races():
 
 
 def generate_elo_graphs(default_players):
-    """Generate Elo progression graphs for each player, with all races in blue and last race of the day highlighted in red."""
+    """Generate Elo progression graphs for each player, with the most recent 5 race days."""
     # Load elo_tracker and results
     elo_tracker = load_csv(elo_tracker_file)
     results = load_csv(results_file)
@@ -231,8 +231,12 @@ def generate_elo_graphs(default_players):
         # Filter Elo tracker for the player's participation days only
         player_elo = elo_tracker[elo_tracker["Date"].isin(participation_dates)][["Date", player]]
 
+        # Get the most recent 5 unique dates
+        recent_dates = sorted(player_elo["Date"].unique())[-5:]
+        recent_player_elo = player_elo[player_elo["Date"].isin(recent_dates)]
+
         # Group Elo tracker by Date
-        grouped = player_elo.groupby("Date")
+        grouped = recent_player_elo.groupby("Date")
 
         # Initialize lists to store data for plotting
         all_dates = []
@@ -272,6 +276,7 @@ def generate_elo_graphs(default_players):
         plt.savefig(graph_path, dpi=150)  # High-resolution graph
         plt.close()
         print(f"Saved Elo graph for {player} at {graph_path}")
+
 
 
 def main():
