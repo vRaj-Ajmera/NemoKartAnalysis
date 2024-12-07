@@ -1184,22 +1184,22 @@
                 "Avg Race Position": 2.07
             },
             "Azhan": {
-                "Races": 10,
-                "Points": 229,
-                "PPR": 22.9,
-                "Avg Race Position": 1.3
+                "Races": 13,
+                "Points": 297,
+                "PPR": 22.85,
+                "Avg Race Position": 1.31
             },
             "Sameer": {
-                "Races": 0,
-                "Points": 0,
-                "PPR": 0,
-                "Avg Race Position": null
+                "Races": 11,
+                "Points": 208,
+                "PPR": 18.91,
+                "Avg Race Position": 2.18
             },
             "Zetaa": {
-                "Races": 10,
-                "Points": 119,
-                "PPR": 11.9,
-                "Avg Race Position": 4.2
+                "Races": 11,
+                "Points": 137,
+                "PPR": 12.45,
+                "Avg Race Position": 4.0
             },
             "Adi": {
                 "Races": 0,
@@ -1214,10 +1214,10 @@
                 "Avg Race Position": null
             },
             "Parum": {
-                "Races": 0,
-                "Points": 0,
-                "PPR": 0,
-                "Avg Race Position": null
+                "Races": 2,
+                "Points": 22,
+                "PPR": 11.0,
+                "Avg Race Position": 4.5
             },
             "EnderRobot": {
                 "Races": 0,
@@ -1261,22 +1261,22 @@
             "Avg Race Position": 2.57
         },
         "Azhan": {
-            "Races": 149,
-            "Points": 2941,
-            "PPR": 19.74,
-            "Avg Race Position": 2.03
+            "Races": 152,
+            "Points": 3009,
+            "PPR": 19.8,
+            "Avg Race Position": 2.02
         },
         "Sameer": {
-            "Races": 134,
-            "Points": 2225,
-            "PPR": 16.6,
-            "Avg Race Position": 2.82
+            "Races": 145,
+            "Points": 2433,
+            "PPR": 16.78,
+            "Avg Race Position": 2.77
         },
         "Zetaa": {
-            "Races": 17,
-            "Points": 219,
-            "PPR": 12.88,
-            "Avg Race Position": 3.82
+            "Races": 18,
+            "Points": 237,
+            "PPR": 13.17,
+            "Avg Race Position": 3.72
         },
         "Adi": {
             "Races": 16,
@@ -1291,10 +1291,10 @@
             "Avg Race Position": 5.1
         },
         "Parum": {
-            "Races": 4,
-            "Points": 22,
-            "PPR": 5.5,
-            "Avg Race Position": 7.25
+            "Races": 6,
+            "Points": 44,
+            "PPR": 7.33,
+            "Avg Race Position": 6.33
         },
         "EnderRobot": {
             "Races": 8,
@@ -1321,6 +1321,7 @@
     },
     "Best Race Times": {
         "Shanghai": [
+            "2:29.08 by Sameer in Puppy",
             "2:29.54 by Azhan in Puppy",
             "2:29.82 by Sameer in Puppy",
             "2:29.86 by Sameer in Puppy",
@@ -1329,8 +1330,7 @@
             "2:32.10 by Azhan in Minecart",
             "2:32.16 by Raj in Puppy",
             "2:32.72 by Azhan in Minecart",
-            "2:33.28 by Azhan in Snow Minecart",
-            "2:33.48 by Sameer in Minecart"
+            "2:33.28 by Azhan in Snow Minecart"
         ],
         "Shanghai by Night": [
             "2:30.66 by Azhan in Minecart",
@@ -1351,10 +1351,10 @@
             "1:48.22 by Raj in Greedy Snowmobile",
             "1:48.34 by Azhan in Snowmobile",
             "1:49.50 by Raj in Greedy Snowmobile",
+            "1:49.56 by Sameer in Puppy",
             "1:49.60 by Raj in Greedy Snowmobile",
             "1:50.16 by Sameer in Grey Blocks",
-            "1:50.88 by Sameer in Minecart",
-            "1:51.04 by Sameer in Grey Blocks"
+            "1:50.88 by Sameer in Minecart"
         ]
     }
 }
