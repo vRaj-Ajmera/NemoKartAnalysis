@@ -59,27 +59,18 @@ def update_elo_ratings(elo_ratings, race_results, race_counts):
     placements = race_results["Placement"].tolist()
 
     # Calculate the number of known players
-    known_players = [player for player in participants if player in elo_ratings]
-    num_known = len(known_players)
-    num_unknown = MAX_RACERS - num_known
+    num_known = len(participants)
 
-    # Sort placements to determine gaps for unknown players
-    sorted_placements = sorted(placements)
+    all_racers_list = [f"Unknown_{i}" for i in range(MAX_RACERS)]
+    all_placements_list = list(range(1, MAX_RACERS + 1))
 
-    # Distribute unknown players in the gaps
-    unknown_players = [f"Unknown_{i}" for i in range(num_unknown)]
-    unknown_placements = []
-    gap_index = 0
-
-    for _ in range(num_unknown):
-        # Find the next gap in placements
-        while gap_index < len(sorted_placements) and (len(unknown_placements) + 1) >= sorted_placements[gap_index]:
-            gap_index += 1
-        unknown_placements.append(gap_index + 1)  # Place the unknown player in the next gap
+    for i in range(len(participants)):
+        placement = placements[i]
+        all_racers_list[placement-1] = participants[i]
 
     # Add unknown players to participants and placements
-    participants += unknown_players
-    placements += unknown_placements
+    participants = all_racers_list
+    placements = all_placements_list
 
     # Increment race counts for known participants
     for player in participants:
