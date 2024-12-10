@@ -124,12 +124,32 @@ def save_data():
             return
 
         placements_used.add(placement)
-        selected_players[player] = {"Placement": placement, "Kart": kart, "Racetime": race_time}
+        selected_players[player] = {"Placement": int(placement), "Kart": kart, "Racetime": race_time}
 
     # Ensure at least one player is selected
     if not selected_players:
         status_label.config(text="Error: At least one player must be selected!", fg="red")
         return
+
+    # Validate that higher placement has faster race times
+    race_times_by_placement = {}
+    for player, data in selected_players.items():
+        placement = int(data["Placement"])
+        race_time_parts = data["Racetime"].split(":")
+        current_time = float(race_time_parts[0]) * 60 + float(race_time_parts[1])
+
+        # Check if a faster race time exists for a lower placement (higher placement number)
+        for lower_placement in race_times_by_placement:
+            if lower_placement > placement and current_time > race_times_by_placement[lower_placement]:
+                status_label.config(
+                    text=f"Error: Placement {placement} ({current_time:.2f}s) has a slower time "
+                        f"than placement {lower_placement} ({race_times_by_placement[lower_placement]:.2f}s)!",
+                    fg="red"
+                )
+                return
+
+        # Store the race time for this placement
+        race_times_by_placement[placement] = current_time
 
     # Fill DNR for unselected players
     for player in players:
@@ -170,6 +190,7 @@ def save_data():
     for widgets in player_widgets:
         widgets["placement"].set("-- Select --")
         widgets["race_time"].delete(0, tk.END)
+
 
 # GUI Setup
 root = tk.Tk()
