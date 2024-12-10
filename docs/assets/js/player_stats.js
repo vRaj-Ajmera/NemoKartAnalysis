@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             Object.entries(kartUsage).forEach(([map, stats]) => {
                 const mapTitle = document.createElement("h3");
-                mapTitle.textContent = `Most Used Karts for ${map}`;
+                mapTitle.textContent = `${player}'s most used karts on ${map}`;
                 container.appendChild(mapTitle);
 
                 const table = document.createElement("table");
