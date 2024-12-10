@@ -8,6 +8,7 @@ base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 results_file = os.path.join(base_dir, "output/results.csv")
 players_file = os.path.join(base_dir, "data/players.csv")
 elo_tracker_file = os.path.join(base_dir, "output/elo_tracker.csv")
+maps_file = os.path.join(base_dir, "data/maps.csv")
 player_graphs_dir = os.path.join(base_dir, "output/player_graphs")
 
 # Constants
@@ -29,11 +30,17 @@ def load_csv(file_path, default_columns=None):
             return pd.DataFrame()
     return pd.read_csv(file_path)
 
-def process_kart_usage(player, results, maps):
-    """Process and calculate the top 5 karts used by a player for each map."""
+# Calculate points based on placement
+def calculate_points(placement):
+    points_table = {1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4}
+    return points_table.get(placement, 0)
+
+def process_kart_usage(player, results):
+    """Calculate the top 5 karts used by a player for each map."""
     player_kart_stats = {}
 
-    for map_name in maps:
+    maps_list = load_csv(maps_file)
+    for map_name in maps_list["Map Name"]:
         map_results = results[results["Map Name"] == map_name]
         kart_usage = {}
 
@@ -54,7 +61,7 @@ def process_kart_usage(player, results, maps):
                     
                     # Update stats
                     kart_usage[kart]["Races"] += 1
-                    kart_usage[kart]["Points"] += 9 - int(placement)  # Assuming points 1st=8, 2nd=7, ..., 8th=1
+                    kart_usage[kart]["Points"] += calculate_points(int(placement))
                     kart_usage[kart]["Positions"].append(int(placement))
                     
                     # Convert racetime to seconds
@@ -66,19 +73,17 @@ def process_kart_usage(player, results, maps):
         kart_stats = []
         for kart, stats in kart_usage.items():
             avg_position = sum(stats["Positions"]) / len(stats["Positions"])
-            avg_time = sum(stats["Times"]) / len(stats["Times"])
             ppr = stats["Points"] / stats["Races"]  # Points per race
             kart_stats.append({
                 "Kart": kart,
                 "Races": stats["Races"],
                 "Points": stats["Points"],
                 "PPR": round(ppr, 2),
-                "Avg": round(avg_time, 2),
-                "Position": round(avg_position, 2),
+                "Avg Position": round(avg_position, 2),
             })
 
         # Sort by PPR and take the top 5
-        kart_stats = sorted(kart_stats, key=lambda x: x["PPR"], reverse=True)[:5]
+        kart_stats = sorted(kart_stats, key=lambda x: x["Races"], reverse=True)[:5]
         player_kart_stats[map_name] = kart_stats
 
     return player_kart_stats
@@ -180,8 +185,9 @@ def process_races():
     # Load results
     results = load_csv(results_file)
     players = load_csv(players_file, default_columns=["Player Name"])
+    maps = load_csv(maps_file, default_columns=["Map Name"])
     default_players = players["Player Name"].tolist()
-
+    map_list = maps["Map Name"].tolist()
 
     # Clear and initialize the elo_tracker
     columns = ["Date", "Time", "Map Name"] + default_players
@@ -243,6 +249,7 @@ def process_races():
             player: {
                 "Peak Rating": round(peak_elo[player]),
                 "Current Rating": round(current_elo[player]),
+                "Kart Usage": process_kart_usage(player, results)  # Add kart usage stats here
             }
             for player in default_players
         }
@@ -253,6 +260,7 @@ def process_races():
     with open(elo_post_analysis_file, "w") as json_file:
         json.dump(elo_post_analysis, json_file, indent=4)
     print(f"Elo post-analysis saved to {elo_post_analysis_file}")
+
 
 
 def generate_elo_graphs(default_players):
