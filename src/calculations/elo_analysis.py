@@ -29,6 +29,60 @@ def load_csv(file_path, default_columns=None):
             return pd.DataFrame()
     return pd.read_csv(file_path)
 
+def process_kart_usage(player, results, maps):
+    """Process and calculate the top 5 karts used by a player for each map."""
+    player_kart_stats = {}
+
+    for map_name in maps:
+        map_results = results[results["Map Name"] == map_name]
+        kart_usage = {}
+
+        for _, row in map_results.iterrows():
+            placement_col = f"{player} Placement"
+            kart_col = f"{player} Kart"
+            racetime_col = f"{player} Racetime"
+
+            if placement_col in row and kart_col in row and racetime_col in row:
+                placement = row[placement_col]
+                kart = row[kart_col]
+                racetime = row[racetime_col]
+
+                if placement != "DNR" and kart != "DNR" and racetime != "DNR":
+                    # Initialize kart stats
+                    if kart not in kart_usage:
+                        kart_usage[kart] = {"Races": 0, "Points": 0, "Positions": [], "Times": []}
+                    
+                    # Update stats
+                    kart_usage[kart]["Races"] += 1
+                    kart_usage[kart]["Points"] += 9 - int(placement)  # Assuming points 1st=8, 2nd=7, ..., 8th=1
+                    kart_usage[kart]["Positions"].append(int(placement))
+                    
+                    # Convert racetime to seconds
+                    time_parts = racetime.split(":")
+                    kart_time = float(time_parts[0]) * 60 + float(time_parts[1])
+                    kart_usage[kart]["Times"].append(kart_time)
+
+        # Compute aggregated stats for each kart
+        kart_stats = []
+        for kart, stats in kart_usage.items():
+            avg_position = sum(stats["Positions"]) / len(stats["Positions"])
+            avg_time = sum(stats["Times"]) / len(stats["Times"])
+            ppr = stats["Points"] / stats["Races"]  # Points per race
+            kart_stats.append({
+                "Kart": kart,
+                "Races": stats["Races"],
+                "Points": stats["Points"],
+                "PPR": round(ppr, 2),
+                "Avg": round(avg_time, 2),
+                "Position": round(avg_position, 2),
+            })
+
+        # Sort by PPR and take the top 5
+        kart_stats = sorted(kart_stats, key=lambda x: x["PPR"], reverse=True)[:5]
+        player_kart_stats[map_name] = kart_stats
+
+    return player_kart_stats
+
 def initialize_elo_tracker(results, default_players):
     """Initialize the Elo tracker file if it doesn't exist."""
     if not os.path.exists(elo_tracker_file):
