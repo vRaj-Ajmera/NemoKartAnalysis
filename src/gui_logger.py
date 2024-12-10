@@ -3,6 +3,7 @@ from tkinter import ttk
 import pandas as pd
 import os
 import datetime
+import re
 
 MAX_RACERS=8
 
@@ -74,8 +75,10 @@ def validate_player_inputs(player, placement, kart, race_time):
         return False, f"Placement for {player} must be a number between 1 and 8."
     if kart == "-- Select --":
         return False, f"Kart for {player} must be selected."
-    if not race_time or ":" not in race_time:
-        return False, f"Race time for {player} must be in the format MM:SS.xx."
+    # Validate race time format using regex
+    time_pattern = r"^\d:[0-5]\d\.\d{2}$"  # M:SS.xx format
+    if not race_time or not re.match(time_pattern, race_time):
+        return False, f"Race time for {player} must be in the format M:SS.xx (e.g., 1:23.45)."
     return True, ""
 
 # Save data to CSV
