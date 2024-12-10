@@ -132,24 +132,29 @@ def save_data():
         return
 
     # Validate that higher placement has faster race times
-    race_times_by_placement = {}
+    race_data = []
+
+    # Construct a list of placement and race time objects
     for player, data in selected_players.items():
         placement = int(data["Placement"])
         race_time_parts = data["Racetime"].split(":")
         current_time = float(race_time_parts[0]) * 60 + float(race_time_parts[1])
 
-        # Check if a faster race time exists for a lower placement (higher placement number)
-        for lower_placement in race_times_by_placement:
-            if lower_placement > placement and current_time > race_times_by_placement[lower_placement]:
-                status_label.config(
-                    text=f"Error: Placement {placement} ({current_time:.2f}s) has a slower time "
-                        f"than placement {lower_placement} ({race_times_by_placement[lower_placement]:.2f}s)!",
-                    fg="red"
-                )
-                return
+        race_data.append({"Placement": placement, "Race Time": current_time})
 
-        # Store the race time for this placement
-        race_times_by_placement[placement] = current_time
+    # Compare each player's race time with all other players
+    for i in range(len(race_data)):
+        for j in range(len(race_data)):
+            if i == j:  # Skip comparing the same player
+                continue
+            if race_data[i]["Placement"] < race_data[j]["Placement"]:  # Higher placement (lower number)
+                if race_data[i]["Race Time"] > race_data[j]["Race Time"]:  # Slower race time
+                    status_label.config(
+                        text=f"Error: Placement {race_data[i]['Placement']} ({race_data[i]['Race Time']:.2f}s) has a slower time "
+                            f"than placement {race_data[j]['Placement']} ({race_data[j]['Race Time']:.2f}s)!",
+                        fg="red"
+                    )
+                    return
 
     # Fill DNR for unselected players
     for player in players:
