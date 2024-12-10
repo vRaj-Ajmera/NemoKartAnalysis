@@ -124,7 +124,7 @@ def save_data():
             return
 
         placements_used.add(placement)
-        selected_players[player] = {"Placement": int(placement), "Kart": kart, "Racetime": race_time}
+        selected_players[player] = {"Placement": placement, "Kart": kart, "Racetime": race_time}
 
     # Ensure at least one player is selected
     if not selected_players:
