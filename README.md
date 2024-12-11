@@ -27,25 +27,27 @@ NemoKartAnalysis/
 │   │   │   ├── player_stats.js     # JS for player_stats.html
 │   │   │   ├── kart_stats.js       # JS for kart_stats.html
 │   │   ├── player_graphs/          # Player-rating graphs, rendered in player_stats.html
+│   │   ├── kart_graphs/            # Kart stats graphs, rendered in kart_stats.html
+│   │   ├── videos/                 # Videos for website background, rendered in index.html
 │   ├── index.html                  # Home page
 │   ├── player_stats.html           # Player stats page
 │   ├── kart_stats.html             # Kart stats page
 │   ├── post_analysis.json          # Shared data for rendering index.html
 │   ├── elo_post_analysis.json      # Shared data for rendering player_stats.html
 ├── output/
-│   ├── dummy_post_analysis.json    # For testing
-│   ├── dummy_results.csv           # For testing
+│   ├── results.csv                 # Race results from gui_logger.py here
 │   ├── post_analysis.json          # Main analysis output
 │   ├── elo_post_analysis.json      # Elo analysis ouput
-│   ├── results.csv                 # Main race results
 │   ├── elo_tracker.csv             # Elo tracker race by race
 │   ├── player_graphs/              # Player-rating graphs
+│   ├── kart_graphs/                # Kart-statistics graphs
+│   ├── dummy_results.csv           # For testing
 ├── src/
-│   ├── gui_logger.py           # GUI for race logging
-│   ├── gui_analyzer.py         # GUI for data analysis
+│   ├── gui_logger.py               # RUN THIS FIRST. GUI for race logging
+│   ├── analyze_all.py              # RUN THIS SECOND. Runs all calculations and updates json/graphs for website.
 │   ├── calculations/
 │   │   ├── analysis.py             # Generates post_analysis.json
-│   │   ├── elo_calculations.py     # ELO calculations
-│   │   ├── kart_rankings.py        # Kart performance rankings
+│   │   ├── elo_calculations.py     # ELO and player-by-player calculations, writes elo_post_analysis.json and elo_tracker.csv and generates player_graphs
+│   │   ├── kart_rankings.py        # Kart performance rankings generates graphs to kart_graphs
 ├── .gitignore                      # Git configuration
 ├── README.md                       # Project documentation
