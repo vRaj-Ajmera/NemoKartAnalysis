@@ -294,7 +294,7 @@ def generate_elo_graphs(default_players):
         player_elo = elo_tracker[elo_tracker["Date"].isin(participation_dates)][["Date", player]]
 
         # Get the most recent 5 unique dates
-        recent_dates = sorted(player_elo["Date"].unique())[-5:]
+        recent_dates = sorted(player_elo["Date"].unique())[-6:]
         recent_player_elo = player_elo[player_elo["Date"].isin(recent_dates)]
 
         # Group Elo tracker by Date
