@@ -3,12 +3,15 @@ import os
 import json
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
+from itertools import combinations
 
 # Base directory and file paths
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 results_file = os.path.join(base_dir, "output/results.csv")
 maps_file = os.path.join(base_dir, "data/maps.csv")
 karts_file = os.path.join(base_dir, "data/karts.csv")
+output_file = os.path.join(base_dir, "output/kart_post_analysis.json")
 
 # Constants
 DEFAULT_ELO = 1000  # Default Elo rating for normalization
@@ -208,9 +211,136 @@ def generate_kart_placement_plots():
         plt.close()
         print(f"Saved kart placement box plot for {map_name} at {graph_path}")
 
+def generate_kart_pairwise_comparisons():
+    """Generate pairwise kart performance comparisons for each map and save as JSON."""
+    # Load data
+    results = load_csv(results_file)
+    maps_data = load_csv(maps_file)
+    karts_data = load_csv(karts_file)
+
+    # Extract kart and map names
+    karts_list = karts_data["Kart Name"].tolist()
+    maps_list = maps_data["Map Name"].tolist()
+
+    # Initialize output dictionary
+    kart_comparison_data = {}
+
+    # Iterate through each map
+    for map_name in maps_list:
+        # Filter results for the current map
+        map_results = results[results["Map Name"] == map_name]
+
+        # Initialize adjacency list for kart comparisons
+        kart_wins = {kart: {other_kart: "DNR" for other_kart in karts_list} for kart in karts_list}
+
+        # Process each race
+        for _, race in map_results.iterrows():
+            # Collect kart placements for this race
+            kart_placements = {}
+            for i in range(3, len(race), 3):
+                kart_col = race.index[i + 1]  # Kart column
+                placement_col = race.index[i]  # Placement column
+                kart_name = race[kart_col]
+                placement = race[placement_col]
+
+                if kart_name != "DNR" and placement != "DNR":
+                    kart_placements[kart_name] = int(placement)
+
+            # Only consider races with 2 or more karts
+            if len(kart_placements) < 2:
+                continue
+
+            # Compare pairwise karts
+            for kart_a, kart_b in combinations(kart_placements.keys(), 2):
+                placement_a = kart_placements[kart_a]
+                placement_b = kart_placements[kart_b]
+
+                # Initialize wins if they don't exist
+                if kart_wins[kart_a][kart_b] == "DNR":
+                    kart_wins[kart_a][kart_b] = 0
+                if kart_wins[kart_b][kart_a] == "DNR":
+                    kart_wins[kart_b][kart_a] = 0
+
+                # Update wins
+                if placement_a < placement_b:
+                    kart_wins[kart_a][kart_b] += 1
+                elif placement_b < placement_a:
+                    kart_wins[kart_b][kart_a] += 1
+
+        # Store the comparison results for this map
+        kart_comparison_data[map_name] = kart_wins
+
+    # Save to JSON file
+    with open(output_file, "w") as json_file:
+        json.dump(kart_comparison_data, json_file, indent=4)
+
+    print(f"Kart pairwise performance analysis saved to {output_file}")
+
+
+def generate_kart_win_rate_heatmaps():
+    """Generate heatmaps of kart win rates for each map based on pairwise comparisons."""
+    # Load the kart_post_analysis.json
+    with open(output_file, "r") as json_file:
+        kart_comparison_data = json.load(json_file)
+    
+    # Directory for saving heatmaps
+    kart_graphs_dir = os.path.join(base_dir, "output/kart_graphs")
+    os.makedirs(kart_graphs_dir, exist_ok=True)
+
+    # Iterate through each map
+    for map_name, kart_wins in kart_comparison_data.items():
+        # Create a DataFrame for the win rates
+        karts = list(kart_wins.keys())
+        win_rate_matrix = []
+
+        for kart_a in karts:
+            row = []
+            for kart_b in karts:
+                if kart_wins[kart_a][kart_b] == "DNR":
+                    row.append(np.nan)  # Use NaN for DNR
+                else:
+                    wins_a = kart_wins[kart_a][kart_b]
+                    wins_b = kart_wins[kart_b][kart_a]
+                    total_races = wins_a + wins_b
+                    win_rate = (wins_a / total_races) * 10 if total_races > 0 else np.nan
+                    row.append(win_rate)
+            win_rate_matrix.append(row)
+
+        # Convert to DataFrame for heatmap
+        win_rate_df = pd.DataFrame(win_rate_matrix, index=karts, columns=karts)
+
+        # Plot the heatmap
+        plt.figure(figsize=(12, 10))
+        sns.heatmap(
+            win_rate_df,
+            annot=True,
+            fmt=".1f",
+            cmap="RdYlGn",
+            cbar_kws={"label": "Win Rate (0-10)"},
+            linewidths=0.5,
+            linecolor="black",
+            mask=win_rate_df.isnull(),  # Mask NaN values
+        )
+        plt.title(f"Kart Win Rate Heatmap - {map_name}", fontsize=16)
+        plt.xlabel("Kart B", fontsize=12)
+        plt.ylabel("Kart A", fontsize=12)
+        plt.xticks(rotation=45, fontsize=10)
+        plt.yticks(fontsize=10)
+        plt.tight_layout()
+
+        # Save the heatmap
+        heatmap_path = os.path.join(kart_graphs_dir, f"{map_name}_win_rate_heatmap.png")
+        plt.savefig(heatmap_path, dpi=150)
+        plt.close()
+        print(f"Saved kart win rate heatmap for {map_name} at {heatmap_path}")
+
+
 def main():
     generate_kart_racetime_box_plots()
-    generate_kart_placement_plots()
+    #generate_kart_placement_plots()
+    generate_kart_pairwise_comparisons()
+    generate_kart_win_rate_heatmaps()
+
 
 if __name__ == "__main__":
     main()
