@@ -144,33 +144,32 @@ def generate_kart_pairwise_comparisons():
 
         # Process each race
         for _, race in map_results.iterrows():
-            # Collect kart placements for this race
-            kart_placements = {}
-            for i in range(3, len(race), 3):
+            # Collect all kart placements for this race
+            kart_placements = []
+            for i in range(3, len(race), 3):  # Placement, Kart, Racetime columns
                 kart_col = race.index[i + 1]  # Kart column
                 placement_col = race.index[i]  # Placement column
                 kart_name = race[kart_col]
                 placement = race[placement_col]
 
                 if kart_name != "DNR" and placement != "DNR":
-                    kart_placements[kart_name] = int(placement)
+                    kart_placements.append((kart_name, int(placement)))
 
             # Only consider races with 2 or more karts
             if len(kart_placements) < 2:
                 continue
 
-            # Compare pairwise karts
-            for kart_a, kart_b in combinations(kart_placements.keys(), 2):
-                placement_a = kart_placements[kart_a]
-                placement_b = kart_placements[kart_b]
-
+            # Compare pairwise karts: every combination of kart placements
+            for (kart_a, placement_a), (kart_b, placement_b) in combinations(kart_placements, 2):
+                #print(kart_a, placement_a) for testing
+                #print(kart_b, placement_b) for testing
                 # Initialize wins if they don't exist
                 if kart_wins[kart_a][kart_b] == "DNR":
                     kart_wins[kart_a][kart_b] = 0
                 if kart_wins[kart_b][kart_a] == "DNR":
                     kart_wins[kart_b][kart_a] = 0
 
-                # Update wins
+                # Update wins based on placement
                 if placement_a < placement_b:
                     kart_wins[kart_a][kart_b] += 1
                 elif placement_b < placement_a:
@@ -178,6 +177,13 @@ def generate_kart_pairwise_comparisons():
 
         # Store the comparison results for this map
         kart_comparison_data[map_name] = kart_wins
+
+    # Save to JSON file
+    with open(output_file, "w") as json_file:
+        json.dump(kart_comparison_data, json_file, indent=4)
+
+    print(f"Kart pairwise performance analysis saved to {output_file}")
+
 
     # Save to JSON file
     with open(output_file, "w") as json_file:
