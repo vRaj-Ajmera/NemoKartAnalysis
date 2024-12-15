@@ -135,3 +135,70 @@ footer {
     position: relative;
     margin-top: 20px;
 }
+
+/* General Section Text Styling */
+#intro {
+    background-color: rgba(255, 255, 255, 0.05); /* Light translucent background */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-left: 5px solid #f5a623; /* Highlighted left border */
+    border-radius: 5px;
+    line-height: 1.6;
+    animation: fadeIn 1s ease-out;
+}
+
+#intro h2 {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #f5a623; /* Accent color */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#intro p {
+    font-size: 1.1em;
+    color: #dcdcdc;
+    margin-bottom: 15px;
+}
+
+#intro ul {
+    margin-left: 20px;
+    font-size: 1.05em;
+    color: #ffffff;
+}
+
+#intro ul li {
+    margin-bottom: 10px;
+}
+
+#intro ul li strong {
+    color: #f5a623; /* Highlighted terms */
+}
+
+/* Label and Dropdown Styling */
+label[for="mapDropdown"] {
+    font-size: 1.1em;
+    color: #f5a623;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#mapDropdown {
+    width: 220px;
+    padding: 12px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    border: 2px solid #f5a623;
+    background-color: #2a2a3b;
+    color: #ffffff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#mapDropdown:hover,
+#mapDropdown:focus {
+    border-color: #ffcc00;
+    outline: none;
+    box-shadow: 0 0 10px rgba(245, 166, 35, 0.5);
+}
