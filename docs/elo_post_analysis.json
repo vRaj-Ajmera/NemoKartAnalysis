@@ -2,15 +2,15 @@
     "Player Ratings": {
         "Raj": {
             "Peak Rating": 2361,
-            "Current Rating": 2313,
+            "Current Rating": 2327,
             "Kart Usage": {
                 "Shanghai": [
                     {
                         "Kart": "Puppy",
-                        "Races": 17,
-                        "Points": 295,
-                        "PPR": 17.35,
-                        "Avg Position": 2.65
+                        "Races": 20,
+                        "Points": 370,
+                        "PPR": 18.5,
+                        "Avg Position": 2.4
                     },
                     {
                         "Kart": "Greedy Snowmobile",
@@ -72,26 +72,26 @@
                     },
                     {
                         "Kart": "Snow Minecart",
-                        "Races": 2,
-                        "Points": 27,
-                        "PPR": 13.5,
-                        "Avg Position": 3.5
+                        "Races": 3,
+                        "Points": 52,
+                        "PPR": 17.33,
+                        "Avg Position": 2.67
                     }
                 ],
                 "Snowville": [
                     {
                         "Kart": "Greedy Snowmobile",
-                        "Races": 41,
-                        "Points": 801,
-                        "PPR": 19.54,
+                        "Races": 42,
+                        "Points": 819,
+                        "PPR": 19.5,
                         "Avg Position": 2.05
                     },
                     {
                         "Kart": "Snow Minecart",
-                        "Races": 7,
-                        "Points": 131,
-                        "PPR": 18.71,
-                        "Avg Position": 2.14
+                        "Races": 9,
+                        "Points": 181,
+                        "PPR": 20.11,
+                        "Avg Position": 1.89
                     },
                     {
                         "Kart": "Grey Blocks",
