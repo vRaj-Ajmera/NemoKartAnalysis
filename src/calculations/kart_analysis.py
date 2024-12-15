@@ -185,13 +185,6 @@ def generate_kart_pairwise_comparisons():
     print(f"Kart pairwise performance analysis saved to {output_file}")
 
 
-    # Save to JSON file
-    with open(output_file, "w") as json_file:
-        json.dump(kart_comparison_data, json_file, indent=4)
-
-    print(f"Kart pairwise performance analysis saved to {output_file}")
-
-
 def generate_kart_win_rate_heatmaps():
     """Generate heatmaps of kart win rates for each map based on pairwise comparisons."""
     # Load the kart_post_analysis.json
