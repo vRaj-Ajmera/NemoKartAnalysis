@@ -202,3 +202,70 @@ label[for="mapDropdown"] {
     outline: none;
     box-shadow: 0 0 10px rgba(245, 166, 35, 0.5);
 }
+
+/* Dropdown Label Styling */
+label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f5a623; /* Orange color for the label */
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Dropdown Styling */
+select {
+    width: 250px; /* Consistent width for dropdowns */
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #f5a623; /* Orange border */
+    border-radius: 5px;
+    background-color: #1e1e2f; /* Dark background */
+    color: white; /* White text */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #f5a623;
+    box-shadow: 0px 0px 8px #f5a623;
+}
+
+/* Add spacing for dropdown containers */
+section select {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+/* Flex Container for Labels and Dropdowns */
+.dropdown-container {
+    display: flex;
+    align-items: center; /* Vertically center label and dropdown */
+    margin-bottom: 20px;
+}
+
+.dropdown-container label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f5a623; /* Orange color for label */
+    margin-right: 10px; /* Spacing between label and dropdown */
+    white-space: nowrap; /* Prevent label text from wrapping */
+}
+
+.dropdown-container select {
+    width: 250px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #f5a623;
+    border-radius: 5px;
+    background-color: #1e1e2f;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropdown-container select:focus {
+    outline: none;
+    border-color: #f5a623;
+    box-shadow: 0px 0px 8px #f5a623;
+}
