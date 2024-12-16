@@ -73,6 +73,8 @@ def generate_kart_racetime_box_plots():
         # Prepare data for plotting
         plot_data = []
         kart_counts = {}  # To store race counts for each kart
+        # Filter out karts with less than 3 race times
+        kart_times = {kart: times for kart, times in kart_times.items() if len(times) >= 3}
         for kart, times in kart_times.items():
             kart_counts[kart] = len(times)
             for time in times:
