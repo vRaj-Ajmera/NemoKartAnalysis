@@ -1,3 +1,30 @@
+function addProfilePictures() {
+    const players = ["Raj", "Azhan", "Sameer", "Zetaa", "Adi", "Dylan", "Parum", "EnderRobot", "Lynden"];
+    const defaultImagePath = "assets/icons/default.png";
+
+    // Loop through all <td> elements in the document
+    document.querySelectorAll("td").forEach(td => {
+        const playerName = td.textContent.trim();
+
+        if (players.includes(playerName)) {
+            const imagePath = `assets/icons/${playerName}.png`;
+
+            // Create image element
+            const img = document.createElement("img");
+            img.src = imagePath;
+            img.alt = playerName;
+            img.className = "profile-pic";
+            img.onerror = () => (img.src = defaultImagePath); // Fallback to default image
+
+            // Clear existing text and re-add image + name
+            td.innerHTML = ""; // Clear text content
+            td.appendChild(img);
+            td.appendChild(document.createTextNode(` ${playerName}`)); // Add name after the image
+        }
+    });
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const postAnalysisUrl = "post_analysis.json";
 
@@ -26,26 +53,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 </tr>
             </thead>
             <tbody>
-                ${Object.entries(stats).map(([player, stat]) => {
-                    const imagePath = `assets/icons/${player}.png`; // Path to profile images
-                    return `
-                        <tr>
-                            <td>
-                                <img src="${imagePath}" alt="${player}" class="profile-pic" />
-                                ${player}
-                            </td>
-                            <td>${stat.Races}</td>
-                            <td>${stat.Points}</td>
-                            <td>${stat.PPR.toFixed(2)}</td>
-                            <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
-                        </tr>
-                    `;
-                }).join("")}
+                ${Object.entries(stats).map(([player, stat]) => `
+                    <tr>
+                        <td>${player}</td>
+                        <td>${stat.Races}</td>
+                        <td>${stat.Points}</td>
+                        <td>${stat.PPR.toFixed(2)}</td>
+                        <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
+                    </tr>
+                `).join("")}
             </tbody>
         `;
         document.getElementById("summary-table").appendChild(table);
+        addProfilePictures(); // Add profile pictures after table renders
     }
-    
+
 
     // Populate and handle Daily Stats Dropdown
     function populateDailyStatsDropdown(dailyStats) {
@@ -64,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
 
     // Render Daily Stats Table
     function renderDailyStatsTable(stats) {
@@ -93,7 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const container = document.getElementById("daily-stats-table");
         container.innerHTML = ""; // Clear previous table
         container.appendChild(table);
+        addProfilePictures(); // Add profile pictures after table renders
     }
+
 
     // Render Races Together Table
     function renderRacesTogetherTable(stats) {
@@ -123,7 +148,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const container = document.getElementById("races-together-table");
         container.innerHTML = ""; // Clear previous table
         container.appendChild(table);
+        addProfilePictures(); // Add profile pictures after table renders
     }
+
 
     // Populate and handle Leaderboards Dropdown
     function populateLeaderboardsDropdown(leaderboards) {
@@ -142,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
 
     // Render Leaderboards Table
     function renderLeaderboardsTable(leaderboard) {
@@ -165,5 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const container = document.getElementById("leaderboards-table");
         container.innerHTML = ""; // Clear previous table
         container.appendChild(table);
+        addProfilePictures(); // Add profile pictures after table renders
     }
 });
