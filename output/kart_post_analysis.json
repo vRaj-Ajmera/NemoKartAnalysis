@@ -371,7 +371,7 @@
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
             "Minecart": "DNR",
-            "Snow Minecart": "DNR",
+            "Snow Minecart": 0,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
             "Puppy": 0
@@ -422,7 +422,7 @@
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
             "Minecart": 0,
-            "Snow Minecart": 0,
+            "Snow Minecart": 1,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
             "Puppy": "DNR"
@@ -447,16 +447,16 @@
         "Snow Minecart": {
             "The Kart": 2,
             "Dino Kart": "DNR",
-            "Bat Kart": 11,
+            "Bat Kart": 12,
             "Blocks": "DNR",
             "Grey Blocks": 5,
             "Monstro": "DNR",
-            "Dino Monstro": "DNR",
+            "Dino Monstro": 1,
             "Joker Monstro": 0,
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
             "Minecart": 5,
-            "Snow Minecart": 5,
+            "Snow Minecart": 7,
             "Trolley": 1,
             "Golden Trolley": "DNR",
             "Puppy": 0

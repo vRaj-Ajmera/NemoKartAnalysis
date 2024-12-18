@@ -2,7 +2,7 @@
     "Player Ratings": {
         "Raj": {
             "Peak Rating": 2361,
-            "Current Rating": 2327,
+            "Current Rating": 2323,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -44,10 +44,10 @@
                 "Shanghai by Night": [
                     {
                         "Kart": "Bat Kart",
-                        "Races": 21,
-                        "Points": 339,
-                        "PPR": 16.14,
-                        "Avg Position": 2.9
+                        "Races": 22,
+                        "Points": 354,
+                        "PPR": 16.09,
+                        "Avg Position": 2.91
                     },
                     {
                         "Kart": "Minecart",
@@ -65,17 +65,17 @@
                     },
                     {
                         "Kart": "Greedy Snowmobile",
-                        "Races": 5,
-                        "Points": 74,
-                        "PPR": 14.8,
-                        "Avg Position": 3.2
+                        "Races": 6,
+                        "Points": 92,
+                        "PPR": 15.33,
+                        "Avg Position": 3.0
                     },
                     {
                         "Kart": "Snow Minecart",
-                        "Races": 3,
-                        "Points": 52,
-                        "PPR": 17.33,
-                        "Avg Position": 2.67
+                        "Races": 5,
+                        "Points": 89,
+                        "PPR": 17.8,
+                        "Avg Position": 2.6
                     }
                 ],
                 "Snowville": [
@@ -118,8 +118,8 @@
             }
         },
         "Azhan": {
-            "Peak Rating": 2404,
-            "Current Rating": 2404,
+            "Peak Rating": 2408,
+            "Current Rating": 2402,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -161,10 +161,10 @@
                 "Shanghai by Night": [
                     {
                         "Kart": "Snow Minecart",
-                        "Races": 22,
-                        "Points": 474,
-                        "PPR": 21.55,
-                        "Avg Position": 1.68
+                        "Races": 27,
+                        "Points": 572,
+                        "PPR": 21.19,
+                        "Avg Position": 1.74
                     },
                     {
                         "Kart": "Minecart",
