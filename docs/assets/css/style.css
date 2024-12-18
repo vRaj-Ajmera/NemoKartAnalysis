@@ -135,3 +135,20 @@ footer {
     position: relative;
     margin-top: 20px;
 }
+
+/* Circular profile pictures */
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Circular images */
+    object-fit: cover;
+    margin-right: 10px;
+    vertical-align: middle;
+
+    /* Add border with gradient effect */
+    border: 3px solid transparent;
+    background-image: linear-gradient(to right, #f5a623, #ff4757);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}

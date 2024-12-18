@@ -26,19 +26,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 </tr>
             </thead>
             <tbody>
-                ${Object.entries(stats).map(([player, stat]) => `
-                    <tr>
-                        <td>${player}</td>
-                        <td>${stat.Races}</td>
-                        <td>${stat.Points}</td>
-                        <td>${stat.PPR.toFixed(2)}</td>
-                        <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
-                    </tr>
-                `).join("")}
+                ${Object.entries(stats).map(([player, stat]) => {
+                    const imagePath = `assets/icons/${player}.png`; // Path to profile images
+                    return `
+                        <tr>
+                            <td>
+                                <img src="${imagePath}" alt="${player}" class="profile-pic" />
+                                ${player}
+                            </td>
+                            <td>${stat.Races}</td>
+                            <td>${stat.Points}</td>
+                            <td>${stat.PPR.toFixed(2)}</td>
+                            <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
+                        </tr>
+                    `;
+                }).join("")}
             </tbody>
         `;
         document.getElementById("summary-table").appendChild(table);
     }
+    
 
     // Populate and handle Daily Stats Dropdown
     function populateDailyStatsDropdown(dailyStats) {
