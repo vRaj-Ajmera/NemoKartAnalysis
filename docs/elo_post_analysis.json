@@ -2,15 +2,15 @@
     "Player Ratings": {
         "Raj": {
             "Peak Rating": 2361,
-            "Current Rating": 2323,
+            "Current Rating": 2355,
             "Kart Usage": {
                 "Shanghai": [
                     {
                         "Kart": "Puppy",
-                        "Races": 20,
-                        "Points": 370,
-                        "PPR": 18.5,
-                        "Avg Position": 2.4
+                        "Races": 22,
+                        "Points": 413,
+                        "PPR": 18.77,
+                        "Avg Position": 2.32
                     },
                     {
                         "Kart": "Greedy Snowmobile",
@@ -64,18 +64,18 @@
                         "Avg Position": 2.5
                     },
                     {
+                        "Kart": "Snow Minecart",
+                        "Races": 6,
+                        "Points": 107,
+                        "PPR": 17.83,
+                        "Avg Position": 2.5
+                    },
+                    {
                         "Kart": "Greedy Snowmobile",
                         "Races": 6,
                         "Points": 92,
                         "PPR": 15.33,
                         "Avg Position": 3.0
-                    },
-                    {
-                        "Kart": "Snow Minecart",
-                        "Races": 5,
-                        "Points": 89,
-                        "PPR": 17.8,
-                        "Avg Position": 2.6
                     }
                 ],
                 "Snowville": [
@@ -94,11 +94,18 @@
                         "Avg Position": 1.89
                     },
                     {
+                        "Kart": "Snowmobile",
+                        "Races": 7,
+                        "Points": 130,
+                        "PPR": 18.57,
+                        "Avg Position": 2.29
+                    },
+                    {
                         "Kart": "Grey Blocks",
-                        "Races": 4,
-                        "Points": 76,
-                        "PPR": 19.0,
-                        "Avg Position": 2.0
+                        "Races": 5,
+                        "Points": 91,
+                        "PPR": 18.2,
+                        "Avg Position": 2.2
                     },
                     {
                         "Kart": "The Kart",
@@ -106,35 +113,28 @@
                         "Points": 40,
                         "PPR": 13.33,
                         "Avg Position": 3.67
-                    },
-                    {
-                        "Kart": "Snowmobile",
-                        "Races": 3,
-                        "Points": 51,
-                        "PPR": 17.0,
-                        "Avg Position": 3.0
                     }
                 ]
             }
         },
         "Azhan": {
             "Peak Rating": 2408,
-            "Current Rating": 2402,
+            "Current Rating": 2379,
             "Kart Usage": {
                 "Shanghai": [
+                    {
+                        "Kart": "Puppy",
+                        "Races": 19,
+                        "Points": 377,
+                        "PPR": 19.84,
+                        "Avg Position": 2.05
+                    },
                     {
                         "Kart": "Minecart",
                         "Races": 18,
                         "Points": 342,
                         "PPR": 19.0,
                         "Avg Position": 2.28
-                    },
-                    {
-                        "Kart": "Puppy",
-                        "Races": 16,
-                        "Points": 322,
-                        "PPR": 20.12,
-                        "Avg Position": 2.0
                     },
                     {
                         "Kart": "Snow Minecart",
@@ -161,10 +161,10 @@
                 "Shanghai by Night": [
                     {
                         "Kart": "Snow Minecart",
-                        "Races": 27,
-                        "Points": 572,
-                        "PPR": 21.19,
-                        "Avg Position": 1.74
+                        "Races": 29,
+                        "Points": 612,
+                        "PPR": 21.1,
+                        "Avg Position": 1.76
                     },
                     {
                         "Kart": "Minecart",
@@ -181,14 +181,14 @@
                         "Avg Position": 3.0
                     },
                     {
-                        "Kart": "Grey Blocks",
-                        "Races": 4,
-                        "Points": 80,
-                        "PPR": 20.0,
-                        "Avg Position": 2.0
+                        "Kart": "Puppy",
+                        "Races": 5,
+                        "Points": 91,
+                        "PPR": 18.2,
+                        "Avg Position": 2.2
                     },
                     {
-                        "Kart": "Bat Kart",
+                        "Kart": "Grey Blocks",
                         "Races": 4,
                         "Points": 80,
                         "PPR": 20.0,
@@ -198,10 +198,10 @@
                 "Snowville": [
                     {
                         "Kart": "Greedy Snowmobile",
-                        "Races": 35,
-                        "Points": 677,
-                        "PPR": 19.34,
-                        "Avg Position": 2.14
+                        "Races": 40,
+                        "Points": 768,
+                        "PPR": 19.2,
+                        "Avg Position": 2.15
                     },
                     {
                         "Kart": "Snow Minecart",

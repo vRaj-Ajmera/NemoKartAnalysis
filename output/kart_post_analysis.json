@@ -134,7 +134,7 @@
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": 0
         },
         "Snowmobile": {
             "The Kart": "DNR",
@@ -246,14 +246,14 @@
             "Grey Blocks": 7,
             "Monstro": "DNR",
             "Dino Monstro": 2,
-            "Joker Monstro": "DNR",
+            "Joker Monstro": 1,
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
             "Minecart": 1,
             "Snow Minecart": 2,
             "Trolley": "DNR",
             "Golden Trolley": 1,
-            "Puppy": 24
+            "Puppy": 26
         }
     },
     "Shanghai by Night": {
@@ -314,7 +314,7 @@
             "Bat Kart": "DNR",
             "Blocks": "DNR",
             "Grey Blocks": "DNR",
-            "Monstro": "DNR",
+            "Monstro": 1,
             "Dino Monstro": "DNR",
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
@@ -346,7 +346,7 @@
             "The Kart": "DNR",
             "Dino Kart": "DNR",
             "Bat Kart": 1,
-            "Blocks": "DNR",
+            "Blocks": 0,
             "Grey Blocks": "DNR",
             "Monstro": "DNR",
             "Dino Monstro": "DNR",
@@ -456,7 +456,7 @@
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
             "Minecart": 5,
-            "Snow Minecart": 7,
+            "Snow Minecart": 8,
             "Trolley": 1,
             "Golden Trolley": "DNR",
             "Puppy": 0
@@ -507,10 +507,10 @@
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
             "Minecart": 1,
-            "Snow Minecart": 2,
+            "Snow Minecart": 3,
             "Trolley": "DNR",
             "Golden Trolley": 0,
-            "Puppy": 5
+            "Puppy": 6
         }
     },
     "Snowville": {
@@ -660,7 +660,7 @@
             "Dino Monstro": "DNR",
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
-            "Greedy Snowmobile": 7,
+            "Greedy Snowmobile": 10,
             "Minecart": "DNR",
             "Snow Minecart": 1,
             "Trolley": "DNR",
@@ -672,11 +672,11 @@
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
-            "Grey Blocks": 2,
+            "Grey Blocks": 3,
             "Monstro": "DNR",
             "Dino Monstro": "DNR",
             "Joker Monstro": "DNR",
-            "Snowmobile": 9,
+            "Snowmobile": 10,
             "Greedy Snowmobile": 54,
             "Minecart": "DNR",
             "Snow Minecart": 16,
