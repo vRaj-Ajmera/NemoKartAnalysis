@@ -1,3 +1,30 @@
+function addProfilePictures() {
+    const players = ["Raj", "Azhan", "Sameer", "Zetaa", "Adi", "Dylan", "Parum", "EnderRobot", "Lynden"];
+    const defaultImagePath = "assets/icons/default.png";
+
+    // Loop through all <td> elements in the document
+    document.querySelectorAll("td").forEach(td => {
+        const playerName = td.textContent.trim();
+
+        if (players.includes(playerName)) {
+            const imagePath = `assets/icons/${playerName}.png`;
+
+            // Create image element
+            const img = document.createElement("img");
+            img.src = imagePath;
+            img.alt = playerName;
+            img.className = "profile-pic";
+            img.onerror = () => (img.src = defaultImagePath); // Fallback to default image
+
+            // Clear existing text and re-add image + name
+            td.innerHTML = ""; // Clear text content
+            td.appendChild(img);
+            td.appendChild(document.createTextNode(` ${playerName}`)); // Add name after the image
+        }
+    });
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const postAnalysisUrl = "elo_post_analysis.json"; // Path to elo_post_analysis.json
     const playerGraphsBasePath = "assets/player_graphs/"; // Path to player graphs
@@ -9,8 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
             populateRatingsTable(data["Player Ratings"]);
             populatePlayerDropdown(data["Player Ratings"]);
             populateKartDropdown(data["Player Ratings"]);
+
+            addProfilePictures(); // Add profile pictures after the ratings table renders
         })
         .catch(err => console.error("Error fetching player stats data:", err));
+
 
     // Populate Ratings Table
     function populateRatingsTable(playerRatings) {
@@ -25,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tableBody.appendChild(row);
         });
     }
+
 
     // Populate Player Dropdown for Elo Graph
     function populatePlayerDropdown(playerRatings) {
@@ -43,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
     // Render Player Graph
     function renderPlayerGraph(player) {
         const graphContainer = document.getElementById("player-graph");
@@ -56,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
             graphContainer.appendChild(graphImage);
         }
     }
+
 
     // Populate Player Dropdown for Kart Usage
     function populateKartDropdown(playerRatings) {
@@ -73,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
             renderKartUsage(selectedPlayer, playerRatings);
         });
     }
+
 
     // Render Kart Usage Tables
     function renderKartUsage(player, playerRatings) {
