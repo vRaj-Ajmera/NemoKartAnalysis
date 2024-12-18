@@ -13,21 +13,54 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="player_stats.html">Player Stats</a></li>
-                <li><a href="kart_stats.html">Kart Stats</a></li>
+                <li><a href="kart_stats.html" class="active">Kart Stats</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- Introductory Text -->
+        <section id="intro">
+            <h2>How to Read the Graphs</h2>
+            <p>
+                This page provides an in-depth analysis of kart performances on various maps. Use the dropdown to 
+                select a specific map and view the associated graphs:
+            </p>
+            <ul>
+                <li>
+                    <strong>Race Time Graph:</strong> Displays the distribution of race times for each kart on the selected map. 
+                    Lower times indicate better performance. Karts are sorted based on their median race times.
+                </li>
+                <li>
+                    <strong>Win Rate Heatmap:</strong> Shows pairwise comparisons of kart performance. The values represent 
+                    the <em>win rate</em> of one kart against another as a percentage (0-100). A value of 100 means a kart 
+                    consistently outperformed another in head-to-head races, while a value of 0 means a kart never placed higher than the other in a recorded race. 
+                    Empty cells indicate that the karts have never raced against each other. To read the heatmap, focus <strong>row by row</strong>: each row 
+                    corresponds to a specific kart (<em>Kart A</em>), and the values in that row display its win rates 
+                    against all other karts (<em>Kart B</em>) listed in the columns.
+                </li>
+            </ul>
+            <p>
+                The win rate heatmap provides a quick way to identify the most dominant karts on each map and 
+                understand how they stack up against competitors.
+            </p>
+        </section>
+
+        <!-- Dropdown -->
         <div>
-            <label for="mapDropdown">Select a Map:</label>
+            <label for="mapDropdown"><strong>Select a Map:</strong></label>
             <select id="mapDropdown">
                 <!-- Options will be populated dynamically -->
             </select>
         </div>
-        <div id="graphsContainer">
-            <!-- Graphs will be displayed here -->
-        </div>
+
+        <!-- Graphs Container -->
+        <section id="graphs">
+            <h2>Performance Graphs</h2>
+            <div id="graphsContainer">
+                <!-- Graphs will be displayed dynamically here -->
+            </div>
+        </section>
     </main>
 
     <footer>
