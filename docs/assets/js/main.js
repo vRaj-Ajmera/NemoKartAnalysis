@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Render Summary Table
     function renderSummaryTable(stats) {
+        const sortedStats = Object.entries(stats).sort(([, a], [, b]) => b.PPR - a.PPR); // Sort by PPR descending
+
         const table = document.createElement("table");
         table.innerHTML = `
             <thead>
@@ -53,15 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 </tr>
             </thead>
             <tbody>
-                ${Object.entries(stats).map(([player, stat]) => `
+                ${sortedStats.map(([player, stat]) => `
                     <tr>
                         <td>${player}</td>
                         <td>${stat.Races}</td>
                         <td>${stat.Points}</td>
                         <td>${stat.PPR.toFixed(2)}</td>
                         <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
-                    </tr>
-                `).join("")}
+                    `).join("")}
             </tbody>
         `;
         document.getElementById("summary-table").appendChild(table);
