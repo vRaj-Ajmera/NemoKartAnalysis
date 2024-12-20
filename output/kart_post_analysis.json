@@ -11,11 +11,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": 0,
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": 0
+            "Puppy": 0,
+            "X-mas Puppy": "DNR"
         },
         "Dino Kart": {
             "The Kart": 4,
@@ -28,11 +30,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Bat Kart": {
             "The Kart": 4,
@@ -45,11 +49,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": 1
+            "Puppy": 1,
+            "X-mas Puppy": "DNR"
         },
         "Blocks": {
             "The Kart": "DNR",
@@ -62,11 +68,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Grey Blocks": {
             "The Kart": 1,
@@ -79,11 +87,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 0,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 0,
             "Snow Minecart": 1,
             "Trolley": "DNR",
             "Golden Trolley": 0,
-            "Puppy": 2
+            "Puppy": 2,
+            "X-mas Puppy": "DNR"
         },
         "Monstro": {
             "The Kart": 1,
@@ -96,11 +106,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 1,
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Dino Monstro": {
             "The Kart": 6,
@@ -113,11 +125,13 @@
             "Joker Monstro": 1,
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 0,
             "Snow Minecart": 1,
             "Trolley": "DNR",
             "Golden Trolley": 3,
-            "Puppy": 0
+            "Puppy": 0,
+            "X-mas Puppy": "DNR"
         },
         "Joker Monstro": {
             "The Kart": "DNR",
@@ -130,11 +144,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": 0
+            "Puppy": 0,
+            "X-mas Puppy": "DNR"
         },
         "Snowmobile": {
             "The Kart": "DNR",
@@ -147,11 +163,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Greedy Snowmobile": {
             "The Kart": "DNR",
@@ -164,11 +182,32 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 2,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 2,
             "Snow Minecart": 4,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": 5
+            "Puppy": 5,
+            "X-mas Puppy": "DNR"
+        },
+        "X-mas Snowmobile": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Minecart": {
             "The Kart": 17,
@@ -181,11 +220,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 9,
             "Snow Minecart": "DNR",
             "Trolley": 1,
             "Golden Trolley": 1,
-            "Puppy": 4
+            "Puppy": 4,
+            "X-mas Puppy": "DNR"
         },
         "Snow Minecart": {
             "The Kart": "DNR",
@@ -198,11 +239,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 3,
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 1,
             "Trolley": "DNR",
             "Golden Trolley": 0,
-            "Puppy": 6
+            "Puppy": 6,
+            "X-mas Puppy": "DNR"
         },
         "Trolley": {
             "The Kart": "DNR",
@@ -215,11 +258,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": 0,
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Golden Trolley": {
             "The Kart": "DNR",
@@ -232,11 +277,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": 0,
             "Snow Minecart": 2,
             "Trolley": "DNR",
             "Golden Trolley": 1,
-            "Puppy": 5
+            "Puppy": 5,
+            "X-mas Puppy": "DNR"
         },
         "Puppy": {
             "The Kart": 6,
@@ -249,11 +296,32 @@
             "Joker Monstro": 1,
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 1,
             "Snow Minecart": 2,
             "Trolley": "DNR",
             "Golden Trolley": 1,
-            "Puppy": 26
+            "Puppy": 26,
+            "X-mas Puppy": "DNR"
+        },
+        "X-mas Puppy": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         }
     },
     "Shanghai by Night": {
@@ -268,11 +336,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 1,
             "Snow Minecart": 0,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Dino Kart": {
             "The Kart": "DNR",
@@ -285,11 +355,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Bat Kart": {
             "The Kart": 3,
@@ -302,11 +374,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 0,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 2,
             "Snow Minecart": 3,
             "Trolley": "DNR",
             "Golden Trolley": 1,
-            "Puppy": 1
+            "Puppy": 1,
+            "X-mas Puppy": "DNR"
         },
         "Blocks": {
             "The Kart": "DNR",
@@ -319,11 +393,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Grey Blocks": {
             "The Kart": 0,
@@ -336,11 +412,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 2,
             "Snow Minecart": 3,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": 1
+            "Puppy": 1,
+            "X-mas Puppy": "DNR"
         },
         "Monstro": {
             "The Kart": "DNR",
@@ -353,11 +431,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Dino Monstro": {
             "The Kart": 4,
@@ -370,11 +450,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 0,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": 0
+            "Puppy": 0,
+            "X-mas Puppy": "DNR"
         },
         "Joker Monstro": {
             "The Kart": "DNR",
@@ -387,11 +469,13 @@
             "Joker Monstro": 1,
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 1,
             "Trolley": "DNR",
             "Golden Trolley": 1,
-            "Puppy": 0
+            "Puppy": 0,
+            "X-mas Puppy": "DNR"
         },
         "Snowmobile": {
             "The Kart": "DNR",
@@ -404,11 +488,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Greedy Snowmobile": {
             "The Kart": 5,
@@ -421,11 +507,32 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": 0,
             "Snow Minecart": 1,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "X-mas Snowmobile": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Minecart": {
             "The Kart": 17,
@@ -438,11 +545,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 3,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 3,
             "Snow Minecart": 6,
             "Trolley": 2,
             "Golden Trolley": "DNR",
-            "Puppy": 0
+            "Puppy": 0,
+            "X-mas Puppy": "DNR"
         },
         "Snow Minecart": {
             "The Kart": 2,
@@ -455,11 +564,13 @@
             "Joker Monstro": 0,
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 1,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 5,
             "Snow Minecart": 8,
             "Trolley": 1,
             "Golden Trolley": "DNR",
-            "Puppy": 0
+            "Puppy": 0,
+            "X-mas Puppy": "DNR"
         },
         "Trolley": {
             "The Kart": "DNR",
@@ -472,11 +583,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": 0,
             "Snow Minecart": 0,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Golden Trolley": {
             "The Kart": "DNR",
@@ -489,11 +602,13 @@
             "Joker Monstro": 0,
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": 1
+            "Puppy": 1,
+            "X-mas Puppy": "DNR"
         },
         "Puppy": {
             "The Kart": "DNR",
@@ -506,11 +621,32 @@
             "Joker Monstro": 1,
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": 1,
             "Snow Minecart": 3,
             "Trolley": "DNR",
             "Golden Trolley": 0,
-            "Puppy": 6
+            "Puppy": 6,
+            "X-mas Puppy": "DNR"
+        },
+        "X-mas Puppy": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         }
     },
     "Snowville": {
@@ -525,11 +661,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": 2,
             "Greedy Snowmobile": 0,
+            "X-mas Snowmobile": 1,
             "Minecart": 0,
             "Snow Minecart": 2,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Dino Kart": {
             "The Kart": "DNR",
@@ -542,11 +680,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Bat Kart": {
             "The Kart": "DNR",
@@ -559,11 +699,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 0,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": 0
+            "Puppy": 0,
+            "X-mas Puppy": "DNR"
         },
         "Blocks": {
             "The Kart": "DNR",
@@ -576,11 +718,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Grey Blocks": {
             "The Kart": "DNR",
@@ -593,11 +737,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": 0,
             "Greedy Snowmobile": 0,
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": 1,
-            "Puppy": 1
+            "Puppy": 1,
+            "X-mas Puppy": "DNR"
         },
         "Monstro": {
             "The Kart": 3,
@@ -610,11 +756,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": 0,
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": 1
+            "Puppy": 1,
+            "X-mas Puppy": "DNR"
         },
         "Dino Monstro": {
             "The Kart": "DNR",
@@ -627,11 +775,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 0,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Joker Monstro": {
             "The Kart": "DNR",
@@ -644,11 +794,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Snowmobile": {
             "The Kart": 0,
@@ -661,11 +813,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 10,
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 1,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Greedy Snowmobile": {
             "The Kart": 10,
@@ -678,11 +832,32 @@
             "Joker Monstro": "DNR",
             "Snowmobile": 10,
             "Greedy Snowmobile": 54,
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 16,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": 1
+            "Puppy": 1,
+            "X-mas Puppy": "DNR"
+        },
+        "X-mas Snowmobile": {
+            "The Kart": 2,
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Minecart": {
             "The Kart": 3,
@@ -695,11 +870,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 1,
             "Trolley": 2,
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Snow Minecart": {
             "The Kart": 15,
@@ -712,11 +889,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": 2,
             "Greedy Snowmobile": 2,
+            "X-mas Snowmobile": "DNR",
             "Minecart": 2,
             "Snow Minecart": 3,
             "Trolley": 1,
             "Golden Trolley": "DNR",
-            "Puppy": 0
+            "Puppy": 0,
+            "X-mas Puppy": "DNR"
         },
         "Trolley": {
             "The Kart": "DNR",
@@ -729,11 +908,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": 0,
             "Snow Minecart": 0,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Golden Trolley": {
             "The Kart": "DNR",
@@ -746,11 +927,13 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": "DNR",
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         },
         "Puppy": {
             "The Kart": "DNR",
@@ -763,11 +946,357 @@
             "Joker Monstro": "DNR",
             "Snowmobile": "DNR",
             "Greedy Snowmobile": 4,
+            "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 3,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
-            "Puppy": "DNR"
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "X-mas Puppy": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        }
+    },
+    "Formula Wild": {
+        "The Kart": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": 0,
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Dino Kart": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Bat Kart": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Blocks": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Grey Blocks": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Monstro": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Dino Monstro": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Joker Monstro": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Snowmobile": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Greedy Snowmobile": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "X-mas Snowmobile": {
+            "The Kart": 2,
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Minecart": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Snow Minecart": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Trolley": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Golden Trolley": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "Puppy": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
+        },
+        "X-mas Puppy": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": "DNR",
+            "Greedy Snowmobile": "DNR",
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR"
         }
     }
 }

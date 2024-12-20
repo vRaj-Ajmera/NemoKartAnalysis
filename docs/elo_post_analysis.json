@@ -1,16 +1,16 @@
 {
     "Player Ratings": {
         "Raj": {
-            "Peak Rating": 2361,
-            "Current Rating": 2355,
+            "Peak Rating": 2368,
+            "Current Rating": 2364,
             "Kart Usage": {
                 "Shanghai": [
                     {
                         "Kart": "Puppy",
-                        "Races": 22,
-                        "Points": 413,
-                        "PPR": 18.77,
-                        "Avg Position": 2.32
+                        "Races": 23,
+                        "Points": 438,
+                        "PPR": 19.04,
+                        "Avg Position": 2.26
                     },
                     {
                         "Kart": "Greedy Snowmobile",
@@ -113,6 +113,15 @@
                         "Points": 40,
                         "PPR": 13.33,
                         "Avg Position": 3.67
+                    }
+                ],
+                "Formula Wild": [
+                    {
+                        "Kart": "X-mas Snowmobile",
+                        "Races": 2,
+                        "Points": 43,
+                        "PPR": 21.5,
+                        "Avg Position": 1.5
                     }
                 ]
             }
@@ -231,7 +240,8 @@
                         "PPR": 16.0,
                         "Avg Position": 2.67
                     }
-                ]
+                ],
+                "Formula Wild": []
             }
         },
         "Sameer": {
@@ -348,7 +358,8 @@
                         "PPR": 15.4,
                         "Avg Position": 3.2
                     }
-                ]
+                ],
+                "Formula Wild": []
             }
         },
         "Zetaa": {
@@ -409,7 +420,8 @@
                         "PPR": 15.0,
                         "Avg Position": 3.0
                     }
-                ]
+                ],
+                "Formula Wild": []
             }
         },
         "Adi": {
@@ -442,7 +454,8 @@
                         "PPR": 14.6,
                         "Avg Position": 3.6
                     }
-                ]
+                ],
+                "Formula Wild": []
             }
         },
         "Dylan": {
@@ -475,7 +488,8 @@
                         "PPR": 14.0,
                         "Avg Position": 3.5
                     }
-                ]
+                ],
+                "Formula Wild": []
             }
         },
         "Parum": {
@@ -500,7 +514,8 @@
                         "Avg Position": 6.5
                     }
                 ],
-                "Snowville": []
+                "Snowville": [],
+                "Formula Wild": []
             }
         },
         "EnderRobot": {
@@ -533,7 +548,8 @@
                         "PPR": 10.0,
                         "Avg Position": 5.0
                     }
-                ]
+                ],
+                "Formula Wild": []
             }
         },
         "Lynden": {
@@ -565,6 +581,33 @@
                         "Points": 10,
                         "PPR": 10.0,
                         "Avg Position": 5.0
+                    }
+                ],
+                "Formula Wild": []
+            }
+        },
+        "Rusheel": {
+            "Peak Rating": 1386,
+            "Current Rating": 1386,
+            "Kart Usage": {
+                "Shanghai": [],
+                "Shanghai by Night": [],
+                "Snowville": [
+                    {
+                        "Kart": "The Kart",
+                        "Races": 3,
+                        "Points": 50,
+                        "PPR": 16.67,
+                        "Avg Position": 3.0
+                    }
+                ],
+                "Formula Wild": [
+                    {
+                        "Kart": "The Kart",
+                        "Races": 2,
+                        "Points": 30,
+                        "PPR": 15.0,
+                        "Avg Position": 3.0
                     }
                 ]
             }
