@@ -41,32 +41,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Render Summary Table
     function renderSummaryTable(stats) {
-        const sortedStats = Object.entries(stats).sort(([, a], [, b]) => b.PPR - a.PPR); // Sort by PPR descending
+        let sortedStats = Object.entries(stats).sort(([, a], [, b]) => b.PPR - a.PPR);
 
-        const table = document.createElement("table");
-        table.innerHTML = `
-            <thead>
-                <tr>
-                    <th>Player</th>
-                    <th>Races</th>
-                    <th>Points</th>
-                    <th>PPR</th>
-                    <th>Avg Position</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${sortedStats.map(([player, stat]) => `
+        function sortTable(columnNo) {
+
+            switch (columnNo) {
+                case "0": // Player
+                    sortedStats = Object.entries(stats).sort(([a,], [b,]) => a.localeCompare(b));
+                    break;
+                case "1": // Races
+                    sortedStats = Object.entries(stats).sort(([, a], [, b]) => b.Races - a.Races);
+                    break;
+                case "2": // Points
+                    sortedStats = Object.entries(stats).sort(([, a], [, b]) => b.Points - a.Points);
+                    break;
+                case "3": // PPR
+                    sortedStats = Object.entries(stats).sort(([, a], [, b]) => b.PPR - a.PPR);
+                    break;
+                case "4": // Avg Position
+                    sortedStats = Object.entries(stats).sort(([, a], [, b]) => (a["Avg Race Position"] - b["Avg Race Position"]));
+            }
+
+            return createInnerHTML();
+        }
+
+        function createInnerHTML() {
+            return `
+                <thead>
                     <tr>
-                        <td>${player}</td>
-                        <td>${stat.Races}</td>
-                        <td>${stat.Points}</td>
-                        <td>${stat.PPR.toFixed(2)}</td>
-                        <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
-                    `).join("")}
-            </tbody>
-        `;
-        document.getElementById("summary-table").appendChild(table);
-        addProfilePictures(); // Add profile pictures after table renders
+                        <th id="0">Player</th>
+                        <th id="1">Races</th>
+                        <th id="2">Points</th>
+                        <th id="3">PPR</th>
+                        <th id="4">Avg Position</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${sortedStats.map(([player, stat]) => `
+                        <tr>
+                            <td>${player}</td>
+                            <td>${stat.Races}</td>
+                            <td>${stat.Points}</td>
+                            <td>${stat.PPR.toFixed(2)}</td>
+                            <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
+                        `).join("")}
+                </tbody>
+            `;
+        }
+
+        function createAndRenderTable(innerHTML) {
+            const table = document.createElement("table");
+            table.innerHTML = innerHTML;
+            table.querySelectorAll('th') // get all the table header elements
+                .forEach((element) => { // add a click handler for each 
+                    // element.innerText += " ▼"; // add a down arrow to indicate sorting direction
+                    element.addEventListener('click', event => {
+                        console.log("clicked on", element.id);
+                        sortTable(element.id);
+                        createAndRenderTable(createInnerHTML()); //call a function which sorts the table by a given column number
+                    })
+                });
+
+            const container = document.getElementById("summary-table");
+            container.innerHTML = ""; // Clear previous table
+            container.appendChild(table);
+            addProfilePictures(); // Add profile pictures after table renders
+        }
+
+        sortTable("3");
+        createAndRenderTable(createInnerHTML());
     }
 
 
