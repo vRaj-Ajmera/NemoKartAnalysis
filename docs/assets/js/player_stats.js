@@ -45,7 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Populate Ratings Table
     function populateRatingsTable(playerRatings) {
         const tableBody = document.querySelector("#ratings-table tbody");
-        Object.entries(playerRatings).forEach(([player, stats]) => {
+
+        // Sort playerRatings by Current Rating in descending order
+        const sortedRatings = Object.entries(playerRatings).sort(([, a], [, b]) => b["Current Rating"] - a["Current Rating"]);
+
+        // Populate the table with sorted data
+        sortedRatings.forEach(([player, stats]) => {
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td>${player}</td>
@@ -55,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
             tableBody.appendChild(row);
         });
     }
-
 
     // Populate Player Dropdown for Elo Graph
     function populatePlayerDropdown(playerRatings) {
