@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mapGraphs = {
         "Shanghai": [
             "assets/kart_graphs/Shanghai_kart_racetimes.png",
-            "assets/kart_graphs/Shanghai_win_rate_heatmap.png"
+            "assets/kart_graphs/Shanghai_win_rate_heatmap.png",
         ],
         "Shanghai by Night": [
             "assets/kart_graphs/Shanghai by Night_kart_racetimes.png",
@@ -15,6 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "Snowville": [
             "assets/kart_graphs/Snowville_kart_racetimes.png",
             "assets/kart_graphs/Snowville_win_rate_heatmap.png"
+        ],
+        "Formula Wild": [
+            "assets/kart_graphs/Formula Wild_kart_racetimes.png",
+            "assets/kart_graphs/Formula Wild_win_rate_heatmap.png",
         ]
     };
 
