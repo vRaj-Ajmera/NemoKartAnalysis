@@ -94,9 +94,14 @@ table th {
     font-size: 1.2em;
 }
 
+table th:hover {
+    color: white;
+    cursor: pointer;
+}
+
 table tbody tr:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    cursor: pointer;
+    cursor: default;
     transition: background-color 0.3s ease;
 }
 
