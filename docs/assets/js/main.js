@@ -24,6 +24,81 @@ function addProfilePictures() {
     });
 }
 
+function createAndRenderTableFromStats(containerName, columnNames, stats, columnValues, columnSort, defaultSort = 0, useProfilePictures = false) {
+    let sortedStats = stats;
+
+    function sortTable(columnNo) {
+        sortedStats = columnSort[columnNo](stats);
+    }
+
+    function createInnerHTML() {
+        return `
+            <thead>
+                <tr>
+                    ${columnNames.map((columnName, index) => `<th id="${index}">${columnName}</th>`).join("")}
+                </tr>
+            </thead>
+            <tbody>
+            ${sortedStats.map((stat, ind) => `
+                <tr>
+                    ${columnNames.map((_, index) => `<td>${columnValues[index](stat, ind)}</td>`).join("")}
+                `).join("")}
+            </tbody>
+        `;
+    }
+
+    function createAndRenderTable(innerHTML) {
+        const table = document.createElement("table");
+        table.innerHTML = innerHTML;
+        table.querySelectorAll('th') // get all the table header elements
+            .forEach((element) => { // add a click handler for each 
+                element.addEventListener('click', event => {
+                    sortTable(parseInt(element.id) ?? 0);
+                    createAndRenderTable(createInnerHTML()); //call a function which sorts the table by a given column number
+                })
+            });
+
+        const container = document.getElementById(containerName);
+        container.innerHTML = ""; // Clear previous table
+        container.appendChild(table);
+        if (useProfilePictures) {
+            addProfilePictures(); // Add profile pictures after table renders
+        }
+    }
+
+    sortTable(defaultSort);
+    createAndRenderTable(createInnerHTML());
+}
+
+function createAndRenderSummaryTable(containerName, stats) {
+    createAndRenderTableFromStats(
+        containerName,
+        [
+            "Player",
+            "Races",
+            "Points",
+            "PPR",
+            "Avg Position"
+        ],
+        stats,
+        [
+            ([a,]) => a,
+            ([, b]) => b.Races,
+            ([, b]) => b.Points,
+            ([, b]) => b.PPR.toFixed(2),
+            ([, b]) => b["Avg Race Position"]?.toFixed(2) ?? "N/A"
+        ],
+        [
+            (stats,) => Object.entries(stats).sort(([a,], [b,]) => a.localeCompare(b)), // Player
+            (stats,) => Object.entries(stats).sort(([, a], [, b]) => b.Races - a.Races), // Races
+            (stats,) => Object.entries(stats).sort(([, a], [, b]) => b.Points - a.Points), // Points
+            (stats,) => Object.entries(stats).sort(([, a], [, b]) => b.PPR - a.PPR), // PPR
+            (stats,) => Object.entries(stats).sort(([, a], [, b]) => (a["Avg Race Position"] - b["Avg Race Position"])), // Avg Position
+        ],
+        3,
+        true
+    );
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const postAnalysisUrl = "post_analysis.json";
@@ -41,75 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Render Summary Table
     function renderSummaryTable(stats) {
-        let sortedStats = Object.entries(stats).sort(([, a], [, b]) => b.PPR - a.PPR);
-
-        function sortTable(columnNo) {
-
-            switch (columnNo) {
-                case "0": // Player
-                    sortedStats = Object.entries(stats).sort(([a,], [b,]) => a.localeCompare(b));
-                    break;
-                case "1": // Races
-                    sortedStats = Object.entries(stats).sort(([, a], [, b]) => b.Races - a.Races);
-                    break;
-                case "2": // Points
-                    sortedStats = Object.entries(stats).sort(([, a], [, b]) => b.Points - a.Points);
-                    break;
-                case "3": // PPR
-                    sortedStats = Object.entries(stats).sort(([, a], [, b]) => b.PPR - a.PPR);
-                    break;
-                case "4": // Avg Position
-                    sortedStats = Object.entries(stats).sort(([, a], [, b]) => (a["Avg Race Position"] - b["Avg Race Position"]));
-            }
-
-            return createInnerHTML();
-        }
-
-        function createInnerHTML() {
-            return `
-                <thead>
-                    <tr>
-                        <th id="0">Player</th>
-                        <th id="1">Races</th>
-                        <th id="2">Points</th>
-                        <th id="3">PPR</th>
-                        <th id="4">Avg Position</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${sortedStats.map(([player, stat]) => `
-                        <tr>
-                            <td>${player}</td>
-                            <td>${stat.Races}</td>
-                            <td>${stat.Points}</td>
-                            <td>${stat.PPR.toFixed(2)}</td>
-                            <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
-                        `).join("")}
-                </tbody>
-            `;
-        }
-
-        function createAndRenderTable(innerHTML) {
-            const table = document.createElement("table");
-            table.innerHTML = innerHTML;
-            table.querySelectorAll('th') // get all the table header elements
-                .forEach((element) => { // add a click handler for each 
-                    // element.innerText += " ▼"; // add a down arrow to indicate sorting direction
-                    element.addEventListener('click', event => {
-                        console.log("clicked on", element.id);
-                        sortTable(element.id);
-                        createAndRenderTable(createInnerHTML()); //call a function which sorts the table by a given column number
-                    })
-                });
-
-            const container = document.getElementById("summary-table");
-            container.innerHTML = ""; // Clear previous table
-            container.appendChild(table);
-            addProfilePictures(); // Add profile pictures after table renders
-        }
-
-        sortTable("3");
-        createAndRenderTable(createInnerHTML());
+        createAndRenderSummaryTable("summary-table", stats);
     }
 
 
@@ -134,65 +141,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Render Daily Stats Table
     function renderDailyStatsTable(stats) {
-        const table = document.createElement("table");
-        table.innerHTML = `
-            <thead>
-                <tr>
-                    <th>Player</th>
-                    <th>Races</th>
-                    <th>Points</th>
-                    <th>PPR</th>
-                    <th>Avg Position</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${Object.entries(stats).map(([player, stat]) => `
-                    <tr>
-                        <td>${player}</td>
-                        <td>${stat.Races}</td>
-                        <td>${stat.Points}</td>
-                        <td>${stat.PPR.toFixed(2)}</td>
-                        <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
-                    </tr>
-                `).join("")}
-            </tbody>
-        `;
-        const container = document.getElementById("daily-stats-table");
-        container.innerHTML = ""; // Clear previous table
-        container.appendChild(table);
-        addProfilePictures(); // Add profile pictures after table renders
+        createAndRenderSummaryTable("daily-stats-table", stats);
     }
 
 
     // Render Races Together Table
     function renderRacesTogetherTable(stats) {
-        const table = document.createElement("table");
-        table.innerHTML = `
-            <thead>
-                <tr>
-                    <th>Player</th>
-                    <th>Races</th>
-                    <th>Points</th>
-                    <th>PPR</th>
-                    <th>Avg Position</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${Object.entries(stats).map(([player, stat]) => `
-                    <tr>
-                        <td>${player}</td>
-                        <td>${stat.Races}</td>
-                        <td>${stat.Points}</td>
-                        <td>${stat.PPR.toFixed(2)}</td>
-                        <td>${stat["Avg Race Position"]?.toFixed(2) ?? "N/A"}</td>
-                    </tr>
-                `).join("")}
-            </tbody>
-        `;
-        const container = document.getElementById("races-together-table");
-        container.innerHTML = ""; // Clear previous table
-        container.appendChild(table);
-        addProfilePictures(); // Add profile pictures after table renders
+        createAndRenderSummaryTable("races-together-table", stats);
     }
 
 
@@ -217,26 +172,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Render Leaderboards Table
     function renderLeaderboardsTable(leaderboard) {
-        const table = document.createElement("table");
-        table.innerHTML = `
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${leaderboard.map((entry, index) => `
-                    <tr>
-                        <td>${index + 1}</td>
-                        <td>${entry}</td>
-                    </tr>
-                `).join("")}
-            </tbody>
-        `;
-        const container = document.getElementById("leaderboards-table");
-        container.innerHTML = ""; // Clear previous table
-        container.appendChild(table);
-        addProfilePictures(); // Add profile pictures after table renders
+
+        let rev = false;
+
+        // As a debug for sorting, clicking the player column will reverse the order
+        createAndRenderTableFromStats(
+            "leaderboards-table",
+            [
+                "#", // Rank
+                "Player"
+            ],
+            leaderboard,
+            [
+                (entry, index) => rev ? 10 - index : index + 1,
+                (entry, index) => entry
+            ],
+            [
+                leaderboard => {
+                    rev = false;
+                    return leaderboard.sort();
+                },
+                leaderboard => {
+                    rev = true;
+                    return leaderboard.sort((a, b) => b.localeCompare(a));
+                },
+            ]
+        );
     }
 });
