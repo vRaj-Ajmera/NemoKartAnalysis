@@ -150,13 +150,21 @@ document.addEventListener("DOMContentLoaded", () => {
         createAndRenderSummaryTable("races-together-table", stats);
     }
 
-
     function populateLeaderboardsDropdown(leaderboards, individualBestTimes) {
         const dropdown = document.getElementById("map-dropdown");
         const toggleButton = document.getElementById("toggle-leaderboard");
     
         let isIndividual = false; // Track toggle state
     
+        // Add the default "-- Select --" option
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "-- Select --";
+        defaultOption.textContent = "-- Select --";
+        defaultOption.disabled = true; // Keep it disabled
+        defaultOption.selected = true; // Make it the default selected
+        dropdown.appendChild(defaultOption);
+    
+        // Populate dropdown options
         Object.keys(leaderboards).forEach(map => {
             const option = document.createElement("option");
             option.value = map;
@@ -165,8 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     
         dropdown.addEventListener("change", (e) => {
-            if (e.target.value !== "-- Select --") {
-                const selectedMap = e.target.value;
+            const selectedMap = dropdown.value;
+    
+            // Ensure the "Select" option remains greyed out but selectable maps can still be chosen
+            if (selectedMap && selectedMap !== "-- Select --") {
                 renderLeaderboardsTable(
                     selectedMap,
                     leaderboards[selectedMap],
@@ -181,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleButton.textContent = isIndividual
                 ? "Switch to Best Race Times"
                 : "Switch to Individual Best Times";
+    
             const selectedMap = dropdown.value;
             if (selectedMap && selectedMap !== "-- Select --") {
                 renderLeaderboardsTable(
