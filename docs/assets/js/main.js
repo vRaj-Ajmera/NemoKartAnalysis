@@ -171,32 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // Render Leaderboards Table
+    // replace this with leaderboards that can switch between main leaderboards and invidual best times leaderboards upon clicking toggle
     function renderLeaderboardsTable(leaderboard) {
 
-        let rev = false;
-
-        // As a debug for sorting, clicking the player column will reverse the order
-        createAndRenderTableFromStats(
-            "leaderboards-table",
-            [
-                "#", // Rank
-                "Player"
-            ],
-            leaderboard,
-            [
-                (entry, index) => rev ? 10 - index : index + 1,
-                (entry, index) => entry
-            ],
-            [
-                leaderboard => {
-                    rev = false;
-                    return leaderboard.sort();
-                },
-                leaderboard => {
-                    rev = true;
-                    return leaderboard.sort((a, b) => b.localeCompare(a));
-                },
-            ]
-        );
     }
 });

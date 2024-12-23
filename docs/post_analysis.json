@@ -1996,5 +1996,44 @@
             "2:41.38 by Raj in X-mas Snowmobile",
             "2:45.78 by Rusheel in The Kart"
         ]
+    },
+    "Individual Player Best Times": {
+        "Shanghai": [
+            "2:26.46 by Raj in Puppy",
+            "2:29.08 by Sameer in Puppy",
+            "2:29.54 by Azhan in Puppy",
+            "2:38.30 by Adi in The Kart",
+            "2:42.42 by Zetaa in Bat Kart",
+            "2:47.94 by EnderRobot in The Kart",
+            "2:50.06 by Dylan in The Kart",
+            "2:51.30 by Parum in The Kart",
+            "2:54.08 by Lynden in The Kart"
+        ],
+        "Shanghai by Night": [
+            "2:29.76 by Raj in Puppy",
+            "2:30.66 by Azhan in Minecart",
+            "2:32.78 by Sameer in Puppy",
+            "2:37.04 by Zetaa in Trolley",
+            "2:44.16 by Adi in The Kart",
+            "2:45.22 by Dylan in The Kart",
+            "2:46.10 by EnderRobot in The Kart",
+            "2:50.03 by Parum in The Kart",
+            "3:00.00 by Lynden in The Kart"
+        ],
+        "Snowville": [
+            "1:45.96 by Azhan in Greedy Snowmobile",
+            "1:47.48 by Sameer in Greedy Snowmobile",
+            "1:48.22 by Raj in Greedy Snowmobile",
+            "1:52.86 by Zetaa in Snowmobile",
+            "1:53.38 by Rusheel in The Kart",
+            "2:01.94 by Adi in The Kart",
+            "2:10.18 by EnderRobot in The Kart",
+            "2:14.84 by Dylan in The Kart",
+            "2:17.16 by Lynden in The Kart"
+        ],
+        "Formula Wild": [
+            "2:32.04 by Raj in X-mas Snowmobile",
+            "2:33.12 by Rusheel in The Kart"
+        ]
     }
 }
