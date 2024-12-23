@@ -144,6 +144,33 @@ def calculate_best_race_times(df, maps, players):
         leaderboard[map_name] = [entry[1] for entry in race_entries[:10]]  # Top 10 times
     return leaderboard
 
+def calculate_individual_best_times(df, maps, players):
+    """Calculate each player's individual best time for each map, ordered from best to worst."""
+    individual_best_times = {}
+    for map_name in maps["Map Name"]:
+        map_df = df[df["Map Name"] == map_name]
+        player_best_times = {}
+
+        for _, row in map_df.iterrows():
+            for player in players["Player Name"]:
+                race_time_col = f"{player} Racetime"
+                kart_col = f"{player} Kart"
+                race_time = row.get(race_time_col)
+
+                if race_time != "DNR" and pd.notna(race_time):
+                    time_in_seconds = sum(float(x) * 60 ** i for i, x in enumerate(reversed(race_time.split(":"))))
+                    if player not in player_best_times or time_in_seconds < player_best_times[player]["time"]:
+                        player_best_times[player] = {
+                            "time": time_in_seconds,
+                            "record": f"{race_time} by {player} in {row.get(kart_col)}"
+                        }
+
+        # Sort the best times from best to worst and save only the records
+        sorted_best_times = sorted(player_best_times.values(), key=lambda x: x["time"])
+        individual_best_times[map_name] = [data["record"] for data in sorted_best_times]
+
+    return individual_best_times
+
 # Main function to generate post_analysis.json
 def main():
     results, players, maps, karts = load_data()
@@ -156,7 +183,8 @@ def main():
         "Races Together": calculate_together_stats_RAS(results),
         "All Time Stats": calculate_all_time_stats(results, players),
         "Legend": {1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4},
-        "Best Race Times": calculate_best_race_times(results, maps, players)
+        "Best Race Times": calculate_best_race_times(results, maps, players),
+        "Individual Player Best Times": calculate_individual_best_times(results, maps, players)
     }
 
     # Ensure JSON serializable
