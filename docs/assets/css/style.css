@@ -293,3 +293,18 @@ section select {
     /* Optional box-shadow for more pop */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
+
+.toggle-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #f5a623;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.toggle-btn:hover {
+    background-color: #d4881c;
+}
