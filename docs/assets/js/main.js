@@ -102,17 +102,19 @@ function createAndRenderSummaryTable(containerName, stats) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const postAnalysisUrl = "post_analysis.json";
+    const eloAnalysisUrl = "elo_post_analysis.json"; // Add this line
 
-    // Fetch JSON data
-    fetch(postAnalysisUrl)
-        .then(response => response.json())
-        .then(data => {
-            renderSummaryTable(data["All Time Stats"]);
-            populateDailyStatsDropdown(data["Daily Stats"]);
-            renderRacesTogetherTable(data["Races Together"]);
-            populateLeaderboardsDropdown(data["Best Race Times"], data["Individual Player Best Times"]); // <-- Called here
-        })
-        .catch(err => console.error("Error fetching analysis data:", err));
+    Promise.all([
+        fetch(postAnalysisUrl).then(response => response.json()),
+        fetch(eloAnalysisUrl).then(response => response.json()) // Fetch ELO data
+    ])
+    .then(([postAnalysisData, eloAnalysisData]) => {
+        renderSummaryTable(postAnalysisData["All Time Stats"], eloAnalysisData["Player Ratings"]);
+        populateDailyStatsDropdown(postAnalysisData["Daily Stats"]);
+        renderRacesTogetherTable(postAnalysisData["Races Together"]);
+        populateLeaderboardsDropdown(postAnalysisData["Best Race Times"], postAnalysisData["Individual Player Best Times"]);
+    })
+    .catch(err => console.error("Error fetching data:", err));
 
     // Render Summary Table
     function renderSummaryTable(stats) {
@@ -237,5 +239,76 @@ document.addEventListener("DOMContentLoaded", () => {
         const container = document.getElementById("leaderboards-table");
         container.innerHTML = ""; // Clear previous table
         container.appendChild(table);
+    }
+
+    function renderSummaryTable(allTimeStats, eloRatings) {
+        let combinedStats = Object.entries(allTimeStats).map(([player, stats]) => ({
+            Player: player,
+            Races: stats.Races,
+            Points: stats.Points,
+            PPR: parseFloat(stats.PPR.toFixed(2)),
+            ELO: parseFloat(eloRatings[player]?.["Current Rating"] || 0) // Default to 0 for missing ELO
+        }));
+    
+        // Initial sort by ELO descending
+        combinedStats.sort((a, b) => b.ELO - a.ELO);
+    
+        const container = document.getElementById("summary-table");
+    
+        function renderTable(stats) {
+            const table = document.createElement("table");
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th id="Player">Player</th>
+                        <th id="Races">Races</th>
+                        <th id="Points">Points</th>
+                        <th id="PPR">PPR</th>
+                        <th id="ELO">ELO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${stats.map(stat => `
+                        <tr>
+                            <td>${stat.Player}</td>
+                            <td>${stat.Races}</td>
+                            <td>${stat.Points}</td>
+                            <td>${stat.PPR.toFixed(2)}</td>
+                            <td>${stat.ELO}</td>
+                        </tr>
+                    `).join("")}
+                </tbody>
+            `;
+            container.innerHTML = ""; // Clear previous table
+            container.appendChild(table);
+    
+            // Add click event listeners to headers for sorting
+            const headers = table.querySelectorAll("th");
+            headers.forEach(header => {
+                header.addEventListener("click", () => {
+                    const sortKey = header.id;
+                    const isAscending = header.classList.contains("asc");
+    
+                    // Remove existing sort classes
+                    headers.forEach(h => h.classList.remove("asc", "desc"));
+    
+                    // Sort the table
+                    combinedStats.sort((a, b) => {
+                        if (sortKey === "Player") return isAscending ? a.Player.localeCompare(b.Player) : b.Player.localeCompare(a.Player);
+                        return isAscending ? a[sortKey] - b[sortKey] : b[sortKey] - a[sortKey];
+                    });
+    
+                    // Toggle sort direction
+                    header.classList.toggle("asc", !isAscending);
+                    header.classList.toggle("desc", isAscending);
+    
+                    // Re-render the table
+                    renderTable(combinedStats);
+                    addProfilePictures();
+                });
+            });
+        }
+        // Initial render
+        renderTable(combinedStats);
     }
 });
