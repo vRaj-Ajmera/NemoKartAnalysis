@@ -1859,6 +1859,68 @@
                 "PPR": 16.0,
                 "Avg Race Position": 3.0
             }
+        },
+        "2024-12-23": {
+            "Raj": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Azhan": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Sameer": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Zetaa": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Adi": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Dylan": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Parum": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "EnderRobot": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Lynden": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Rusheel": {
+                "Races": 5,
+                "Points": 91,
+                "PPR": 18.2,
+                "Avg Race Position": 2.2
+            }
         }
     },
     "Races Together": {
@@ -1937,10 +1999,10 @@
             "Avg Race Position": 6.0
         },
         "Rusheel": {
-            "Races": 5,
-            "Points": 80,
-            "PPR": 16.0,
-            "Avg Race Position": 3.0
+            "Races": 10,
+            "Points": 171,
+            "PPR": 17.1,
+            "Avg Race Position": 2.6
         }
     },
     "Legend": {
@@ -1994,6 +2056,7 @@
             "2:32.04 by Raj in X-mas Snowmobile",
             "2:33.12 by Rusheel in The Kart",
             "2:41.38 by Raj in X-mas Snowmobile",
+            "2:41.48 by Rusheel in The Kart",
             "2:45.78 by Rusheel in The Kart"
         ]
     },
@@ -2004,6 +2067,7 @@
             "2:29.54 by Azhan in Puppy",
             "2:38.30 by Adi in The Kart",
             "2:42.42 by Zetaa in Bat Kart",
+            "2:46.68 by Rusheel in The Kart",
             "2:47.94 by EnderRobot in The Kart",
             "2:50.06 by Dylan in The Kart",
             "2:51.30 by Parum in The Kart",
@@ -2018,6 +2082,7 @@
             "2:45.22 by Dylan in The Kart",
             "2:46.10 by EnderRobot in The Kart",
             "2:50.03 by Parum in The Kart",
+            "2:59.14 by Rusheel in The Kart",
             "3:00.00 by Lynden in The Kart"
         ],
         "Snowville": [
