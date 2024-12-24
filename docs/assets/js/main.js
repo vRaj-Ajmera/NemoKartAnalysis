@@ -262,9 +262,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     <tr>
                         <th id="Player">Player</th>
                         <th id="Races">Races</th>
-                        <th id="Points">Points</th>
-                        <th id="PPR">PPR</th>
-                        <th id="ELO">ELO</th>
+                        <th id="Points">
+                            Points 
+                            <div class="info-icon" data-tooltip="Points are awarded based on the F1 system: 
+                            1st: 25, 2nd: 18, 3rd: 15, 4th: 12, 5th: 10, 6th: 8, 7th: 6, 8th: 4">i</div>
+                        </th>
+                        <th id="PPR">
+                            PPR 
+                            <div class="info-icon" data-tooltip="PPR: Points per race, calculated as total points divided by the number of races.">i</div>
+                        </th>
+                        <th id="ELO">
+                            ELO 
+                            <div class="info-icon" data-tooltip="ELO: A rating system that tracks player performance. The base rating starts at 1000 and increases or decreases based on race results compared to other players' ratings. Higher ELO indicates stronger performance relative to opponents.">i</div>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
