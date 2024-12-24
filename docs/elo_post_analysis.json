@@ -587,27 +587,43 @@
             }
         },
         "Rusheel": {
-            "Peak Rating": 1386,
-            "Current Rating": 1386,
+            "Peak Rating": 1453,
+            "Current Rating": 1453,
             "Kart Usage": {
-                "Shanghai": [],
-                "Shanghai by Night": [],
+                "Shanghai": [
+                    {
+                        "Kart": "The Kart",
+                        "Races": 1,
+                        "Points": 15,
+                        "PPR": 15.0,
+                        "Avg Position": 3.0
+                    }
+                ],
+                "Shanghai by Night": [
+                    {
+                        "Kart": "The Kart",
+                        "Races": 1,
+                        "Points": 25,
+                        "PPR": 25.0,
+                        "Avg Position": 1.0
+                    }
+                ],
                 "Snowville": [
                     {
                         "Kart": "The Kart",
-                        "Races": 3,
-                        "Points": 50,
-                        "PPR": 16.67,
-                        "Avg Position": 3.0
+                        "Races": 5,
+                        "Points": 83,
+                        "PPR": 16.6,
+                        "Avg Position": 2.8
                     }
                 ],
                 "Formula Wild": [
                     {
                         "Kart": "The Kart",
-                        "Races": 2,
-                        "Points": 30,
-                        "PPR": 15.0,
-                        "Avg Position": 3.0
+                        "Races": 3,
+                        "Points": 48,
+                        "PPR": 16.0,
+                        "Avg Position": 2.67
                     }
                 ]
             }
