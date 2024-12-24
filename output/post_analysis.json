@@ -1860,6 +1860,68 @@
                 "Avg Race Position": 3.0
             }
         },
+        "2024-12-22": {
+            "Raj": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Azhan": {
+                "Races": 10,
+                "Points": 206,
+                "PPR": 20.6,
+                "Avg Race Position": 1.8
+            },
+            "Sameer": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Zetaa": {
+                "Races": 10,
+                "Points": 166,
+                "PPR": 16.6,
+                "Avg Race Position": 2.6
+            },
+            "Adi": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Dylan": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Parum": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "EnderRobot": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Lynden": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Rusheel": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            }
+        },
         "2024-12-23": {
             "Raj": {
                 "Races": 0,
@@ -1951,10 +2013,10 @@
             "Avg Race Position": 2.46
         },
         "Azhan": {
-            "Races": 224,
-            "Points": 4385,
-            "PPR": 19.58,
-            "Avg Race Position": 2.06
+            "Races": 234,
+            "Points": 4591,
+            "PPR": 19.62,
+            "Avg Race Position": 2.05
         },
         "Sameer": {
             "Races": 205,
@@ -1963,10 +2025,10 @@
             "Avg Race Position": 2.74
         },
         "Zetaa": {
-            "Races": 26,
-            "Points": 353,
-            "PPR": 13.58,
-            "Avg Race Position": 3.58
+            "Races": 36,
+            "Points": 519,
+            "PPR": 14.42,
+            "Avg Race Position": 3.31
         },
         "Adi": {
             "Races": 16,
@@ -2055,9 +2117,14 @@
         "Formula Wild": [
             "2:32.04 by Raj in X-mas Snowmobile",
             "2:33.12 by Rusheel in The Kart",
+            "2:34.16 by Azhan in X-mas Snowmobile",
+            "2:34.34 by Zetaa in Snow Minecart",
+            "2:36.26 by Azhan in Snow Minecart",
+            "2:39.40 by Zetaa in Snow Minecart",
+            "2:40.72 by Zetaa in X-mas Snowmobile",
             "2:41.38 by Raj in X-mas Snowmobile",
             "2:41.48 by Rusheel in The Kart",
-            "2:45.78 by Rusheel in The Kart"
+            "2:41.78 by Azhan in X-mas Puppy"
         ]
     },
     "Individual Player Best Times": {
@@ -2065,8 +2132,8 @@
             "2:26.46 by Raj in Puppy",
             "2:29.08 by Sameer in Puppy",
             "2:29.54 by Azhan in Puppy",
+            "2:34.50 by Zetaa in Snow Minecart",
             "2:38.30 by Adi in The Kart",
-            "2:42.42 by Zetaa in Bat Kart",
             "2:46.68 by Rusheel in The Kart",
             "2:47.94 by EnderRobot in The Kart",
             "2:50.06 by Dylan in The Kart",
@@ -2098,7 +2165,9 @@
         ],
         "Formula Wild": [
             "2:32.04 by Raj in X-mas Snowmobile",
-            "2:33.12 by Rusheel in The Kart"
+            "2:33.12 by Rusheel in The Kart",
+            "2:34.16 by Azhan in X-mas Snowmobile",
+            "2:34.34 by Zetaa in Snow Minecart"
         ]
     }
 }

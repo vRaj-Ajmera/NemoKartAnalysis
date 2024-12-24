@@ -128,7 +128,7 @@
         },
         "Azhan": {
             "Peak Rating": 2408,
-            "Current Rating": 2379,
+            "Current Rating": 2375,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -170,10 +170,10 @@
                 "Shanghai by Night": [
                     {
                         "Kart": "Snow Minecart",
-                        "Races": 29,
-                        "Points": 612,
-                        "PPR": 21.1,
-                        "Avg Position": 1.76
+                        "Races": 32,
+                        "Points": 687,
+                        "PPR": 21.47,
+                        "Avg Position": 1.69
                     },
                     {
                         "Kart": "Minecart",
@@ -241,7 +241,29 @@
                         "Avg Position": 2.67
                     }
                 ],
-                "Formula Wild": []
+                "Formula Wild": [
+                    {
+                        "Kart": "Snow Minecart",
+                        "Races": 1,
+                        "Points": 18,
+                        "PPR": 18.0,
+                        "Avg Position": 2.0
+                    },
+                    {
+                        "Kart": "X-mas Snowmobile",
+                        "Races": 1,
+                        "Points": 18,
+                        "PPR": 18.0,
+                        "Avg Position": 2.0
+                    },
+                    {
+                        "Kart": "X-mas Puppy",
+                        "Races": 1,
+                        "Points": 12,
+                        "PPR": 12.0,
+                        "Avg Position": 4.0
+                    }
+                ]
             }
         },
         "Sameer": {
@@ -363,8 +385,8 @@
             }
         },
         "Zetaa": {
-            "Peak Rating": 1876,
-            "Current Rating": 1876,
+            "Peak Rating": 2020,
+            "Current Rating": 2020,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -373,6 +395,13 @@
                         "Points": 69,
                         "PPR": 11.5,
                         "Avg Position": 4.5
+                    },
+                    {
+                        "Kart": "Snow Minecart",
+                        "Races": 2,
+                        "Points": 27,
+                        "PPR": 13.5,
+                        "Avg Position": 3.5
                     },
                     {
                         "Kart": "Trolley",
@@ -396,6 +425,13 @@
                         "Points": 37,
                         "PPR": 12.33,
                         "Avg Position": 4.0
+                    },
+                    {
+                        "Kart": "Snow Minecart",
+                        "Races": 3,
+                        "Points": 51,
+                        "PPR": 17.0,
+                        "Avg Position": 2.33
                     }
                 ],
                 "Snowville": [
@@ -419,9 +455,31 @@
                         "Points": 30,
                         "PPR": 15.0,
                         "Avg Position": 3.0
+                    },
+                    {
+                        "Kart": "X-mas Snowmobile",
+                        "Races": 2,
+                        "Points": 36,
+                        "PPR": 18.0,
+                        "Avg Position": 2.0
                     }
                 ],
-                "Formula Wild": []
+                "Formula Wild": [
+                    {
+                        "Kart": "Snow Minecart",
+                        "Races": 2,
+                        "Points": 37,
+                        "PPR": 18.5,
+                        "Avg Position": 2.5
+                    },
+                    {
+                        "Kart": "X-mas Snowmobile",
+                        "Races": 1,
+                        "Points": 15,
+                        "PPR": 15.0,
+                        "Avg Position": 3.0
+                    }
+                ]
             }
         },
         "Adi": {
