@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
                     // Sort the table
                     combinedStats.sort((a, b) => {
-                        if (sortKey === "Player") return isAscending ? a.Player.localeCompare(b.Player) : b.Player.localeCompare(a.Player);
+                        if (sortKey === "Player") return !isAscending ? a.Player.localeCompare(b.Player) : b.Player.localeCompare(a.Player);
                         return isAscending ? a[sortKey] - b[sortKey] : b[sortKey] - a[sortKey];
                     });
     
