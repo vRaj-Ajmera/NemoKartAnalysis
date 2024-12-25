@@ -13,11 +13,11 @@
             "Greedy Snowmobile": "DNR",
             "X-mas Snowmobile": "DNR",
             "Minecart": 0,
-            "Snow Minecart": "DNR",
+            "Snow Minecart": 0,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
             "Puppy": 0,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": 0
         },
         "Dino Kart": {
             "The Kart": 4,
@@ -229,7 +229,7 @@
             "X-mas Puppy": "DNR"
         },
         "Snow Minecart": {
-            "The Kart": "DNR",
+            "The Kart": 2,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
@@ -305,7 +305,7 @@
             "X-mas Puppy": "DNR"
         },
         "X-mas Puppy": {
-            "The Kart": "DNR",
+            "The Kart": 2,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
@@ -554,7 +554,7 @@
             "X-mas Puppy": "DNR"
         },
         "Snow Minecart": {
-            "The Kart": 2,
+            "The Kart": 8,
             "Dino Kart": "DNR",
             "Bat Kart": 12,
             "Blocks": "DNR",
@@ -841,7 +841,7 @@
             "X-mas Puppy": "DNR"
         },
         "X-mas Snowmobile": {
-            "The Kart": 2,
+            "The Kart": 6,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
@@ -988,11 +988,11 @@
             "Greedy Snowmobile": "DNR",
             "X-mas Snowmobile": 0,
             "Minecart": "DNR",
-            "Snow Minecart": "DNR",
+            "Snow Minecart": 0,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
             "Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": 1
         },
         "Dino Kart": {
             "The Kart": "DNR",
@@ -1166,7 +1166,7 @@
             "X-mas Puppy": "DNR"
         },
         "X-mas Snowmobile": {
-            "The Kart": 2,
+            "The Kart": 4,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
@@ -1204,7 +1204,7 @@
             "X-mas Puppy": "DNR"
         },
         "Snow Minecart": {
-            "The Kart": "DNR",
+            "The Kart": 3,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
@@ -1280,7 +1280,7 @@
             "X-mas Puppy": "DNR"
         },
         "X-mas Puppy": {
-            "The Kart": "DNR",
+            "The Kart": 0,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",

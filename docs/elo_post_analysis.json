@@ -128,7 +128,7 @@
         },
         "Azhan": {
             "Peak Rating": 2408,
-            "Current Rating": 2375,
+            "Current Rating": 2368,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -385,8 +385,8 @@
             }
         },
         "Zetaa": {
-            "Peak Rating": 2020,
-            "Current Rating": 2020,
+            "Peak Rating": 2038,
+            "Current Rating": 2038,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -682,6 +682,48 @@
                         "Points": 48,
                         "PPR": 16.0,
                         "Avg Position": 2.67
+                    }
+                ]
+            }
+        },
+        "SultanSpeppy": {
+            "Peak Rating": 1510,
+            "Current Rating": 1510,
+            "Kart Usage": {
+                "Shanghai": [
+                    {
+                        "Kart": "The Kart",
+                        "Races": 2,
+                        "Points": 20,
+                        "PPR": 10.0,
+                        "Avg Position": 5.0
+                    }
+                ],
+                "Shanghai by Night": [
+                    {
+                        "Kart": "The Kart",
+                        "Races": 3,
+                        "Points": 35,
+                        "PPR": 11.67,
+                        "Avg Position": 4.33
+                    }
+                ],
+                "Snowville": [
+                    {
+                        "Kart": "The Kart",
+                        "Races": 2,
+                        "Points": 20,
+                        "PPR": 10.0,
+                        "Avg Position": 5.0
+                    }
+                ],
+                "Formula Wild": [
+                    {
+                        "Kart": "The Kart",
+                        "Races": 3,
+                        "Points": 38,
+                        "PPR": 12.67,
+                        "Avg Position": 4.0
                     }
                 ]
             }
