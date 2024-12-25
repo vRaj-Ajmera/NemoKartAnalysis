@@ -128,7 +128,7 @@
         },
         "Azhan": {
             "Peak Rating": 2408,
-            "Current Rating": 2368,
+            "Current Rating": 2379,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -170,10 +170,10 @@
                 "Shanghai by Night": [
                     {
                         "Kart": "Snow Minecart",
-                        "Races": 32,
-                        "Points": 687,
-                        "PPR": 21.47,
-                        "Avg Position": 1.69
+                        "Races": 33,
+                        "Points": 712,
+                        "PPR": 21.58,
+                        "Avg Position": 1.67
                     },
                     {
                         "Kart": "Minecart",
@@ -244,10 +244,10 @@
                 "Formula Wild": [
                     {
                         "Kart": "Snow Minecart",
-                        "Races": 1,
-                        "Points": 18,
-                        "PPR": 18.0,
-                        "Avg Position": 2.0
+                        "Races": 2,
+                        "Points": 43,
+                        "PPR": 21.5,
+                        "Avg Position": 1.5
                     },
                     {
                         "Kart": "X-mas Snowmobile",
@@ -385,8 +385,8 @@
             }
         },
         "Zetaa": {
-            "Peak Rating": 2038,
-            "Current Rating": 2038,
+            "Peak Rating": 2048,
+            "Current Rating": 2048,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -432,6 +432,13 @@
                         "Points": 51,
                         "PPR": 17.0,
                         "Avg Position": 2.33
+                    },
+                    {
+                        "Kart": "X-mas Puppy",
+                        "Races": 1,
+                        "Points": 15,
+                        "PPR": 15.0,
+                        "Avg Position": 3.0
                     }
                 ],
                 "Snowville": [
@@ -467,10 +474,10 @@
                 "Formula Wild": [
                     {
                         "Kart": "Snow Minecart",
-                        "Races": 2,
-                        "Points": 37,
-                        "PPR": 18.5,
-                        "Avg Position": 2.5
+                        "Races": 3,
+                        "Points": 49,
+                        "PPR": 16.33,
+                        "Avg Position": 3.0
                     },
                     {
                         "Kart": "X-mas Snowmobile",
@@ -687,8 +694,8 @@
             }
         },
         "SultanSpeppy": {
-            "Peak Rating": 1510,
-            "Current Rating": 1510,
+            "Peak Rating": 1580,
+            "Current Rating": 1580,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -702,10 +709,10 @@
                 "Shanghai by Night": [
                     {
                         "Kart": "The Kart",
-                        "Races": 3,
-                        "Points": 35,
-                        "PPR": 11.67,
-                        "Avg Position": 4.33
+                        "Races": 4,
+                        "Points": 47,
+                        "PPR": 11.75,
+                        "Avg Position": 4.25
                     }
                 ],
                 "Snowville": [
@@ -720,10 +727,10 @@
                 "Formula Wild": [
                     {
                         "Kart": "The Kart",
-                        "Races": 3,
-                        "Points": 38,
-                        "PPR": 12.67,
-                        "Avg Position": 4.0
+                        "Races": 4,
+                        "Points": 56,
+                        "PPR": 14.0,
+                        "Avg Position": 3.5
                     }
                 ]
             }

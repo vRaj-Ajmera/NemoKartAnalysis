@@ -2175,6 +2175,74 @@
                 "PPR": 0,
                 "Avg Race Position": null
             }
+        },
+        "2024-12-24": {
+            "Raj": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Azhan": {
+                "Races": 3,
+                "Points": 75,
+                "PPR": 25.0,
+                "Avg Race Position": 1.0
+            },
+            "Sameer": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Zetaa": {
+                "Races": 2,
+                "Points": 27,
+                "PPR": 13.5,
+                "Avg Race Position": 3.5
+            },
+            "Adi": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Dylan": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Parum": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "EnderRobot": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Lynden": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "Rusheel": {
+                "Races": 0,
+                "Points": 0,
+                "PPR": 0,
+                "Avg Race Position": null
+            },
+            "SultanSpeppy": {
+                "Races": 2,
+                "Points": 30,
+                "PPR": 15.0,
+                "Avg Race Position": 3.0
+            }
         }
     },
     "Races Together": {
@@ -2205,10 +2273,10 @@
             "Avg Race Position": 2.46
         },
         "Azhan": {
-            "Races": 234,
-            "Points": 4591,
-            "PPR": 19.62,
-            "Avg Race Position": 2.05
+            "Races": 237,
+            "Points": 4666,
+            "PPR": 19.69,
+            "Avg Race Position": 2.04
         },
         "Sameer": {
             "Races": 205,
@@ -2217,10 +2285,10 @@
             "Avg Race Position": 2.74
         },
         "Zetaa": {
-            "Races": 36,
-            "Points": 519,
-            "PPR": 14.42,
-            "Avg Race Position": 3.31
+            "Races": 38,
+            "Points": 546,
+            "PPR": 14.37,
+            "Avg Race Position": 3.32
         },
         "Adi": {
             "Races": 16,
@@ -2259,10 +2327,10 @@
             "Avg Race Position": 2.6
         },
         "SultanSpeppy": {
-            "Races": 10,
-            "Points": 113,
-            "PPR": 11.3,
-            "Avg Race Position": 4.5
+            "Races": 12,
+            "Points": 143,
+            "PPR": 11.92,
+            "Avg Race Position": 4.25
         }
     },
     "Legend": {
@@ -2313,16 +2381,16 @@
             "1:49.50 by Raj in Greedy Snowmobile"
         ],
         "Formula Wild": [
+            "2:27.12 by Azhan in Snow Minecart",
+            "2:28.70 by SultanSpeppy in The Kart",
+            "2:31.70 by Zetaa in Snow Minecart",
             "2:32.04 by Raj in X-mas Snowmobile",
             "2:33.12 by Rusheel in The Kart",
             "2:34.16 by Azhan in X-mas Snowmobile",
             "2:34.34 by Zetaa in Snow Minecart",
             "2:36.26 by Azhan in Snow Minecart",
             "2:37.58 by SultanSpeppy in The Kart",
-            "2:39.40 by Zetaa in Snow Minecart",
-            "2:40.72 by Zetaa in X-mas Snowmobile",
-            "2:41.18 by SultanSpeppy in The Kart",
-            "2:41.38 by Raj in X-mas Snowmobile"
+            "2:39.40 by Zetaa in Snow Minecart"
         ]
     },
     "Individual Player Best Times": {
@@ -2365,11 +2433,11 @@
             "2:17.16 by Lynden in The Kart"
         ],
         "Formula Wild": [
+            "2:27.12 by Azhan in Snow Minecart",
+            "2:28.70 by SultanSpeppy in The Kart",
+            "2:31.70 by Zetaa in Snow Minecart",
             "2:32.04 by Raj in X-mas Snowmobile",
-            "2:33.12 by Rusheel in The Kart",
-            "2:34.16 by Azhan in X-mas Snowmobile",
-            "2:34.34 by Zetaa in Snow Minecart",
-            "2:37.58 by SultanSpeppy in The Kart"
+            "2:33.12 by Rusheel in The Kart"
         ]
     }
 }

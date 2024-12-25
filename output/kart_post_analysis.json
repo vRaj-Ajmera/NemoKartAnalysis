@@ -342,7 +342,7 @@
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
             "Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": 0
         },
         "Dino Kart": {
             "The Kart": "DNR",
@@ -554,7 +554,7 @@
             "X-mas Puppy": "DNR"
         },
         "Snow Minecart": {
-            "The Kart": 8,
+            "The Kart": 9,
             "Dino Kart": "DNR",
             "Bat Kart": 12,
             "Blocks": "DNR",
@@ -570,7 +570,7 @@
             "Trolley": 1,
             "Golden Trolley": "DNR",
             "Puppy": 0,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": 1
         },
         "Trolley": {
             "The Kart": "DNR",
@@ -630,7 +630,7 @@
             "X-mas Puppy": "DNR"
         },
         "X-mas Puppy": {
-            "The Kart": "DNR",
+            "The Kart": 1,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
@@ -642,7 +642,7 @@
             "Greedy Snowmobile": "DNR",
             "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
-            "Snow Minecart": "DNR",
+            "Snow Minecart": 0,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
             "Puppy": "DNR",
@@ -988,7 +988,7 @@
             "Greedy Snowmobile": "DNR",
             "X-mas Snowmobile": 0,
             "Minecart": "DNR",
-            "Snow Minecart": 0,
+            "Snow Minecart": 1,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
             "Puppy": "DNR",
@@ -1204,7 +1204,7 @@
             "X-mas Puppy": "DNR"
         },
         "Snow Minecart": {
-            "The Kart": 3,
+            "The Kart": 4,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
@@ -1216,7 +1216,7 @@
             "Greedy Snowmobile": "DNR",
             "X-mas Snowmobile": 1,
             "Minecart": "DNR",
-            "Snow Minecart": "DNR",
+            "Snow Minecart": 1,
             "Trolley": "DNR",
             "Golden Trolley": "DNR",
             "Puppy": "DNR",
