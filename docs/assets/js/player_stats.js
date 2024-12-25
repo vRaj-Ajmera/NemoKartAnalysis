@@ -1,5 +1,5 @@
 function addProfilePictures() {
-    const players = ["Raj", "Azhan", "Sameer", "Zetaa", "Adi", "Dylan", "Parum", "EnderRobot", "Lynden", "Rusheel"];
+    const players = ["Raj", "Azhan", "Sameer", "Zetaa", "Adi", "Dylan", "Parum", "EnderRobot", "Lynden", "Rusheel", "SultanSpeppy"];
     const defaultImagePath = "assets/icons/default.png";
 
     // Loop through all <td> elements in the document
