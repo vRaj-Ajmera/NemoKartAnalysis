@@ -38,26 +38,33 @@ def calculate_points(placement):
     points_table = {1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4}
     return points_table.get(placement, 0)
 
-# Generate daily stats
 def calculate_daily_stats(df, players):
+    """Calculate daily stats for players who raced on a given day."""
     daily_stats = {}
     for date in df["Date"].unique():
         daily_df = df[df["Date"] == date]
         stats_for_date = {}
+
         for player in players["Player Name"]:
             player_column = f"{player} Placement"
             valid_placements = daily_df[player_column].replace("DNR", np.nan).dropna().astype(int)
             total_races = valid_placements.count()
-            total_points = valid_placements.apply(calculate_points).sum()
-            ppr = total_points / total_races if total_races > 0 else 0
-            avg_position = valid_placements.mean() if total_races > 0 else None
-            stats_for_date[player] = {
-                "Races": total_races,
-                "Points": total_points,
-                "PPR": round(ppr, 2),
-                "Avg Race Position": round(avg_position, 2) if avg_position is not None else None
-            }
-        daily_stats[date] = stats_for_date
+            
+            if total_races > 0:  # Only include players who raced
+                total_points = valid_placements.apply(calculate_points).sum()
+                ppr = total_points / total_races
+                avg_position = valid_placements.mean()
+                stats_for_date[player] = {
+                    "Races": total_races,
+                    "Points": total_points,
+                    "PPR": round(ppr, 2),
+                    "Avg Race Position": round(avg_position, 2)
+                }
+
+        # Only add the stats for this date if there are any players
+        if stats_for_date:
+            daily_stats[date] = stats_for_date
+
     return daily_stats
 
 # Generate stats for races where all players participated
