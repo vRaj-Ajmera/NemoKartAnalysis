@@ -594,16 +594,16 @@
                 "Avg Race Position": 1.0
             },
             "Zetaa": {
-                "Races": 2,
-                "Points": 27,
-                "PPR": 13.5,
-                "Avg Race Position": 3.5
+                "Races": 42,
+                "Points": 880,
+                "PPR": 20.95,
+                "Avg Race Position": 1.71
             },
             "SultanSpeppy": {
-                "Races": 2,
-                "Points": 30,
-                "PPR": 15.0,
-                "Avg Race Position": 3.0
+                "Races": 13,
+                "Points": 183,
+                "PPR": 14.08,
+                "Avg Race Position": 3.54
             }
         }
     },
@@ -647,10 +647,10 @@
             "Avg Race Position": 2.74
         },
         "Zetaa": {
-            "Races": 38,
-            "Points": 546,
-            "PPR": 14.37,
-            "Avg Race Position": 3.32
+            "Races": 78,
+            "Points": 1399,
+            "PPR": 17.94,
+            "Avg Race Position": 2.45
         },
         "Adi": {
             "Races": 16,
@@ -689,10 +689,10 @@
             "Avg Race Position": 2.6
         },
         "SultanSpeppy": {
-            "Races": 12,
-            "Points": 143,
-            "PPR": 11.92,
-            "Avg Race Position": 4.25
+            "Races": 23,
+            "Points": 296,
+            "PPR": 12.87,
+            "Avg Race Position": 3.96
         }
     },
     "Legend": {
@@ -744,15 +744,15 @@
         ],
         "Formula Wild": [
             "2:27.12 by Azhan in Snow Minecart",
+            "2:28.58 by Zetaa in Puppy",
             "2:28.70 by SultanSpeppy in The Kart",
+            "2:29.90 by Zetaa in Snow Minecart",
+            "2:31.26 by Zetaa in Snow Minecart",
             "2:31.70 by Zetaa in Snow Minecart",
             "2:32.04 by Raj in X-mas Snowmobile",
             "2:33.12 by Rusheel in The Kart",
-            "2:34.16 by Azhan in X-mas Snowmobile",
-            "2:34.34 by Zetaa in Snow Minecart",
-            "2:36.26 by Azhan in Snow Minecart",
-            "2:37.58 by SultanSpeppy in The Kart",
-            "2:39.40 by Zetaa in Snow Minecart"
+            "2:33.12 by SultanSpeppy in The Kart",
+            "2:34.16 by Azhan in X-mas Snowmobile"
         ]
     },
     "Individual Player Best Times": {
@@ -760,13 +760,13 @@
             "2:26.46 by Raj in Puppy",
             "2:29.08 by Sameer in Puppy",
             "2:29.54 by Azhan in Puppy",
-            "2:34.50 by Zetaa in Snow Minecart",
+            "2:33.34 by Zetaa in X-mas Puppy",
             "2:38.30 by Adi in The Kart",
+            "2:41.12 by SultanSpeppy in The Kart",
             "2:46.68 by Rusheel in The Kart",
             "2:47.94 by EnderRobot in The Kart",
             "2:50.06 by Dylan in The Kart",
             "2:51.30 by Parum in The Kart",
-            "2:52.70 by SultanSpeppy in The Kart",
             "2:54.08 by Lynden in The Kart"
         ],
         "Shanghai by Night": [
@@ -796,8 +796,8 @@
         ],
         "Formula Wild": [
             "2:27.12 by Azhan in Snow Minecart",
+            "2:28.58 by Zetaa in Puppy",
             "2:28.70 by SultanSpeppy in The Kart",
-            "2:31.70 by Zetaa in Snow Minecart",
             "2:32.04 by Raj in X-mas Snowmobile",
             "2:33.12 by Rusheel in The Kart"
         ]
