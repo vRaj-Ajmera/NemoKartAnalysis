@@ -623,6 +623,50 @@
                 "PPR": 6.4,
                 "Avg Race Position": 6.8
             }
+        },
+        "2024-12-25": {
+            "Raj": {
+                "Races": 17,
+                "Points": 332,
+                "PPR": 19.53,
+                "Avg Race Position": 2.24
+            },
+            "Azhan": {
+                "Races": 13,
+                "Points": 231,
+                "PPR": 17.77,
+                "Avg Race Position": 2.54
+            },
+            "Zetaa": {
+                "Races": 13,
+                "Points": 232,
+                "PPR": 17.85,
+                "Avg Race Position": 2.62
+            },
+            "EnderRobot": {
+                "Races": 13,
+                "Points": 119,
+                "PPR": 9.15,
+                "Avg Race Position": 5.46
+            },
+            "Rusheel": {
+                "Races": 9,
+                "Points": 121,
+                "PPR": 13.44,
+                "Avg Race Position": 3.78
+            },
+            "SultanSpeppy": {
+                "Races": 14,
+                "Points": 226,
+                "PPR": 16.14,
+                "Avg Race Position": 2.64
+            },
+            "Viraj": {
+                "Races": 6,
+                "Points": 45,
+                "PPR": 7.5,
+                "Avg Race Position": 6.33
+            }
         }
     },
     "Races Together": {
@@ -647,16 +691,16 @@
     },
     "All Time Stats": {
         "Raj": {
-            "Races": 223,
-            "Points": 3949,
-            "PPR": 17.71,
-            "Avg Race Position": 2.47
+            "Races": 240,
+            "Points": 4281,
+            "PPR": 17.84,
+            "Avg Race Position": 2.45
         },
         "Azhan": {
-            "Races": 256,
-            "Points": 5082,
-            "PPR": 19.85,
-            "Avg Race Position": 2.01
+            "Races": 269,
+            "Points": 5313,
+            "PPR": 19.75,
+            "Avg Race Position": 2.03
         },
         "Sameer": {
             "Races": 205,
@@ -665,10 +709,10 @@
             "Avg Race Position": 2.74
         },
         "Zetaa": {
-            "Races": 78,
-            "Points": 1399,
-            "PPR": 17.94,
-            "Avg Race Position": 2.45
+            "Races": 91,
+            "Points": 1631,
+            "PPR": 17.92,
+            "Avg Race Position": 2.47
         },
         "Adi": {
             "Races": 16,
@@ -689,10 +733,10 @@
             "Avg Race Position": 6.33
         },
         "EnderRobot": {
-            "Races": 8,
-            "Points": 82,
-            "PPR": 10.25,
-            "Avg Race Position": 4.88
+            "Races": 21,
+            "Points": 201,
+            "PPR": 9.57,
+            "Avg Race Position": 5.24
         },
         "Lynden": {
             "Races": 3,
@@ -701,22 +745,22 @@
             "Avg Race Position": 6.0
         },
         "Rusheel": {
-            "Races": 20,
-            "Points": 350,
-            "PPR": 17.5,
-            "Avg Race Position": 2.45
+            "Races": 29,
+            "Points": 471,
+            "PPR": 16.24,
+            "Avg Race Position": 2.86
         },
         "SultanSpeppy": {
-            "Races": 23,
-            "Points": 296,
-            "PPR": 12.87,
-            "Avg Race Position": 3.96
+            "Races": 37,
+            "Points": 522,
+            "PPR": 14.11,
+            "Avg Race Position": 3.46
         },
         "Viraj": {
-            "Races": 5,
-            "Points": 32,
-            "PPR": 6.4,
-            "Avg Race Position": 6.8
+            "Races": 11,
+            "Points": 77,
+            "PPR": 7.0,
+            "Avg Race Position": 6.55
         }
     },
     "Legend": {
@@ -737,22 +781,22 @@
             "2:29.68 by Azhan in Puppy",
             "2:29.82 by Sameer in Puppy",
             "2:29.86 by Sameer in Puppy",
+            "2:30.08 by Zetaa in X-mas Puppy",
             "2:30.50 by Sameer in Puppy",
             "2:30.78 by Azhan in Minecart",
-            "2:30.90 by Sameer in Puppy",
-            "2:31.18 by Raj in Puppy"
+            "2:30.90 by Sameer in Puppy"
         ],
         "Shanghai by Night": [
+            "2:29.38 by Azhan in Snow Minecart",
             "2:29.76 by Raj in Puppy",
             "2:30.66 by Azhan in Minecart",
             "2:30.92 by Azhan in Bat Kart",
             "2:31.36 by Azhan in Snow Minecart",
+            "2:31.56 by SultanSpeppy in Snowmobile",
             "2:32.30 by Raj in Puppy",
             "2:32.78 by Sameer in Puppy",
-            "2:33.28 by Raj in Snow Minecart",
-            "2:33.46 by Azhan in Snow Minecart",
-            "2:33.92 by Azhan in Snow Minecart",
-            "2:34.26 by Raj in Greedy Snowmobile"
+            "2:33.26 by Raj in Greedy Snowmobile",
+            "2:33.28 by Raj in Snow Minecart"
         ],
         "Snowville": [
             "1:45.96 by Azhan in Greedy Snowmobile",
@@ -763,8 +807,8 @@
             "1:48.22 by Raj in Greedy Snowmobile",
             "1:48.34 by Azhan in Snowmobile",
             "1:48.90 by Raj in Greedy Snowmobile",
-            "1:49.46 by Azhan in Greedy Snowmobile",
-            "1:49.48 by Rusheel in Snowmobile"
+            "1:49.18 by Raj in X-mas Puppy",
+            "1:49.46 by Azhan in Greedy Snowmobile"
         ],
         "Formula Wild": [
             "2:25.42 by Azhan in X-mas Snowmobile",
@@ -784,40 +828,40 @@
             "2:26.46 by Raj in Puppy",
             "2:29.08 by Sameer in Puppy",
             "2:29.54 by Azhan in Puppy",
-            "2:33.34 by Zetaa in X-mas Puppy",
+            "2:30.08 by Zetaa in X-mas Puppy",
+            "2:31.76 by SultanSpeppy in Snowmobile",
             "2:35.24 by Rusheel in Snowmobile",
             "2:38.30 by Adi in The Kart",
-            "2:41.12 by SultanSpeppy in The Kart",
-            "2:47.94 by EnderRobot in The Kart",
+            "2:43.14 by EnderRobot in The Kart",
             "2:50.06 by Dylan in The Kart",
             "2:51.30 by Parum in The Kart",
             "2:54.08 by Lynden in The Kart",
             "3:00.00 by Viraj in The Kart"
         ],
         "Shanghai by Night": [
+            "2:29.38 by Azhan in Snow Minecart",
             "2:29.76 by Raj in Puppy",
-            "2:30.66 by Azhan in Minecart",
+            "2:31.56 by SultanSpeppy in Snowmobile",
             "2:32.78 by Sameer in Puppy",
-            "2:37.04 by Zetaa in Trolley",
-            "2:42.76 by SultanSpeppy in The Kart",
+            "2:35.06 by Rusheel in X-mas Snowmobile",
+            "2:36.76 by Zetaa in X-mas Snowmobile",
             "2:44.16 by Adi in The Kart",
             "2:45.22 by Dylan in The Kart",
             "2:46.10 by EnderRobot in The Kart",
-            "2:46.82 by Rusheel in X-mas Snowmobile",
             "2:50.03 by Parum in The Kart",
             "3:00.00 by Lynden in The Kart",
-            "3:09.00 by Viraj in The Kart"
+            "3:01.56 by Viraj in The Kart"
         ],
         "Snowville": [
             "1:45.96 by Azhan in Greedy Snowmobile",
             "1:47.48 by Sameer in Greedy Snowmobile",
             "1:48.22 by Raj in Greedy Snowmobile",
             "1:49.48 by Rusheel in Snowmobile",
-            "1:52.86 by Zetaa in Snowmobile",
+            "1:51.46 by Zetaa in X-mas Snowmobile",
+            "1:52.12 by SultanSpeppy in Snowmobile",
+            "1:52.34 by EnderRobot in The Kart",
             "1:58.96 by Viraj in The Kart",
             "2:01.94 by Adi in The Kart",
-            "2:02.48 by SultanSpeppy in The Kart",
-            "2:10.18 by EnderRobot in The Kart",
             "2:14.84 by Dylan in The Kart",
             "2:17.16 by Lynden in The Kart"
         ],
@@ -827,7 +871,8 @@
             "2:26.52 by Rusheel in Snowmobile",
             "2:28.58 by Zetaa in Puppy",
             "2:28.70 by SultanSpeppy in The Kart",
-            "3:00.00 by Viraj in The Kart"
+            "2:42.92 by EnderRobot in The Kart",
+            "2:43.54 by Viraj in The Kart"
         ]
     }
 }
