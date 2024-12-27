@@ -9,6 +9,7 @@ import numpy as np
 import easyocr
 import cv2
 import json
+from rapidfuzz import fuzz
 
 MAX_RACERS=8
 
@@ -287,7 +288,7 @@ def process_image(image_path):
         #status_label.config(text="Dropdowns updated with OCR results!", fg="green")
         
         # Log race times in the GUI for debugging
-        fill_race_times_with_ocr_results(ocr_results, aliases_mapping=aliases_mapping)
+        fill_race_data_with_ocr_results(ocr_results, aliases_mapping)
 
         status_label.config(text="Race times logged from OCR results!", fg="green")
 
@@ -296,74 +297,82 @@ def process_image(image_path):
         print(f"Error processing image: {e}")
 
 
-
-def fill_dropdowns_with_ocr_results(ocr_results):
+def fill_race_data_with_ocr_results(ocr_results, aliases_mapping):
     """
-    Fills the dropdowns with player names, placement, and race times from OCR results.
+    Logs race data (times, placements, and players) in the GUI textboxes
+    by sequentially parsing OCR results and aligning the data.
     """
+    # Clear all fields initially
     for widgets in player_widgets:
         widgets["player"].set("-- Select --")
         widgets["placement"].set("-- Select --")
         widgets["race_time"].delete(0, tk.END)
 
+    
+    found_time_label = False  # Flag to indicate that "TIME" label has been encountered
+    current_placement = 1  # Start with first place
+    parsed_rows = []  # Store rows as (placement, player_name, race_time)
+    temp_row = {"placement": current_placement, "player_name": None, "race_time": None}
+
     for result in ocr_results:
         detected_text, confidence = result[1], result[2]
-        if confidence < 0.5:  # Skip low-confidence results
+        if confidence < 0.001:  # Skip low-confidence results
             continue
 
-        # Extract placement, player, and race time
-        match = re.match(r"(\d+)\s+([\w\s]+)\s+([\d:\.*]+)", detected_text)
-        if match:
-            placement, player_name, race_time = match.groups()
-
-            # Normalize race time format
-            race_time = race_time.replace("*", ":").replace(".", ":")
-            if not re.match(r"^\d:[0-5]\d\.\d{2}$", race_time):  # Ensure valid time format
-                continue
-
-            # Match player name (case-insensitive) to dropdown options
-            for widgets in player_widgets:
-                if widgets["player"].get() == "-- Select --" and any(
-                    player_name.strip().lower() == player.lower() for player in players
-                ):
-                    widgets["player"].set(player_name.strip())
-                    widgets["placement"].set(placement)
-                    widgets["race_time"].insert(0, race_time)
-                    break
-
-def fill_race_times_with_ocr_results(ocr_results, aliases_mapping):
-    """
-    Logs race times and matches players from OCR results to aliases in the GUI textboxes.
-    """
-    # Clear all race_time fields initially
-    for widgets in player_widgets:
-        widgets["player"].set("-- Select --")
-        widgets["race_time"].delete(0, tk.END)
-
-    time_index = 0  # Keep track of which racer to update
-    for result in ocr_results:
-        detected_text, confidence = result[1], result[2]
-        if confidence < 0.30:  # Skip low-confidence results
+        # Check for the "TIME" label
+        if detected_text.strip().lower() == "time":
+            found_time_label = True
             continue
 
-        # Extract race time using a flexible regex
-        match = re.search(r"(\d{1,2})[:.*](\d{2})[:.*](\d{2})", detected_text)
-        if match:
-            minutes, seconds, milliseconds = match.groups()
+        if not found_time_label:
+            # Skip everything until "TIME" is found
+            continue
 
-            # Normalize race time to the format M:SS.xx
+        if temp_row["placement"] is None and detected_text.strip().isdigit() and len(detected_text.strip()) == 1:
+            temp_row["placement"] = current_placement
+            continue
+
+        # Extract race time
+        time_match = re.search(r"(\d{1,2})[:.*](\d{2})[:.*](\d{2})", detected_text)
+        if time_match:
+            minutes, seconds, milliseconds = time_match.groups()
             race_time = f"{int(minutes)}:{seconds}.{milliseconds}"
-
-            # Attempt to match player name or alias
-            for alias, player_name in aliases_mapping.items():
+            if temp_row["race_time"] is None:  # Only fill race time if empty
+                temp_row["race_time"] = race_time
+        else:
+            # Match player name using aliases
+            for alias, actual_name in aliases_mapping.items():
                 if alias in detected_text.lower():
-                    if time_index < len(player_widgets):
-                        widgets = player_widgets[time_index]
-                        widgets["player"].set(player_name)
-                        widgets["race_time"].insert(0, race_time)
-                        time_index += 1
-                        break
+                    if temp_row["player_name"] is None:  # Only fill player name if empty
+                        temp_row["player_name"] = actual_name
+                    break
+            if temp_row["player_name"] is None:
+                temp_row["player_name"] = detected_text.lower()
 
+        # If a complete row is filled, add placement, add to parsed rows, and reset temp_row
+        if temp_row["player_name"] and temp_row["race_time"] and temp_row["placement"]:
+            parsed_rows.append(temp_row.copy())
+            temp_row = {"placement": None, "player_name": None, "race_time": None}
+            current_placement += 1  # Increment placement
+
+    # Handle any remaining row TEST
+    #if temp_row["player_name"] and temp_row["race_time"]:
+    #    temp_row["placement"] = current_placement
+    #    parsed_rows.append(temp_row)
+
+
+    # Fill GUI fields with parsed data
+    for i, row in enumerate(parsed_rows):
+        if i >= len(player_widgets):
+            break  # Ignore extra rows if they exceed the GUI capacity
+
+        widgets = player_widgets[i]
+        widgets["placement"].set(str(row["placement"]) if row["placement"] else "-- Select --")
+        widgets["player"].set(row["player_name"] if row["player_name"] else "-- Select --")
+        if row["race_time"]:
+            widgets["race_time"].insert(0, row["race_time"])
+
+    print(f"Parsed rows: {parsed_rows}")  # Debugging output
 
 # GUI Setup
 root = TkinterDnD.Tk()
