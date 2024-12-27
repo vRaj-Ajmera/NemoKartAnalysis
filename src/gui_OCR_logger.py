@@ -355,17 +355,15 @@ def fill_race_data_with_ocr_results(ocr_results, aliases_mapping):
             temp_row = {"placement": None, "player_name": None, "race_time": None}
             current_placement += 1  # Increment placement
 
-    # Handle any remaining row TEST
-    #if temp_row["player_name"] and temp_row["race_time"]:
-    #    temp_row["placement"] = current_placement
-    #    parsed_rows.append(temp_row)
-
-
     # Fill GUI fields with parsed data
     for i, row in enumerate(parsed_rows):
         if i >= len(player_widgets):
             break  # Ignore extra rows if they exceed the GUI capacity
 
+        # Check if the player is in aliases_mapping
+        if row["player_name"] not in aliases_mapping.values():
+            continue
+        
         widgets = player_widgets[i]
         widgets["placement"].set(str(row["placement"]) if row["placement"] else "-- Select --")
         widgets["player"].set(row["player_name"] if row["player_name"] else "-- Select --")
