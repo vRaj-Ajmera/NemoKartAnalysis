@@ -125,7 +125,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Populate and handle Daily Stats Dropdown
     function populateDailyStatsDropdown(dailyStats) {
         const dropdown = document.getElementById("daily-stats-dropdown");
-        Object.keys(dailyStats).forEach(date => {
+
+        // Sort dates in descending order
+        const sortedDates = Object.keys(dailyStats).sort((a, b) => new Date(b) - new Date(a));
+
+        // Populate the dropdown with sorted dates
+        sortedDates.forEach(date => {
             const option = document.createElement("option");
             option.value = date;
             option.textContent = date;
@@ -139,7 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
 
     // Render Daily Stats Table
     function renderDailyStatsTable(stats) {
