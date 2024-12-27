@@ -8,6 +8,7 @@ from tkinterdnd2 import DND_FILES, TkinterDnD
 import numpy as np
 import easyocr
 import cv2
+import json
 
 MAX_RACERS=8
 
@@ -38,6 +39,30 @@ def load_data():
 karts, maps, players = load_data()
 karts_with_empty = ["-- Select --"] + karts
 maps_with_empty = ["-- Select --"] + maps
+
+def load_player_aliases():
+    """
+    Load player aliases from player_aliases.json and create a dictionary mapping aliases to player names.
+    """
+    aliases_file = os.path.join(script_dir, "../data/player_aliases.json")
+    aliases_mapping = {}
+    try:
+        with open(aliases_file, "r") as file:
+            aliases_data = json.load(file)
+            for player_name, aliases in aliases_data.items():
+                for alias in aliases:
+                    aliases_mapping[alias.lower()] = player_name  # Map each alias to the player's name
+                aliases_mapping[player_name.lower()] = player_name  # Include the player's name as an alias
+        return aliases_mapping
+    except FileNotFoundError as e:
+        print(f"Error loading aliases: {e}")
+        return {}
+    except Exception as e:
+        print(f"Unexpected error loading aliases: {e}")
+        return {}
+
+# Load player aliases
+aliases_mapping = load_player_aliases()
 
 # Initialize output CSV and ensure columns are aligned with the players list
 def initialize_csv():
@@ -262,7 +287,7 @@ def process_image(image_path):
         #status_label.config(text="Dropdowns updated with OCR results!", fg="green")
         
         # Log race times in the GUI for debugging
-        fill_race_times_with_ocr_results(ocr_results)
+        fill_race_times_with_ocr_results(ocr_results, aliases_mapping=aliases_mapping)
 
         status_label.config(text="Race times logged from OCR results!", fg="green")
 
@@ -306,12 +331,13 @@ def fill_dropdowns_with_ocr_results(ocr_results):
                     widgets["race_time"].insert(0, race_time)
                     break
 
-def fill_race_times_with_ocr_results(ocr_results):
+def fill_race_times_with_ocr_results(ocr_results, aliases_mapping):
     """
-    Logs race times in the GUI textboxes from OCR results for debugging purposes.
+    Logs race times and matches players from OCR results to aliases in the GUI textboxes.
     """
     # Clear all race_time fields initially
     for widgets in player_widgets:
+        widgets["player"].set("-- Select --")
         widgets["race_time"].delete(0, tk.END)
 
     time_index = 0  # Keep track of which racer to update
@@ -328,11 +354,15 @@ def fill_race_times_with_ocr_results(ocr_results):
             # Normalize race time to the format M:SS.xx
             race_time = f"{int(minutes)}:{seconds}.{milliseconds}"
 
-            # Fill the race time textbox
-            if time_index < len(player_widgets):
-                player_widgets[time_index]["race_time"].insert(0, race_time)
-                time_index += 1
-
+            # Attempt to match player name or alias
+            for alias, player_name in aliases_mapping.items():
+                if alias in detected_text.lower():
+                    if time_index < len(player_widgets):
+                        widgets = player_widgets[time_index]
+                        widgets["player"].set(player_name)
+                        widgets["race_time"].insert(0, race_time)
+                        time_index += 1
+                        break
 
 
 # GUI Setup
