@@ -336,7 +336,7 @@ def fill_race_data_with_ocr_results(ocr_results, aliases_mapping):
             continue
 
         # Extract race time
-        time_match = re.search(r"(\d{1,2})[:.*](\d{2})[:.*](\d{2})", detected_text)
+        time_match = re.search(r"(\d{1,2})[:.*,](\d{2})[:.*,](\d{2})", detected_text)
         if time_match:
             minutes, seconds, milliseconds = time_match.groups()
             race_time = f"{int(minutes)}:{seconds}.{milliseconds}"
@@ -436,7 +436,7 @@ drag_and_drop_label.drop_target_register(DND_FILES)
 drag_and_drop_label.dnd_bind("<<Drop>>", handle_drop)
 
 # Log Button
-tk.Button(root, text="Log Race", command=save_data).grid(row=MAX_RACERS + 3, column=0, columnspan=4, pady=10)
+tk.Button(root, text="Log Race", command=save_data).grid(row=MAX_RACERS + 4, column=0, columnspan=4, pady=10)
 
 # Add a button for pasting images from the clipboard
 paste_button = tk.Button(root, text="Paste Image from Clipboard", command=paste_image_from_clipboard, bg="lightgray", padx=10, pady=5)
@@ -444,6 +444,6 @@ paste_button.grid(row=MAX_RACERS + 3, column=1, columnspan=2, pady=10)
 
 # Status Label
 status_label = tk.Label(root, text="", fg="green")
-status_label.grid(row=MAX_RACERS + 4, column=0, columnspan=4, pady=5)
+status_label.grid(row=MAX_RACERS + 5, column=0, columnspan=4, pady=5)
 
 root.mainloop()
