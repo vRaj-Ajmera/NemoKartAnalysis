@@ -256,8 +256,83 @@ def process_image(image_path):
             text, confidence = result[1], result[2]
             print(f"Detected Text: {text} (Confidence: {confidence})")
         print("\n--- End of EasyOCR Results ---\n")
+
+        # Fill dropdowns with the parsed OCR results
+        #fill_dropdowns_with_ocr_results(ocr_results)
+        #status_label.config(text="Dropdowns updated with OCR results!", fg="green")
+        
+        # Log race times in the GUI for debugging
+        fill_race_times_with_ocr_results(ocr_results)
+
+        status_label.config(text="Race times logged from OCR results!", fg="green")
+
+
     except Exception as e:
         print(f"Error processing image: {e}")
+
+
+
+def fill_dropdowns_with_ocr_results(ocr_results):
+    """
+    Fills the dropdowns with player names, placement, and race times from OCR results.
+    """
+    for widgets in player_widgets:
+        widgets["player"].set("-- Select --")
+        widgets["placement"].set("-- Select --")
+        widgets["race_time"].delete(0, tk.END)
+
+    for result in ocr_results:
+        detected_text, confidence = result[1], result[2]
+        if confidence < 0.5:  # Skip low-confidence results
+            continue
+
+        # Extract placement, player, and race time
+        match = re.match(r"(\d+)\s+([\w\s]+)\s+([\d:\.*]+)", detected_text)
+        if match:
+            placement, player_name, race_time = match.groups()
+
+            # Normalize race time format
+            race_time = race_time.replace("*", ":").replace(".", ":")
+            if not re.match(r"^\d:[0-5]\d\.\d{2}$", race_time):  # Ensure valid time format
+                continue
+
+            # Match player name (case-insensitive) to dropdown options
+            for widgets in player_widgets:
+                if widgets["player"].get() == "-- Select --" and any(
+                    player_name.strip().lower() == player.lower() for player in players
+                ):
+                    widgets["player"].set(player_name.strip())
+                    widgets["placement"].set(placement)
+                    widgets["race_time"].insert(0, race_time)
+                    break
+
+def fill_race_times_with_ocr_results(ocr_results):
+    """
+    Logs race times in the GUI textboxes from OCR results for debugging purposes.
+    """
+    # Clear all race_time fields initially
+    for widgets in player_widgets:
+        widgets["race_time"].delete(0, tk.END)
+
+    time_index = 0  # Keep track of which racer to update
+    for result in ocr_results:
+        detected_text, confidence = result[1], result[2]
+        if confidence < 0.30:  # Skip low-confidence results
+            continue
+
+        # Extract race time using a flexible regex
+        match = re.search(r"(\d{1,2})[:.*](\d{2})[:.*](\d{2})", detected_text)
+        if match:
+            minutes, seconds, milliseconds = match.groups()
+
+            # Normalize race time to the format M:SS.xx
+            race_time = f"{int(minutes)}:{seconds}.{milliseconds}"
+
+            # Fill the race time textbox
+            if time_index < len(player_widgets):
+                player_widgets[time_index]["race_time"].insert(0, race_time)
+                time_index += 1
+
 
 
 # GUI Setup
