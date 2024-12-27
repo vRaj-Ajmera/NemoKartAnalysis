@@ -10,6 +10,8 @@ import easyocr
 import cv2
 import json
 from rapidfuzz import fuzz
+from PIL import ImageGrab, Image
+from tkinter import messagebox
 
 MAX_RACERS=8
 
@@ -21,7 +23,8 @@ kart_file = os.path.join(script_dir, "../data/karts.csv")
 map_file = os.path.join(script_dir, "../data/maps.csv")
 players_file = os.path.join(script_dir, "../data/players.csv")
 output_file = os.path.join(script_dir, "../output/results.csv")
-preprocessed_image_file = os.path.join(script_dir, "../output/img_processing/preprocessed_image.png")
+preprocessed_image_file_path = os.path.join(script_dir, "../output/img_processing/preprocessed_image.png")
+clipboard_image_file_path = os.path.join(script_dir, "../output/img_processing/clipboard_image.png")
 
 # Load data from files
 def load_data():
@@ -227,7 +230,7 @@ def save_data():
         widgets["placement"].set("-- Select --")
         widgets["race_time"].delete(0, tk.END)
 
-def preprocess_image(image_path, output_path=preprocessed_image_file):
+def preprocess_image(image_path, output_path=preprocessed_image_file_path):
     """
     Preprocess the image to keep only colors with RGB values greater than [255, 248, 229].
     Save the processed image for verification.
@@ -363,7 +366,7 @@ def fill_race_data_with_ocr_results(ocr_results, aliases_mapping):
         # Check if the player is in aliases_mapping
         if row["player_name"] not in aliases_mapping.values():
             continue
-        
+
         widgets = player_widgets[i]
         widgets["placement"].set(str(row["placement"]) if row["placement"] else "-- Select --")
         widgets["player"].set(row["player_name"] if row["player_name"] else "-- Select --")
@@ -371,6 +374,25 @@ def fill_race_data_with_ocr_results(ocr_results, aliases_mapping):
             widgets["race_time"].insert(0, row["race_time"])
 
     print(f"Parsed rows: {parsed_rows}")  # Debugging output
+
+def paste_image_from_clipboard():
+    """
+    Check for an image in the clipboard and process it.
+    """
+    try:
+        # Attempt to grab the image from the clipboard
+        clipboard_image = ImageGrab.grabclipboard()
+
+        if isinstance(clipboard_image, Image.Image):  # Check if the clipboard contains an image
+            # Save the clipboard image temporarily
+            clipboard_image.save(clipboard_image_file_path, "PNG")
+            # Process the image
+            process_image(clipboard_image_file_path)
+            status_label.config(text="Image pasted and processed from clipboard!", fg="green")
+        else:
+            messagebox.showwarning("No Image Found", "The clipboard does not contain a valid image.")
+    except Exception as e:
+        messagebox.showerror("Error", f"An error occurred while pasting the image: {e}")
 
 # GUI Setup
 root = TkinterDnD.Tk()
@@ -415,6 +437,10 @@ drag_and_drop_label.dnd_bind("<<Drop>>", handle_drop)
 
 # Log Button
 tk.Button(root, text="Log Race", command=save_data).grid(row=MAX_RACERS + 3, column=0, columnspan=4, pady=10)
+
+# Add a button for pasting images from the clipboard
+paste_button = tk.Button(root, text="Paste Image from Clipboard", command=paste_image_from_clipboard, bg="lightgray", padx=10, pady=5)
+paste_button.grid(row=MAX_RACERS + 3, column=1, columnspan=2, pady=10)
 
 # Status Label
 status_label = tk.Label(root, text="", fg="green")
