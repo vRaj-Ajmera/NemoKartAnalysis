@@ -23,8 +23,8 @@ kart_file = os.path.join(script_dir, "../data/karts.csv")
 map_file = os.path.join(script_dir, "../data/maps.csv")
 players_file = os.path.join(script_dir, "../data/players.csv")
 output_file = os.path.join(script_dir, "../output/results.csv")
-preprocessed_image_file_path = os.path.join(script_dir, "../output/img_processing/preprocessed_image.png")
-clipboard_image_file_path = os.path.join(script_dir, "../output/img_processing/clipboard_image.png")
+preprocessed_image_file_path = os.path.join(script_dir, "../output/img_processing/preprocessed_img.png")
+clipboard_image_file_path = os.path.join(script_dir, "../output/img_processing/clipboard_img.png")
 
 # Load data from files
 def load_data():
