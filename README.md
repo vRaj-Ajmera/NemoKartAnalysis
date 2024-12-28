@@ -83,9 +83,9 @@ These libraries will ensure your project has all the required capabilities for b
 - Example:
   ```json
   {
-    "Raj": ["DaTrixta"],
-    "Azhan": ["highzahawk"],
-    "Sameer": ["sourpanda"]
+    "Raj": ["DaTrixta", "Trickster"],
+    "Azhan": ["highzahawk", "Hawk"],
+    "Sameer": ["sourpanda", "S0urPanda"]
   }
   ```
 
@@ -104,9 +104,9 @@ These libraries will ensure your project has all the required capabilities for b
 - Format:
   ```csv
   Kart Name,CC
-  Bat Kart
-  Dino Kart
-  Grey Blocks
+  Bat Kart,118
+  Dino Kart,118
+  Grey Blocks,141
   ```
 
 ### **Step 3: Running the Logger**
