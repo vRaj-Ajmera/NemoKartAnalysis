@@ -109,14 +109,25 @@ These libraries will ensure your project has all the required capabilities for b
   Grey Blocks,141
   ```
 
-### **Step 3: Running the Logger**
+### **Step 3: Clear Output Files**
+
+Delete any existing data **ONLY if you are setting up your own race tracker with new players**. Verify results.csv is empty. Verify player_graphs folder is empty.
+
+  ```
+  output/results.csv
+  output/player_graphs/
+  ```
+
+## Run Instructions
+
+### **Step 1: Running the Logger**
 - Run **gui_logger.py** for manual logging.
 - Run **gui_OCR_logger.py** for OCR-based logging. Drag and drop race result screenshots or paste them from the clipboard. Ensure relevant players, maps, and karts are pre-populated in the input files.
 
-### **Step 4: Analyze the Results**
+### **Step 2: Analyze the Results**
 - After logging, run **analyze_all.py** to process the logged race results into structured analysis outputs.
 
-### **Step 5: View Analysis**
+### **Step 3: View Analysis**
 - Open **index.html** with a live server to view the analysis. Install a live server extension and right-click **index.html** to open it with the live server.
 
 ## **File Structure**
