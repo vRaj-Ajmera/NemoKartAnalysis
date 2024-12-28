@@ -8,13 +8,63 @@ View Project Site: https://vraj-ajmera.github.io/NemoKartAnalysis/
 
 ### **Step 1: Install Required Libraries**
 
-Before running the project, ensure the following libraries are installed. Use `pip` to install them:
+**EasyOCR** requires PyTorch. Install PyTorch according to your system and Python version by visiting [PyTorch's installation page](https://pytorch.org/get-started/locally/).
+
+Before running the project, ensure the following libraries are installed. The following instructions are for **Windows**. For other platforms, additional setup may be required (see below):
+
+#### **Windows**
+Use `pip` to install the required libraries:
 
 ```bash
 pip install pandas numpy easyocr opencv-python rapidfuzz seaborn matplotlib tkinterdnd2
 ```
 
-- **EasyOCR** requires PyTorch. Install PyTorch according to your system and Python version by visiting [PyTorch's installation page](https://pytorch.org/get-started/locally/).
+#### **Linux**
+For Linux, ensure your system has the following prerequisites before running the `pip` command:
+
+1. Install `tkinter` if it's not already installed (it may not be included by default):
+   ```bash
+   sudo apt-get install python3-tk
+   ```
+
+2. Install `cv2` dependencies (required for OpenCV):
+   ```bash
+   sudo apt-get install libopencv-dev python3-opencv
+   ```
+
+3. Then install the Python libraries:
+   ```bash
+   pip install pandas numpy easyocr opencv-python rapidfuzz seaborn matplotlib tkinterdnd2
+   ```
+
+#### **MacOS**
+For macOS, you may need to install `tkinter` using `brew` if it's not pre-installed:
+
+1. Install `tkinter`:
+   ```bash
+   brew install python-tk
+   ```
+
+2. Then install the Python libraries:
+   ```bash
+   pip install pandas numpy easyocr opencv-python rapidfuzz seaborn matplotlib tkinterdnd2
+   ```
+
+
+#### Explanation of the Libraries
+
+- **`pandas`**: For data manipulation and handling CSV files.
+- **`numpy`**: For numerical operations and array manipulations.
+- **`easyocr`**: For Optical Character Recognition (OCR) of race screenshots.
+- **`opencv-python`**: For image preprocessing.
+- **`rapidfuzz`**: For fuzzy string matching to match player aliases.
+- **`seaborn`**: For data visualization (used in graph generation).
+- **`matplotlib`**: For creating graphs and visualizations.
+- **`tkinterdnd2`**: For drag-and-drop support in the Tkinter GUI.
+- **`Pillow (PIL)`**: For working with images and clipboard pasting functionality.
+- **`shutil` and `subprocess`**: For handling file and directory operations and executing system commands.
+
+These libraries will ensure your project has all the required capabilities for both GUI logging and image-based OCR race data extraction.
 
 ### **Step 2: Populate Input Files**
 
