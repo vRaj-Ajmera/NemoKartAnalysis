@@ -24,7 +24,7 @@ function addProfilePictures() {
     });
 }
 
-function createAndRenderTableFromStats(containerName, columnNames, stats, columnValues, columnSort, defaultSort = 0, useProfilePictures = false) {
+function createAndRenderTableFromStats(containerName, columnNames, stats, columnValues, columnSort, defaultSort = 0, useProfilePictures = true) {
     let sortedStats = stats;
 
     function sortTable(columnNo) {
