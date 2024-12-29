@@ -3,9 +3,15 @@ import shutil
 import subprocess
 import csv
 import json
+import re
 
 # Base directory
 base_dir = os.path.dirname(os.path.dirname(__file__))
+
+# Define file paths
+players_csv_path = os.path.join(base_dir, "data", "players.csv")
+main_js_path = os.path.join(base_dir, "docs", "assets", "js", "main.js")
+player_stats_js_path = os.path.join(base_dir, "docs", "assets", "js", "player_stats.js")
 
 def run_script(script_path):
     """Run a Python script."""
@@ -26,7 +32,42 @@ def copy_directory(src, dest):
             if os.path.isfile(s):
                 shutil.copy(s, d)
 
+def update_js_with_players(js_path, players):
+    """Update the players array in the specified JS file."""
+    try:
+        with open(js_path, "r") as file:
+            content = file.read()
+
+        # Replace the players array
+        new_players_array = f"const players = {players};"
+        updated_content = re.sub(r"const players = \[.*?\];", new_players_array, content, flags=re.DOTALL)
+
+        with open(js_path, "w") as file:
+            file.write(updated_content)
+        print(f"Updated players in {js_path}")
+    except Exception as e:
+        print(f"Error updating {js_path}: {e}")
+
 def main():
+    # Load players from CSV
+    if not os.path.exists(players_csv_path):
+        print(f"Players CSV file not found at {players_csv_path}")
+        return
+
+    try:
+        with open(players_csv_path, "r") as file:
+            reader = csv.reader(file)
+            players = [row[0] for row in reader if row]  # Extract player names, ignoring empty rows
+            players.pop(0)  # Remove the header
+    except Exception as e:
+        print(f"Error reading players CSV: {e}")
+        return
+ 
+    # Update JS files
+    players_js_array = json.dumps(players, indent=4)
+    update_js_with_players(main_js_path, players_js_array)
+    update_js_with_players(player_stats_js_path, players_js_array)
+
     # 1. Run src/calculations/analysis.py
     analysis_script = os.path.join(base_dir, "src", "calculations", "analysis.py")
     run_script(analysis_script)
