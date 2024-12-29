@@ -1,4 +1,19 @@
-const players = ["Raj", "Azhan", "Sameer", "Zetaa", "Adi", "Dylan", "Parum", "EnderRobot", "Lynden", "Rusheel", "SultanSpeppy", "Viraj"];
+// Global array to store players dynamically loaded from players.csv
+let players = [];
+
+// Immediately fetch and parse players.csv
+(() => {
+    const playersUrl = "../../docs/players.csv";
+    fetch(playersUrl)
+        .then((response) => response.text())
+        .then((data) => {
+            // Parse CSV data
+            const lines = data.split("\n").map((line) => line.trim());
+            players = lines.slice(1).filter((line) => line); // Remove header and empty lines
+            console.log("Players loaded:", players);
+        })
+        .catch((err) => console.error("Error fetching players data:", err));
+})();
 
 function addProfilePictures() {
     const defaultImagePath = "assets/icons/default.png";
