@@ -25,6 +25,11 @@ def copy_directory(src, dest):
                 shutil.copy(s, d)
 
 def main():
+    # Copy data/players.csv to docs/players.csv
+    players_src = os.path.join(base_dir, "data", "players.csv")
+    players_dest = os.path.join(base_dir, "docs", "players.csv")
+    copy_file(players_src, players_dest)
+
     # 1. Run src/calculations/analysis.py
     analysis_script = os.path.join(base_dir, "src", "calculations", "analysis.py")
     run_script(analysis_script)
