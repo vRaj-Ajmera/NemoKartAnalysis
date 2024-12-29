@@ -346,8 +346,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Validate input
-        let inputPlayers = input.split(",").map((player) => player.trim().toLowerCase());
+        // Validate input: Split by commas, trim whitespace, and filter out empty strings
+        let inputPlayers = input.split(",").map((player) => player.trim().toLowerCase()).filter(Boolean);
         inputPlayers = [...new Set(inputPlayers)]; // Remove duplicate player names
 
         if (inputPlayers.length < 2) {
@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Map input players to the correct case-sensitive player names in the global players list
-        const validPlayers = inputPlayers.map((inputPlayer) => 
+        const validPlayers = inputPlayers.map((inputPlayer) =>
             players.find((player) => player.toLowerCase() === inputPlayer)
         ).filter(Boolean); // Filter out unmatched players
 
@@ -414,12 +414,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderRacesTogetherTable(playerStats) {
         const container = document.getElementById("races-together-table");
         container.innerHTML = ""; // Clear previous table
-        
+
         // Convert playerStats to an array and sort by PPR (descending)
         const sortedPlayerStats = Object.entries(playerStats).sort(
             ([, statsA], [, statsB]) => parseFloat(statsB.PPR) - parseFloat(statsA.PPR)
         );
-    
+
         const table = document.createElement("table");
         table.innerHTML = `
             <thead>
