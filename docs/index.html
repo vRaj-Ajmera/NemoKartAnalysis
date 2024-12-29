@@ -55,8 +55,19 @@
 
         <section id="races-together">
             <h2>Races Together</h2>
+            <div class="races-together-container">
+                <input
+                    id="races-together-input"
+                    type="text"
+                    placeholder="Enter comma-separated player names (e.g., Player1, Player2, Player3)"
+                    maxlength="100"
+                />
+                <button id="fetch-races-together">Fetch Races</button>
+            </div>
+            <p id="races-together-message"></p>
             <div id="races-together-table"></div>
         </section>
+        
     </main>
 
     <footer>

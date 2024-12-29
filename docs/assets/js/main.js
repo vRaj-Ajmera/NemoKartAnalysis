@@ -1,5 +1,6 @@
+const players = ["Raj", "Azhan", "Sameer", "Zetaa", "Adi", "Dylan", "Parum", "EnderRobot", "Lynden", "Rusheel", "SultanSpeppy", "Viraj"];
+
 function addProfilePictures() {
-    const players = ["Raj", "Azhan", "Sameer", "Zetaa", "Adi", "Dylan", "Parum", "EnderRobot", "Lynden", "Rusheel", "SultanSpeppy", "Viraj"];
     const defaultImagePath = "assets/icons/default.png";
 
     // Loop through all <td> elements in the document
@@ -24,7 +25,7 @@ function addProfilePictures() {
     });
 }
 
-function createAndRenderTableFromStats(containerName, columnNames, stats, columnValues, columnSort, defaultSort = 0, useProfilePictures = false) {
+function createAndRenderTableFromStats(containerName, columnNames, stats, columnValues, columnSort, defaultSort = 0, useProfilePictures = true) {
     let sortedStats = stats;
 
     function sortTable(columnNo) {
@@ -105,22 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const eloAnalysisUrl = "elo_post_analysis.json"; // Add this line
 
     Promise.all([
-        fetch(postAnalysisUrl).then(response => response.json()),
-        fetch(eloAnalysisUrl).then(response => response.json()) // Fetch ELO data
+        fetch(postAnalysisUrl).then((response) => response.json()),
+        fetch(eloAnalysisUrl).then((response) => response.json()),
     ])
     .then(([postAnalysisData, eloAnalysisData]) => {
         renderSummaryTable(postAnalysisData["All Time Stats"], eloAnalysisData["Player Ratings"]);
         populateDailyStatsDropdown(postAnalysisData["Daily Stats"]);
-        renderRacesTogetherTable(postAnalysisData["Races Together"]);
-        populateLeaderboardsDropdown(postAnalysisData["Best Race Times"], postAnalysisData["Individual Player Best Times"]);
+        populateLeaderboardsDropdown(
+            postAnalysisData["Best Race Times"],
+            postAnalysisData["Individual Player Best Times"]
+        );
     })
-    .catch(err => console.error("Error fetching data:", err));
-
-    // Render Summary Table
-    function renderSummaryTable(stats) {
-        createAndRenderSummaryTable("summary-table", stats);
-    }
-
+    .catch((err) => console.error("Error fetching data:", err));
 
     // Populate and handle Daily Stats Dropdown
     function populateDailyStatsDropdown(dailyStats) {
@@ -148,12 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Render Daily Stats Table
     function renderDailyStatsTable(stats) {
         createAndRenderSummaryTable("daily-stats-table", stats);
-    }
-
-
-    // Render Races Together Table
-    function renderRacesTogetherTable(stats) {
-        createAndRenderSummaryTable("races-together-table", stats);
     }
 
     function populateLeaderboardsDropdown(leaderboards, individualBestTimes) {
@@ -324,5 +315,138 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         // Initial render
         renderTable(combinedStats);
+        addProfilePictures();
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const resultsUrl = "results.json";
+
+    // Fetch results data
+    let resultsData = [];
+    fetch(resultsUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            resultsData = data;
+        })
+        .catch((err) => console.error("Error fetching results data:", err));
+
+    // Utility function to display messages
+    function displayMessage(message, isError = false) {
+        const messageContainer = document.getElementById("races-together-message");
+        messageContainer.textContent = message;
+        messageContainer.style.color = isError ? "red" : "white"; // Dynamic coloring
+    }
+
+    // Handle Fetch Races Together
+    document.getElementById("fetch-races-together").addEventListener("click", () => {
+        const input = document.getElementById("races-together-input").value.trim();
+        if (!input) {
+            displayMessage("Input cannot be empty.", true);
+            return;
+        }
+
+        // Validate input: Split by commas, trim whitespace, and filter out empty strings
+        let inputPlayers = input.split(",").map((player) => player.trim().toLowerCase()).filter(Boolean);
+        inputPlayers = [...new Set(inputPlayers)]; // Remove duplicate player names
+
+        if (inputPlayers.length < 2) {
+            displayMessage("Invalid input format. Must enter at least 2 unique players.", true);
+            return;
+        }
+        if (inputPlayers.length > 8) {
+            displayMessage("Maximum of 8 players allowed.", true);
+            return;
+        }
+
+        // Map input players to the correct case-sensitive player names in the global players list
+        const validPlayers = inputPlayers.map((inputPlayer) =>
+            players.find((player) => player.toLowerCase() === inputPlayer)
+        ).filter(Boolean); // Filter out unmatched players
+
+        if (validPlayers.length !== inputPlayers.length) {
+            const invalidPlayers = inputPlayers.filter(
+                (inputPlayer) => !players.some((player) => player.toLowerCase() === inputPlayer)
+            );
+            displayMessage(`Invalid player(s): ${invalidPlayers.join(", ")}`, true);
+            return;
+        }
+
+        // Find races where all valid players participated
+        const racesTogether = resultsData.filter((race) =>
+            validPlayers.every((player) => race[`${player} Placement`] && race[`${player} Placement`] !== "DNR")
+        );
+
+        if (racesTogether.length === 0) {
+            displayMessage(`Players (${validPlayers.join(", ")}) have not raced together.`, true);
+            return;
+        }
+
+        displayMessage(`Found ${racesTogether.length} races together for (${validPlayers.join(", ")})`, false);
+
+        // Calculate player stats
+        const playerStats = validPlayers.reduce((stats, player) => {
+            stats[player] = { Points: 0, Races: 0, TotalPlacement: 0 };
+            return stats;
+        }, {});
+
+        const pointsAllocation = [25, 18, 15, 12, 10, 8, 6, 4];
+        racesTogether.forEach((race) => {
+            validPlayers.forEach((player) => {
+                const placement = parseInt(race[`${player} Placement`], 10);
+                playerStats[player].Races += 1;
+                playerStats[player].Points += pointsAllocation[placement - 1] || 0;
+                playerStats[player].TotalPlacement += placement;
+            });
+        });
+
+        // Add PPR (Points Per Race) and Avg Position to stats
+        Object.values(playerStats).forEach((stats) => {
+            stats.PPR = (stats.Points / stats.Races).toFixed(2);
+            stats.AvgPosition = (stats.TotalPlacement / stats.Races).toFixed(2);
+        });
+
+        // Render table
+        renderRacesTogetherTable(playerStats);
+        addProfilePictures();
+    });
+
+    function renderRacesTogetherTable(playerStats) {
+        const container = document.getElementById("races-together-table");
+        container.innerHTML = ""; // Clear previous table
+
+        // Convert playerStats to an array and sort by PPR (descending)
+        const sortedPlayerStats = Object.entries(playerStats).sort(
+            ([, statsA], [, statsB]) => parseFloat(statsB.PPR) - parseFloat(statsA.PPR)
+        );
+
+        const table = document.createElement("table");
+        table.innerHTML = `
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Races</th>
+                    <th>Points</th>
+                    <th>PPR</th>
+                    <th>Avg Position</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${sortedPlayerStats
+                    .map(
+                        ([player, stats]) => `
+                        <tr>
+                            <td>${player}</td>
+                            <td>${stats.Races}</td>
+                            <td>${stats.Points}</td>
+                            <td>${stats.PPR}</td>
+                            <td>${stats.AvgPosition}</td>
+                        </tr>
+                    `
+                    )
+                    .join("")}
+            </tbody>
+        `;
+        container.appendChild(table);
     }
 });
