@@ -168,6 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
         let isIndividual = true; // Start with no rendering
     
+        // Initially hide the buttons
+        playerTimesButton.classList.add("hidden");
+        recordedTimesButton.classList.add("hidden");
+
         // Add the default "-- Select --" option
         const defaultOption = document.createElement("option");
         defaultOption.value = "-- Select --";
@@ -198,35 +202,39 @@ document.addEventListener("DOMContentLoaded", () => {
         // Dropdown change event
         dropdown.addEventListener("change", () => {
             const selectedMap = dropdown.value;
-    
+
             // Only render leaderboard if a valid map is selected
             if (selectedMap && selectedMap !== "-- Select --") {
+                playerTimesButton.classList.remove("hidden");
+                recordedTimesButton.classList.remove("hidden");
                 renderCurrentLeaderboard(selectedMap);
             } else {
+                playerTimesButton.classList.add("hidden");
+                recordedTimesButton.classList.add("hidden");
                 const container = document.getElementById("leaderboards-table");
-                container.innerHTML = "<p>Please select a map to view the leaderboard.</p>";
+                container.innerHTML = ""; // Clear the leaderboard table
             }
         });
-    
+
         // Button to show "Best Player Times"
         playerTimesButton.addEventListener("click", () => {
             isIndividual = true;
             playerTimesButton.disabled = true; // Disable the button to avoid redundant clicks
             recordedTimesButton.disabled = false; // Enable the other button
+            playerTimesButton.classList.add("selected");
+            recordedTimesButton.classList.remove("selected");
             const selectedMap = dropdown.value;
-            document.getElementById("player-times-button").classList.add("selected");
-            document.getElementById("recorded-times-button").classList.remove("selected");
             renderCurrentLeaderboard(selectedMap);
         });
-    
+
         // Button to show "Best Recorded Times"
         recordedTimesButton.addEventListener("click", () => {
             isIndividual = false;
             recordedTimesButton.disabled = true; // Disable the button to avoid redundant clicks
             playerTimesButton.disabled = false; // Enable the other button
+            recordedTimesButton.classList.add("selected");
+            playerTimesButton.classList.remove("selected");
             const selectedMap = dropdown.value;
-            document.getElementById("recorded-times-button").classList.add("selected");
-            document.getElementById("player-times-button").classList.remove("selected");
             renderCurrentLeaderboard(selectedMap);
         });
     }
