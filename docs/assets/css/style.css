@@ -391,3 +391,41 @@ section select {
     font-size: 14px;
     transition: color 0.3s ease;
 }
+
+/* Align buttons and dropdown */
+.dropdown-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+/* Style the buttons to match Fetch Races button */
+.toggle-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #45a049;
+}
+
+.toggle-btn.selected {
+    background-color: #2196f3; /* Highlight color for selected state */
+    color: white;
+}
+
+/* Style the dropdown */
+#map-dropdown {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

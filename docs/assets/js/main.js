@@ -163,9 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function populateLeaderboardsDropdown(leaderboards, individualBestTimes) {
         const dropdown = document.getElementById("map-dropdown");
-        const toggleButton = document.getElementById("toggle-leaderboard");
+        const playerTimesButton = document.getElementById("player-times-button");
+        const recordedTimesButton = document.getElementById("recorded-times-button");
     
-        let isIndividual = false; // Track toggle state
+        let isIndividual = true; // Start with no rendering
     
         // Add the default "-- Select --" option
         const defaultOption = document.createElement("option");
@@ -183,66 +184,71 @@ document.addEventListener("DOMContentLoaded", () => {
             dropdown.appendChild(option);
         });
     
-        dropdown.addEventListener("change", (e) => {
+        // Function to render the leaderboard based on the selected map and type
+        function renderCurrentLeaderboard(selectedMap) {
+            if (selectedMap && selectedMap !== "-- Select --") {
+                const data = isIndividual
+                    ? individualBestTimes[selectedMap].slice(0, 10) // Limit to 10
+                    : leaderboards[selectedMap].slice(0, 10); // Limit to 10
+    
+                renderLeaderboardsTable(selectedMap, data, isIndividual);
+            }
+        }
+    
+        // Dropdown change event
+        dropdown.addEventListener("change", () => {
             const selectedMap = dropdown.value;
     
-            // Ensure the "Select" option remains greyed out but selectable maps can still be chosen
+            // Only render leaderboard if a valid map is selected
             if (selectedMap && selectedMap !== "-- Select --") {
-                renderLeaderboardsTable(
-                    selectedMap,
-                    leaderboards[selectedMap],
-                    individualBestTimes,
-                    isIndividual
-                );
+                renderCurrentLeaderboard(selectedMap);
+            } else {
+                const container = document.getElementById("leaderboards-table");
+                container.innerHTML = "<p>Please select a map to view the leaderboard.</p>";
             }
         });
     
-        toggleButton.addEventListener("click", () => {
-            isIndividual = !isIndividual;
-            toggleButton.textContent = isIndividual
-                ? "Switch to Best Race Times"
-                : "Switch to Individual Best Times";
-    
+        // Button to show "Best Player Times"
+        playerTimesButton.addEventListener("click", () => {
+            isIndividual = true;
+            playerTimesButton.disabled = true; // Disable the button to avoid redundant clicks
+            recordedTimesButton.disabled = false; // Enable the other button
             const selectedMap = dropdown.value;
-            if (selectedMap && selectedMap !== "-- Select --") {
-                renderLeaderboardsTable(
-                    selectedMap,
-                    leaderboards[selectedMap],
-                    individualBestTimes,
-                    isIndividual
-                );
-            }
+            document.getElementById("player-times-button").classList.add("selected");
+            document.getElementById("recorded-times-button").classList.remove("selected");
+            renderCurrentLeaderboard(selectedMap);
+        });
+    
+        // Button to show "Best Recorded Times"
+        recordedTimesButton.addEventListener("click", () => {
+            isIndividual = false;
+            recordedTimesButton.disabled = true; // Disable the button to avoid redundant clicks
+            playerTimesButton.disabled = false; // Enable the other button
+            const selectedMap = dropdown.value;
+            document.getElementById("recorded-times-button").classList.add("selected");
+            document.getElementById("player-times-button").classList.remove("selected");
+            renderCurrentLeaderboard(selectedMap);
         });
     }
-    
-    function renderLeaderboardsTable(map, leaderboard, individualBestTimes, isIndividual = false) {
+
+    function renderLeaderboardsTable(map, data, isIndividual = false) {
         const table = document.createElement("table");
         table.innerHTML = `
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>${isIndividual ? "Player Best Time" : "Details"}</th>
+                    <th>${isIndividual ? "Details" : "Details"}</th>
                 </tr>
             </thead>
             <tbody>
-                ${isIndividual
-                    ? individualBestTimes[map]
-                        .map((entry, index) => `
-                            <tr>
-                                <td>${index + 1}</td>
-                                <td>${entry}</td>
-                            </tr>
-                        `)
-                        .join("")
-                    : leaderboard
-                        .map((entry, index) => `
-                            <tr>
-                                <td>${index + 1}</td>
-                                <td>${entry}</td>
-                            </tr>
-                        `)
-                        .join("")
-                }
+                ${data
+                    .map((entry, index) => `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${entry}</td>
+                        </tr>
+                    `)
+                    .join("")}
             </tbody>
         `;
         const container = document.getElementById("leaderboards-table");
