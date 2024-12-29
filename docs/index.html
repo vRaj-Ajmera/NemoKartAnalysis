@@ -55,26 +55,16 @@
 
         <section id="races-together">
             <h2>Races Together</h2>
-            <div class="dropdown-container">
-                <label for="player1-dropdown">Player 1:</label>
-                <select id="player1-dropdown">
-                    <option value="">-- Select --</option>
-                </select>
-                <label for="player2-dropdown">Player 2:</label>
-                <select id="player2-dropdown">
-                    <option value="">-- Select --</option>
-                </select>
-                <label for="player3-dropdown">Player 3:</label>
-                <select id="player3-dropdown">
-                    <option value="">-- Optional --</option>
-                </select>
-                <label for="player4-dropdown">Player 4:</label>
-                <select id="player4-dropdown">
-                    <option value="">-- Optional --</option>
-                </select>
-                <button id="fetch-races-together" class="action-btn">Find Races Together</button>
+            <div class="races-together-container">
+                <input
+                    id="races-together-input"
+                    type="text"
+                    placeholder="Enter player names (e.g., Raj, Azhan, Sameer)"
+                    maxlength="100"
+                />
+                <button id="fetch-races-together">Fetch Races</button>
             </div>
-            <div id="races-together-message" style="color: red;"></div>
+            <p id="races-together-message"></p>
             <div id="races-together-table"></div>
         </section>
         
