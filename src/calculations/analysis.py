@@ -180,7 +180,7 @@ def calculate_individual_best_times(df, maps, players):
     return individual_best_times
 
 def convert_results_to_json():
-    """Convert results.csv to results.json."""
+    """Convert results.csv to results.json while removing DNR rows."""
     
     if not os.path.exists(results_file):
         print(f"{results_file} not found. Ensure the file exists and try again.")
@@ -190,16 +190,26 @@ def convert_results_to_json():
         # Read the CSV file
         results_df = pd.read_csv(results_file)
         
-        # Convert the DataFrame to a dictionary
-        results_dict = results_df.to_dict(orient="records")
+        # Function to filter out "DNR" entries in each row
+        def filter_dnr(row):
+            filtered_row = {
+                key: value
+                for key, value in row.items()
+                if not (isinstance(value, str) and value == "DNR")
+            }
+            return filtered_row
+
+        # Apply the filtering to each row
+        filtered_results = [filter_dnr(row) for row in results_df.to_dict(orient="records")]
         
-        # Write the dictionary to JSON
+        # Write the filtered results to JSON
         with open(results_json_file, "w") as json_file:
-            json.dump(results_dict, json_file, indent=4)
+            json.dump(filtered_results, json_file, indent=4)
         
         print(f"Results successfully converted to JSON and saved to {results_json_file}.")
     except Exception as e:
         print(f"An error occurred while converting results to JSON: {e}")
+
 
 # Main function to generate post_analysis.json
 def main():

@@ -34,25 +34,30 @@ def main():
     post_analysis_dest = os.path.join(base_dir, "docs", "post_analysis.json")
     copy_file(post_analysis_src, post_analysis_dest)
 
-    # 3. Run src/calculations/elo_analysis.py
+    # 3. Copy output/results.json to docs/results.json
+    results_src = os.path.join(base_dir, "output", "results.json")
+    results_dest = os.path.join(base_dir, "docs", "results.json")
+    copy_file(results_src, results_dest)
+
+    # 4. Run src/calculations/elo_analysis.py
     elo_analysis_script = os.path.join(base_dir, "src", "calculations", "elo_analysis.py")
     run_script(elo_analysis_script)
 
-    # 4. Copy output/elo_post_analysis.json to docs/elo_post_analysis.json
+    # 5. Copy output/elo_post_analysis.json to docs/elo_post_analysis.json
     elo_post_analysis_src = os.path.join(base_dir, "output", "elo_post_analysis.json")
     elo_post_analysis_dest = os.path.join(base_dir, "docs", "elo_post_analysis.json")
     copy_file(elo_post_analysis_src, elo_post_analysis_dest)
 
-    # 5. Copy all graphs from output/player_graphs/ to docs/assets/player_graphs/
+    # 6. Copy all graphs from output/player_graphs/ to docs/assets/player_graphs/
     player_graphs_src = os.path.join(base_dir, "output", "player_graphs")
     player_graphs_dest = os.path.join(base_dir, "docs", "assets", "player_graphs")
     copy_directory(player_graphs_src, player_graphs_dest)
 
-    # 6. Run src/calculations/kart_analysis.py
+    # 7. Run src/calculations/kart_analysis.py
     kart_analysis_script = os.path.join(base_dir, "src", "calculations", "kart_analysis.py")
     run_script(kart_analysis_script)
 
-    # 7. Copy all graphs from output/kart_graphs/ to docs/assets/kart_graphs/
+    # 8. Copy all graphs from output/kart_graphs/ to docs/assets/kart_graphs/
     kart_graphs_src = os.path.join(base_dir, "output", "kart_graphs")
     kart_graphs_dest = os.path.join(base_dir, "docs", "assets", "kart_graphs")
     copy_directory(kart_graphs_src, kart_graphs_dest)
