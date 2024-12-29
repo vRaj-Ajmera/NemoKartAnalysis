@@ -1,11 +1,16 @@
 // Global array to store players dynamically loaded from players.csv
 let players = [];
 
-// Immediately fetch and parse players.csv
-(() => {
+// Load players.csv data when the DOM content is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
     const playersUrl = "../../docs/players.csv";
     fetch(playersUrl)
-        .then((response) => response.text())
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
         .then((data) => {
             // Parse CSV data
             const lines = data.split("\n").map((line) => line.trim());
@@ -13,7 +18,7 @@ let players = [];
             console.log("Players loaded:", players);
         })
         .catch((err) => console.error("Error fetching players data:", err));
-})();
+});
 
 function addProfilePictures() {
     const defaultImagePath = "assets/icons/default.png";
