@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </th>
                         <th id="ELO">
                             ELO 
-                            <div class="info-icon" data-tooltip="ELO: A rating system that tracks player performance. The base rating starts at 1000 and increases or decreases based on race results compared to other players' ratings. Higher ELO indicates stronger performance relative to opponents.">i</div>
+                            <div class="info-icon" data-tooltip="ELO: A rating system that tracks player performance based on race placements. Higher ELO indicates stronger performance relative to opponents.">i</div>
                         </th>
                     </tr>
                 </thead>
