@@ -287,8 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <th id="Races">Races</th>
                         <th id="Points">
                             Points 
-                            <div class="info-icon" data-tooltip="Points are awarded based on the F1 system: 
-                            1st: 25, 2nd: 18, 3rd: 15, 4th: 12, 5th: 10, 6th: 8, 7th: 6, 8th: 4">i</div>
+                            <div class="info-icon" data-tooltip="Points are awarded based on placement- 1st: 25, 2nd: 18, 3rd: 15, 4th: 12, 5th: 10, 6th: 8, 7th: 6, 8th: 4">i</div>
                         </th>
                         <th id="PPR">
                             PPR 
