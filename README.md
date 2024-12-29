@@ -157,9 +157,11 @@ NemoKartAnalysis/
 │   ├── kart_stats.html             # Kart stats page
 │   ├── post_analysis.json          # Shared data for rendering index.html
 │   ├── elo_post_analysis.json      # Shared data for rendering player_stats.html
+│   ├── results.json                # Used in rendering "Races Together" table
 ├── output/
 │   ├── img_processing/             # OCR inputs go here
 │   ├── results.csv                 # Race results from gui_logger.py here
+│   ├── results.json                # Main analysis output, json version of results.csv with DNR columns filtered out
 │   ├── post_analysis.json          # Main analysis output
 │   ├── elo_post_analysis.json      # Elo analysis ouput
 │   ├── elo_tracker.csv             # Elo tracker race by race
@@ -171,7 +173,7 @@ NemoKartAnalysis/
 │   ├── gui_OCR_logger.py           # GUI for race logging with OCR.
 │   ├── analyze_all.py              # Runs all calculations and updates json/graphs for website. RUN AFTER LOGGING.
 │   ├── calculations/
-│   │   ├── analysis.py             # Generates post_analysis.json
+│   │   ├── analysis.py             # Generates post_analysis.json and results.json
 │   │   ├── elo_analysis.py         # ELO and player-by-player calculations, writes elo_post_analysis.json and elo_tracker.csv and generates player_graphs
 │   │   ├── kart_analysis.py        # Kart performance rankings generates graphs to kart_graphs
 ├── .gitignore                      # Git configuration
