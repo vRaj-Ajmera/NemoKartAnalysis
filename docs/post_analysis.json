@@ -723,26 +723,6 @@
             }
         }
     },
-    "Races Together": {
-        "Raj": {
-            "Races": 96,
-            "Points": 1644,
-            "PPR": 17.12,
-            "Avg Race Position": 2.67
-        },
-        "Azhan": {
-            "Races": 96,
-            "Points": 1802,
-            "PPR": 18.77,
-            "Avg Race Position": 2.27
-        },
-        "Sameer": {
-            "Races": 96,
-            "Points": 1524,
-            "PPR": 15.88,
-            "Avg Race Position": 2.97
-        }
-    },
     "All Time Stats": {
         "Raj": {
             "Races": 292,
