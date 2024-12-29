@@ -1,5 +1,6 @@
+const players = ["Raj", "Azhan", "Sameer", "Zetaa", "Adi", "Dylan", "Parum", "EnderRobot", "Lynden", "Rusheel", "SultanSpeppy", "Viraj"];
+
 function addProfilePictures() {
-    const players = ["Raj", "Azhan", "Sameer", "Zetaa", "Adi", "Dylan", "Parum", "EnderRobot", "Lynden", "Rusheel", "SultanSpeppy", "Viraj"];
     const defaultImagePath = "assets/icons/default.png";
 
     // Loop through all <td> elements in the document
@@ -346,46 +347,52 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Validate input
-        const players = input.split(",").map((player) => player.trim());
-        if (players.length < 2) {
-            displayMessage("Invalid input format. Must enter at least 2 players.", true);
+        let inputPlayers = input.split(",").map((player) => player.trim().toLowerCase());
+        inputPlayers = [...new Set(inputPlayers)]; // Remove duplicate player names
+
+        if (inputPlayers.length < 2) {
+            displayMessage("Invalid input format. Must enter at least 2 unique players.", true);
             return;
         }
-        if (players.length > 8) {
+        if (inputPlayers.length > 8) {
             displayMessage("Maximum of 8 players allowed.", true);
             return;
         }
 
-        // Check for invalid player names
-        const invalidPlayers = players.filter(
-            (player) => !resultsData.some((race) => Object.keys(race).includes(`${player} Placement`))
-        );
-        if (invalidPlayers.length > 0) {
+        // Map input players to the correct case-sensitive player names in the global players list
+        const validPlayers = inputPlayers.map((inputPlayer) => 
+            players.find((player) => player.toLowerCase() === inputPlayer)
+        ).filter(Boolean); // Filter out unmatched players
+
+        if (validPlayers.length !== inputPlayers.length) {
+            const invalidPlayers = inputPlayers.filter(
+                (inputPlayer) => !players.some((player) => player.toLowerCase() === inputPlayer)
+            );
             displayMessage(`Invalid player(s): ${invalidPlayers.join(", ")}`, true);
             return;
         }
 
-        // Find races where all players participated
+        // Find races where all valid players participated
         const racesTogether = resultsData.filter((race) =>
-            players.every((player) => race[`${player} Placement`] && race[`${player} Placement`] !== "DNR")
+            validPlayers.every((player) => race[`${player} Placement`] && race[`${player} Placement`] !== "DNR")
         );
 
         if (racesTogether.length === 0) {
-            displayMessage("Selected players have not raced together.", true);
+            displayMessage(`Players (${validPlayers.join(", ")}) have not raced together.`, true);
             return;
         }
 
-        displayMessage(`Found ${racesTogether.length} races together for ${players.join(", ")}`, false);
+        displayMessage(`Found ${racesTogether.length} races together for (${validPlayers.join(", ")})`, false);
 
         // Calculate player stats
-        const playerStats = players.reduce((stats, player) => {
+        const playerStats = validPlayers.reduce((stats, player) => {
             stats[player] = { Points: 0, Races: 0 };
             return stats;
         }, {});
 
         const pointsAllocation = [25, 18, 15, 12, 10, 8, 6, 4];
         racesTogether.forEach((race) => {
-            players.forEach((player) => {
+            validPlayers.forEach((player) => {
                 const placement = parseInt(race[`${player} Placement`], 10);
                 playerStats[player].Races += 1;
                 playerStats[player].Points += pointsAllocation[placement - 1] || 0;
