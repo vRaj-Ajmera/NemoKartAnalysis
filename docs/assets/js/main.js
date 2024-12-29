@@ -414,7 +414,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderRacesTogetherTable(playerStats) {
         const container = document.getElementById("races-together-table");
         container.innerHTML = ""; // Clear previous table
-
+        
+        // Convert playerStats to an array and sort by PPR (descending)
+        const sortedPlayerStats = Object.entries(playerStats).sort(
+            ([, statsA], [, statsB]) => parseFloat(statsB.PPR) - parseFloat(statsA.PPR)
+        );
+    
         const table = document.createElement("table");
         table.innerHTML = `
             <thead>
@@ -427,7 +432,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </tr>
             </thead>
             <tbody>
-                ${Object.entries(playerStats)
+                ${sortedPlayerStats
                     .map(
                         ([player, stats]) => `
                         <tr>
