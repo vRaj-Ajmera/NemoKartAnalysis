@@ -386,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Calculate player stats
         const playerStats = validPlayers.reduce((stats, player) => {
-            stats[player] = { Points: 0, Races: 0 };
+            stats[player] = { Points: 0, Races: 0, TotalPlacement: 0 };
             return stats;
         }, {});
 
@@ -396,12 +396,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const placement = parseInt(race[`${player} Placement`], 10);
                 playerStats[player].Races += 1;
                 playerStats[player].Points += pointsAllocation[placement - 1] || 0;
+                playerStats[player].TotalPlacement += placement;
             });
         });
 
-        // Add PPR (Points Per Race) to stats
+        // Add PPR (Points Per Race) and Avg Position to stats
         Object.values(playerStats).forEach((stats) => {
             stats.PPR = (stats.Points / stats.Races).toFixed(2);
+            stats.AvgPosition = (stats.TotalPlacement / stats.Races).toFixed(2);
         });
 
         // Render table
@@ -421,6 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <th>Races</th>
                     <th>Points</th>
                     <th>PPR</th>
+                    <th>Avg Position</th>
                 </tr>
             </thead>
             <tbody>
@@ -432,6 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <td>${stats.Races}</td>
                             <td>${stats.Points}</td>
                             <td>${stats.PPR}</td>
+                            <td>${stats.AvgPosition}</td>
                         </tr>
                     `
                     )
