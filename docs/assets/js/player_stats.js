@@ -1,23 +1,18 @@
-// Global array to store players dynamically loaded from players.json
-let players = [];
-
-// Load players.json data when the DOM content is fully loaded
-document.addEventListener("DOMContentLoaded", () => {
-    const playersUrl = "../../docs/players.json";
-    fetch(playersUrl)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then((data) => {
-            // Assign the JSON array directly to the players variable
-            players = data;
-            console.log("Players loaded:", players);
-        })
-        .catch((err) => console.error("Error fetching players data:", err));
-});
+const players = [
+    "Raj",
+    "Azhan",
+    "Sameer",
+    "Zetaa",
+    "Adi",
+    "Dylan",
+    "Parum",
+    "EnderRobot",
+    "Lynden",
+    "Rusheel",
+    "SultanSpeppy",
+    "Viraj",
+    "Tejas"
+];
 
 function addProfilePictures() {
     const defaultImagePath = "assets/icons/default.png";
@@ -183,3 +178,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+/*
+// Global array to store players dynamically loaded from players.json
+let players = [];
+
+// Load players.json data when the DOM content is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+    const playersUrl = "../../docs/players.json";
+    fetch(playersUrl)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            // Assign the JSON array directly to the players variable
+            players = data;
+            console.log("Players loaded:", players);
+        })
+        .catch((err) => console.error("Error fetching players data:", err));
+});
+*/
