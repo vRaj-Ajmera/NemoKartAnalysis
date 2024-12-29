@@ -352,7 +352,7 @@ section select {
     transition: opacity 0.3s ease, transform 0.2s ease; /* Adds smooth animation */
     font-size: 16px; /* Increased font size for better readability */
     font-style: italic;
-    font-weight: bold;
+    font-weight: normal;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Enhanced shadow for prominence */
 }
 
