@@ -105,22 +105,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const eloAnalysisUrl = "elo_post_analysis.json"; // Add this line
 
     Promise.all([
-        fetch(postAnalysisUrl).then(response => response.json()),
-        fetch(eloAnalysisUrl).then(response => response.json()) // Fetch ELO data
+        fetch(postAnalysisUrl).then((response) => response.json()),
+        fetch(eloAnalysisUrl).then((response) => response.json()),
     ])
     .then(([postAnalysisData, eloAnalysisData]) => {
         renderSummaryTable(postAnalysisData["All Time Stats"], eloAnalysisData["Player Ratings"]);
         populateDailyStatsDropdown(postAnalysisData["Daily Stats"]);
-        renderRacesTogetherTable(postAnalysisData["Races Together"]);
-        populateLeaderboardsDropdown(postAnalysisData["Best Race Times"], postAnalysisData["Individual Player Best Times"]);
+        populateRacesTogetherDropdowns(postAnalysisData["All Time Stats"], postAnalysisData["Daily Stats"]); // Add this
+        populateLeaderboardsDropdown(
+            postAnalysisData["Best Race Times"],
+            postAnalysisData["Individual Player Best Times"]
+        );
     })
-    .catch(err => console.error("Error fetching data:", err));
-
-    // Render Summary Table
-    function renderSummaryTable(stats) {
-        createAndRenderSummaryTable("summary-table", stats);
-    }
-
+    .catch((err) => console.error("Error fetching data:", err));
 
     // Populate and handle Daily Stats Dropdown
     function populateDailyStatsDropdown(dailyStats) {
@@ -151,10 +148,142 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Render Races Together Table
-    function renderRacesTogetherTable(stats) {
-        createAndRenderSummaryTable("races-together-table", stats);
+    function populateRacesTogetherDropdowns(allTimeStats, dailyStats) {
+        const players = Object.keys(allTimeStats);
+        const dropdownIds = ["player1-dropdown", "player2-dropdown", "player3-dropdown", "player4-dropdown"];
+    
+        dropdownIds.forEach((id) => {
+            const dropdown = document.getElementById(id);
+            dropdown.innerHTML = '<option value="">-- Select --</option>'; // Clear previous options
+            players.forEach((player) => {
+                const option = document.createElement("option");
+                option.value = player;
+                option.textContent = player;
+                dropdown.appendChild(option);
+            });
+        });
+        document.getElementById("fetch-races-together").addEventListener("click", () => {
+            const players = [
+                document.getElementById("player1-dropdown").value,
+                document.getElementById("player2-dropdown").value,
+                document.getElementById("player3-dropdown").value,
+                document.getElementById("player4-dropdown").value,
+            ];
+        
+            const racesTogether = findRacesTogether(players, dailyStats);
+            renderRacesTogetherTable(racesTogether);
+        });
     }
+    
+    function findRacesTogether(players, dailyStats) {
+        const selectedPlayers = players.filter((player) => player);
+        if (selectedPlayers.length < 2) {
+            document.getElementById("races-together-message").textContent = "Select at least 2 players.";
+            return [];
+        }
+    
+        document.getElementById("races-together-message").textContent = "";
+    
+        const racesTogether = [];
+        Object.entries(dailyStats).forEach(([date, stats]) => {
+            console.log(`Processing date: ${date}, stats type: ${typeof stats}`, stats); // Debugging log
+    
+            // Ensure stats is an object
+            if (typeof stats !== "object" || Array.isArray(stats)) {
+                console.warn(`Stats for ${date} is not a valid object. Skipping.`);
+                return;
+            }
+    
+            const allInRace = selectedPlayers.every((player) => player in stats);
+            if (allInRace) {
+                racesTogether.push({
+                    date,
+                    ...selectedPlayers.reduce((race, player) => {
+                        race[player] = { Points: stats[player]?.Points || 0 };
+                        return race;
+                    }, {}),
+                });
+            }
+        });
+    
+        if (racesTogether.length === 0) {
+            document.getElementById("races-together-message").textContent = "Selected players have not raced together.";
+        }
+    
+        return racesTogether;
+    }
+    
+    
+    function renderRacesTogetherTable(racesTogether, selectedPlayers) {
+        console.log("Rendering races together table..."); // Debugging log
+        console.log("Selected Players:", selectedPlayers); // Debugging log
+        console.log("Races Together Data:", racesTogether); // Debugging log
+    
+        if (racesTogether.length === 0) {
+            document.getElementById("races-together-table").innerHTML = "<p>No races found.</p>";
+            console.warn("No races found for the selected players."); // Debugging log
+            return;
+        }
+    
+        const playerStats = selectedPlayers.reduce((stats, player) => {
+            stats[player] = { Races: 0, Points: 0, PPR: 0, "Avg Position": 0, TotalPlacement: 0 };
+            return stats;
+        }, {});
+    
+        const pointsAllocation = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
+    
+        racesTogether.forEach((race) => {
+            selectedPlayers.forEach((player) => {
+                if (race[player]) {
+                    playerStats[player].Races += 1;
+                    const placement = parseInt(race[player].Placement, 10) || 0;
+                    playerStats[player].Points += pointsAllocation[placement - 1] || 0;
+                    playerStats[player].TotalPlacement += placement;
+                }
+            });
+        });
+    
+        Object.values(playerStats).forEach((stats) => {
+            if (stats.Races > 0) {
+                stats.PPR = (stats.Points / stats.Races).toFixed(2);
+                stats["Avg Position"] = (stats.TotalPlacement / stats.Races).toFixed(2);
+            } else {
+                stats.PPR = "N/A";
+                stats["Avg Position"] = "N/A";
+            }
+        });
+    
+        const columnNames = ["Player", "Races", "Points", "PPR", "Avg Position"];
+        const table = document.createElement("table");
+        table.innerHTML = `
+            <thead>
+                <tr>${columnNames.map((col) => `<th>${col}</th>`).join("")}</tr>
+            </thead>
+            <tbody>
+                ${Object.entries(playerStats)
+                    .map(
+                        ([player, stats]) => `
+                        <tr>
+                            <td>${player}</td>
+                            <td>${stats.Races}</td>
+                            <td>${stats.Points}</td>
+                            <td>${stats.PPR}</td>
+                            <td>${stats["Avg Position"]}</td>
+                        </tr>
+                    `
+                    )
+                    .join("")}
+            </tbody>
+        `;
+        const container = document.getElementById("races-together-table");
+        if (!container) {
+            console.error("Container for races-together-table not found."); // Debugging log
+            return;
+        }
+        container.innerHTML = ""; // Clear previous table
+        container.appendChild(table);
+    }    
+    
 
     function populateLeaderboardsDropdown(leaderboards, individualBestTimes) {
         const dropdown = document.getElementById("map-dropdown");

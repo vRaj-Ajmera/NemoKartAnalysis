@@ -8,6 +8,7 @@ base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 # File paths
 results_file = os.path.join(base_dir, "output/results.csv")
+results_json_file = os.path.join(base_dir, "output/results.json")
 post_analysis_file = os.path.join(base_dir, "output/post_analysis.json")
 #post_analysis_file2 = os.path.join(base_dir, "docs/post_analysis.json")
 players_file = os.path.join(base_dir, "data/players.csv")
@@ -178,6 +179,28 @@ def calculate_individual_best_times(df, maps, players):
 
     return individual_best_times
 
+def convert_results_to_json():
+    """Convert results.csv to results.json."""
+    
+    if not os.path.exists(results_file):
+        print(f"{results_file} not found. Ensure the file exists and try again.")
+        return
+    
+    try:
+        # Read the CSV file
+        results_df = pd.read_csv(results_file)
+        
+        # Convert the DataFrame to a dictionary
+        results_dict = results_df.to_dict(orient="records")
+        
+        # Write the dictionary to JSON
+        with open(results_json_file, "w") as json_file:
+            json.dump(results_dict, json_file, indent=4)
+        
+        print(f"Results successfully converted to JSON and saved to {results_json_file}.")
+    except Exception as e:
+        print(f"An error occurred while converting results to JSON: {e}")
+
 # Main function to generate post_analysis.json
 def main():
     results, players, maps, karts = load_data()
@@ -193,6 +216,8 @@ def main():
         "Best Race Times": calculate_best_race_times(results, maps, players),
         "Individual Player Best Times": calculate_individual_best_times(results, maps, players)
     }
+
+    convert_results_to_json()
 
     # Ensure JSON serializable
     def convert_to_serializable(obj):
