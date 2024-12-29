@@ -315,17 +315,22 @@ section select {
 /* Tooltip container */
 .info-icon {
     display: inline-block;
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
     text-align: center;
     border-radius: 50%;
     background-color: #333;
     color: white;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
+    font-family: "Arial", sans-serif; /* Ensures compatibility */
+    font-style: italic; /* Make the "i" italicized */
     cursor: help;
     position: relative;
+    vertical-align: middle; /* Aligns with the text baseline */
+    margin-left: 5px; /* Adds space between the text and the icon */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds slight depth */
 }
 
 /* Tooltip text */
@@ -333,26 +338,35 @@ section select {
     content: attr(data-tooltip);
     visibility: hidden;
     opacity: 0;
-    width: 200px;
-    background-color: #333;
-    color: #fff;
+    width: 250px; /* Increased width for readability */
+    background-color: #222; /* Darker background for better contrast */
+    color: #f9f9f9; /* Slightly off-white text */
     text-align: center;
-    border-radius: 5px;
-    padding: 8px;
+    border-radius: 8px;
+    padding: 12px; /* More padding for better spacing */
     position: absolute;
-    bottom: 120%; /* Position above the circle */
+    bottom: 130%; /* Adjusted to position slightly higher */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    transition: opacity 0.3s ease;
-    font-size: 12px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, transform 0.2s ease; /* Adds smooth animation */
+    font-size: 16px; /* Increased font size for better readability */
+    font-style: italic;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Enhanced shadow for prominence */
 }
 
 /* Show the tooltip text on hover */
 .info-icon:hover::after {
     visibility: visible;
     opacity: 1;
+    transform: translateX(-50%) translateY(-5px); /* Adds slight upward motion on hover */
+}
+
+/* Optional: Change icon hover state */
+.info-icon:hover {
+    background-color: #555; /* Slightly lighter background when hovered */
+    transition: background-color 0.2s ease; /* Smooth transition */
 }
 
 #races-together {
