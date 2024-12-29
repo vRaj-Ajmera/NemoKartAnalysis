@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>${isIndividual ? "Details" : "Details"}</th>
+                    <th>${isIndividual ? "Best Player Times" : "Best Recorded Times"}</th>
                 </tr>
             </thead>
             <tbody>
@@ -469,6 +469,18 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         container.appendChild(table);
     }
+});
+
+document.querySelectorAll(".toggle-btn, #fetch-races-together").forEach((button) => {
+    button.addEventListener("click", () => {
+        // Add the bounce class
+        button.classList.add("bounce");
+
+        // Remove the bounce class after the animation ends
+        button.addEventListener("animationend", () => {
+            button.classList.remove("bounce");
+        }, { once: true }); // Ensures the event listener is removed after one execution
+    });
 });
 
 /*

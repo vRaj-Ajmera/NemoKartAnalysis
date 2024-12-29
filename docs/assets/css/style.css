@@ -243,10 +243,13 @@ section select {
 }
 
 /* Flex Container for Labels and Dropdowns */
+/* Align the dropdown and buttons to the left */
 .dropdown-container {
     display: flex;
-    align-items: center; /* Vertically center label and dropdown */
-    margin-bottom: 20px;
+    align-items: center;
+    gap: 10px; /* Space between dropdown and buttons */
+    margin-bottom: 15px;
+    justify-content: flex-start; /* Align left */
 }
 
 .dropdown-container label {
@@ -372,60 +375,77 @@ section select {
     border-radius: 5px;
 }
 
+/* Fetch button styling */
 #fetch-races-together {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4caf50;
+    background-color: #3cb371; /* Match unselected green button color */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #fetch-races-together:hover {
-    background-color: #45a049;
-}
-
-#races-together-message {
-    margin-top: 10px;
-    font-size: 14px;
-    transition: color 0.3s ease;
+    background-color: #1e90ff; /* Blue hover state */
 }
 
 /* Align buttons and dropdown */
 .dropdown-buttons-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     gap: 10px;
     margin: 10px 0;
 }
 
-/* Style the buttons to match Fetch Races button */
+/* Button styling */
 .toggle-btn {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4caf50;
-    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #3cb371; /* Unselected state (green) */
+    color: white;
+    transition: all 0.3s ease;
 }
 
+/* Hover state for buttons */
 .toggle-btn:hover {
-    background-color: #45a049;
-}
-
-.toggle-btn.selected {
-    background-color: #2196f3; /* Highlight color for selected state */
+    background-color: #1e90ff; /* Light blue hover */
     color: white;
 }
 
-/* Style the dropdown */
-#map-dropdown {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+/* Selected state for buttons */
+.toggle-btn.selected {
+    background-color: #1e90ff; /* Blue selected state */
+    color: white;
+}
+
+/* Define the bounce animation */
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Add a class for the bounce effect */
+.bounce {
+    animation: bounce 0.3s ease;
+}
+
+/* Initially hide the buttons */
+.hidden {
+    display: none;
 }
