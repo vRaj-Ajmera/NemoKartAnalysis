@@ -701,6 +701,26 @@
                 "PPR": 13.44,
                 "Avg Race Position": 3.76
             }
+        },
+        "2024-12-28": {
+            "Raj": {
+                "Races": 12,
+                "Points": 283,
+                "PPR": 23.58,
+                "Avg Race Position": 1.25
+            },
+            "Viraj": {
+                "Races": 13,
+                "Points": 222,
+                "PPR": 17.08,
+                "Avg Race Position": 2.54
+            },
+            "Tejas": {
+                "Races": 8,
+                "Points": 77,
+                "PPR": 9.62,
+                "Avg Race Position": 5.25
+            }
         }
     },
     "Races Together": {
@@ -725,10 +745,10 @@
     },
     "All Time Stats": {
         "Raj": {
-            "Races": 280,
-            "Points": 5085,
-            "PPR": 18.16,
-            "Avg Race Position": 2.39
+            "Races": 292,
+            "Points": 5368,
+            "PPR": 18.38,
+            "Avg Race Position": 2.35
         },
         "Azhan": {
             "Races": 283,
@@ -791,10 +811,16 @@
             "Avg Race Position": 3.46
         },
         "Viraj": {
-            "Races": 36,
-            "Points": 413,
-            "PPR": 11.47,
-            "Avg Race Position": 4.61
+            "Races": 49,
+            "Points": 635,
+            "PPR": 12.96,
+            "Avg Race Position": 4.06
+        },
+        "Tejas": {
+            "Races": 8,
+            "Points": 77,
+            "PPR": 9.62,
+            "Avg Race Position": 5.25
         }
     },
     "Legend": {
@@ -851,10 +877,10 @@
             "2:22.16 by Raj in Dalmatian Puppy",
             "2:22.64 by Raj in Dalmatian Puppy",
             "2:22.92 by Viraj in Snowmobile",
+            "2:23.04 by Raj in Dalmatian Puppy",
+            "2:23.04 by Viraj in Greedy Snowmobile",
             "2:25.42 by Azhan in X-mas Snowmobile",
-            "2:25.92 by Raj in Greedy Snowmobile",
-            "2:26.52 by Rusheel in Snowmobile",
-            "2:27.12 by Azhan in Snow Minecart"
+            "2:25.92 by Raj in Greedy Snowmobile"
         ]
     },
     "Individual Player Best Times": {
@@ -867,10 +893,10 @@
             "2:35.24 by Rusheel in Snowmobile",
             "2:38.30 by Adi in The Kart",
             "2:43.14 by EnderRobot in The Kart",
+            "2:43.64 by Viraj in Snowmobile",
             "2:50.06 by Dylan in The Kart",
             "2:51.30 by Parum in The Kart",
-            "2:54.08 by Lynden in The Kart",
-            "2:54.36 by Viraj in The Kart"
+            "2:54.08 by Lynden in The Kart"
         ],
         "Shanghai by Night": [
             "2:24.34 by Raj in Dalmatian Puppy",
@@ -884,6 +910,7 @@
             "2:45.22 by Dylan in The Kart",
             "2:46.10 by EnderRobot in The Kart",
             "2:50.03 by Parum in The Kart",
+            "2:59.58 by Tejas in Snowmobile",
             "3:00.00 by Lynden in The Kart"
         ],
         "Snowville": [
@@ -893,8 +920,9 @@
             "1:48.78 by Zetaa in Snowmobile",
             "1:49.48 by Rusheel in Snowmobile",
             "1:52.12 by SultanSpeppy in Snowmobile",
+            "1:52.14 by Viraj in Greedy Snowmobile",
             "1:52.34 by EnderRobot in The Kart",
-            "1:56.32 by Viraj in Snowmobile",
+            "1:53.72 by Tejas in The Kart",
             "2:01.94 by Adi in The Kart",
             "2:14.84 by Dylan in The Kart",
             "2:17.16 by Lynden in The Kart"
@@ -906,6 +934,7 @@
             "2:22.92 by Viraj in Snowmobile",
             "2:26.52 by Rusheel in Snowmobile",
             "2:28.70 by SultanSpeppy in The Kart",
+            "2:29.60 by Tejas in The Kart",
             "2:42.92 by EnderRobot in The Kart"
         ]
     }
