@@ -1,6 +1,8 @@
 import os
 import shutil
 import subprocess
+import csv
+import json
 
 # Base directory
 base_dir = os.path.dirname(os.path.dirname(__file__))
@@ -24,11 +26,22 @@ def copy_directory(src, dest):
             if os.path.isfile(s):
                 shutil.copy(s, d)
 
+def convert_csv_to_json(csv_src, json_dest):
+    """Convert a CSV file to a JSON file."""
+    with open(csv_src, "r") as csv_file:
+        reader = csv.reader(csv_file)
+        next(reader)  # Skip the header row
+        data = [row[0] for row in reader if row]  # Extract the first column (player names)
+
+    with open(json_dest, "w") as json_file:
+        json.dump(data, json_file, indent=4)
+    print(f"Converted {csv_src} to {json_dest}.")
+
 def main():
-    # Copy data/players.csv to docs/players.csv
+    # Convert players.csv to players.json in docs
     players_src = os.path.join(base_dir, "data", "players.csv")
-    players_dest = os.path.join(base_dir, "docs", "players.csv")
-    copy_file(players_src, players_dest)
+    players_json_dest = os.path.join(base_dir, "docs", "players.json")
+    convert_csv_to_json(players_src, players_json_dest)
 
     # 1. Run src/calculations/analysis.py
     analysis_script = os.path.join(base_dir, "src", "calculations", "analysis.py")
