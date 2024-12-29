@@ -241,7 +241,7 @@ def preprocess_image(image_path, output_path=preprocessed_image_file_path):
         image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert to RGB
 
         # Define the lower threshold
-        lower_threshold = np.array([255, 248, 229], dtype=np.uint8)
+        lower_threshold = np.array([245, 238, 229], dtype=np.uint8)
 
         # Create a mask for pixels greater than the threshold
         mask = cv2.inRange(image_rgb, lower_threshold, np.array([255, 255, 255], dtype=np.uint8))
@@ -287,10 +287,6 @@ def process_image(image_path):
         print("\n--- End of EasyOCR Results ---\n")
 
         # Fill dropdowns with the parsed OCR results
-        #fill_dropdowns_with_ocr_results(ocr_results)
-        #status_label.config(text="Dropdowns updated with OCR results!", fg="green")
-        
-        # Log race times in the GUI for debugging
         fill_race_data_with_ocr_results(ocr_results, aliases_mapping)
 
         status_label.config(text="Race times logged from OCR results!", fg="green")
@@ -319,7 +315,7 @@ def fill_race_data_with_ocr_results(ocr_results, aliases_mapping):
 
     for result in ocr_results:
         detected_text, confidence = result[1], result[2]
-        if confidence < 0.001:  # Skip low-confidence results
+        if confidence < 0.01:  # Skip low-confidence results
             continue
 
         # Check for the "TIME" label
@@ -336,7 +332,7 @@ def fill_race_data_with_ocr_results(ocr_results, aliases_mapping):
             continue
 
         # Extract race time
-        time_match = re.search(r"(\d{1,2})[:.*,](\d{2})[:.*,](\d{2})", detected_text)
+        time_match = re.search(r"(\d{1,2})[:.*,]*?(\d{2})[:.*,]*?(\d{2})", detected_text)
         if time_match:
             minutes, seconds, milliseconds = time_match.groups()
             race_time = f"{int(minutes)}:{seconds}.{milliseconds}"
@@ -353,7 +349,9 @@ def fill_race_data_with_ocr_results(ocr_results, aliases_mapping):
                 temp_row["player_name"] = detected_text.lower()
 
         # If a complete row is filled, add placement, add to parsed rows, and reset temp_row
-        if temp_row["player_name"] and temp_row["race_time"] and temp_row["placement"]:
+        if temp_row["player_name"] and temp_row["race_time"]:
+            if temp_row["placement"] is None:
+                temp_row["placement"] = current_placement
             parsed_rows.append(temp_row.copy())
             temp_row = {"placement": None, "player_name": None, "race_time": None}
             current_placement += 1  # Increment placement
