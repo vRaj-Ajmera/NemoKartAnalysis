@@ -341,7 +341,7 @@ def fill_race_data_with_ocr_results(ocr_results, aliases_mapping):
         else:
             # Match player name using aliases
             for alias, actual_name in aliases_mapping.items():
-                if alias in detected_text.lower():
+                if((alias.casefold()).__eq__(detected_text.casefold())):
                     if temp_row["player_name"] is None:  # Only fill player name if empty
                         temp_row["player_name"] = actual_name
                     break
