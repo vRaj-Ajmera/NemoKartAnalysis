@@ -36,6 +36,8 @@ def load_player_aliases():
         print(f"Unexpected error loading aliases: {e}")
         return {}
 
+aliases_mapping = load_player_aliases()
+
 def preprocess_image(image_path):
     """
     Preprocess the image to keep only specific color ranges and save it.
@@ -90,25 +92,35 @@ def parse_ocr_results(ocr_results):
         if not found_time_label:
             # Skip everything until "TIME" is found
             continue
+        
+        if temp_row["placement"] is None and detected_text.strip().isdigit() and len(detected_text.strip()) == 1:
+            temp_row["placement"] = current_placement
+            continue
 
         # Extract race time
-        time_match = re.search(r"(\d{1,2})[:.*,]*(\d{2})[:.*,]*(\d{2})", detected_text)
+        time_match = re.search(r"(\d{1,2})[:.*,]*?(\d{2})[:.*,]*?(\d{2})", detected_text)
         if time_match:
             minutes, seconds, milliseconds = time_match.groups()
             race_time = f"{int(minutes)}:{seconds}.{milliseconds}"
             if temp_row["race_time"] is None:  # Only fill race time if empty
                 temp_row["race_time"] = race_time
         else:
-            # Assume remaining text is player name
+            # Match player name using aliases
+            for alias, actual_name in aliases_mapping.items():
+                if alias in detected_text.lower():
+                    if temp_row["player_name"] is None:  # Only fill player name if empty
+                        temp_row["player_name"] = actual_name
+                    break
             if temp_row["player_name"] is None:
-                temp_row["player_name"] = detected_text
+                temp_row["player_name"] = detected_text.lower()
 
-        # If a complete row is filled, add it to parsed rows
+        # If a complete row is filled, add placement, add to parsed rows, and reset temp_row
         if temp_row["player_name"] and temp_row["race_time"]:
-            temp_row["placement"] = current_placement
+            if temp_row["placement"] is None:
+                temp_row["placement"] = current_placement
             parsed_rows.append(temp_row.copy())
             temp_row = {"placement": None, "player_name": None, "race_time": None}
-            current_placement += 1
+            current_placement += 1  # Increment placement
 
     return parsed_rows
 
@@ -123,19 +135,20 @@ def filter_logged_rows(parsed_rows):
         list: Filtered list of logged rows containing placement, player_name, and race_time.
     """
     try:
-        # Load player aliases
-        aliases_mapping = load_player_aliases()
+        
+        logged_rows = []
 
-        # Convert aliases to lowercase for case-insensitive matching
-        aliases_set = set(alias.lower() for alias in aliases_mapping.keys())
+        # Fill logged rows with parsed data
+        for i, row in enumerate(parsed_rows):
+            if i >= 8:
+                break  # Ignore extra rows if they exceed the GUI capacity
 
-        # Filter parsed rows to include only players in aliases
-        logged_rows = [
-            row for row in parsed_rows
-            if row["player_name"] and row["player_name"].lower() in aliases_set
-        ]
+            # Check if the player is in aliases_mapping
+            if row["player_name"] not in aliases_mapping.values():
+                continue
 
-        print(f"Logged rows: {logged_rows}")
+            logged_rows.append(row)
+        
         return logged_rows
 
     except Exception as e:
@@ -172,6 +185,7 @@ def process_image(image_path):
 
         # Filter logged rows
         logged_rows = filter_logged_rows(parsed_rows)
+        print(f"Logged rows: {logged_rows}")
         return logged_rows
 
     except Exception as e:
