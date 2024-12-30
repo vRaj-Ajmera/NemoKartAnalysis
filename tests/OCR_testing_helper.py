@@ -47,8 +47,11 @@ def preprocess_image(image_path):
         image = cv2.imread(image_path)
         image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert to RGB
 
-        # Define the lower threshold
+        # Define the lower threshold (optimum threshold)
         lower_threshold = np.array([245, 238, 229], dtype=np.uint8)
+
+        # bad threshold for testing
+        #lower_threshold = np.array([255, 238, 248], dtype=np.uint8)
 
         # Create a mask for pixels greater than the threshold
         mask = cv2.inRange(image_rgb, lower_threshold, np.array([255, 255, 255], dtype=np.uint8))
