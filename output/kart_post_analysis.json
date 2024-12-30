@@ -19,8 +19,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 0,
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 0
+            "X-mas Puppy": 0,
+            "Dalmatian Puppy": 0
         },
         "Dino Kart": {
             "The Kart": 4,
@@ -41,8 +41,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Bat Kart": {
             "The Kart": 4,
@@ -63,8 +63,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 1,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Blocks": {
             "The Kart": "DNR",
@@ -85,8 +85,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Grey Blocks": {
             "The Kart": 1,
@@ -107,8 +107,8 @@
             "Golden Trolley": 0,
             "Furniture Trolley": "DNR",
             "Puppy": 2,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Monstro": {
             "The Kart": 1,
@@ -129,8 +129,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Dino Monstro": {
             "The Kart": 7,
@@ -151,8 +151,8 @@
             "Golden Trolley": 3,
             "Furniture Trolley": "DNR",
             "Puppy": 0,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": 0
+            "X-mas Puppy": 0,
+            "Dalmatian Puppy": "DNR"
         },
         "Joker Monstro": {
             "The Kart": "DNR",
@@ -173,8 +173,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 0,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Snowmobile": {
             "The Kart": 3,
@@ -195,11 +195,11 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 1
+            "X-mas Puppy": 1,
+            "Dalmatian Puppy": 0
         },
         "Greedy Snowmobile": {
-            "The Kart": 1,
+            "The Kart": 2,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
@@ -208,8 +208,8 @@
             "Dino Monstro": 0,
             "Joker Monstro": "DNR",
             "Snowmobile": 0,
-            "Greedy Snowmobile": 2,
-            "X-mas Snowmobile": 0,
+            "Greedy Snowmobile": 3,
+            "X-mas Snowmobile": 1,
             "Minecart": 2,
             "Snow Minecart": 4,
             "Trolley": "DNR",
@@ -217,11 +217,11 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": 0,
             "Puppy": 5,
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 1
+            "X-mas Puppy": 1,
+            "Dalmatian Puppy": 0
         },
         "X-mas Snowmobile": {
-            "The Kart": 3,
+            "The Kart": 4,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
@@ -230,7 +230,7 @@
             "Dino Monstro": 1,
             "Joker Monstro": "DNR",
             "Snowmobile": 0,
-            "Greedy Snowmobile": 2,
+            "Greedy Snowmobile": 4,
             "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 1,
@@ -239,8 +239,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": 2
+            "X-mas Puppy": 2,
+            "Dalmatian Puppy": 0
         },
         "Minecart": {
             "The Kart": 17,
@@ -261,8 +261,8 @@
             "Golden Trolley": 1,
             "Furniture Trolley": "DNR",
             "Puppy": 4,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Snow Minecart": {
             "The Kart": 6,
@@ -274,8 +274,8 @@
             "Dino Monstro": 1,
             "Joker Monstro": "DNR",
             "Snowmobile": 3,
-            "Greedy Snowmobile": 4,
-            "X-mas Snowmobile": 3,
+            "Greedy Snowmobile": 5,
+            "X-mas Snowmobile": 4,
             "Minecart": "DNR",
             "Snow Minecart": 2,
             "Trolley": "DNR",
@@ -283,8 +283,8 @@
             "Golden Trolley": 0,
             "Furniture Trolley": "DNR",
             "Puppy": 6,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": 1
+            "X-mas Puppy": 1,
+            "Dalmatian Puppy": "DNR"
         },
         "Trolley": {
             "The Kart": "DNR",
@@ -305,8 +305,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "6-TEN Trolley": {
             "The Kart": "DNR",
@@ -327,8 +327,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Golden Trolley": {
             "The Kart": "DNR",
@@ -349,8 +349,8 @@
             "Golden Trolley": 1,
             "Furniture Trolley": "DNR",
             "Puppy": 5,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Furniture Trolley": {
             "The Kart": "DNR",
@@ -371,8 +371,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": 0
         },
         "Puppy": {
             "The Kart": 7,
@@ -393,30 +393,8 @@
             "Golden Trolley": 1,
             "Furniture Trolley": "DNR",
             "Puppy": 26,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
-        },
-        "Dalmatian Puppy": {
-            "The Kart": 3,
-            "Dino Kart": "DNR",
-            "Bat Kart": "DNR",
-            "Blocks": "DNR",
-            "Grey Blocks": "DNR",
-            "Monstro": "DNR",
-            "Dino Monstro": "DNR",
-            "Joker Monstro": "DNR",
-            "Snowmobile": 1,
-            "Greedy Snowmobile": 1,
-            "X-mas Snowmobile": "DNR",
-            "Minecart": "DNR",
-            "Snow Minecart": "DNR",
-            "Trolley": "DNR",
-            "6-TEN Trolley": "DNR",
-            "Golden Trolley": "DNR",
-            "Furniture Trolley": 1,
-            "Puppy": "DNR",
-            "Dalmatian Puppy": 1,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "X-mas Puppy": {
             "The Kart": 8,
@@ -437,8 +415,30 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": 1
+            "X-mas Puppy": 1,
+            "Dalmatian Puppy": "DNR"
+        },
+        "Dalmatian Puppy": {
+            "The Kart": 3,
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": 1,
+            "Greedy Snowmobile": 4,
+            "X-mas Snowmobile": 1,
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "6-TEN Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Furniture Trolley": 1,
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": 1
         }
     },
     "Shanghai by Night": {
@@ -461,8 +461,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 0
+            "X-mas Puppy": 0,
+            "Dalmatian Puppy": 0
         },
         "Dino Kart": {
             "The Kart": "DNR",
@@ -483,8 +483,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Bat Kart": {
             "The Kart": 3,
@@ -505,8 +505,8 @@
             "Golden Trolley": 1,
             "Furniture Trolley": "DNR",
             "Puppy": 1,
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": 0
         },
         "Blocks": {
             "The Kart": "DNR",
@@ -527,8 +527,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Grey Blocks": {
             "The Kart": 0,
@@ -549,8 +549,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 1,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Monstro": {
             "The Kart": "DNR",
@@ -571,8 +571,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Dino Monstro": {
             "The Kart": 4,
@@ -593,8 +593,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 0,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Joker Monstro": {
             "The Kart": "DNR",
@@ -615,8 +615,8 @@
             "Golden Trolley": 1,
             "Furniture Trolley": "DNR",
             "Puppy": 0,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Snowmobile": {
             "The Kart": 4,
@@ -637,8 +637,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 1
+            "X-mas Puppy": 1,
+            "Dalmatian Puppy": 0
         },
         "Greedy Snowmobile": {
             "The Kart": 11,
@@ -650,8 +650,8 @@
             "Dino Monstro": 0,
             "Joker Monstro": "DNR",
             "Snowmobile": 2,
-            "Greedy Snowmobile": "DNR",
-            "X-mas Snowmobile": 2,
+            "Greedy Snowmobile": 1,
+            "X-mas Snowmobile": 3,
             "Minecart": 0,
             "Snow Minecart": 3,
             "Trolley": "DNR",
@@ -659,8 +659,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 3,
-            "X-mas Puppy": 2
+            "X-mas Puppy": 2,
+            "Dalmatian Puppy": 3
         },
         "X-mas Snowmobile": {
             "The Kart": 5,
@@ -672,7 +672,7 @@
             "Dino Monstro": "DNR",
             "Joker Monstro": "DNR",
             "Snowmobile": 2,
-            "Greedy Snowmobile": 1,
+            "Greedy Snowmobile": 3,
             "X-mas Snowmobile": "DNR",
             "Minecart": "DNR",
             "Snow Minecart": 0,
@@ -681,8 +681,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 1
+            "X-mas Puppy": 1,
+            "Dalmatian Puppy": 0
         },
         "Minecart": {
             "The Kart": 17,
@@ -703,8 +703,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 0,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Snow Minecart": {
             "The Kart": 17,
@@ -725,8 +725,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 0,
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 3
+            "X-mas Puppy": 3,
+            "Dalmatian Puppy": 0
         },
         "Trolley": {
             "The Kart": "DNR",
@@ -747,8 +747,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "6-TEN Trolley": {
             "The Kart": "DNR",
@@ -769,8 +769,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Golden Trolley": {
             "The Kart": "DNR",
@@ -791,8 +791,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 1,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Furniture Trolley": {
             "The Kart": "DNR",
@@ -813,8 +813,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Puppy": {
             "The Kart": "DNR",
@@ -835,30 +835,8 @@
             "Golden Trolley": 0,
             "Furniture Trolley": "DNR",
             "Puppy": 6,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
-        },
-        "Dalmatian Puppy": {
-            "The Kart": 2,
-            "Dino Kart": "DNR",
-            "Bat Kart": 2,
-            "Blocks": "DNR",
-            "Grey Blocks": "DNR",
-            "Monstro": "DNR",
-            "Dino Monstro": "DNR",
-            "Joker Monstro": "DNR",
-            "Snowmobile": 1,
-            "Greedy Snowmobile": 0,
-            "X-mas Snowmobile": 4,
-            "Minecart": "DNR",
-            "Snow Minecart": 3,
-            "Trolley": "DNR",
-            "6-TEN Trolley": "DNR",
-            "Golden Trolley": "DNR",
-            "Furniture Trolley": "DNR",
-            "Puppy": "DNR",
-            "Dalmatian Puppy": 5,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "X-mas Puppy": {
             "The Kart": 4,
@@ -879,8 +857,30 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
+        },
+        "Dalmatian Puppy": {
+            "The Kart": 2,
+            "Dino Kart": "DNR",
+            "Bat Kart": 2,
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": 1,
+            "Greedy Snowmobile": 5,
+            "X-mas Snowmobile": 7,
+            "Minecart": "DNR",
+            "Snow Minecart": 3,
+            "Trolley": "DNR",
+            "6-TEN Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Furniture Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": 5
         }
     },
     "Snowville": {
@@ -903,8 +903,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": 0
+            "X-mas Puppy": 0,
+            "Dalmatian Puppy": "DNR"
         },
         "Dino Kart": {
             "The Kart": "DNR",
@@ -925,8 +925,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Bat Kart": {
             "The Kart": "DNR",
@@ -947,8 +947,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 0,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Blocks": {
             "The Kart": "DNR",
@@ -969,8 +969,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Grey Blocks": {
             "The Kart": "DNR",
@@ -991,8 +991,8 @@
             "Golden Trolley": 1,
             "Furniture Trolley": "DNR",
             "Puppy": 1,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Monstro": {
             "The Kart": 3,
@@ -1013,8 +1013,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 1,
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Dino Monstro": {
             "The Kart": "DNR",
@@ -1035,8 +1035,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Joker Monstro": {
             "The Kart": "DNR",
@@ -1057,8 +1057,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Snowmobile": {
             "The Kart": 6,
@@ -1079,8 +1079,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 1
+            "X-mas Puppy": 1,
+            "Dalmatian Puppy": 0
         },
         "Greedy Snowmobile": {
             "The Kart": 19,
@@ -1101,8 +1101,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 1,
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": 0
         },
         "X-mas Snowmobile": {
             "The Kart": 16,
@@ -1123,8 +1123,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 2
+            "X-mas Puppy": 2,
+            "Dalmatian Puppy": 0
         },
         "Minecart": {
             "The Kart": 3,
@@ -1145,8 +1145,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Snow Minecart": {
             "The Kart": 16,
@@ -1167,8 +1167,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": 2,
             "Puppy": 0,
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": 0
         },
         "Trolley": {
             "The Kart": "DNR",
@@ -1189,8 +1189,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "6-TEN Trolley": {
             "The Kart": "DNR",
@@ -1211,8 +1211,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 1,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": 1
         },
         "Golden Trolley": {
             "The Kart": "DNR",
@@ -1233,8 +1233,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Furniture Trolley": {
             "The Kart": "DNR",
@@ -1255,8 +1255,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": 1,
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Puppy": {
             "The Kart": "DNR",
@@ -1277,30 +1277,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
-        },
-        "Dalmatian Puppy": {
-            "The Kart": "DNR",
-            "Dino Kart": "DNR",
-            "Bat Kart": "DNR",
-            "Blocks": "DNR",
-            "Grey Blocks": "DNR",
-            "Monstro": "DNR",
-            "Dino Monstro": "DNR",
-            "Joker Monstro": "DNR",
-            "Snowmobile": 1,
-            "Greedy Snowmobile": 3,
-            "X-mas Snowmobile": 3,
-            "Minecart": "DNR",
-            "Snow Minecart": 1,
-            "Trolley": "DNR",
-            "6-TEN Trolley": 0,
-            "Golden Trolley": "DNR",
-            "Furniture Trolley": "DNR",
-            "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "X-mas Puppy": {
             "The Kart": 4,
@@ -1321,17 +1299,39 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
+        },
+        "Dalmatian Puppy": {
+            "The Kart": "DNR",
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": 1,
+            "Greedy Snowmobile": 3,
+            "X-mas Snowmobile": 3,
+            "Minecart": "DNR",
+            "Snow Minecart": 1,
+            "Trolley": "DNR",
+            "6-TEN Trolley": 0,
+            "Golden Trolley": "DNR",
+            "Furniture Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         }
     },
     "Formula Wild": {
         "The Kart": {
             "The Kart": 6,
-            "Dino Kart": "DNR",
+            "Dino Kart": 0,
             "Bat Kart": "DNR",
             "Blocks": "DNR",
-            "Grey Blocks": "DNR",
+            "Grey Blocks": 0,
             "Monstro": "DNR",
             "Dino Monstro": "DNR",
             "Joker Monstro": "DNR",
@@ -1345,15 +1345,15 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 1
+            "X-mas Puppy": 1,
+            "Dalmatian Puppy": 0
         },
         "Dino Kart": {
-            "The Kart": "DNR",
+            "The Kart": 1,
             "Dino Kart": "DNR",
             "Bat Kart": "DNR",
             "Blocks": "DNR",
-            "Grey Blocks": "DNR",
+            "Grey Blocks": 0,
             "Monstro": "DNR",
             "Dino Monstro": "DNR",
             "Joker Monstro": "DNR",
@@ -1367,8 +1367,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Bat Kart": {
             "The Kart": "DNR",
@@ -1389,8 +1389,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Blocks": {
             "The Kart": "DNR",
@@ -1411,12 +1411,12 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Grey Blocks": {
-            "The Kart": "DNR",
-            "Dino Kart": "DNR",
+            "The Kart": 1,
+            "Dino Kart": 1,
             "Bat Kart": "DNR",
             "Blocks": "DNR",
             "Grey Blocks": "DNR",
@@ -1433,8 +1433,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Monstro": {
             "The Kart": "DNR",
@@ -1455,8 +1455,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Dino Monstro": {
             "The Kart": "DNR",
@@ -1477,8 +1477,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Joker Monstro": {
             "The Kart": "DNR",
@@ -1499,8 +1499,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Snowmobile": {
             "The Kart": 5,
@@ -1521,8 +1521,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": 2
+            "X-mas Puppy": 2,
+            "Dalmatian Puppy": 0
         },
         "Greedy Snowmobile": {
             "The Kart": 4,
@@ -1534,8 +1534,8 @@
             "Dino Monstro": "DNR",
             "Joker Monstro": "DNR",
             "Snowmobile": 2,
-            "Greedy Snowmobile": 2,
-            "X-mas Snowmobile": 4,
+            "Greedy Snowmobile": 3,
+            "X-mas Snowmobile": 6,
             "Minecart": "DNR",
             "Snow Minecart": 2,
             "Trolley": "DNR",
@@ -1543,8 +1543,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": 0,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": 0
         },
         "X-mas Snowmobile": {
             "The Kart": 12,
@@ -1565,8 +1565,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": 2
+            "X-mas Puppy": 2,
+            "Dalmatian Puppy": "DNR"
         },
         "Minecart": {
             "The Kart": "DNR",
@@ -1587,8 +1587,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Snow Minecart": {
             "The Kart": 10,
@@ -1609,8 +1609,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": 5
+            "X-mas Puppy": 5,
+            "Dalmatian Puppy": "DNR"
         },
         "Trolley": {
             "The Kart": "DNR",
@@ -1631,8 +1631,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "6-TEN Trolley": {
             "The Kart": "DNR",
@@ -1653,8 +1653,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Golden Trolley": {
             "The Kart": "DNR",
@@ -1675,8 +1675,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Furniture Trolley": {
             "The Kart": "DNR",
@@ -1697,8 +1697,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "Puppy": {
             "The Kart": "DNR",
@@ -1719,30 +1719,8 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": "DNR"
-        },
-        "Dalmatian Puppy": {
-            "The Kart": 3,
-            "Dino Kart": "DNR",
-            "Bat Kart": "DNR",
-            "Blocks": "DNR",
-            "Grey Blocks": "DNR",
-            "Monstro": "DNR",
-            "Dino Monstro": "DNR",
-            "Joker Monstro": "DNR",
-            "Snowmobile": 2,
-            "Greedy Snowmobile": 1,
-            "X-mas Snowmobile": "DNR",
-            "Minecart": "DNR",
-            "Snow Minecart": "DNR",
-            "Trolley": "DNR",
-            "6-TEN Trolley": "DNR",
-            "Golden Trolley": "DNR",
-            "Furniture Trolley": "DNR",
-            "Puppy": "DNR",
-            "Dalmatian Puppy": 3,
-            "X-mas Puppy": "DNR"
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": "DNR"
         },
         "X-mas Puppy": {
             "The Kart": 5,
@@ -1763,8 +1741,30 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": "DNR",
-            "Dalmatian Puppy": "DNR",
-            "X-mas Puppy": 1
+            "X-mas Puppy": 1,
+            "Dalmatian Puppy": "DNR"
+        },
+        "Dalmatian Puppy": {
+            "The Kart": 3,
+            "Dino Kart": "DNR",
+            "Bat Kart": "DNR",
+            "Blocks": "DNR",
+            "Grey Blocks": "DNR",
+            "Monstro": "DNR",
+            "Dino Monstro": "DNR",
+            "Joker Monstro": "DNR",
+            "Snowmobile": 2,
+            "Greedy Snowmobile": 1,
+            "X-mas Snowmobile": "DNR",
+            "Minecart": "DNR",
+            "Snow Minecart": "DNR",
+            "Trolley": "DNR",
+            "6-TEN Trolley": "DNR",
+            "Golden Trolley": "DNR",
+            "Furniture Trolley": "DNR",
+            "Puppy": "DNR",
+            "X-mas Puppy": "DNR",
+            "Dalmatian Puppy": 3
         }
     }
 }

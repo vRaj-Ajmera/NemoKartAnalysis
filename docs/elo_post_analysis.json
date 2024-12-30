@@ -1,8 +1,8 @@
 {
     "Player Ratings": {
         "Raj": {
-            "Peak Rating": 2369,
-            "Current Rating": 2369,
+            "Peak Rating": 2398,
+            "Current Rating": 2394,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -27,17 +27,17 @@
                         "Avg Position": 2.44
                     },
                     {
+                        "Kart": "The Kart",
+                        "Races": 8,
+                        "Points": 126,
+                        "PPR": 15.75,
+                        "Avg Position": 3.0
+                    },
+                    {
                         "Kart": "Grey Blocks",
                         "Races": 8,
                         "Points": 121,
                         "PPR": 15.12,
-                        "Avg Position": 3.0
-                    },
-                    {
-                        "Kart": "The Kart",
-                        "Races": 7,
-                        "Points": 111,
-                        "PPR": 15.86,
                         "Avg Position": 3.0
                     }
                 ],
@@ -64,18 +64,18 @@
                         "Avg Position": 2.56
                     },
                     {
+                        "Kart": "Dalmatian Puppy",
+                        "Races": 9,
+                        "Points": 205,
+                        "PPR": 22.78,
+                        "Avg Position": 1.44
+                    },
+                    {
                         "Kart": "Grey Blocks",
                         "Races": 8,
                         "Points": 136,
                         "PPR": 17.0,
                         "Avg Position": 2.5
-                    },
-                    {
-                        "Kart": "Snow Minecart",
-                        "Races": 7,
-                        "Points": 125,
-                        "PPR": 17.86,
-                        "Avg Position": 2.43
                     }
                 ],
                 "Snowville": [
@@ -138,18 +138,18 @@
                         "Avg Position": 1.2
                     },
                     {
+                        "Kart": "Greedy Snowmobile",
+                        "Races": 3,
+                        "Points": 48,
+                        "PPR": 16.0,
+                        "Avg Position": 2.67
+                    },
+                    {
                         "Kart": "X-mas Puppy",
                         "Races": 3,
                         "Points": 50,
                         "PPR": 16.67,
                         "Avg Position": 3.0
-                    },
-                    {
-                        "Kart": "Greedy Snowmobile",
-                        "Races": 2,
-                        "Points": 33,
-                        "PPR": 16.5,
-                        "Avg Position": 2.5
                     }
                 ]
             }
@@ -751,16 +751,16 @@
             }
         },
         "Rusheel": {
-            "Peak Rating": 1961,
-            "Current Rating": 1961,
+            "Peak Rating": 2102,
+            "Current Rating": 2102,
             "Kart Usage": {
                 "Shanghai": [
                     {
                         "Kart": "X-mas Snowmobile",
-                        "Races": 3,
-                        "Points": 43,
-                        "PPR": 14.33,
-                        "Avg Position": 3.33
+                        "Races": 6,
+                        "Points": 98,
+                        "PPR": 16.33,
+                        "Avg Position": 2.83
                     },
                     {
                         "Kart": "The Kart",
@@ -775,15 +775,22 @@
                         "Points": 18,
                         "PPR": 18.0,
                         "Avg Position": 2.0
+                    },
+                    {
+                        "Kart": "Greedy Snowmobile",
+                        "Races": 1,
+                        "Points": 18,
+                        "PPR": 18.0,
+                        "Avg Position": 2.0
                     }
                 ],
                 "Shanghai by Night": [
                     {
                         "Kart": "X-mas Snowmobile",
-                        "Races": 3,
-                        "Points": 39,
-                        "PPR": 13.0,
-                        "Avg Position": 3.67
+                        "Races": 6,
+                        "Points": 84,
+                        "PPR": 14.0,
+                        "Avg Position": 3.33
                     },
                     {
                         "Kart": "The Kart",
@@ -791,6 +798,13 @@
                         "Points": 25,
                         "PPR": 25.0,
                         "Avg Position": 1.0
+                    },
+                    {
+                        "Kart": "Greedy Snowmobile",
+                        "Races": 1,
+                        "Points": 15,
+                        "PPR": 15.0,
+                        "Avg Position": 3.0
                     }
                 ],
                 "Snowville": [
@@ -818,6 +832,13 @@
                 ],
                 "Formula Wild": [
                     {
+                        "Kart": "X-mas Snowmobile",
+                        "Races": 4,
+                        "Points": 72,
+                        "PPR": 18.0,
+                        "Avg Position": 2.75
+                    },
+                    {
                         "Kart": "The Kart",
                         "Races": 3,
                         "Points": 48,
@@ -832,11 +853,11 @@
                         "Avg Position": 3.33
                     },
                     {
-                        "Kart": "X-mas Snowmobile",
-                        "Races": 3,
-                        "Points": 60,
-                        "PPR": 20.0,
-                        "Avg Position": 2.33
+                        "Kart": "Dino Kart",
+                        "Races": 1,
+                        "Points": 15,
+                        "PPR": 15.0,
+                        "Avg Position": 3.0
                     }
                 ]
             }
@@ -912,8 +933,8 @@
             }
         },
         "Viraj": {
-            "Peak Rating": 1967,
-            "Current Rating": 1967,
+            "Peak Rating": 2112,
+            "Current Rating": 2112,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -922,6 +943,13 @@
                         "Points": 63,
                         "PPR": 10.5,
                         "Avg Position": 4.83
+                    },
+                    {
+                        "Kart": "Greedy Snowmobile",
+                        "Races": 4,
+                        "Points": 63,
+                        "PPR": 15.75,
+                        "Avg Position": 2.75
                     },
                     {
                         "Kart": "Snowmobile",
@@ -938,6 +966,13 @@
                         "Points": 88,
                         "PPR": 11.0,
                         "Avg Position": 4.75
+                    },
+                    {
+                        "Kart": "Greedy Snowmobile",
+                        "Races": 4,
+                        "Points": 63,
+                        "PPR": 15.75,
+                        "Avg Position": 2.75
                     },
                     {
                         "Kart": "Snowmobile",
@@ -973,10 +1008,10 @@
                 "Formula Wild": [
                     {
                         "Kart": "The Kart",
-                        "Races": 8,
-                        "Points": 73,
-                        "PPR": 9.12,
-                        "Avg Position": 5.5
+                        "Races": 9,
+                        "Points": 85,
+                        "PPR": 9.44,
+                        "Avg Position": 5.33
                     },
                     {
                         "Kart": "Snowmobile",
@@ -987,10 +1022,10 @@
                     },
                     {
                         "Kart": "Greedy Snowmobile",
-                        "Races": 3,
-                        "Points": 48,
-                        "PPR": 16.0,
-                        "Avg Position": 2.67
+                        "Races": 4,
+                        "Points": 73,
+                        "PPR": 18.25,
+                        "Avg Position": 2.25
                     }
                 ]
             }
