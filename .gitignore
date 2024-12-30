@@ -158,6 +158,9 @@ cython_debug/
 output/img_processing/clipboard_img.png
 output/img_processing/preprocessed_img.png
 
+# Ignore new files in the folder
+tests/Preprocessed_Imgs/
+
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
