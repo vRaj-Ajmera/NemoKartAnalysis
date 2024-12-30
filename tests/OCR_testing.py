@@ -34,6 +34,7 @@ def run_tests():
 
         if expected_output is None:
             print(f"Warning: No test case found for {img_name}. Skipping...")
+            total -= 1
             continue
 
         # Process the image
