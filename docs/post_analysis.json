@@ -741,14 +741,34 @@
                 "PPR": 16.3,
                 "Avg Race Position": 2.7
             }
+        },
+        "2024-12-30": {
+            "Raj": {
+                "Races": 22,
+                "Points": 443,
+                "PPR": 20.14,
+                "Avg Race Position": 1.95
+            },
+            "Rusheel": {
+                "Races": 22,
+                "Points": 378,
+                "PPR": 17.18,
+                "Avg Race Position": 2.45
+            },
+            "Viraj": {
+                "Races": 22,
+                "Points": 370,
+                "PPR": 16.82,
+                "Avg Race Position": 2.68
+            }
         }
     },
     "All Time Stats": {
         "Raj": {
-            "Races": 302,
-            "Points": 5598,
-            "PPR": 18.54,
-            "Avg Race Position": 2.31
+            "Races": 324,
+            "Points": 6041,
+            "PPR": 18.65,
+            "Avg Race Position": 2.29
         },
         "Azhan": {
             "Races": 283,
@@ -799,10 +819,10 @@
             "Avg Race Position": 6.0
         },
         "Rusheel": {
-            "Races": 39,
-            "Points": 631,
-            "PPR": 16.18,
-            "Avg Race Position": 2.85
+            "Races": 61,
+            "Points": 1009,
+            "PPR": 16.54,
+            "Avg Race Position": 2.7
         },
         "SultanSpeppy": {
             "Races": 37,
@@ -811,10 +831,10 @@
             "Avg Race Position": 3.46
         },
         "Viraj": {
-            "Races": 59,
-            "Points": 798,
-            "PPR": 13.53,
-            "Avg Race Position": 3.83
+            "Races": 81,
+            "Points": 1168,
+            "PPR": 14.42,
+            "Avg Race Position": 3.52
         },
         "Tejas": {
             "Races": 8,
@@ -837,50 +857,50 @@
         "Shanghai": [
             "2:24.86 by Raj in Dalmatian Puppy",
             "2:26.46 by Raj in Puppy",
+            "2:27.26 by Raj in Dalmatian Puppy",
             "2:29.08 by Sameer in Puppy",
             "2:29.54 by Azhan in Puppy",
+            "2:29.54 by Raj in Dalmatian Puppy",
             "2:29.68 by Azhan in Puppy",
+            "2:29.72 by Raj in Dalmatian Puppy",
             "2:29.82 by Sameer in Puppy",
-            "2:29.86 by Sameer in Puppy",
-            "2:30.08 by Zetaa in X-mas Puppy",
-            "2:30.50 by Sameer in Puppy",
-            "2:30.78 by Azhan in Minecart"
+            "2:29.84 by Raj in Dalmatian Puppy"
         ],
         "Shanghai by Night": [
             "2:24.34 by Raj in Dalmatian Puppy",
             "2:24.90 by Zetaa in Dalmatian Puppy",
+            "2:24.94 by Raj in Dalmatian Puppy",
+            "2:25.36 by Raj in Dalmatian Puppy",
             "2:25.70 by Azhan in Dalmatian Puppy",
             "2:25.96 by Zetaa in Dalmatian Puppy",
             "2:26.06 by Raj in Dalmatian Puppy",
             "2:26.56 by Raj in X-mas Snowmobile",
             "2:26.56 by Raj in Dalmatian Puppy",
-            "2:27.38 by Raj in Greedy Snowmobile",
-            "2:27.74 by Raj in Dalmatian Puppy",
-            "2:28.70 by Raj in Dalmatian Puppy"
+            "2:27.38 by Raj in Greedy Snowmobile"
         ],
         "Snowville": [
             "1:45.12 by Raj in Dalmatian Puppy",
             "1:45.96 by Azhan in Greedy Snowmobile",
             "1:46.34 by Azhan in Greedy Snowmobile",
             "1:46.90 by Azhan in Greedy Snowmobile",
+            "1:47.00 by Viraj in Greedy Snowmobile",
             "1:47.30 by Azhan in Greedy Snowmobile",
             "1:47.48 by Sameer in Greedy Snowmobile",
             "1:47.50 by Sameer in Puppy",
-            "1:48.22 by Raj in Greedy Snowmobile",
-            "1:48.34 by Azhan in Snowmobile",
-            "1:48.78 by Zetaa in Snowmobile"
+            "1:48.04 by Raj in Snow Minecart",
+            "1:48.22 by Raj in Greedy Snowmobile"
         ],
         "Formula Wild": [
+            "2:17.04 by Raj in Dalmatian Puppy",
             "2:19.70 by Raj in Dalmatian Puppy",
             "2:20.04 by Zetaa in Dalmatian Puppy",
+            "2:21.16 by Rusheel in X-mas Snowmobile",
             "2:21.38 by Azhan in Dalmatian Puppy",
             "2:22.16 by Raj in Dalmatian Puppy",
             "2:22.64 by Raj in Dalmatian Puppy",
             "2:22.92 by Viraj in Snowmobile",
             "2:23.04 by Raj in Dalmatian Puppy",
-            "2:23.04 by Viraj in Greedy Snowmobile",
-            "2:25.42 by Azhan in X-mas Snowmobile",
-            "2:25.92 by Raj in Greedy Snowmobile"
+            "2:23.04 by Viraj in Greedy Snowmobile"
         ]
     },
     "Individual Player Best Times": {
@@ -889,10 +909,10 @@
             "2:29.08 by Sameer in Puppy",
             "2:29.54 by Azhan in Puppy",
             "2:30.08 by Zetaa in X-mas Puppy",
+            "2:30.40 by Viraj in Greedy Snowmobile",
             "2:31.76 by SultanSpeppy in Snowmobile",
-            "2:35.24 by Rusheel in Snowmobile",
+            "2:31.96 by Rusheel in X-mas Snowmobile",
             "2:38.30 by Adi in The Kart",
-            "2:38.80 by Viraj in Greedy Snowmobile",
             "2:43.14 by EnderRobot in The Kart",
             "2:50.06 by Dylan in The Kart",
             "2:51.30 by Parum in The Kart",
@@ -902,10 +922,10 @@
             "2:24.34 by Raj in Dalmatian Puppy",
             "2:24.90 by Zetaa in Dalmatian Puppy",
             "2:25.70 by Azhan in Dalmatian Puppy",
-            "2:31.16 by Viraj in Greedy Snowmobile",
+            "2:28.22 by Viraj in Greedy Snowmobile",
             "2:31.56 by SultanSpeppy in Snowmobile",
             "2:32.78 by Sameer in Puppy",
-            "2:33.46 by Rusheel in X-mas Snowmobile",
+            "2:32.80 by Rusheel in X-mas Snowmobile",
             "2:44.16 by Adi in The Kart",
             "2:45.22 by Dylan in The Kart",
             "2:46.10 by EnderRobot in The Kart",
@@ -916,11 +936,11 @@
         "Snowville": [
             "1:45.12 by Raj in Dalmatian Puppy",
             "1:45.96 by Azhan in Greedy Snowmobile",
+            "1:47.00 by Viraj in Greedy Snowmobile",
             "1:47.48 by Sameer in Greedy Snowmobile",
+            "1:48.46 by Rusheel in X-mas Snowmobile",
             "1:48.78 by Zetaa in Snowmobile",
-            "1:49.48 by Rusheel in Snowmobile",
             "1:52.12 by SultanSpeppy in Snowmobile",
-            "1:52.14 by Viraj in Greedy Snowmobile",
             "1:52.34 by EnderRobot in The Kart",
             "1:53.72 by Tejas in The Kart",
             "2:01.94 by Adi in The Kart",
@@ -928,11 +948,11 @@
             "2:17.16 by Lynden in The Kart"
         ],
         "Formula Wild": [
-            "2:19.70 by Raj in Dalmatian Puppy",
+            "2:17.04 by Raj in Dalmatian Puppy",
             "2:20.04 by Zetaa in Dalmatian Puppy",
+            "2:21.16 by Rusheel in X-mas Snowmobile",
             "2:21.38 by Azhan in Dalmatian Puppy",
             "2:22.92 by Viraj in Snowmobile",
-            "2:26.52 by Rusheel in Snowmobile",
             "2:28.70 by SultanSpeppy in The Kart",
             "2:29.60 by Tejas in The Kart",
             "2:42.92 by EnderRobot in The Kart"
