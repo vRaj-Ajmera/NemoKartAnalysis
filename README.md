@@ -79,13 +79,13 @@ These libraries will ensure your project has all the required capabilities for b
   ```
 
 #### **player_aliases.json**
-- Maps aliases (nicknames) to players for OCR matching.
+- Maps aliases (nicknames/gamertags) to players for OCR matching.
 - Example:
   ```json
   {
     "Raj": ["DaTrixta", "Trickster"],
     "Azhan": ["highzahawk", "Hawk"],
-    "Sameer": ["sourpanda", "S0urPanda"]
+    "Sameer": ["sourpanda", "PandaEater55"]
   }
   ```
 
