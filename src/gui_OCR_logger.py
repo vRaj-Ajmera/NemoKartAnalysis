@@ -247,7 +247,24 @@ def fuzzy_match_player_name(detected_text):
 
 def parse_ocr_results(ocr_results):
     """
-    Parse OCR results to extract placement, player names, and race times.
+    Parse OCR results to extract structured information such as placement, player names, 
+    and race times from the raw OCR output.
+
+    Args:
+        ocr_results (list): A list of OCR results from EasyOCR, where each entry is a tuple 
+                            containing detected text, bounding box coordinates, and confidence score.
+
+    Returns:
+        list: A list of dictionaries where each dictionary represents a row with the following fields:
+              - 'placement': The placement of the player in the race (int).
+              - 'player_name': The name of the player (str), determined via fuzzy matching to aliases.
+              - 'race_time': The race completion time in "MM:SS.SS" format (str).
+    Details:
+        - Starts parsing after encountering the "TIME" label in OCR results.
+        - Uses regular expressions to identify race times and a fuzzy matching function to 
+          determine player names.
+        - Ensures low-confidence results (confidence < 0.01) are skipped.
+        - Processes the data row-by-row, resetting after each complete row of information is parsed.
     """
     found_time_label = False  # Flag to indicate "TIME" label found
     current_placement = 1  # Start with first place
@@ -347,7 +364,7 @@ def fill_GUI_with_ocr_results(logged_rows):
 
 def preprocess_image(image_path, output_path=preprocessed_image_file_path):
     """
-    Preprocess the image to keep only colors with RGB values greater than [255, 248, 229].
+    Preprocess the image to keep only colors with RGB values greater than [245, 238, 229].
     Save the processed image for verification.
     """
     try:
