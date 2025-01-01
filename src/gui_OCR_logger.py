@@ -354,12 +354,16 @@ def fill_GUI_with_ocr_results(logged_rows):
         widgets["race_time"].delete(0, tk.END)
 
     # Fill GUI fields with logged rows data
-    for i, row in enumerate(logged_rows):
-        widgets = player_widgets[i]
-        widgets["placement"].set(str(row["placement"]) if row["placement"] else "-- Select --")
-        widgets["player"].set(row["player_name"] if row["player_name"] else "-- Select --")
-        if row["race_time"]:
-            widgets["race_time"].insert(0, row["race_time"])
+    for row in logged_rows:
+        placement = row["placement"]
+        name = row["player_name"]
+        race_time = row["race_time"]
+
+        # log in the row equal to the placement
+        widgets = player_widgets[placement - 1]
+        widgets["placement"].set(str(placement))
+        widgets["player"].set(name)
+        widgets["race_time"].insert(0, race_time)
 
 
 def preprocess_image(image_path, output_path=preprocessed_image_file_path):
