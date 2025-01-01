@@ -45,26 +45,6 @@ karts, maps, players = load_data()
 karts_with_empty = ["-- Select --"] + karts
 maps_with_empty = ["-- Select --"] + maps
 
-def load_player_aliases():
-    """
-    Load player aliases from player_aliases.json and create a dictionary mapping aliases to player names.
-    """
-    aliases_mapping = {}
-    try:
-        with open(player_aliases_path, "r") as file:
-            aliases_data = json.load(file)
-            for player_name, aliases in aliases_data.items():
-                for alias in aliases:
-                    aliases_mapping[alias.lower()] = player_name  # Map each alias to the player's name
-                aliases_mapping[player_name.lower()] = player_name  # Include the player's name as an alias
-        return aliases_mapping
-    except Exception as e:
-        print(f"Error loading player aliases: {e}")
-        return {}
-
-aliases_mapping = load_player_aliases()
-aliases_list = list(aliases_mapping.keys())  # Prepare a list of all aliases for matching
-
 # Initialize output CSV and ensure columns are aligned with the players list
 def initialize_csv():
     # Define the expected columns based on the current players.csv file
@@ -227,6 +207,26 @@ def save_data():
         widgets["placement"].set("-- Select --")
         widgets["race_time"].delete(0, tk.END)
 
+def load_player_aliases():
+    """
+    Load player aliases from player_aliases.json and create a dictionary mapping aliases to player names.
+    """
+    aliases_mapping = {}
+    try:
+        with open(player_aliases_path, "r") as file:
+            aliases_data = json.load(file)
+            for player_name, aliases in aliases_data.items():
+                for alias in aliases:
+                    aliases_mapping[alias.lower()] = player_name  # Map each alias to the player's name
+                aliases_mapping[player_name.lower()] = player_name  # Include the player's name as an alias
+        return aliases_mapping
+    except Exception as e:
+        print(f"Error loading player aliases: {e}")
+        return {}
+
+aliases_mapping = load_player_aliases()
+aliases_list = list(aliases_mapping.keys())  # Prepare a list of all aliases for matching
+
 def fuzzy_match_player_name(detected_text):
     """
     Use fuzzy matching to find the closest player alias to the detected OCR text.
@@ -380,6 +380,7 @@ def preprocess_image(image_path, output_path=preprocessed_image_file_path):
 def process_image(image_path):
     """
     Process the image and extract text using EasyOCR with the preprocessed image.
+    Then log rows in GUI.
     """
     try:
         # Preprocess the image to isolate specified colors
@@ -416,6 +417,7 @@ def process_image(image_path):
 
     except Exception as e:
         print(f"Error processing image: {e}")
+        return None
 
 def paste_image_from_clipboard():
     """

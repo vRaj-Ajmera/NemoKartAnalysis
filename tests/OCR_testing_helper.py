@@ -36,41 +36,6 @@ def load_player_aliases():
 aliases_mapping = load_player_aliases()
 aliases_list = list(aliases_mapping.keys())  # Prepare a list of all aliases for matching
 
-def preprocess_image(image_path):
-    """
-    Preprocess the image to keep only specific color ranges and save it.
-    """
-    try:
-        # Load the image in RGB
-        image = cv2.imread(image_path)
-        image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert to RGB
-
-        # Define the lower threshold (optimum threshold)
-        lower_threshold = np.array([245, 238, 229], dtype=np.uint8)
-
-        # bad threshold for testing
-        #lower_threshold = np.array([255, 238, 248], dtype=np.uint8)
-
-        # Create a mask for pixels greater than the threshold
-        mask = cv2.inRange(image_rgb, lower_threshold, np.array([255, 255, 255], dtype=np.uint8))
-
-        # Apply the mask to keep only the specified range
-        processed_image = cv2.bitwise_and(image, image, mask=mask)
-
-        # Convert the processed image to grayscale
-        grayscale_image = cv2.cvtColor(processed_image, cv2.COLOR_BGR2GRAY)
-
-        # Save the preprocessed image
-        base_name = os.path.basename(image_path)
-        preprocessed_image_path = os.path.join(processed_dir, base_name.replace(".png", "_processed.png"))
-        cv2.imwrite(preprocessed_image_path, grayscale_image)
-        print(f"Preprocessed image saved to {preprocessed_image_path}")
-
-        return preprocessed_image_path
-    except Exception as e:
-        print(f"Error during preprocessing: {e}")
-        return None
-
 def fuzzy_match_player_name(detected_text):
     """
     Use fuzzy matching to find the closest player alias to the detected OCR text.
@@ -168,6 +133,41 @@ def filter_logged_rows(parsed_rows):
     except Exception as e:
         print(f"Error filtering logged rows: {e}")
         return []
+
+def preprocess_image(image_path):
+    """
+    Preprocess the image to keep only specific color ranges and save it.
+    """
+    try:
+        # Load the image in RGB
+        image = cv2.imread(image_path)
+        image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert to RGB
+
+        # Define the lower threshold (optimum threshold)
+        lower_threshold = np.array([245, 238, 229], dtype=np.uint8)
+
+        # bad threshold for testing
+        #lower_threshold = np.array([255, 238, 248], dtype=np.uint8)
+
+        # Create a mask for pixels greater than the threshold
+        mask = cv2.inRange(image_rgb, lower_threshold, np.array([255, 255, 255], dtype=np.uint8))
+
+        # Apply the mask to keep only the specified range
+        processed_image = cv2.bitwise_and(image, image, mask=mask)
+
+        # Convert the processed image to grayscale
+        grayscale_image = cv2.cvtColor(processed_image, cv2.COLOR_BGR2GRAY)
+
+        # Save the preprocessed image
+        base_name = os.path.basename(image_path)
+        preprocessed_image_path = os.path.join(processed_dir, base_name.replace(".png", "_processed.png"))
+        cv2.imwrite(preprocessed_image_path, grayscale_image)
+        print(f"Preprocessed image saved to {preprocessed_image_path}")
+
+        return preprocessed_image_path
+    except Exception as e:
+        print(f"Error during preprocessing: {e}")
+        return None
 
 def process_image(image_path):
     """
