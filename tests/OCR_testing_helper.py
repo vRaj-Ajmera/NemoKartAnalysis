@@ -3,6 +3,7 @@ import numpy as np
 import easyocr
 import os
 import re
+from rapidfuzz import process, fuzz
 import json
 
 # Directory to save processed images
@@ -19,24 +20,21 @@ def load_player_aliases():
     """
     Load player aliases from player_aliases.json and create a dictionary mapping aliases to player names.
     """
-    aliases_file = player_aliases_path
     aliases_mapping = {}
     try:
-        with open(aliases_file, "r") as file:
+        with open(player_aliases_path, "r") as file:
             aliases_data = json.load(file)
             for player_name, aliases in aliases_data.items():
                 for alias in aliases:
                     aliases_mapping[alias.lower()] = player_name  # Map each alias to the player's name
                 aliases_mapping[player_name.lower()] = player_name  # Include the player's name as an alias
         return aliases_mapping
-    except FileNotFoundError as e:
-        print(f"Error loading aliases: {e}")
-        return {}
     except Exception as e:
-        print(f"Unexpected error loading aliases: {e}")
+        print(f"Error loading player aliases: {e}")
         return {}
 
 aliases_mapping = load_player_aliases()
+aliases_list = list(aliases_mapping.keys())  # Prepare a list of all aliases for matching
 
 def preprocess_image(image_path):
     """
