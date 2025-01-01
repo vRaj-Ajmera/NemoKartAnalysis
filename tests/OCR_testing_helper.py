@@ -124,14 +124,10 @@ def parse_ocr_results(ocr_results):
             if temp_row["race_time"] is None:  # Only fill race time if empty
                 temp_row["race_time"] = race_time
         else:
-            # Match player name using aliases
-            for alias, actual_name in aliases_mapping.items():
-                if((alias.casefold()).__eq__(detected_text.casefold())):
-                    if temp_row["player_name"] is None:  # Only fill player name if empty
-                        temp_row["player_name"] = actual_name
-                    break
+            # Use fuzzy matching to determine player name
+            matched_name = fuzzy_match_player_name(detected_text)
             if temp_row["player_name"] is None:
-                temp_row["player_name"] = detected_text.lower()
+                temp_row["player_name"] = matched_name
 
         # If a complete row is filled, add placement, add to parsed rows, and reset temp_row
         if temp_row["player_name"] and temp_row["race_time"]:
