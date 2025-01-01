@@ -76,7 +76,7 @@ def run_tests(min_num=None, max_num=None, analyzeAllRaces=False):
 
 if __name__ == "__main__":
     # Example: Test specific range
-    run_tests(min_num=25, max_num=28, analyzeAllRaces=True)
+    run_tests(min_num=25, max_num=28, analyzeAllRaces=False)
 
     # Example: Test all images
     # run_tests(analyzeAllRaces=True)

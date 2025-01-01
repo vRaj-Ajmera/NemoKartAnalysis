@@ -119,6 +119,20 @@ test_cases = {
         {'placement': 4, 'player_name': 'Adi', 'race_time': '2:45.62'},
         {'placement': 6, 'player_name': 'Dylan', 'race_time': '2:47.68'},
         {'placement': 7, 'player_name': 'Parum', 'race_time': '2:50.30'}
+    ],
+    "race26.png": [
+        {'placement': 1, 'player_name': 'Raj', 'race_time': '1:51.06'},
+        {'placement': 2, 'player_name': 'Viraj', 'race_time': '1:52.48'},
+        {'placement': 7, 'player_name': 'Tejas', 'race_time': '2:15.14'}
+    ],
+    "race27.png": [
+        {'placement': 1, 'player_name': 'Raj', 'race_time': '2:23.04'},
+        {'placement': 2, 'player_name': 'Viraj', 'race_time': '2:23.04'},
+        {'placement': 5, 'player_name': 'Tejas', 'race_time': '2:29.60'}
+    ],
+    "race28.png": [
+        {'placement': 1, 'player_name': 'Raj', 'race_time': '2:33.04'},
+        {'placement': 4, 'player_name': 'Viraj', 'race_time': '2:33.56'}
     ]
     # Add more test cases as needed
 }
