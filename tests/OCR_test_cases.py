@@ -45,7 +45,7 @@ test_cases = {
         {'placement': 2, 'player_name': 'Sameer', 'race_time': '2:37.64'},
         {'placement': 3, 'player_name': 'Zetaa', 'race_time': '2:38.98'}
     ],
-    "race10_FAIL.png": [
+    "race10.png": [
         {'placement': 2, 'player_name': 'Azhan', 'race_time': '2:41.62'},
         {'placement': 3, 'player_name': 'Sameer', 'race_time': '2:42.24'},
         {'placement': 4, 'player_name': 'Raj', 'race_time': '2:43.20'}
