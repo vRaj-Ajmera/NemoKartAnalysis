@@ -9,7 +9,7 @@ import numpy as np
 import easyocr
 import cv2
 import json
-from rapidfuzz import fuzz
+from rapidfuzz import process, fuzz
 from PIL import ImageGrab, Image
 from tkinter import messagebox
 
@@ -25,6 +25,7 @@ players_file = os.path.join(script_dir, "../data/players.csv")
 output_file = os.path.join(script_dir, "../output/results.csv")
 preprocessed_image_file_path = os.path.join(script_dir, "../output/img_processing/preprocessed_img.png")
 clipboard_image_file_path = os.path.join(script_dir, "../output/img_processing/clipboard_img.png")
+player_aliases_path = os.path.join(script_dir, "../data/player_aliases.json")
 
 # Load data from files
 def load_data():
@@ -48,25 +49,21 @@ def load_player_aliases():
     """
     Load player aliases from player_aliases.json and create a dictionary mapping aliases to player names.
     """
-    aliases_file = os.path.join(script_dir, "../data/player_aliases.json")
     aliases_mapping = {}
     try:
-        with open(aliases_file, "r") as file:
+        with open(player_aliases_path, "r") as file:
             aliases_data = json.load(file)
             for player_name, aliases in aliases_data.items():
                 for alias in aliases:
                     aliases_mapping[alias.lower()] = player_name  # Map each alias to the player's name
                 aliases_mapping[player_name.lower()] = player_name  # Include the player's name as an alias
         return aliases_mapping
-    except FileNotFoundError as e:
-        print(f"Error loading aliases: {e}")
-        return {}
     except Exception as e:
-        print(f"Unexpected error loading aliases: {e}")
+        print(f"Error loading player aliases: {e}")
         return {}
 
-# Load player aliases
 aliases_mapping = load_player_aliases()
+aliases_list = list(aliases_mapping.keys())  # Prepare a list of all aliases for matching
 
 # Initialize output CSV and ensure columns are aligned with the players list
 def initialize_csv():
@@ -230,6 +227,124 @@ def save_data():
         widgets["placement"].set("-- Select --")
         widgets["race_time"].delete(0, tk.END)
 
+def fuzzy_match_player_name(detected_text):
+    """
+    Use fuzzy matching to find the closest player alias to the detected OCR text.
+
+    Args:
+        detected_text (str): The text detected by OCR.
+
+    Returns:
+        str: The actual player's name if a match is found, otherwise the original detected text.
+    """
+    # Use RapidFuzz to find the best match
+    match = process.extractOne(detected_text.lower(), aliases_list, scorer=fuzz.ratio)
+    if match and match[1] > 80:  # Threshold for similarity score
+        matched_alias = match[0]
+        actual_name = aliases_mapping[matched_alias]
+        return actual_name
+    return detected_text
+
+def parse_ocr_results(ocr_results):
+    """
+    Parse OCR results to extract placement, player names, and race times.
+    """
+    found_time_label = False  # Flag to indicate "TIME" label found
+    current_placement = 1  # Start with first place
+    parsed_rows = []  # Store rows as dictionaries
+    temp_row = {"placement": current_placement, "player_name": None, "race_time": None}
+
+    for result in ocr_results:
+        detected_text, confidence = result[1], result[2]
+        if confidence < 0.01:  # Skip low-confidence results
+            continue
+
+        # Check for the "TIME" label
+        if detected_text.strip().lower() == "time":
+            found_time_label = True
+            continue
+
+        if not found_time_label:
+            # Skip everything until "TIME" is found
+            continue
+        
+        if temp_row["placement"] is None and detected_text.strip().isdigit() and len(detected_text.strip()) == 1:
+            temp_row["placement"] = current_placement
+            continue
+
+        # Extract race time
+        time_match = re.search(r"(\d{1,2})[:.*,]*?(\d{2})[:.*,]*?(\d{2})", detected_text)
+        if time_match:
+            minutes, seconds, milliseconds = time_match.groups()
+            race_time = f"{int(minutes)}:{seconds}.{milliseconds}"
+            if temp_row["race_time"] is None:  # Only fill race time if empty
+                temp_row["race_time"] = race_time
+        else:
+            # Use fuzzy matching to determine player name
+            matched_name = fuzzy_match_player_name(detected_text)
+            if temp_row["player_name"] is None:
+                temp_row["player_name"] = matched_name
+
+        # If a complete row is filled, add placement, add to parsed rows, and reset temp_row
+        if temp_row["player_name"] and temp_row["race_time"]:
+            temp_row["placement"] = current_placement
+            parsed_rows.append(temp_row.copy())
+            temp_row = {"placement": None, "player_name": None, "race_time": None}
+            current_placement += 1  # Increment placement
+
+    return parsed_rows
+
+def filter_logged_rows(parsed_rows):
+    """
+    Filter parsed rows to only include players listed in the aliases file.
+
+    Args:
+        parsed_rows (list): List of parsed rows from OCR results.
+
+    Returns:
+        list: Filtered list of logged rows containing placement, player_name, and race_time.
+    """
+    try:
+        
+        logged_rows = []
+
+        # Fill logged rows with parsed data
+        for i, row in enumerate(parsed_rows):
+            if i >= 8:
+                break  # Ignore extra rows if they exceed the GUI capacity
+
+            # Check if the player is in aliases_mapping
+            if row["player_name"] not in aliases_mapping.values():
+                continue
+
+            logged_rows.append(row)
+        
+        return logged_rows
+
+    except Exception as e:
+        print(f"Error filtering logged rows: {e}")
+        return []
+
+def fill_GUI_with_ocr_results(logged_rows):
+    """
+    Logs race data (times, placements, and players) in the GUI textboxes.
+    """
+    # Clear all fields initially
+    for widgets in player_widgets:
+        widgets["player"].set("-- Select --")
+        widgets["placement"].set("-- Select --")
+        widgets["kart"].set("-- Select --")
+        widgets["race_time"].delete(0, tk.END)
+
+    # Fill GUI fields with logged rows data
+    for i, row in enumerate(logged_rows):
+        widgets = player_widgets[i]
+        widgets["placement"].set(str(row["placement"]) if row["placement"] else "-- Select --")
+        widgets["player"].set(row["player_name"] if row["player_name"] else "-- Select --")
+        if row["race_time"]:
+            widgets["race_time"].insert(0, row["race_time"])
+
+
 def preprocess_image(image_path, output_path=preprocessed_image_file_path):
     """
     Preprocess the image to keep only colors with RGB values greater than [255, 248, 229].
@@ -286,92 +401,21 @@ def process_image(image_path):
             print(f"Detected Text: {text} (Confidence: {confidence})")
         print("\n--- End of EasyOCR Results ---\n")
 
-        # Fill dropdowns with the parsed OCR results
-        fill_race_data_with_ocr_results(ocr_results, aliases_mapping)
+        # Parse the OCR results
+        parsed_rows = parse_ocr_results(ocr_results)
+        print(f"Parsed rows: {parsed_rows}")
+
+        # Filter logged rows
+        logged_rows = filter_logged_rows(parsed_rows)
+        print(f"Logged rows: {logged_rows}")
+
+        # Fill dropdowns with the logged rows
+        fill_GUI_with_ocr_results(logged_rows)
 
         status_label.config(text="Race times logged from OCR results!", fg="green")
 
-
     except Exception as e:
         print(f"Error processing image: {e}")
-
-
-def fill_race_data_with_ocr_results(ocr_results, aliases_mapping):
-    """
-    Logs race data (times, placements, and players) in the GUI textboxes
-    by sequentially parsing OCR results and aligning the data.
-    """
-    # Clear all fields initially
-    for widgets in player_widgets:
-        widgets["player"].set("-- Select --")
-        widgets["placement"].set("-- Select --")
-        widgets["race_time"].delete(0, tk.END)
-
-    
-    found_time_label = False  # Flag to indicate that "TIME" label has been encountered
-    current_placement = 1  # Start with first place
-    parsed_rows = []  # Store rows as (placement, player_name, race_time)
-    temp_row = {"placement": current_placement, "player_name": None, "race_time": None}
-
-    for result in ocr_results:
-        detected_text, confidence = result[1], result[2]
-        if confidence < 0.01:  # Skip low-confidence results
-            continue
-
-        # Check for the "TIME" label
-        if detected_text.strip().lower() == "time":
-            found_time_label = True
-            continue
-
-        if not found_time_label:
-            # Skip everything until "TIME" is found
-            continue
-
-        if temp_row["placement"] is None and detected_text.strip().isdigit() and len(detected_text.strip()) == 1:
-            temp_row["placement"] = current_placement
-            continue
-
-        # Extract race time
-        time_match = re.search(r"(\d{1,2})[:.*,]*?(\d{2})[:.*,]*?(\d{2})", detected_text)
-        if time_match:
-            minutes, seconds, milliseconds = time_match.groups()
-            race_time = f"{int(minutes)}:{seconds}.{milliseconds}"
-            if temp_row["race_time"] is None:  # Only fill race time if empty
-                temp_row["race_time"] = race_time
-        else:
-            # Match player name using aliases
-            for alias, actual_name in aliases_mapping.items():
-                if((alias.casefold()).__eq__(detected_text.casefold())):
-                    if temp_row["player_name"] is None:  # Only fill player name if empty
-                        temp_row["player_name"] = actual_name
-                    break
-            if temp_row["player_name"] is None:
-                temp_row["player_name"] = detected_text.lower()
-
-        # If a complete row is filled, add placement, add to parsed rows, and reset temp_row
-        if temp_row["player_name"] and temp_row["race_time"]:
-            if temp_row["placement"] is None:
-                temp_row["placement"] = current_placement
-            parsed_rows.append(temp_row.copy())
-            temp_row = {"placement": None, "player_name": None, "race_time": None}
-            current_placement += 1  # Increment placement
-
-    # Fill GUI fields with parsed data
-    for i, row in enumerate(parsed_rows):
-        if i >= len(player_widgets):
-            break  # Ignore extra rows if they exceed the GUI capacity
-
-        # Check if the player is in aliases_mapping
-        if row["player_name"] not in aliases_mapping.values():
-            continue
-
-        widgets = player_widgets[i]
-        widgets["placement"].set(str(row["placement"]) if row["placement"] else "-- Select --")
-        widgets["player"].set(row["player_name"] if row["player_name"] else "-- Select --")
-        if row["race_time"]:
-            widgets["race_time"].insert(0, row["race_time"])
-
-    print(f"Parsed rows: {parsed_rows}")  # Debugging output
 
 def paste_image_from_clipboard():
     """
