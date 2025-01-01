@@ -71,6 +71,24 @@ def preprocess_image(image_path):
         print(f"Error during preprocessing: {e}")
         return None
 
+def fuzzy_match_player_name(detected_text):
+    """
+    Use fuzzy matching to find the closest player alias to the detected OCR text.
+
+    Args:
+        detected_text (str): The text detected by OCR.
+
+    Returns:
+        str: The actual player's name if a match is found, otherwise the original detected text.
+    """
+    # Use RapidFuzz to find the best match
+    match = process.extractOne(detected_text.lower(), aliases_list, scorer=fuzz.ratio)
+    if match and match[1] > 80:  # Threshold for similarity score
+        matched_alias = match[0]
+        actual_name = aliases_mapping[matched_alias]
+        return actual_name
+    return detected_text
+
 def parse_ocr_results(ocr_results):
     """
     Parse OCR results to extract placement, player names, and race times.
@@ -117,8 +135,7 @@ def parse_ocr_results(ocr_results):
 
         # If a complete row is filled, add placement, add to parsed rows, and reset temp_row
         if temp_row["player_name"] and temp_row["race_time"]:
-            if temp_row["placement"] is None:
-                temp_row["placement"] = current_placement
+            temp_row["placement"] = current_placement
             parsed_rows.append(temp_row.copy())
             temp_row = {"placement": None, "player_name": None, "race_time": None}
             current_placement += 1  # Increment placement
