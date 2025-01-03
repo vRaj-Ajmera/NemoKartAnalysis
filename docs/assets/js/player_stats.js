@@ -14,6 +14,52 @@ const players = [
     "Tejas"
 ];
 
+function createAndRenderTableFromStats(containerName, columnNames, stats, columnValues, columnSort, defaultSort = 0, useProfilePictures = true) {
+    let sortedStats = stats;
+
+    function sortTable(columnNo) {
+        sortedStats = columnSort[columnNo](stats);
+    }
+
+    function createInnerHTML() {
+        return `
+            <thead>
+                <tr>
+                    ${columnNames.map((columnName, index) => `<th id="${index}">${columnName}</th>`).join("")}
+                </tr>
+            </thead>
+            <tbody>
+            ${sortedStats.map((stat, ind) => `
+                <tr>
+                    ${columnNames.map((_, index) => `<td>${columnValues[index](stat, ind)}</td>`).join("")}
+                `).join("")}
+            </tbody>
+        `;
+    }
+
+    function createAndRenderTable(innerHTML) {
+        const table = document.createElement("table");
+        table.innerHTML = innerHTML;
+        table.querySelectorAll('th') // get all the table header elements
+            .forEach((element) => { // add a click handler for each 
+                element.addEventListener('click', event => {
+                    sortTable(parseInt(element.id) ?? 0);
+                    createAndRenderTable(createInnerHTML()); //call a function which sorts the table by a given column number
+                })
+            });
+
+        const container = document.getElementById(containerName);
+        container.innerHTML = ""; // Clear previous table
+        container.appendChild(table);
+        if (useProfilePictures) {
+            addProfilePictures(); // Add profile pictures after table renders
+        }
+    }
+
+    sortTable(defaultSort);
+    createAndRenderTable(createInnerHTML());
+}
+
 function addProfilePictures() {
     const defaultImagePath = "assets/icons/default.png";
 
@@ -59,21 +105,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Populate Ratings Table
     function populateRatingsTable(playerRatings) {
-        const tableBody = document.querySelector("#ratings-table tbody");
-
-        // Sort playerRatings by Current Rating in descending order
-        const sortedRatings = Object.entries(playerRatings).sort(([, a], [, b]) => b["Current Rating"] - a["Current Rating"]);
-
-        // Populate the table with sorted data
-        sortedRatings.forEach(([player, stats]) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${player}</td>
-                <td>${stats["Current Rating"]}</td>
-                <td>${stats["Peak Rating"]}</td>
-            `;
-            tableBody.appendChild(row);
-        });
+        createAndRenderTableFromStats(
+            "ratings-table-container",
+            ["Player", "Current Rating", "Peak Rating"],
+            Object.entries(playerRatings),
+            [(stat) => stat[0], (stat) => stat[1]["Current Rating"], (stat) => stat[1]["Peak Rating"]],
+            [
+                (stats) => stats.sort(([p1,], [p2,]) => p1.localeCompare(p2)),
+                (stats) => stats.sort(([, a], [, b]) => b["Current Rating"] - a["Current Rating"]),
+                (stats) => stats.sort(([, a], [, b]) => b["Peak Rating"] - a["Peak Rating"])
+            ],
+            1,
+            true
+        );
     }
 
     // Populate Player Dropdown for Elo Graph
