@@ -440,42 +440,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function renderRacesTogetherTable(playerStats) {
-        const container = document.getElementById("races-together-table");
-        container.innerHTML = ""; // Clear previous table
-
-        // Convert playerStats to an array and sort by PPR (descending)
-        const sortedPlayerStats = Object.entries(playerStats).sort(
-            ([, statsA], [, statsB]) => parseFloat(statsB.PPR) - parseFloat(statsA.PPR)
+        createAndRenderTableFromStats(
+            "races-together-table",
+            {
+                "Player": "",
+                "Races": "",
+                "Points": "Points are awarded based on placement- 1st: 25, 2nd: 18, 3rd: 15, 4th: 12, 5th: 10, 6th: 8, 7th: 6, 8th: 4",
+                "PPR": "PPR: Points per race, calculated as total points divided by the number of races.",
+                "Avg Position": ""
+            },
+            Object.entries(playerStats),
+            [
+                ([player,]) => player,
+                ([, stats]) => stats.Races,
+                ([, stats]) => stats.Points,
+                ([, stats]) => stats.PPR,
+                ([, stats]) => stats.AvgPosition
+            ],
+            [
+                {
+                    "default": (stats) => stats.sort(([a,], [b,]) => a.localeCompare(b)),
+                    "reverse": (stats) => stats.sort(([b,], [a,]) => a.localeCompare(b))
+                }, // Player
+                {
+                    "default": (stats) => stats.sort(([, a], [, b]) => b.Races - a.Races),
+                    "reverse": (stats) => stats.sort(([, b], [, a]) => b.Races - a.Races)
+                }, // Races
+                {
+                    "default": (stats) => stats.sort(([, a], [, b]) => b.Points - a.Points),
+                    "reverse": (stats) => stats.sort(([, b], [, a]) => b.Points - a.Points)
+                }, // Points
+                {
+                    "default": (stats) => stats.sort(([, a], [, b]) => b.PPR - a.PPR),
+                    "reverse": (stats) => stats.sort(([, b], [, a]) => b.PPR - a.PPR)
+                }, // PPR
+                {
+                    "default": (stats) => stats.sort(([, a], [, b]) => b.AvgPosition - a.AvgPosition),
+                    "reverse": (stats) => stats.sort(([, b], [, a]) => b.AvgPosition - a.AvgPosition)
+                } // Avg Position
+            ],
+            3,
+            true
         );
-
-        const table = document.createElement("table");
-        table.innerHTML = `
-            <thead>
-                <tr>
-                    <th>Player</th>
-                    <th>Races</th>
-                    <th>Points</th>
-                    <th>PPR</th>
-                    <th>Avg Position</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${sortedPlayerStats
-                .map(
-                    ([player, stats]) => `
-                        <tr>
-                            <td>${player}</td>
-                            <td>${stats.Races}</td>
-                            <td>${stats.Points}</td>
-                            <td>${stats.PPR}</td>
-                            <td>${stats.AvgPosition}</td>
-                        </tr>
-                    `
-                )
-                .join("")}
-            </tbody>
-        `;
-        container.appendChild(table);
     }
 });
 
