@@ -69,7 +69,7 @@ function createAndRenderTableFromStats(containerName, columnNames, stats, column
         }
     }
 
-    sortTable(defaultSort);
+    sortTable(defaultSort, true);
     createAndRenderTable(createInnerHTML());
 }
 
