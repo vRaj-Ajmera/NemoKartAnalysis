@@ -39,18 +39,31 @@ function addProfilePictures() {
     });
 }
 
-function createAndRenderTableFromStats(containerName, columnNames, stats, columnValues, columnSort, defaultSort = 0, useProfilePictures = true) {
+function createAndRenderTableFromStats(containerName, columnNamesAndInfos, stats, columnValues, columnSort, defaultSort = 0, useProfilePictures = true) {
     let sortedStats = stats;
+    let columnNames = Object.entries(columnNamesAndInfos).map(([cName,]) => cName);
 
-    function sortTable(columnNo) {
-        sortedStats = columnSort[columnNo](stats);
+    let recentlySortedColumn = defaultSort;
+    let recentlySortedDefault = true;
+
+    function sortTable(columnNo, useDefaultSort = false) {
+        if (useDefaultSort) {
+            recentlySortedDefault = true;
+        } else {
+            if (recentlySortedColumn === columnNo) {
+                recentlySortedDefault = !recentlySortedDefault;
+            } else {
+                recentlySortedColumn = columnNo;
+                recentlySortedDefault = true;
+            }
+        }
+        sortedStats = columnSort[columnNo][recentlySortedDefault ? "default" : "reverse"](stats);
     }
 
     function createInnerHTML() {
         return `
             <thead>
-                <tr>
-                    ${columnNames.map((columnName, index) => `<th id="${index}">${columnName}</th>`).join("")}
+                <tr> ${Object.entries(columnNamesAndInfos).map(([cName, info], index) => info === "" ? `<th id="${index}">${cName}</th>` : `<th id="${index}">${cName}<div class="info-icon" data-tooltip="${info}">i</div></th>`).join("")}
                 </tr>
             </thead>
             <tbody>
@@ -81,20 +94,21 @@ function createAndRenderTableFromStats(containerName, columnNames, stats, column
         }
     }
 
-    sortTable(defaultSort);
+    sortTable(defaultSort, true);
     createAndRenderTable(createInnerHTML());
 }
 
 function createAndRenderSummaryTable(containerName, stats) {
     createAndRenderTableFromStats(
         containerName,
-        [
-            "Player",
-            "Races",
-            "Points",
-            "PPR",
-            "Avg Position"
-        ],
+        {
+            "Player": "",
+            "Races": "",
+            "Points": "Points are awarded based on placement- 1st: 25, 2nd: 18, 3rd: 15, 4th: 12, 5th: 10, 6th: 8, 7th: 6, 8th:",
+            "PPR": "PPR: Points per race, calculated as total points divided by the number of races.",
+            "Avg Position": ""
+        },
+
         stats,
         [
             ([a,]) => a,
@@ -104,11 +118,26 @@ function createAndRenderSummaryTable(containerName, stats) {
             ([, b]) => b["Avg Race Position"]?.toFixed(2) ?? "N/A"
         ],
         [
-            (stats,) => Object.entries(stats).sort(([a,], [b,]) => a.localeCompare(b)), // Player
-            (stats,) => Object.entries(stats).sort(([, a], [, b]) => b.Races - a.Races), // Races
-            (stats,) => Object.entries(stats).sort(([, a], [, b]) => b.Points - a.Points), // Points
-            (stats,) => Object.entries(stats).sort(([, a], [, b]) => b.PPR - a.PPR), // PPR
-            (stats,) => Object.entries(stats).sort(([, a], [, b]) => (a["Avg Race Position"] - b["Avg Race Position"])), // Avg Position
+            {
+                "default": (stats,) => Object.entries(stats).sort(([a,], [b,]) => a.localeCompare(b)),
+                "reverse": (stats,) => Object.entries(stats).sort(([b,], [a,]) => a.localeCompare(b))
+            }, // Player
+            {
+                "default": (stats,) => Object.entries(stats).sort(([, a], [, b]) => b.Races - a.Races),
+                "reverse": (stats,) => Object.entries(stats).sort(([, b], [, a]) => b.Races - a.Races)
+            }, // Races
+            {
+                "default": (stats,) => Object.entries(stats).sort(([, a], [, b]) => b.Points - a.Points),
+                "reverse": (stats,) => Object.entries(stats).sort(([, b], [, a]) => b.Points - a.Points)
+            }, // Points
+            {
+                "default": (stats,) => Object.entries(stats).sort(([, a], [, b]) => b.PPR - a.PPR),
+                "reverse": (stats,) => Object.entries(stats).sort(([, b], [, a]) => b.PPR - a.PPR)
+            }, // PPR
+            {
+                "default": (stats,) => Object.entries(stats).sort(([, a], [, b]) => (a["Avg Race Position"] - b["Avg Race Position"])),
+                "reverse": (stats,) => Object.entries(stats).sort(([, b], [, a]) => (a["Avg Race Position"] - b["Avg Race Position"]))
+            }, // Avg Position
         ],
         3,
         true
@@ -123,15 +152,15 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(postAnalysisUrl).then((response) => response.json()),
         fetch(eloAnalysisUrl).then((response) => response.json()),
     ])
-    .then(([postAnalysisData, eloAnalysisData]) => {
-        renderSummaryTable(postAnalysisData["All Time Stats"], eloAnalysisData["Player Ratings"]);
-        populateDailyStatsDropdown(postAnalysisData["Daily Stats"]);
-        populateLeaderboardsDropdown(
-            postAnalysisData["Best Race Times"],
-            postAnalysisData["Individual Player Best Times"]
-        );
-    })
-    .catch((err) => console.error("Error fetching data:", err));
+        .then(([postAnalysisData, eloAnalysisData]) => {
+            renderSummaryTable(postAnalysisData["All Time Stats"], eloAnalysisData["Player Ratings"]);
+            populateDailyStatsDropdown(postAnalysisData["Daily Stats"]);
+            populateLeaderboardsDropdown(
+                postAnalysisData["Best Race Times"],
+                postAnalysisData["Individual Player Best Times"]
+            );
+        })
+        .catch((err) => console.error("Error fetching data:", err));
 
     // Populate and handle Daily Stats Dropdown
     function populateDailyStatsDropdown(dailyStats) {
@@ -165,9 +194,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const dropdown = document.getElementById("map-dropdown");
         const playerTimesButton = document.getElementById("player-times-button");
         const recordedTimesButton = document.getElementById("recorded-times-button");
-    
+
         let isIndividual = true; // Start with no rendering
-    
+
         // Initially hide the buttons
         playerTimesButton.classList.add("hidden");
         recordedTimesButton.classList.add("hidden");
@@ -179,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         defaultOption.disabled = true; // Keep it disabled
         defaultOption.selected = true; // Make it the default selected
         dropdown.appendChild(defaultOption);
-    
+
         // Populate dropdown options
         Object.keys(leaderboards).forEach(map => {
             const option = document.createElement("option");
@@ -187,18 +216,18 @@ document.addEventListener("DOMContentLoaded", () => {
             option.textContent = map;
             dropdown.appendChild(option);
         });
-    
+
         // Function to render the leaderboard based on the selected map and type
         function renderCurrentLeaderboard(selectedMap) {
             if (selectedMap && selectedMap !== "-- Select --") {
                 const data = isIndividual
                     ? individualBestTimes[selectedMap].slice(0, 10) // Limit to 10
                     : leaderboards[selectedMap].slice(0, 10); // Limit to 10
-    
+
                 renderLeaderboardsTable(selectedMap, data, isIndividual);
             }
         }
-    
+
         // Dropdown change event
         dropdown.addEventListener("change", () => {
             const selectedMap = dropdown.value;
@@ -250,13 +279,13 @@ document.addEventListener("DOMContentLoaded", () => {
             </thead>
             <tbody>
                 ${data
-                    .map((entry, index) => `
+                .map((entry, index) => `
                         <tr>
                             <td>${index + 1}</td>
                             <td>${entry}</td>
                         </tr>
                     `)
-                    .join("")}
+                .join("")}
             </tbody>
         `;
         const container = document.getElementById("leaderboards-table");
@@ -272,77 +301,49 @@ document.addEventListener("DOMContentLoaded", () => {
             PPR: parseFloat(stats.PPR.toFixed(2)),
             ELO: parseFloat(eloRatings[player]?.["Current Rating"] || 0) // Default to 0 for missing ELO
         }));
-    
-        // Initial sort by ELO descending
-        combinedStats.sort((a, b) => b.ELO - a.ELO);
-    
-        const container = document.getElementById("summary-table");
-    
-        function renderTable(stats) {
-            const table = document.createElement("table");
-            table.innerHTML = `
-                <thead>
-                    <tr>
-                        <th id="Player">Player</th>
-                        <th id="Races">Races</th>
-                        <th id="Points">
-                            Points 
-                            <div class="info-icon" data-tooltip="Points are awarded based on placement- 1st: 25, 2nd: 18, 3rd: 15, 4th: 12, 5th: 10, 6th: 8, 7th: 6, 8th: 4">i</div>
-                        </th>
-                        <th id="PPR">
-                            PPR 
-                            <div class="info-icon" data-tooltip="PPR: Points per race, calculated as total points divided by the number of races.">i</div>
-                        </th>
-                        <th id="ELO">
-                            ELO 
-                            <div class="info-icon" data-tooltip="ELO: A rating system that tracks player performance based on race placements. Higher ELO indicates stronger performance relative to opponents.">i</div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${stats.map(stat => `
-                        <tr>
-                            <td>${stat.Player}</td>
-                            <td>${stat.Races}</td>
-                            <td>${stat.Points}</td>
-                            <td>${stat.PPR.toFixed(2)}</td>
-                            <td>${stat.ELO}</td>
-                        </tr>
-                    `).join("")}
-                </tbody>
-            `;
-            container.innerHTML = ""; // Clear previous table
-            container.appendChild(table);
-    
-            // Add click event listeners to headers for sorting
-            const headers = table.querySelectorAll("th");
-            headers.forEach(header => {
-                header.addEventListener("click", () => {
-                    const sortKey = header.id;
-                    const isAscending = header.classList.contains("asc");
-    
-                    // Remove existing sort classes
-                    headers.forEach(h => h.classList.remove("asc", "desc"));
-    
-                    // Sort the table
-                    combinedStats.sort((a, b) => {
-                        if (sortKey === "Player") return !isAscending ? a.Player.localeCompare(b.Player) : b.Player.localeCompare(a.Player);
-                        return isAscending ? a[sortKey] - b[sortKey] : b[sortKey] - a[sortKey];
-                    });
-    
-                    // Toggle sort direction
-                    header.classList.toggle("asc", !isAscending);
-                    header.classList.toggle("desc", isAscending);
-    
-                    // Re-render the table
-                    renderTable(combinedStats);
-                    addProfilePictures();
-                });
-            });
-        }
-        // Initial render
-        renderTable(combinedStats);
-        addProfilePictures();
+
+        createAndRenderTableFromStats(
+            "summary-table",
+            {
+                "Player": "",
+                "Races": "",
+                "Points": "Points are awarded based on placement- 1st: 25, 2nd: 18, 3rd: 15, 4th: 12, 5th: 10, 6th: 8, 7th: 6, 8th: 4",
+                "PPR": "PPR: Points per race, calculated as total points divided by the number of races.",
+                "ELO": "ELO: A rating system that tracks player performance based on race placements. Higher ELO indicates stronger performance relative to opponents."
+            },
+            combinedStats,
+            [
+                (stat) => stat.Player,
+                (stat) => stat.Races,
+                (stat) => stat.Points,
+                (stat) => stat.PPR,
+                (stat) => stat.ELO
+            ],
+            [
+                {
+                    "default": (stats) => stats.sort((a, b) => a.Player.localeCompare(b.Player)),
+                    "reverse": (stats) => stats.sort((b, a) => a.Player.localeCompare(b.Player))
+                }, // Player
+                {
+                    "default": (stats) => stats.sort((a, b) => b.Races - a.Races),
+                    "reverse": (stats) => stats.sort((b, a) => b.Races - a.Races)
+                }, // Races
+                {
+                    "default": (stats) => stats.sort((a, b) => b.Points - a.Points),
+                    "reverse": (stats) => stats.sort((b, a) => b.Points - a.Points)
+                }, // Points
+                {
+                    "default": (stats) => stats.sort((a, b) => b.PPR - a.PPR),
+                    "reverse": (stats) => stats.sort((b, a) => b.PPR - a.PPR)
+                }, // PPR
+                {
+                    "default": (stats) => stats.sort((a, b) => b.ELO - a.ELO),
+                    "reverse": (stats) => stats.sort((b, a) => b.ELO - a.ELO)
+                } // ELO
+            ],
+            4,
+            true
+        );
     }
 });
 
@@ -460,8 +461,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </thead>
             <tbody>
                 ${sortedPlayerStats
-                    .map(
-                        ([player, stats]) => `
+                .map(
+                    ([player, stats]) => `
                         <tr>
                             <td>${player}</td>
                             <td>${stats.Races}</td>
@@ -470,8 +471,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             <td>${stats.AvgPosition}</td>
                         </tr>
                     `
-                    )
-                    .join("")}
+                )
+                .join("")}
             </tbody>
         `;
         container.appendChild(table);

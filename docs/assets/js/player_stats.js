@@ -17,8 +17,21 @@ const players = [
 function createAndRenderTableFromStats(containerName, columnNames, stats, columnValues, columnSort, defaultSort = 0, useProfilePictures = true) {
     let sortedStats = stats;
 
-    function sortTable(columnNo) {
-        sortedStats = columnSort[columnNo](stats);
+    let recentlySortedColumn = defaultSort;
+    let recentlySortedDefault = true;
+
+    function sortTable(columnNo, useDefaultSort = false) {
+        if (useDefaultSort) {
+            recentlySortedDefault = true;
+        } else {
+            if (recentlySortedColumn === columnNo) {
+                recentlySortedDefault = !recentlySortedDefault;
+            } else {
+                recentlySortedColumn = columnNo;
+                recentlySortedDefault = true;
+            }
+        }
+        sortedStats = columnSort[columnNo][recentlySortedDefault ? "default" : "reverse"](stats);
     }
 
     function createInnerHTML() {
@@ -111,9 +124,18 @@ document.addEventListener("DOMContentLoaded", () => {
             Object.entries(playerRatings),
             [(stat) => stat[0], (stat) => stat[1]["Current Rating"], (stat) => stat[1]["Peak Rating"]],
             [
-                (stats) => stats.sort(([p1,], [p2,]) => p1.localeCompare(p2)),
-                (stats) => stats.sort(([, a], [, b]) => b["Current Rating"] - a["Current Rating"]),
-                (stats) => stats.sort(([, a], [, b]) => b["Peak Rating"] - a["Peak Rating"])
+                {
+                    "default": (stats) => stats.sort(([p1,], [p2,]) => p1.localeCompare(p2)),
+                    "reverse": (stats) => stats.sort(([p2,], [p1,]) => p1.localeCompare(p2))
+                },
+                {
+                    "default": (stats) => stats.sort(([, a], [, b]) => b["Current Rating"] - a["Current Rating"]),
+                    "reverse": (stats) => stats.sort(([, b], [, a]) => b["Current Rating"] - a["Current Rating"])
+                },
+                {
+                    "default": (stats) => stats.sort(([, a], [, b]) => b["Peak Rating"] - a["Peak Rating"]),
+                    "reverse": (stats) => stats.sort(([, b], [, a]) => b["Peak Rating"] - a["Peak Rating"])
+                }
             ],
             1,
             true
