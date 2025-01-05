@@ -807,6 +807,20 @@
                 "PPR": 9.0,
                 "Avg Race Position": 5.5
             }
+        },
+        "2025-01-04": {
+            "Rusheel": {
+                "Races": 9,
+                "Points": 161,
+                "PPR": 17.89,
+                "Avg Race Position": 2.33
+            },
+            "Viraj": {
+                "Races": 3,
+                "Points": 65,
+                "PPR": 21.67,
+                "Avg Race Position": 1.67
+            }
         }
     },
     "All Time Stats": {
@@ -865,10 +879,10 @@
             "Avg Race Position": 6.0
         },
         "Rusheel": {
-            "Races": 95,
-            "Points": 1618,
-            "PPR": 17.03,
-            "Avg Race Position": 2.59
+            "Races": 104,
+            "Points": 1779,
+            "PPR": 17.11,
+            "Avg Race Position": 2.57
         },
         "SultanSpeppy": {
             "Races": 37,
@@ -877,10 +891,10 @@
             "Avg Race Position": 3.46
         },
         "Viraj": {
-            "Races": 126,
-            "Points": 1870,
-            "PPR": 14.84,
-            "Avg Race Position": 3.28
+            "Races": 129,
+            "Points": 1935,
+            "PPR": 15.0,
+            "Avg Race Position": 3.24
         },
         "Tejas": {
             "Races": 14,

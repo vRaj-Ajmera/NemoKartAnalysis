@@ -393,7 +393,7 @@
             "Golden Trolley": 1,
             "Furniture Trolley": "DNR",
             "Puppy": 26,
-            "X-mas Puppy": 1,
+            "X-mas Puppy": 2,
             "Dalmatian Puppy": 0
         },
         "X-mas Puppy": {
@@ -858,7 +858,7 @@
             "Furniture Trolley": "DNR",
             "Puppy": 2,
             "X-mas Puppy": 1,
-            "Dalmatian Puppy": 1
+            "Dalmatian Puppy": 2
         },
         "Dalmatian Puppy": {
             "The Kart": 3,
@@ -879,7 +879,7 @@
             "Golden Trolley": "DNR",
             "Furniture Trolley": "DNR",
             "Puppy": 4,
-            "X-mas Puppy": 0,
+            "X-mas Puppy": 1,
             "Dalmatian Puppy": 5
         }
     },
