@@ -48,6 +48,7 @@ def calculate_daily_stats(df, players):
 
         for player in players["Player Name"]:
             player_column = f"{player} Placement"
+            pd.set_option('future.no_silent_downcasting', True)
             valid_placements = daily_df[player_column].replace("DNR", np.nan).dropna().astype(int)
             total_races = valid_placements.count()
             
