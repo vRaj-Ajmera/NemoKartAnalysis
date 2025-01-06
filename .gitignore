@@ -158,6 +158,9 @@ cython_debug/
 output/img_processing/clipboard_img.png
 output/img_processing/preprocessed_img.png
 
+# Ignore kart_predictions files in the folder
+output/img_processing/karts_predictions
+
 # Ignore new files in the folder
 tests/Preprocessed_Imgs/
 
