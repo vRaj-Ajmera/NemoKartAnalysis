@@ -165,8 +165,6 @@ def detect_karts_with_yolo(image_path, data_yaml_path):
         print(f"Unexpected error: {e}")
         return []
 
-
-
 # Load data from files
 def load_data():
     try:
@@ -482,7 +480,7 @@ def filter_logged_rows(parsed_rows):
         print(f"Error filtering logged rows: {e}")
         return []
 
-def fill_GUI_with_ocr_results(logged_rows):
+def fill_GUI_with_results(logged_rows, detected_karts):
     """
     Logs race data (times, placements, and players) in the GUI textboxes.
     """
@@ -490,20 +488,22 @@ def fill_GUI_with_ocr_results(logged_rows):
     for widgets in player_widgets:
         widgets["player"].set("-- Select --")
         widgets["placement"].set("-- Select --")
-        widgets["kart"].set("-- Select --")
         widgets["race_time"].delete(0, tk.END)
+        widgets["kart"].set("-- Select --")
 
     # Fill GUI fields with logged rows data
     for row in logged_rows:
         placement = row["placement"]
         name = row["player_name"]
         race_time = row["race_time"]
+        kart = detected_karts[placement - 1]
 
         # log in the row equal to the placement
         widgets = player_widgets[placement - 1]
         widgets["placement"].set(str(placement))
         widgets["player"].set(name)
         widgets["race_time"].insert(0, race_time)
+        widgets["kart"].set(kart)
 
 
 def preprocess_image(image_path, output_path=preprocessed_image_file_path):
@@ -565,12 +565,12 @@ def process_image(image_path):
         print(f"Parsed rows: {parsed_rows}")
         print(f"Logged rows: {logged_rows}")
 
-        # Fill GUI fields with OCR results
-        fill_GUI_with_ocr_results(logged_rows)
-
         # Perform kart detection
         detected_karts = detect_karts_with_yolo(image_path, data_yaml_path=karts_class_IDs_path)
         print(f"Detected Karts: {detected_karts}")
+
+        # Fill GUI fields with OCR and Kart Img recognition results
+        fill_GUI_with_results(logged_rows, detected_karts)
 
         status_label.config(text="OCR and kart detection completed!", fg="green")
     except Exception as e:
