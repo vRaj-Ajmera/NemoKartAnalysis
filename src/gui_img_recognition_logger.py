@@ -12,7 +12,7 @@ import json
 from rapidfuzz import process, fuzz
 from PIL import ImageGrab, Image
 from tkinter import messagebox
-import torch
+import yaml
 import sys
 import subprocess
 
@@ -36,6 +36,7 @@ output_file = os.path.join(script_dir, "../output/results.csv")
 preprocessed_image_file_path = os.path.join(script_dir, "../output/img_processing/preprocessed_img.png")
 clipboard_image_file_path = os.path.join(script_dir, "../output/img_processing/clipboard_img.png")
 player_aliases_path = os.path.join(script_dir, "../data/player_aliases.json")
+karts_class_IDs_path = os.path.join(script_dir, "data.yaml")
 
 # Path to YOLOv5 model
 yolo_model_path = os.path.join(script_dir, "yolov5/runs/best.pt")
@@ -43,19 +44,58 @@ yolo_model = DetectMultiBackend(yolo_model_path)
 
 # karts_img_prediction_file_path = os.path.join(script_dir, "../output/img_processing/karts_prediction.png")
 
-def detect_karts_with_yolo(image_path):
+def load_kart_names(data_yaml_path):
+    """
+    Load kart names from the YOLO data.yaml file.
+
+    Args:
+        data_yaml_path (str): Path to the YOLO data.yaml file.
+
+    Returns:
+        list: List of kart names in the order of class IDs.
+    """
+    try:
+        with open(data_yaml_path, "r") as f:
+            data_yaml = yaml.safe_load(f)
+            return data_yaml["names"]
+    except FileNotFoundError:
+        print(f"Error: {data_yaml_path} not found.")
+        return []
+    except Exception as e:
+        print(f"Unexpected error while loading data.yaml: {e}")
+        return []
+
+
+def detect_karts_with_yolo(image_path, data_yaml_path):
     """
     Use YOLOv5's built-in detect.py to identify karts and save the output image.
+    Overwrites the labels file for each new image processed.
 
     Args:
         image_path (str): Path to the image to be processed.
+        data_yaml_path (str): Path to the YOLO data.yaml file for class names.
     
     Returns:
-        None (detection results will be saved as an image with bounding boxes).
+        List of detected kart names extracted from the labels file, sorted by y-values.
     """
     try:
+        # Load kart names from data.yaml
+        kart_names = load_kart_names(data_yaml_path)
+        if not kart_names:
+            print("Error: Kart names could not be loaded.")
+            return []
+
         # Path to YOLOv5's detect.py script
         detect_script_path = os.path.join(script_dir, "yolov5", "detect.py")
+        
+        # Output path for detection results
+        output_dir = os.path.join(script_dir, "../output/img_processing/karts_predictions")
+        
+        # Clear existing label files in the output directory
+        label_files_path = os.path.join(output_dir, "labels")
+        if os.path.exists(label_files_path):
+            for file in os.listdir(label_files_path):
+                os.remove(os.path.join(label_files_path, file))
         
         # Command to execute YOLO detection
         command = [
@@ -67,20 +107,64 @@ def detect_karts_with_yolo(image_path):
             "--source", image_path,  # Input image path
             "--save-txt",  # Save results to .txt
             "--save-conf",  # Save confidence scores
-            "--project", os.path.join(script_dir, "../output/img_processing"),
-            "--name", "karts_predictions",  # Folder name for results
+            "--project", output_dir,  # Detection results directory
+            "--name", "",  # Empty name avoids subfolder creation
             "--exist-ok"  # Avoid overwriting errors
         ]
 
         # Run the command using subprocess
         subprocess.run(command, check=True)
         print(f"YOLO detection completed. Check the output folder for results.")
-        return ["abc"]
-    
+
+        # Parse the labels file to extract kart names
+        detected_karts_set = []  # To store rows with y-values, confidence, and kart names
+        labels_path = os.path.join(output_dir, "labels")
+        
+        if os.path.exists(labels_path):
+            for label_file in os.listdir(labels_path):
+                if label_file.endswith(".txt"):
+                    with open(os.path.join(labels_path, label_file), "r") as f:
+                        for line in f.readlines():
+                            parts = line.split()
+                            if len(parts) < 6:
+                                continue  # Skip invalid rows
+
+                            class_id = int(parts[0])  # Extract class ID
+                            x = float(parts[1])  # x-center (normalized)
+                            y = float(parts[2])  # y-center (normalized)
+                            width = float(parts[3])  # Width (normalized)
+                            height = float(parts[4])  # Height (normalized)
+                            confidence = float(parts[5])  # Confidence score
+
+                            kart_name = kart_names[class_id]  # Map class ID to kart name
+                            detected_karts_set.append((y, confidence, kart_name))  # Append raw data
+
+        # Resolve overlabeling by grouping y-values within a 0.01 range and keeping the highest confidence
+        filtered_karts = {}
+        for y, conf, kart in detected_karts_set:
+            # Find if there's already a close y-value in the filtered_karts
+            close_y = next((key for key in filtered_karts if abs(key - y) < 0.01), None)
+            if close_y is None:
+                # No close y-value found, add a new entry
+                filtered_karts[y] = (conf, kart)
+            else:
+                # Close y-value found, update if confidence is higher
+                if conf > filtered_karts[close_y][0]:
+                    filtered_karts[close_y] = (conf, kart)
+
+        # Sort by y-value and extract kart names
+        sorted_karts = [kart for _, (_, kart) in sorted(filtered_karts.items())]
+        #print(f"Detected karts (sorted): {sorted_karts}")
+
+        return sorted_karts
+
     except subprocess.CalledProcessError as e:
         print(f"Error during YOLO detection: {e}")
+        return []
     except Exception as e:
         print(f"Unexpected error: {e}")
+        return []
+
 
 
 # Load data from files
@@ -485,7 +569,7 @@ def process_image(image_path):
         fill_GUI_with_ocr_results(logged_rows)
 
         # Perform kart detection
-        detected_karts = detect_karts_with_yolo(image_path)
+        detected_karts = detect_karts_with_yolo(image_path, data_yaml_path=karts_class_IDs_path)
         print(f"Detected Karts: {detected_karts}")
 
         status_label.config(text="OCR and kart detection completed!", fg="green")
