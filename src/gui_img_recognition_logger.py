@@ -12,11 +12,21 @@ import json
 from rapidfuzz import process, fuzz
 from PIL import ImageGrab, Image
 from tkinter import messagebox
+import torch
+import sys
+import subprocess
 
 MAX_RACERS=8
 
 # Get the directory of the current script
 script_dir = os.path.dirname(__file__)
+
+# Add the `yolov5` directory to `sys.path` as a root for its submodules
+yolov5_path = os.path.join(script_dir, "yolov5")
+sys.path.append(yolov5_path)
+
+from yolov5.utils.general import non_max_suppression
+from yolov5.models.common import DetectMultiBackend
 
 # Relative file paths
 kart_file = os.path.join(script_dir, "../data/karts.csv")
@@ -26,6 +36,52 @@ output_file = os.path.join(script_dir, "../output/results.csv")
 preprocessed_image_file_path = os.path.join(script_dir, "../output/img_processing/preprocessed_img.png")
 clipboard_image_file_path = os.path.join(script_dir, "../output/img_processing/clipboard_img.png")
 player_aliases_path = os.path.join(script_dir, "../data/player_aliases.json")
+
+# Path to YOLOv5 model
+yolo_model_path = os.path.join(script_dir, "yolov5/runs/best.pt")
+yolo_model = DetectMultiBackend(yolo_model_path)
+
+# karts_img_prediction_file_path = os.path.join(script_dir, "../output/img_processing/karts_prediction.png")
+
+def detect_karts_with_yolo(image_path):
+    """
+    Use YOLOv5's built-in detect.py to identify karts and save the output image.
+
+    Args:
+        image_path (str): Path to the image to be processed.
+    
+    Returns:
+        None (detection results will be saved as an image with bounding boxes).
+    """
+    try:
+        # Path to YOLOv5's detect.py script
+        detect_script_path = os.path.join(script_dir, "yolov5", "detect.py")
+        
+        # Command to execute YOLO detection
+        command = [
+            "python",
+            detect_script_path,
+            "--weights", os.path.join(script_dir, "yolov5", "runs", "best.pt"),
+            "--img", "640",  # Resize input image to 640x640
+            "--conf", "0.25",  # Confidence threshold
+            "--source", image_path,  # Input image path
+            "--save-txt",  # Save results to .txt
+            "--save-conf",  # Save confidence scores
+            "--project", os.path.join(script_dir, "../output/img_processing"),
+            "--name", "karts_predictions",  # Folder name for results
+            "--exist-ok"  # Avoid overwriting errors
+        ]
+
+        # Run the command using subprocess
+        subprocess.run(command, check=True)
+        print(f"YOLO detection completed. Check the output folder for results.")
+        return ["abc"]
+    
+    except subprocess.CalledProcessError as e:
+        print(f"Error during YOLO detection: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+
 
 # Load data from files
 def load_data():
@@ -400,21 +456,17 @@ def preprocess_image(image_path, output_path=preprocessed_image_file_path):
 
 def process_image(image_path):
     """
-    Process the image and extract text using EasyOCR with the preprocessed image.
-    Then log rows in GUI.
+    Process the image, perform OCR and kart detection, and update the GUI.
     """
     try:
-        # Preprocess the image to isolate specified colors
+        # Preprocess the image for OCR
         preprocessed_image_path = preprocess_image(image_path)
-
         if not preprocessed_image_path:
             print("Error during preprocessing. Skipping OCR.")
             return
 
-        # Initialize EasyOCR Reader
-        reader = easyocr.Reader(['en'])  # Use 'en' for English
-
-        # Read the text from the preprocessed image
+        # OCR processing
+        reader = easyocr.Reader(['en'])  # Initialize EasyOCR reader
         ocr_results = reader.readtext(preprocessed_image_path, detail=1)
 
         print("\n--- EasyOCR Results ---\n")
@@ -423,19 +475,20 @@ def process_image(image_path):
             print(f"Detected Text: {text} (Confidence: {confidence})")
         print("\n--- End of EasyOCR Results ---\n")
 
-        # Parse the OCR results
+        # Parse and filter OCR results
         parsed_rows = parse_ocr_results(ocr_results)
-        print(f"Parsed rows: {parsed_rows}")
-
-        # Filter logged rows
         logged_rows = filter_logged_rows(parsed_rows)
+        print(f"Parsed rows: {parsed_rows}")
         print(f"Logged rows: {logged_rows}")
 
-        # Fill dropdowns with the logged rows
+        # Fill GUI fields with OCR results
         fill_GUI_with_ocr_results(logged_rows)
 
-        status_label.config(text="Race times logged from OCR results!", fg="green")
+        # Perform kart detection
+        detected_karts = detect_karts_with_yolo(image_path)
+        print(f"Detected Karts: {detected_karts}")
 
+        status_label.config(text="OCR and kart detection completed!", fg="green")
     except Exception as e:
         print(f"Error processing image: {e}")
         return None
