@@ -821,6 +821,14 @@
                 "PPR": 21.67,
                 "Avg Race Position": 1.67
             }
+        },
+        "2025-01-07": {
+            "Rusheel": {
+                "Races": 3,
+                "Points": 75,
+                "PPR": 25.0,
+                "Avg Race Position": 1.0
+            }
         }
     },
     "All Time Stats": {
@@ -879,10 +887,10 @@
             "Avg Race Position": 6.0
         },
         "Rusheel": {
-            "Races": 104,
-            "Points": 1779,
-            "PPR": 17.11,
-            "Avg Race Position": 2.57
+            "Races": 107,
+            "Points": 1854,
+            "PPR": 17.33,
+            "Avg Race Position": 2.52
         },
         "SultanSpeppy": {
             "Races": 37,
@@ -918,13 +926,13 @@
             "2:24.86 by Raj in Dalmatian Puppy",
             "2:26.46 by Raj in Puppy",
             "2:27.26 by Raj in Dalmatian Puppy",
+            "2:27.48 by Rusheel in Dalmatian Puppy",
             "2:28.00 by Raj in Dalmatian Puppy",
             "2:28.90 by Raj in Greedy Snowmobile",
             "2:29.08 by Sameer in Puppy",
             "2:29.16 by Rusheel in X-mas Puppy",
             "2:29.54 by Azhan in Puppy",
-            "2:29.54 by Raj in Dalmatian Puppy",
-            "2:29.68 by Azhan in Puppy"
+            "2:29.54 by Raj in Dalmatian Puppy"
         ],
         "Shanghai by Night": [
             "2:22.18 by Raj in Dalmatian Puppy",
@@ -966,8 +974,8 @@
     "Individual Player Best Times": {
         "Shanghai": [
             "2:24.86 by Raj in Dalmatian Puppy",
+            "2:27.48 by Rusheel in Dalmatian Puppy",
             "2:29.08 by Sameer in Puppy",
-            "2:29.16 by Rusheel in X-mas Puppy",
             "2:29.54 by Azhan in Puppy",
             "2:30.08 by Zetaa in X-mas Puppy",
             "2:30.40 by Viraj in Greedy Snowmobile",

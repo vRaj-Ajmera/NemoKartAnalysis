@@ -752,7 +752,7 @@
         },
         "Rusheel": {
             "Peak Rating": 2373,
-            "Current Rating": 2352,
+            "Current Rating": 2358,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -770,6 +770,13 @@
                         "Avg Position": 2.67
                     },
                     {
+                        "Kart": "Dalmatian Puppy",
+                        "Races": 3,
+                        "Points": 75,
+                        "PPR": 25.0,
+                        "Avg Position": 1.0
+                    },
+                    {
                         "Kart": "Puppy",
                         "Races": 2,
                         "Points": 40,
@@ -782,13 +789,6 @@
                         "Points": 15,
                         "PPR": 15.0,
                         "Avg Position": 3.0
-                    },
-                    {
-                        "Kart": "Snowmobile",
-                        "Races": 1,
-                        "Points": 18,
-                        "PPR": 18.0,
-                        "Avg Position": 2.0
                     }
                 ],
                 "Shanghai by Night": [
@@ -838,10 +838,10 @@
                     },
                     {
                         "Kart": "Greedy Snowmobile",
-                        "Races": 6,
-                        "Points": 123,
-                        "PPR": 20.5,
-                        "Avg Position": 1.83
+                        "Races": 7,
+                        "Points": 148,
+                        "PPR": 21.14,
+                        "Avg Position": 1.71
                     },
                     {
                         "Kart": "The Kart",
