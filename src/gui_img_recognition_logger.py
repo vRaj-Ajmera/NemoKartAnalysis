@@ -22,11 +22,11 @@ MAX_RACERS=8
 script_dir = os.path.dirname(__file__)
 
 # Add the `yolov5` directory to `sys.path` as a root for its submodules
-yolov5_path = os.path.join(script_dir, "yolov5")
+yolov5_path = os.path.join(script_dir, "model/yolov5")
 sys.path.append(yolov5_path)
 
-from yolov5.utils.general import non_max_suppression
-from yolov5.models.common import DetectMultiBackend
+from model.yolov5.utils.general import non_max_suppression
+from model.yolov5.models.common import DetectMultiBackend
 
 # Relative file paths
 kart_file = os.path.join(script_dir, "../data/karts.csv")
@@ -36,11 +36,11 @@ output_file = os.path.join(script_dir, "../output/results.csv")
 preprocessed_image_file_path = os.path.join(script_dir, "../output/img_processing/preprocessed_img.png")
 clipboard_image_file_path = os.path.join(script_dir, "../output/img_processing/clipboard_img.png")
 player_aliases_path = os.path.join(script_dir, "../data/player_aliases.json")
-karts_class_IDs_path = os.path.join(script_dir, "data.yaml")
+karts_class_IDs_path = os.path.join(script_dir, "model/data.yaml")
 
 # Path to YOLOv5 model
-yolo_model_path = os.path.join(script_dir, "yolov5/runs/best.pt")
-yolo_model = DetectMultiBackend(yolo_model_path)
+weights_path = os.path.join(script_dir, "model/best.pt")
+yolo_model = DetectMultiBackend(weights_path)
 
 # karts_img_prediction_file_path = os.path.join(script_dir, "../output/img_processing/karts_prediction.png")
 
@@ -86,7 +86,7 @@ def detect_karts_with_yolo(image_path, data_yaml_path):
             return []
 
         # Path to YOLOv5's detect.py script
-        detect_script_path = os.path.join(script_dir, "yolov5", "detect.py")
+        detect_script_path = os.path.join(yolov5_path, "detect.py")
         
         # Output path for detection results
         output_dir = os.path.join(script_dir, "../output/img_processing/karts_predictions")
@@ -101,7 +101,7 @@ def detect_karts_with_yolo(image_path, data_yaml_path):
         command = [
             "python",
             detect_script_path,
-            "--weights", os.path.join(script_dir, "yolov5", "runs", "best.pt"),
+            "--weights", weights_path,
             "--img", "640",  # Resize input image to 640x640
             "--conf", "0.25",  # Confidence threshold
             "--source", image_path,  # Input image path

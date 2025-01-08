@@ -1,0 +1,24 @@
+train: ../dataset/images/train
+val: ../dataset/images/val
+nc: 20  # Number of classes
+names:
+  - "6-TEN Trolley"
+  - "Bat Kart"
+  - "Blocks"
+  - "Dalmatian Puppy"
+  - "Dino Kart"
+  - "Dino Monstro"
+  - "Furniture Trolley"
+  - "Golden Trolley"
+  - "Greedy Snowmobile"
+  - "Grey Blocks"
+  - "Joker Monstro"
+  - "Minecart"
+  - "Monstro"
+  - "Puppy"
+  - "Snow Minecart"
+  - "Snowmobile"
+  - "The Kart"
+  - "Trolley"
+  - "X-mas Puppy"
+  - "X-mas Snowmobile"
