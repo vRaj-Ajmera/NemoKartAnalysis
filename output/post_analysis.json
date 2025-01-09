@@ -851,14 +851,34 @@
                 "PPR": 15.0,
                 "Avg Race Position": 3.0
             }
+        },
+        "2025-01-08": {
+            "Raj": {
+                "Races": 5,
+                "Points": 108,
+                "PPR": 21.6,
+                "Avg Race Position": 1.6
+            },
+            "Rusheel": {
+                "Races": 5,
+                "Points": 88,
+                "PPR": 17.6,
+                "Avg Race Position": 2.4
+            },
+            "Viraj": {
+                "Races": 5,
+                "Points": 79,
+                "PPR": 15.8,
+                "Avg Race Position": 3.0
+            }
         }
     },
     "All Time Stats": {
         "Raj": {
-            "Races": 364,
-            "Points": 6876,
-            "PPR": 18.89,
-            "Avg Race Position": 2.23
+            "Races": 369,
+            "Points": 6984,
+            "PPR": 18.93,
+            "Avg Race Position": 2.22
         },
         "Azhan": {
             "Races": 283,
@@ -909,10 +929,10 @@
             "Avg Race Position": 6.0
         },
         "Rusheel": {
-            "Races": 108,
-            "Points": 1869,
-            "PPR": 17.31,
-            "Avg Race Position": 2.53
+            "Races": 113,
+            "Points": 1957,
+            "PPR": 17.32,
+            "Avg Race Position": 2.52
         },
         "SultanSpeppy": {
             "Races": 37,
@@ -921,10 +941,10 @@
             "Avg Race Position": 3.46
         },
         "Viraj": {
-            "Races": 129,
-            "Points": 1935,
-            "PPR": 15.0,
-            "Avg Race Position": 3.24
+            "Races": 134,
+            "Points": 2014,
+            "PPR": 15.03,
+            "Avg Race Position": 3.23
         },
         "Tejas": {
             "Races": 14,
@@ -946,6 +966,7 @@
     "Best Race Times": {
         "Shanghai": [
             "2:24.86 by Raj in Dalmatian Puppy",
+            "2:26.04 by Raj in Puppy",
             "2:26.46 by Raj in Puppy",
             "2:27.26 by Raj in Dalmatian Puppy",
             "2:27.48 by Rusheel in Dalmatian Puppy",
@@ -953,8 +974,7 @@
             "2:28.90 by Raj in Greedy Snowmobile",
             "2:29.08 by Sameer in Puppy",
             "2:29.16 by Rusheel in X-mas Puppy",
-            "2:29.54 by Azhan in Puppy",
-            "2:29.54 by Raj in Dalmatian Puppy"
+            "2:29.54 by Azhan in Puppy"
         ],
         "Shanghai by Night": [
             "2:16.70 by Raj in Dalmatian Puppy",
@@ -965,8 +985,8 @@
             "2:24.34 by Raj in Dalmatian Puppy",
             "2:24.90 by Zetaa in Dalmatian Puppy",
             "2:24.94 by Raj in Dalmatian Puppy",
-            "2:25.36 by Raj in Dalmatian Puppy",
-            "2:25.70 by Azhan in Dalmatian Puppy"
+            "2:24.94 by Raj in Dalmatian Puppy",
+            "2:25.36 by Raj in Dalmatian Puppy"
         ],
         "Snowville": [
             "1:45.12 by Raj in Dalmatian Puppy",
