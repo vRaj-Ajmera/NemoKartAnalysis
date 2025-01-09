@@ -2,7 +2,7 @@
     "Player Ratings": {
         "Raj": {
             "Peak Rating": 2483,
-            "Current Rating": 2433,
+            "Current Rating": 2432,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -43,18 +43,18 @@
                 ],
                 "Shanghai by Night": [
                     {
+                        "Kart": "Dalmatian Puppy",
+                        "Races": 23,
+                        "Points": 511,
+                        "PPR": 22.22,
+                        "Avg Position": 1.52
+                    },
+                    {
                         "Kart": "Bat Kart",
                         "Races": 22,
                         "Points": 354,
                         "PPR": 16.09,
                         "Avg Position": 2.91
-                    },
-                    {
-                        "Kart": "Dalmatian Puppy",
-                        "Races": 22,
-                        "Points": 493,
-                        "PPR": 22.41,
-                        "Avg Position": 1.5
                     },
                     {
                         "Kart": "Greedy Snowmobile",
@@ -752,7 +752,7 @@
         },
         "Rusheel": {
             "Peak Rating": 2373,
-            "Current Rating": 2358,
+            "Current Rating": 2354,
             "Kart Usage": {
                 "Shanghai": [
                     {
