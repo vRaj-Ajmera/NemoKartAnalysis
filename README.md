@@ -66,7 +66,21 @@ For macOS, you may need to install `tkinter` using `brew` if it's not pre-instal
 
 These libraries will ensure your project has all the required capabilities for both GUI logging and image-based OCR race data extraction.
 
-### **Step 2: Populate Input Files**
+### **Step 2: Clone the Repository with Submodules**
+
+To properly clone the repository along with the YOLOv5 submodule, use the following command:
+
+```
+git clone --recurse-submodules https://github.com/vRaj-Ajmera/NemoKartAnalysis.git
+```
+
+If you've already cloned the repository without the submodule, initialize and update the submodule using:
+
+```
+git submodule update --init --recursive
+```
+
+### **Step 3: Populate Input Files**
 
 #### **players.csv**
 - Contains the names of all players to be logged.
@@ -109,7 +123,7 @@ These libraries will ensure your project has all the required capabilities for b
   Grey Blocks,141
   ```
 
-### **Step 3: Clear Output Files**
+### **Step 4: Clear Output Files**
 
 Delete any existing data **ONLY if you are setting up your own race tracker with new players**. Verify results.csv is empty. Verify player_graphs folder is empty.
 
@@ -123,6 +137,7 @@ Delete any existing data **ONLY if you are setting up your own race tracker with
 ### **Step 1: Running the Logger**
 - Run **gui_logger.py** for manual logging.
 - Run **gui_OCR_logger.py** for OCR-based logging. Drag and drop race result screenshots or paste them from the clipboard. Ensure relevant players, maps, and karts are pre-populated in the input files.
+- Run **gui_img_recognition_logger.py** for image recognition based logging. In addition to OCR, this logger is trained to recognize frequently used karts and populate them with 80% confidence. (work in progress)
 
 ### **Step 2: Analyze the Results**
 - After logging, run **analyze_all.py** to process the logged race results into structured analysis outputs.
@@ -169,8 +184,8 @@ NemoKartAnalysis/
 │   ├── kart_graphs/                # Kart-statistics graphs
 │   ├── dummy_results.csv           # For testing
 ├── src/
-│   ├── gui_logger.py               # GUI for race logging without OCR.
-│   ├── gui_OCR_logger.py           # GUI for race logging with OCR.
+│   ├── gui_logger.py               # GUI for race logging
+│   ├── gui_OCR_logger.py           # GUI for race logging with OCR
 │   ├── analyze_all.py              # Runs all calculations and updates json/graphs for website. RUN AFTER LOGGING.
 │   ├── calculations/
 │   │   ├── analysis.py             # Generates post_analysis.json and results.json
