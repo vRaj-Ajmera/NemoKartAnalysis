@@ -164,6 +164,9 @@ output/img_processing/karts_predictions
 # Ignore new files in the folder
 tests/Preprocessed_Imgs/
 
+# Ignore submodule yolov5 in deployment
+src/model/yolov5/
+
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
