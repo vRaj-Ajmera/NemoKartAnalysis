@@ -139,11 +139,11 @@ def detect_karts_with_yolo(image_path, data_yaml_path):
                             kart_name = kart_names[class_id]  # Map class ID to kart name
                             detected_karts_set.append((y, confidence, kart_name))  # Append raw data
 
-        # Resolve overlabeling by grouping y-values within a 0.01 range and keeping the highest confidence
+        # Resolve overlabeling by grouping y-values within a 0.04 range and keeping the highest confidence
         filtered_karts = {}
         for y, conf, kart in detected_karts_set:
             # Find if there's already a close y-value in the filtered_karts
-            close_y = next((key for key in filtered_karts if abs(key - y) < 0.01), None)
+            close_y = next((key for key in filtered_karts if abs(key - y) < 0.04), None)
             if close_y is None:
                 # No close y-value found, add a new entry
                 filtered_karts[y] = (conf, kart)
