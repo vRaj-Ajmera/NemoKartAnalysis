@@ -19,6 +19,12 @@ Use `pip` to install the required libraries:
 pip install pandas numpy easyocr opencv-python rapidfuzz seaborn matplotlib tkinterdnd2
 ```
 
+Or
+
+```bash
+pip install -r ./src/requirements.txt
+```
+
 #### **Linux**
 For Linux, ensure your system has the following prerequisites before running the `pip` command:
 
@@ -37,6 +43,12 @@ For Linux, ensure your system has the following prerequisites before running the
    pip install pandas numpy easyocr opencv-python rapidfuzz seaborn matplotlib tkinterdnd2
    ```
 
+   Or
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
 #### **MacOS**
 For macOS, you may need to install `tkinter` using `brew` if it's not pre-installed:
 
@@ -48,6 +60,12 @@ For macOS, you may need to install `tkinter` using `brew` if it's not pre-instal
 2. Then install the Python libraries:
    ```bash
    pip install pandas numpy easyocr opencv-python rapidfuzz seaborn matplotlib tkinterdnd2
+   ```
+
+   Or
+
+   ```bash
+   pip install -r requirements.txt
    ```
 
 
