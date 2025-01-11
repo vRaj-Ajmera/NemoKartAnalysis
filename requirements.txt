@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+seaborn
+tkinterdnd2
+easyocr
+rapidfuzz
+opencv-python
+Pillow
+PyYAML
+torch
+torchvision
