@@ -6762,5 +6762,71 @@
         "Viraj Placement": "1",
         "Viraj Kart": "Greedy Snowmobile",
         "Viraj Racetime": "2:24.06"
+    },
+    {
+        "Date": "2025-01-10",
+        "Time": "23:18:18",
+        "Map Name": "Shanghai by Night",
+        "Raj Placement": "1",
+        "Raj Kart": "Dalmatian Puppy",
+        "Raj Racetime": "2:30.24",
+        "Rusheel Placement": "2",
+        "Rusheel Kart": "Dalmatian Puppy",
+        "Rusheel Racetime": "2:30.28"
+    },
+    {
+        "Date": "2025-01-10",
+        "Time": "23:18:44",
+        "Map Name": "Shanghai",
+        "Raj Placement": "1",
+        "Raj Kart": "Puppy",
+        "Raj Racetime": "2:23.80",
+        "Rusheel Placement": "2",
+        "Rusheel Kart": "Dalmatian Puppy",
+        "Rusheel Racetime": "2:27.06"
+    },
+    {
+        "Date": "2025-01-10",
+        "Time": "23:19:31",
+        "Map Name": "Shanghai by Night",
+        "Raj Placement": "1",
+        "Raj Kart": "Dalmatian Puppy",
+        "Raj Racetime": "2:31.48",
+        "Rusheel Placement": "2",
+        "Rusheel Kart": "Dalmatian Puppy",
+        "Rusheel Racetime": "2:31.78"
+    },
+    {
+        "Date": "2025-01-10",
+        "Time": "23:19:56",
+        "Map Name": "Shanghai by Night",
+        "Raj Placement": "1",
+        "Raj Kart": "Dalmatian Puppy",
+        "Raj Racetime": "2:22.02",
+        "Rusheel Placement": "2",
+        "Rusheel Kart": "Dalmatian Puppy",
+        "Rusheel Racetime": "2:22.60"
+    },
+    {
+        "Date": "2025-01-10",
+        "Time": "23:20:34",
+        "Map Name": "Formula Wild",
+        "Raj Placement": "2",
+        "Raj Kart": "Dalmatian Puppy",
+        "Raj Racetime": "2:21.20",
+        "Rusheel Placement": "1",
+        "Rusheel Kart": "Dalmatian Puppy",
+        "Rusheel Racetime": "2:21.18"
+    },
+    {
+        "Date": "2025-01-10",
+        "Time": "23:21:01",
+        "Map Name": "Formula Wild",
+        "Raj Placement": "4",
+        "Raj Kart": "Dalmatian Puppy",
+        "Raj Racetime": "2:25.12",
+        "Rusheel Placement": "1",
+        "Rusheel Kart": "Dalmatian Puppy",
+        "Rusheel Racetime": "2:21.56"
     }
 ]
