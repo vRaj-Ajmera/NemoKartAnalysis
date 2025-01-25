@@ -310,7 +310,7 @@
         },
         "Sameer": {
             "Peak Rating": 2339,
-            "Current Rating": 2310,
+            "Current Rating": 2319,
             "Kart Usage": {
                 "Shanghai": [
                     {
@@ -389,10 +389,10 @@
                 "Snowville": [
                     {
                         "Kart": "Greedy Snowmobile",
-                        "Races": 35,
-                        "Points": 601,
-                        "PPR": 17.17,
-                        "Avg Position": 2.63
+                        "Races": 37,
+                        "Points": 651,
+                        "PPR": 17.59,
+                        "Avg Position": 2.54
                     },
                     {
                         "Kart": "The Kart",
@@ -423,7 +423,22 @@
                         "Avg Position": 3.2
                     }
                 ],
-                "Formula Wild": []
+                "Formula Wild": [
+                    {
+                        "Kart": "Snow Minecart",
+                        "Races": 1,
+                        "Points": 25,
+                        "PPR": 25.0,
+                        "Avg Position": 1.0
+                    },
+                    {
+                        "Kart": "Dalmatian Puppy",
+                        "Races": 1,
+                        "Points": 18,
+                        "PPR": 18.0,
+                        "Avg Position": 2.0
+                    }
+                ]
             }
         },
         "Zetaa": {

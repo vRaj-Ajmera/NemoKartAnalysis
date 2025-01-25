@@ -891,6 +891,14 @@
                 "PPR": 16.42,
                 "Avg Race Position": 2.75
             }
+        },
+        "2025-01-17": {
+            "Sameer": {
+                "Races": 7,
+                "Points": 154,
+                "PPR": 22.0,
+                "Avg Race Position": 1.43
+            }
         }
     },
     "All Time Stats": {
@@ -907,10 +915,10 @@
             "Avg Race Position": 2.08
         },
         "Sameer": {
-            "Races": 205,
-            "Points": 3433,
-            "PPR": 16.75,
-            "Avg Race Position": 2.74
+            "Races": 212,
+            "Points": 3587,
+            "PPR": 16.92,
+            "Avg Race Position": 2.7
         },
         "Zetaa": {
             "Races": 107,
@@ -1085,6 +1093,7 @@
             "2:21.38 by Azhan in Dalmatian Puppy",
             "2:28.70 by SultanSpeppy in The Kart",
             "2:29.60 by Tejas in The Kart",
+            "2:32.12 by Sameer in Dalmatian Puppy",
             "2:42.92 by EnderRobot in The Kart"
         ]
     }
