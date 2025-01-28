@@ -475,8 +475,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     "reverse": (stats) => stats.sort(([, b], [, a]) => b.PPR - a.PPR)
                 }, // PPR
                 {
-                    "default": (stats) => stats.sort(([, a], [, b]) => b.AvgPosition - a.AvgPosition),
-                    "reverse": (stats) => stats.sort(([, b], [, a]) => b.AvgPosition - a.AvgPosition)
+                    "default": (stats) => stats.sort(([, b], [, a]) => b.AvgPosition - a.AvgPosition),
+                    "reverse": (stats) => stats.sort(([, a], [, b]) => b.AvgPosition - a.AvgPosition)
                 } // Avg Position
             ],
             3,
