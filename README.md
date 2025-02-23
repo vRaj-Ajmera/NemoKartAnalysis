@@ -22,7 +22,7 @@ pip install pandas numpy easyocr opencv-python rapidfuzz seaborn matplotlib tkin
 Or
 
 ```bash
-pip install -r ./src/requirements.txt
+pip install -r ./requirements.txt
 ```
 
 #### **Linux**
