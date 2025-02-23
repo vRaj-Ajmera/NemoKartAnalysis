@@ -899,26 +899,46 @@
                 "PPR": 22.0,
                 "Avg Race Position": 1.43
             }
+        },
+        "2025-02-22": {
+            "Raj": {
+                "Races": 8,
+                "Points": 166,
+                "PPR": 20.75,
+                "Avg Race Position": 1.75
+            },
+            "Azhan": {
+                "Races": 8,
+                "Points": 149,
+                "PPR": 18.62,
+                "Avg Race Position": 2.12
+            },
+            "Sameer": {
+                "Races": 8,
+                "Points": 142,
+                "PPR": 17.75,
+                "Avg Race Position": 2.5
+            }
         }
     },
     "All Time Stats": {
         "Raj": {
-            "Races": 387,
-            "Points": 7362,
-            "PPR": 19.02,
-            "Avg Race Position": 2.2
+            "Races": 395,
+            "Points": 7528,
+            "PPR": 19.06,
+            "Avg Race Position": 2.19
         },
         "Azhan": {
-            "Races": 283,
-            "Points": 5538,
-            "PPR": 19.57,
+            "Races": 291,
+            "Points": 5687,
+            "PPR": 19.54,
             "Avg Race Position": 2.08
         },
         "Sameer": {
-            "Races": 212,
-            "Points": 3587,
-            "PPR": 16.92,
-            "Avg Race Position": 2.7
+            "Races": 220,
+            "Points": 3729,
+            "PPR": 16.95,
+            "Avg Race Position": 2.69
         },
         "Zetaa": {
             "Races": 107,
@@ -1002,7 +1022,7 @@
             "2:27.48 by Rusheel in Dalmatian Puppy",
             "2:28.00 by Raj in Dalmatian Puppy",
             "2:28.90 by Raj in Greedy Snowmobile",
-            "2:29.08 by Sameer in Puppy"
+            "2:29.04 by Sameer in Puppy"
         ],
         "Shanghai by Night": [
             "2:16.70 by Raj in Dalmatian Puppy",
@@ -1029,23 +1049,23 @@
             "1:47.50 by Sameer in Puppy"
         ],
         "Formula Wild": [
+            "2:13.02 by Azhan in Dalmatian Puppy",
+            "2:13.62 by Raj in Dalmatian Puppy",
+            "2:15.94 by Sameer in Dalmatian Puppy",
             "2:17.04 by Raj in Dalmatian Puppy",
+            "2:18.08 by Raj in Dalmatian Puppy",
             "2:18.82 by Viraj in Dalmatian Puppy",
+            "2:19.34 by Azhan in Dalmatian Puppy",
             "2:19.42 by Rusheel in X-mas Puppy",
             "2:19.42 by Raj in Dalmatian Puppy",
-            "2:19.70 by Raj in Dalmatian Puppy",
-            "2:19.86 by Rusheel in Dalmatian Puppy",
-            "2:20.04 by Zetaa in Dalmatian Puppy",
-            "2:20.10 by Raj in Dalmatian Puppy",
-            "2:20.90 by Raj in Dalmatian Puppy",
-            "2:21.02 by Rusheel in X-mas Puppy"
+            "2:19.70 by Raj in Dalmatian Puppy"
         ]
     },
     "Individual Player Best Times": {
         "Shanghai": [
             "2:23.80 by Raj in Puppy",
             "2:27.06 by Rusheel in Dalmatian Puppy",
-            "2:29.08 by Sameer in Puppy",
+            "2:29.04 by Sameer in Puppy",
             "2:29.54 by Azhan in Puppy",
             "2:30.08 by Zetaa in X-mas Puppy",
             "2:30.40 by Viraj in Greedy Snowmobile",
@@ -1086,14 +1106,14 @@
             "2:17.16 by Lynden in The Kart"
         ],
         "Formula Wild": [
-            "2:17.04 by Raj in Dalmatian Puppy",
+            "2:13.02 by Azhan in Dalmatian Puppy",
+            "2:13.62 by Raj in Dalmatian Puppy",
+            "2:15.94 by Sameer in Dalmatian Puppy",
             "2:18.82 by Viraj in Dalmatian Puppy",
             "2:19.42 by Rusheel in X-mas Puppy",
             "2:20.04 by Zetaa in Dalmatian Puppy",
-            "2:21.38 by Azhan in Dalmatian Puppy",
             "2:28.70 by SultanSpeppy in The Kart",
             "2:29.60 by Tejas in The Kart",
-            "2:32.12 by Sameer in Dalmatian Puppy",
             "2:42.92 by EnderRobot in The Kart"
         ]
     }
